@@ -10,13 +10,4 @@ Mar. 30th:
 	basic frontpage framework and simple subscribe function added
 	
 Apr. 8th:
-<<<<<<< HEAD
-	change to heroku, added support files, re checked out
-
-test
-=======
 	change to heroku, added support files
-	
-Apr. 8th:
-	update using codeship to deploy
->>>>>>> master
