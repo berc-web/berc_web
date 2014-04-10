@@ -1414,7 +1414,7 @@
 			body.touch .poptrox-popup .closer {
 				opacity: 1.0 !important;
 			}
-#popout {
+.popout {
 	position: fixed;
 	width: 50%;
 	margin-left: 25%;
@@ -1424,7 +1424,7 @@
 	border-radius: 10px;
 	z-index: 2;
 }
-#popout-message {
+.popout-content {
 	padding: 3%;
 	margin: 0;
 	font-size: 22pt;
@@ -1451,4 +1451,38 @@
 	-o-filter: blur(0px);
 	-ms-filter: blur(0px);
 	filter: blur(0px);
+}
+#login .modal-dialog {
+	margin-top: 17%;
+	background-color: rgba(255,255,255,0.95);
+	border-radius: 10px;
+
+}
+#login .modal-header {
+	border-bottom: 0;
+	text-align: center;
+}
+#login .modal-body {
+	position: relative;
+	line-height: 1.5;
+}
+#login .modal-footer {
+	border-top: 0;
+	text-align: center;
+}
+#login label {
+	position: relative;
+	text-align: left;
+}
+#login input {
+	height: 50px;
+	font-size: 13pt;
+	line-height: 24px;
+	margin-left: 10px;
+}
+#login label#forget {
+	padding-top: 0;
+	font-size: 13pt;
+	font-weight: 0.8;
+	text-align: center;
 }
