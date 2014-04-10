@@ -42,5 +42,6 @@ def show_emails():
 	return render_template('show_emails.html', entries=entries)
 
 if __name__ == '__main__':
+	db.create_all()
 	app.run()
 
