@@ -11,3 +11,7 @@ Mar. 30th:
 	
 Apr. 8th:
 	change to heroku, added support files
+
+Apr. 10th:
+	switch to postgres database
+	
