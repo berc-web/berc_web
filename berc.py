@@ -12,7 +12,7 @@ app.config.update(dict(
 	USERNAME='admin',
 	PASSWORD='default'
 ))
-# app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 app.config.from_envvar('BERC_SETTINGS', silent=True)
 db = SQLAlchemy(app)
 
