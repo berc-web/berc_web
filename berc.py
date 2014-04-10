@@ -1,5 +1,4 @@
 import os, re
-from models import User
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask import Flask, request, session, g, redirect, url_for, abort, \
 	render_template, flash
@@ -12,7 +11,7 @@ app.config.update(dict(
 	USERNAME='admin',
 	PASSWORD='default'
 ))
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+app.config['SQLALCHEMY_DATABASE_URI'] = os.path.join(app.root_path, 'pgdb')
 app.config.from_envvar('BERC_SETTINGS', silent=True)
 db = SQLAlchemy(app)
 
@@ -40,6 +39,24 @@ def subscribe_email():
 def show_emails():
 	entries = User.query.all()
 	return render_template('show_emails.html', entries=entries)
+
+#############
+#	Models  #
+#############
+class User(db.Model):
+	id = db.Column(db.Integer, primary_key=True)
+	name = db.Column(db.String(80))
+	email = db.Column(db.String(120), unique=True)
+
+	def __init__(self, name, email):
+		self.name = name
+		self.email = email
+
+	def __repr__(self):
+		return '<Name: %r email: %r>' % self.name, self.email
+
+
+
 
 if __name__ == '__main__':
 	db.create_all()
