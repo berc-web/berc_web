@@ -8,7 +8,6 @@ Twisted==12.2.0
 Werkzeug==0.9.4
 altgraph==0.10.2
 bdist-mpkg==0.4.4
-bonjour-py==0.3
 gunicorn==18.0
 itsdangerous==0.24
 macholib==1.5.1
