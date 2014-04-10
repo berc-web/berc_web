@@ -11,7 +11,7 @@ app.config.update(dict(
 	USERNAME='admin',
 	PASSWORD='default'
 ))
-app.config['SQLALCHEMY_DATABASE_URI'] = os.path.join(app.root_path, 'pgdb')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 app.config.from_envvar('BERC_SETTINGS', silent=True)
 db = SQLAlchemy(app)
 
@@ -54,9 +54,7 @@ class User(db.Model):
 
 	def __repr__(self):
 		return '<Name: %r email: %r>' % self.name, self.email
-
-
-
+# ============================================================
 
 if __name__ == '__main__':
 	db.create_all()
