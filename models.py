@@ -2,7 +2,7 @@ from flask.ext.sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
-class User(db.Model):
+class subscribed_user(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	name = db.Column(db.String(80))
 	email = db.Column(db.String(120), unique=True)

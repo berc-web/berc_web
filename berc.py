@@ -1,11 +1,15 @@
 import os, re
-from models import db, User
+from models import db, subscribed_user
 from flask import Flask, request, session, g, redirect, url_for, abort, \
 	render_template, flash
-from flask.ext.admin import Admin
+from flask.ext.admin import Admin, BaseView, expose
 
 app = Flask(__name__)
+
+# create corresponding admin system
 admin = Admin(app)
+
+# register the database with current app
 db.init_app(app)
 
 app.config.update(dict(
@@ -14,10 +18,9 @@ app.config.update(dict(
 	USERNAME='admin',
 	PASSWORD='default'
 ))
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+# app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 app.config.from_envvar('BERC_SETTINGS', silent=True)
 
-# @app.teardown_appcontext
 
 @app.route('/')
 def home():
@@ -29,7 +32,7 @@ def check_email(email):
 @app.route('/subscribe', methods=['POST'])
 def subscribe_email():
 	if check_email(request.form['email']):
-		user = User(request.form['name'], request.form['email'])
+		user = subscribed_user(request.form['name'], request.form['email'])
 		db.session.add(user)
 		try:
 			db.session.commit()
@@ -43,7 +46,7 @@ def subscribe_email():
 
 @app.route('/emails', methods=['GET'])
 def show_emails():
-	entries = User.query.all()
+	entries = subscribed_user.query.all()
 	return render_template('show_emails.html', entries=entries)
 
 if __name__ == '__main__':
