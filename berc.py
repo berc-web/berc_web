@@ -11,7 +11,6 @@ app = Flask(__name__)
 admin = Admin(app, name='eecc2015')
 admin.add_view(MyView(name='subscribers'))
 
-
 # register the database with current app
 db.app = app
 db.init_app(app)
