@@ -3,13 +3,14 @@ from models import db, subscribed_user
 from flask import Flask, request, session, g, redirect, url_for, abort, \
 	render_template, flash
 from flask.ext.admin import Admin, BaseView, expose
+from flask.ext.admin.contrib.sqla import ModelView
 from admin_view import MyView
 
 app = Flask(__name__)
 
 # create corresponding admin system
 admin = Admin(app, name='eecc2015')
-admin.add_view(MyView(name='subscribers'))
+admin.add_view(ModelView(subscribed_user, db.session))
 
 # register the database with current app
 db.app = app
