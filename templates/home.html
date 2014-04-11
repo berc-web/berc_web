@@ -162,37 +162,13 @@
 			</footer>
 			<script>
 				if ($("#popout").length) {
-					$("section").css(
-						"-webkit-filter", "blur(3px)");
-					$("section").css(
-						"-moz-filter", "blur(3px)");
-					$("section").css(
-						"-o-filter", "blur(3px)");
-					$("section").css(
-						"-ms-filter", "blur(3px)");
-					$("section").css(
-						"filter", "blur(3px)");
+					$("section").addClass("popout-blur");
 					window.setTimeout(function() {
 						$("#popout").fadeOut(1600);
 						$("#popout-mask").fadeOut(1600);
+						$("section").addClass("fadeout-blur");
 						$("section").removeClass("popout-blur");
-						$("section").css(
-						"-webkit-filter", "blur(0px)");
-						$("section").css(
-							"-moz-filter", "blur(0px)");
-						$("section").css(
-							"-o-filter", "blur(0px)");
-						$("section").css(
-							"-ms-filter", "blur(0px)");
-						$("section").css(
-							"filter", "blur(0px)");
-						$("section").removeAttr("-webkit-filter");
-						$("section").removeAttr("-moz-filter");
-						$("section").removeAttr("-o-filter");
-						$("section").removeAttr("-ms-filter");
-						$("section").removeAttr("filter");
-						$("section").removeAttr("-webkit-transition");
-						$("section").removeAttr("transition");
+						$("section").removeClass("fadeout-blur");
 					}, 4000);
 				}
 				</script>
