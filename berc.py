@@ -21,8 +21,8 @@ app.config.update(dict(
 	USERNAME='admin',
 	PASSWORD='default'
 ))
-db_address='postgresql+psycopg2://jianzhongchen:CJZcps1230117@localhost/berc_dev'
-# db_address=os.environ['DATABASE_URL']
+# db_address='postgresql+psycopg2://jianzhongchen:CJZcps1230117@localhost/berc_dev'
+db_address=os.environ['DATABASE_URL']
 app.config['SQLALCHEMY_DATABASE_URI'] = db_address
 # app.config['SQLALCHEMY_DATABASE_URI'] = os.path.join()
 app.config.from_envvar('BERC_SETTINGS', silent=True)

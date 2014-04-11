@@ -186,6 +186,11 @@
 							"-ms-filter", "blur(0px)");
 						$("section").css(
 							"filter", "blur(0px)");
+						$("section").removAttr("-webkit-filter");
+						$("section").removAttr("-moz-filter");
+						$("section").removAttr("-o-filter");
+						$("section").removAttr("-ms-filter");
+						$("section").removAttr("filter");
 					}, 4000);
 				}
 				</script>
