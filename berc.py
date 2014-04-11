@@ -6,6 +6,7 @@ from flask.ext.admin import Admin
 
 app = Flask(__name__)
 admin = Admin(app)
+db.init_app(app)
 
 app.config.update(dict(
 	DEBUG=True,
