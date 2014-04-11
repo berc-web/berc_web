@@ -49,8 +49,6 @@ def subscribe_email():
 		flash('Invalid email address')
 	return redirect(url_for('home'))
 
-@
-
 if __name__ == '__main__':
 	app.run()
 
