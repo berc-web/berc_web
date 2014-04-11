@@ -6,4 +6,4 @@ class MyView(BaseView):
 	@expose('/')
 	def show_emails(self):
 		entries = subscribed_user.query.all()
-		return render_template('admin/show_emails.html', entries=entries)
+		return render_template('show_emails.html', entries=entries)

@@ -1,4 +1,5 @@
-<DOCTYPE html>
+{% extends 'admin/master.html' %}
+{% block body %}
 	<div>
 		<ul class=emails>
 		{% for entry in entries %}
@@ -8,3 +9,4 @@
 		{% endfor %}
 		</ul>
 	</div>
+{% endblock %}
