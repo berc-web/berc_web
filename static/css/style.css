@@ -1458,6 +1458,10 @@
 	border-radius: 10px;
 
 }
+#login .form-horizontal {
+	padding-top: 5%;
+	padding-bottom: 5%;
+}
 #login .modal-header {
 	border-bottom: 0;
 	text-align: center;
@@ -1465,6 +1469,8 @@
 #login .modal-body {
 	position: relative;
 	line-height: 1.5;
+	padding-left: 10%;
+	padding-right: 10%;
 }
 #login .modal-footer {
 	border-top: 0;
@@ -1473,6 +1479,9 @@
 #login label {
 	position: relative;
 	text-align: left;
+	font-size: 80%;
+	line-height: 36px;
+	vertical-align: middle;
 }
 #login input {
 	height: 50px;
@@ -1481,8 +1490,28 @@
 	margin-left: 10px;
 }
 #login label#forget {
-	padding-top: 0;
-	font-size: 13pt;
-	font-weight: 0.8;
+	padding-left: 7px;
+	padding-right: 22px;
+	line-height: 16.5px;
+	font-size: 10pt;
+	font-weight: 0.5;
 	text-align: center;
+	vertical-align: middle;
+}
+#login .form-group {
+	padding-bottom: 0;
+}
+#login .modal-footer {
+	margin-top: 0;
+	padding-top: 0;
+}
+#login .btn {
+	margin-left: 5%;
+	margin-right: 5%;
+	height: 40px;
+	line-height: 26px;
+	width: 80px;
+	text-align: center;
+	vertical-align: middle;
+	font-size: 18px;
 }
