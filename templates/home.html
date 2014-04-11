@@ -164,7 +164,8 @@
 					$("section").addClass("popout-blur");
 					window.setTimeout(function() {
 						$("#popout").css("background-color", "rgba(255,255,255,0)");
-						$("#popout").css("z-index", "-1");
+						$("#popout").fadeOut(500);
+						// $("#popout").css("z-index", "-1");
 						$(".popout-blur").css("-webkit-filter", "blur(0px)");
 					}, 5000);
 				}
