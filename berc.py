@@ -34,7 +34,9 @@ def check_email(email):
 
 @app.route('/subscribe', methods=['POST'])
 def subscribe_email():
-	if check_email(request.form['email']):
+	if (request.form['name'] is None) or (request.form['name'] == ''):
+		flash('Name can not be empty')
+	elif check_email(request.form['email']):
 		user = subscribed_user(request.form['name'], request.form['email'])
 		db.session.add(user)
 		try:
@@ -46,6 +48,8 @@ def subscribe_email():
 	else:
 		flash('Invalid email address')
 	return redirect(url_for('home'))
+
+@
 
 if __name__ == '__main__':
 	app.run()
