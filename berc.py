@@ -45,11 +45,11 @@ def subscribe_email():
 			db.session.commit()
 		except Exception:
 			flash('Email address already signed up.')
-			return redirect(url_for('home'))
+			return redirect(url_for('home')+'/#subscribe')
 		flash('Thank you for your subscription!')
 	else:
 		flash('Invalid email address')
-	return redirect(url_for('home'))
+	return redirect(url_for('home')+'/#subscribe')
 
 if __name__ == '__main__':
 	app.run()
