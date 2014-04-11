@@ -10,6 +10,7 @@ app = Flask(__name__)
 admin = Admin(app)
 
 # register the database with current app
+db.app = app
 db.init_app(app)
 db.create_all()
 
@@ -19,7 +20,7 @@ app.config.update(dict(
 	USERNAME='admin',
 	PASSWORD='default'
 ))
-# app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 app.config.from_envvar('BERC_SETTINGS', silent=True)
 
 
