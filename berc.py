@@ -48,7 +48,7 @@ def subscribe_email():
 			return redirect(url_for('home'))
 		flash('Thank you for your subscription!')
 	else:
-		flash('Invalid emadcfzdsglkgjd;fslnimanimacaocaocaokjgil address')
+		flash('Invalid email address')
 	return redirect(url_for('home'))
 
 if __name__ == '__main__':
