@@ -42,6 +42,7 @@
 			<div id="popout">
 				<p id="popout-message">{{ message }}</p>
 			</div>
+			<div id="popout-mask"></div>
 		{% endfor %}
 		<!-- Intro -->
 			<section id="intro" class="main style1 dark fullscreen">
@@ -161,14 +162,31 @@
 			</footer>
 			<script>
 				if ($("#popout").length) {
-					$("section").addClass("popout-blur");
+					$("section").css(
+						"-webkit-filter", "blur(3px)");
+					$("section").css(
+						"-moz-filter", "blur(3px)");
+					$("section").css(
+						"-o-filter", "blur(3px)");
+					$("section").css(
+						"-ms-filter", "blur(3px)");
+					$("section").css(
+						"filter", "blur(3px)");
 					window.setTimeout(function() {
-						$("#popout").css("background-color", "rgba(255,255,255,0)");
-						$("#popout").fadeOut(500);
-						// $("#popout").css("z-index", "-1");
-						$(".popout-blur").css("-webkit-filter", "blur(0px)");
-					}, 5000);
-					$("section").removeClass("popout-blur");
+						$("#popout").fadeOut(1600);
+						$("#popout-mask").fadeOut(1600);
+						$("section").removeClass("popout-blur");
+						$("section").css(
+						"-webkit-filter", "blur(0px)");
+						$("section").css(
+							"-moz-filter", "blur(0px)");
+						$("section").css(
+							"-o-filter", "blur(0px)");
+						$("section").css(
+							"-ms-filter", "blur(0px)");
+						$("section").css(
+							"filter", "blur(0px)");
+					}, 4000);
 				}
 				</script>
 	</body>
