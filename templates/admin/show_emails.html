@@ -1,4 +1,12 @@
-<DOCTYPE html>
+{% extends 'admin/master.html' %}
+{% block body %}
 	<div>
-		test
+		<ul class=emails>
+		{% for entry in entries %}
+			<li><h2>{{ entry.name }}</h2>{{ entry.email }}
+		{% else %}
+			<li><em> No one subscribed yet.</em>
+		{% endfor %}
+		</ul>
 	</div>
+{% endblock %}
