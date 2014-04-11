@@ -1,0 +1,10 @@
+<DOCTYPE html>
+	<div>
+		<ul class=emails>
+		{% for entry in entries %}
+			<li><h2>{{ entry.name }}</h2>{{ entry.email }}
+		{% else %}
+			<li><em> No one subscribed yet.</em>
+		{% endfor %}
+		</ul>
+	</div>
