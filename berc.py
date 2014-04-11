@@ -1,5 +1,5 @@
 import os, re
-from flask.ext.sqlalchemy import SQLAlchemy
+from models import db, User
 from flask import Flask, request, session, g, redirect, url_for, abort, \
 	render_template, flash
 from flask.ext.admin import Admin
@@ -15,23 +15,6 @@ app.config.update(dict(
 ))
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 app.config.from_envvar('BERC_SETTINGS', silent=True)
-db = SQLAlchemy(app)
-
-#############
-#	Models  #
-#############
-class User(db.Model):
-	id = db.Column(db.Integer, primary_key=True)
-	name = db.Column(db.String(80))
-	email = db.Column(db.String(120), unique=True)
-
-	def __init__(self, name, email):
-		self.name = name
-		self.email = email
-
-	def __repr__(self):
-		return '<Name: %r email: %r>' % self.name, self.email
-# ============================================================
 
 # @app.teardown_appcontext
 
@@ -58,8 +41,7 @@ def show_emails():
 	entries = User.query.all()
 	return render_template('show_emails.html', entries=entries)
 
-
-
 if __name__ == '__main__':
+	db.init_app(app)
 	app.run()
 
