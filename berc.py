@@ -21,7 +21,9 @@ app.config.update(dict(
 	USERNAME='admin',
 	PASSWORD='default'
 ))
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+# db_address='postgresql+psycopg2://jianzhongchen:CJZcps1230117@localhost/berc_dev'
+db_address=os.environ['DATABASE_URL']
+app.config['SQLALCHEMY_DATABASE_URI'] = db_address
 # app.config['SQLALCHEMY_DATABASE_URI'] = os.path.join()
 app.config.from_envvar('BERC_SETTINGS', silent=True)
 
@@ -44,7 +46,7 @@ def subscribe_email():
 			return redirect(url_for('home'))
 		flash('Thank you for your subscription!')
 	else:
-		flash('Invalid email address')
+		flash('Invalid emadcfzdsglkgjd;fslnimanimacaocaocaokjgil address')
 	return redirect(url_for('home'))
 
 if __name__ == '__main__':
