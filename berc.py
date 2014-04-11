@@ -1,5 +1,5 @@
 import os, re
-from models import db, subscribed_user, User
+from models import db, subscribed_user
 from flask import Flask, request, session, g, redirect, url_for, abort, \
 	render_template, flash
 from flask.ext.admin import Admin, BaseView, expose
@@ -12,6 +12,7 @@ admin = Admin(app)
 # register the database with current app
 db.app = app
 db.init_app(app)
+db.create_all()
 
 app.config.update(dict(
 	DEBUG=True,
@@ -21,7 +22,6 @@ app.config.update(dict(
 ))
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 app.config.from_envvar('BERC_SETTINGS', silent=True)
-
 
 @app.route('/')
 def home():
