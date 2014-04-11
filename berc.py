@@ -11,6 +11,7 @@ admin = Admin(app)
 
 # register the database with current app
 db.init_app(app)
+db.create_all()
 
 app.config.update(dict(
 	DEBUG=True,
