@@ -3,16 +3,18 @@ from models import db, subscribed_user
 from flask import Flask, request, session, g, redirect, url_for, abort, \
 	render_template, flash
 from flask.ext.admin import Admin, BaseView, expose
+from admin_view import MyView
 
 app = Flask(__name__)
 
 # create corresponding admin system
-admin = Admin(app)
+admin = Admin(app, name='eecc2015')
+admin.add_view(MyView(name='subscribers'))
+
 
 # register the database with current app
 db.app = app
 db.init_app(app)
-db.create_all()
 
 app.config.update(dict(
 	DEBUG=True,
@@ -44,11 +46,6 @@ def subscribe_email():
 	else:
 		flash('Invalid email address')
 	return redirect(url_for('home'))
-
-@app.route('/emails', methods=['GET'])
-def show_emails():
-	entries = subscribed_user.query.all()
-	return render_template('show_emails.html', entries=entries)
 
 if __name__ == '__main__':
 	app.run()
