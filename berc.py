@@ -3,13 +3,13 @@ from models import db, subscribed_user
 from flask import Flask, request, session, g, redirect, url_for, abort, \
 	render_template, flash
 from flask.ext.admin import Admin, BaseView, expose
-from admin_view import MyView
+from flask.ext.admin.contrib.sqla import ModelView
 
 app = Flask(__name__)
 
 # create corresponding admin system
 admin = Admin(app, name='eecc2015')
-admin.add_view(MyView(name='subscribers'))
+admin.add_view(ModelView(subscribed_user, db.session))
 
 # register the database with current app
 db.app = app
@@ -36,7 +36,9 @@ def check_email(email):
 
 @app.route('/subscribe', methods=['POST'])
 def subscribe_email():
-	if check_email(request.form['email']):
+	if (request.form['name'] is None) or (request.form['name'] == ''):
+		flash('Name can not be empty')
+	elif check_email(request.form['email']):
 		user = subscribed_user(request.form['name'], request.form['email'])
 		db.session.add(user)
 		try:
