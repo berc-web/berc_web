@@ -7,12 +7,11 @@ from flask.ext.admin import Admin, BaseView, expose
 app = Flask(__name__)
 
 # create corresponding admin system
-admin = Admin(app)
+admin = Admin(app, name='eecc2015')
 
 # register the database with current app
 db.app = app
 db.init_app(app)
-db.create_all()
 
 app.config.update(dict(
 	DEBUG=True,
