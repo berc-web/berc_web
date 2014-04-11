@@ -31,7 +31,11 @@ def subscribe_email():
 	if check_email(request.form['email']):
 		user = User(request.form['name'], request.form['email'])
 		db.session.add(user)
-		db.session.commit()
+		try:
+			db.session.commit()
+		except Exception:
+			flash('Email address already signed up.')
+			return redirect(url_for('home'))
 		flash('Thank you for your subscription!')
 	else:
 		flash('Invalid email address')
@@ -43,6 +47,5 @@ def show_emails():
 	return render_template('show_emails.html', entries=entries)
 
 if __name__ == '__main__':
-	db.init_app(app)
 	app.run()
 
