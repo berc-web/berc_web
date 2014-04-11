@@ -4,7 +4,6 @@ from flask import Flask, request, session, g, redirect, url_for, abort, \
 	render_template, flash
 from flask.ext.admin import Admin, BaseView, expose
 from flask.ext.admin.contrib.sqla import ModelView
-from admin_view import MyView
 
 app = Flask(__name__)
 
