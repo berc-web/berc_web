@@ -2,6 +2,9 @@
 {% block body %}
 	<div>
 		<table class=emails border="1">
+		<tr>
+			<th>Name</th> <th>Email</th>
+		</tr>
 		{% for entry in entries %}
 			<tr>
 				<td><b>{{ entry.name }}</b></td>
