@@ -15,3 +15,6 @@ Apr. 8th:
 Apr. 10th:
 	switch to postgres database
 	
+Apr. 11th:
+	add admin page, change frontpage message vieww
+	
