@@ -55,8 +55,10 @@ class LoginForm(form.Form):
 		return db.session.query(User).filter_by(login=self.login.data).first()
 
 class RegistrationForm(form.Form):
+	first_name = fields.TextField(validators=[validators.required()])
+	last_name = fields.TextField(validators=[validators.required()])
+	email = fields.TextField(validators=[validators.required()])
 	login = fields.TextField(validators=[validators.required()])
-	email = fields.TextField()
 	password = fields.PasswordField(validators=[validators.required()])
 
 	def validate_login(self, field):

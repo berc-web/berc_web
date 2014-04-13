@@ -1,6 +1,6 @@
 import os, re
 from models import db, subscribed_user, User
-from admin_view import MyModelView, MyAdminIndexView
+from admin_view import MyModelView, MyAdminIndexView, RegistrationForm
 from flask import Flask, request, session, g, redirect, url_for, abort, \
 	render_template, flash
 from flask.ext import admin, login
@@ -26,7 +26,7 @@ def init_login():
 	login_manager = login.LoginManager()
 	login_manager.init_app(app)
 
-	# create Admin user
+	create Admin user
 	if db.session.query(User).filter_by(login=app.config['USERNAME']).count() == 0:
 		admin = User()
 		admin.login = app.config['USERNAME']
@@ -46,22 +46,41 @@ def home():
 def check_email(email):
 	return re.match(r'[^@]+@[^@]+\.[^@]+', email)
 
-@app.route('/subscribe', methods=['POST'])
-def subscribe_email():
+# @app.route('/subscribe', methods=['POST'])
+# def subscribe_email():
+# 	if (request.form['name'] is None) or (request.form['name'] == ''):
+# 		flash('Name can not be empty')
+# 	elif check_email(request.form['email']):
+# 		user = subscribed_user(request.form['name'], request.form['email'])
+# 		db.session.add(user)
+# 		try:
+# 			db.session.commit()
+# 		except Exception:
+# 			flash('Email address already signed up.')
+# 			return redirect(url_for('home')+'/#subscribe')
+# 		flash('Thank you for your subscription!')
+# 	else:
+# 		flash('Invalid email address')
+# 	return redirect(url_for('home')+'/#subscribe')
+
+@app.route('/sign_up', methods=['POST'])
+def sign_up():
 	if (request.form['name'] is None) or (request.form['name'] == ''):
 		flash('Name can not be empty')
 	elif check_email(request.form['email']):
-		user = subscribed_user(request.form['name'], request.form['email'])
+		form = RegistrationForm(request.form)
+		user = User()
+		form.populate_obj(user)
 		db.session.add(user)
 		try:
 			db.session.commit()
 		except Exception:
 			flash('Email address already signed up.')
-			return redirect(url_for('home')+'/#subscribe')
+			return redirect(url_for('home')+'/#sign_up')
 		flash('Thank you for your subscription!')
 	else:
 		flash('Invalid email address')
-	return redirect(url_for('home')+'/#subscribe')
+	return redirect(url_for('home')+'/#sign_up')
 
 # register the database with current app
 db.app = app
