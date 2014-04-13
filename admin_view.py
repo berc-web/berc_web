@@ -1,5 +1,5 @@
 from flask import url_for, redirect, render_template, request
-from models import LoginForm, RegistrationForm
+from models import LoginForm, RegistrationForm, User
 from flask.ext import admin, login
 from flask.ext.admin.contrib import sqla
 from flask.ext.admin import helpers, expose
