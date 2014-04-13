@@ -187,21 +187,26 @@
 			</div>
 
 			<script>
+				$(".sign_up_validator").hide();
 				$('[name="confirm_password"]').keyup(function() {
 					if ($(this).val() != $('[name="password"]').val()) {
 						$(".sign_up_validator").insertAfter($(this).parent().parent());
+						$(".sign_up_validator").show();
 					}
 					else {
 						$(".sign_up_validator").insertAfter($("#footer"));
+						$(".sign_up_validator").hide();
 					}
 				});
 				$('[name="password"]').keyup(function() {
 					if ($('[name="confirm_password"]').val().length > 0 && $('[name="confirm_password"]').val() != "Confirm Password") {
 						if ($(this).val() != $('[name="confirm_password"]').val()) {
 							$(".sign_up_validator").insertAfter($(this).parent().parent());
+							$(".sign_up_validator").show();
 						}
 						else {
 							$(".sign_up_validator").insertAfter($("#footer"));
+							$(".sign_up_validator").hide();
 						}
 					}
 				});
