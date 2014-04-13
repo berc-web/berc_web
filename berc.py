@@ -23,6 +23,7 @@ app.config.from_envvar('BERC_SETTINGS', silent=True)
 
 # Initialize flask-login
 def init_login():
+	db.create_all()
 	login_manager = login.LoginManager()
 	login_manager.init_app(app)
 
