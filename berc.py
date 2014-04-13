@@ -30,7 +30,7 @@ def init_login():
 	if db.session.query(User).filter_by(login=app.config['USERNAME']).count() == 0:
 		admin = User()
 		admin.login = app.config['USERNAME']
-		admin.PASSWORD = app.config['PASSWORD']
+		admin.password = app.config['PASSWORD']
 		db.session.add(admin)
 		db.session.commit()
 
