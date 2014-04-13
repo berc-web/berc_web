@@ -71,6 +71,7 @@ init_login()
 # create corresponding admin system
 admin = admin.Admin(app, 'eecc', index_view=MyAdminIndexView(), base_template='my_master.html')
 admin.add_view(MyModelView(User, db.session))
+admin.add_view(ModelView(subscribed_user, db.session))
 
 if __name__ == '__main__':
 	app.run()
