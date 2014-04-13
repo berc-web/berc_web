@@ -17,4 +17,6 @@ Apr. 10th:
 	
 Apr. 11th:
 	add admin page, change frontpage message vieww
-	
+
+Apr. 12th:
+	add admin page authentication, user registration(wait to be moved to the front page later).
