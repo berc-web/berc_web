@@ -24,7 +24,8 @@ class User(db.Model):
 	password = db.Column(db.String(64))
 
 	def is_authenticated(self):
-		return self.login == 'admin'
+		return True
+		# return self.login == 'admin'
 
 	def is_active(self):
 		return True
