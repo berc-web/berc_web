@@ -1,31 +1,34 @@
 import os, re
-from models import db, subscribed_user
+from models import db, subscribed_user, User, superUser
+from admin_view import MyModelView, MyAdminIndexView
 from flask import Flask, request, session, g, redirect, url_for, abort, \
 	render_template, flash
-from flask.ext.admin import Admin, BaseView, expose
+from flask.ext import admin, login
+from flask.ext.admin import Admin
 from flask.ext.admin.contrib.sqla import ModelView
 
 app = Flask(__name__)
 
-# create corresponding admin system
-admin = Admin(app, name='eecc2015')
-admin.add_view(ModelView(subscribed_user, db.session))
-
-# register the database with current app
-db.app = app
-db.init_app(app)
-
 app.config.update(dict(
 	DEBUG=True,
-	SECRET_KEY='development',
+	SECRET_KEY='eecc2015web',
 	USERNAME='admin',
-	PASSWORD='default'
+	PASSWORD='Berc12345',
+	# SQLALCHEMY_DATABASE_URI=os.environ['DATABASE_URL'],
+	SQLALCHEMY_ECHO=True
 ))
-# db_address='postgresql+psycopg2://jianzhongchen:CJZcps1230117@localhost/berc_dev'
-db_address=os.environ['DATABASE_URL']
-app.config['SQLALCHEMY_DATABASE_URI'] = db_address
-# app.config['SQLALCHEMY_DATABASE_URI'] = os.path.join()
+
 app.config.from_envvar('BERC_SETTINGS', silent=True)
+
+# Initialize flask-login
+def init_login():
+	login_manager = login.LoginManager()
+	login_manager.init_app(app)
+
+	# Create user Loader function
+	@login_manager.user_loader
+	def load_user(user_id):
+		return db.session.query(User).get(user_id)
 
 @app.route('/')
 def home():
@@ -50,6 +53,15 @@ def subscribe_email():
 	else:
 		flash('Invalid email address')
 	return redirect(url_for('home')+'/#subscribe')
+
+# register the database with current app
+db.app = app
+db.init_app(app)
+init_login()
+
+# create corresponding admin system
+admin = admin.Admin(app, 'eecc', index_view=MyAdminIndexView(), base_template='my_master.html')
+admin.add_view(MyModelView(User, db.session))
 
 if __name__ == '__main__':
 	app.run()
