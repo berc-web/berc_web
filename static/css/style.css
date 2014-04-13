@@ -1160,15 +1160,15 @@
 				}
 			
 /*********************************************************************************/
-/* Contact                                                                       */
+/* Sign_up                                                                       */
 /*********************************************************************************/
 
-	#contact {
+	#sign_up {
 		padding-bottom: 0;
 		overflow: hidden;
 	}
 	
-		#contact .box {
+		#sign_up .box {
 			position: relative;
 			bottom: 0;
 			
@@ -1185,10 +1185,10 @@
 			transform: translateZ(0);
 		}
 		
-		#contact.inactive {
+		#sign_up.inactive {
 		}
 
-			#contact.inactive .box {
+			#sign_up.inactive .box {
 				bottom: -30em;
 			}
 
@@ -1451,66 +1451,4 @@
 	-o-filter: blur(0px);
 	-ms-filter: blur(0px);
 	filter: blur(0px);
-}
-#login .modal-dialog {
-	margin-top: 17%;
-	background-color: rgba(255,255,255,0.95);
-	border-radius: 10px;
-
-}
-#login .form-horizontal {
-	padding-top: 5%;
-	padding-bottom: 5%;
-}
-#login .modal-header {
-	border-bottom: 0;
-	text-align: center;
-}
-#login .modal-body {
-	position: relative;
-	line-height: 1.5;
-	padding-left: 10%;
-	padding-right: 10%;
-}
-#login .modal-footer {
-	border-top: 0;
-	text-align: center;
-}
-#login label {
-	position: relative;
-	text-align: left;
-	font-size: 80%;
-	line-height: 36px;
-	vertical-align: middle;
-}
-#login input {
-	height: 50px;
-	font-size: 13pt;
-	line-height: 24px;
-}
-#login label#forget {
-	padding-left: 7px;
-	padding-right: 22px;
-	line-height: 16.5px;
-	font-size: 10pt;
-	font-weight: 0.5;
-	text-align: center;
-	vertical-align: middle;
-}
-#login .form-group {
-	padding-bottom: 0;
-}
-#login .modal-footer {
-	margin-top: 0;
-	padding-top: 0;
-}
-#login .btn {
-	margin-left: 5%;
-	margin-right: 5%;
-	height: 40px;
-	line-height: 26px;
-	width: 80px;
-	text-align: center;
-	vertical-align: middle;
-	font-size: 18px;
 }

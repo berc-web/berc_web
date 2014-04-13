@@ -15,6 +15,7 @@ app.config.update(dict(
 	USERNAME='admin',
 	PASSWORD='Berc12345',
 	# SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://@localhost/testdb',
+	# SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://jianzhongchen:CJZcps1230117@localhost/berc_dev',
 	SQLALCHEMY_DATABASE_URI=os.environ['DATABASE_URL'],
 	SQLALCHEMY_ECHO=True
 ))
@@ -26,7 +27,7 @@ def init_login():
 	login_manager = login.LoginManager()
 	login_manager.init_app(app)
 
-	create Admin user
+	# create Admin user
 	if db.session.query(User).filter_by(login=app.config['USERNAME']).count() == 0:
 		admin = User()
 		admin.login = app.config['USERNAME']
@@ -65,8 +66,8 @@ def check_email(email):
 
 @app.route('/sign_up', methods=['POST'])
 def sign_up():
-	if (request.form['name'] is None) or (request.form['name'] == ''):
-		flash('Name can not be empty')
+	if (request.form['email'] is None) or (request.form['email'] == ''):
+		flash('Email can not be empty')
 	elif check_email(request.form['email']):
 		form = RegistrationForm(request.form)
 		user = User()
@@ -90,7 +91,6 @@ init_login()
 # create corresponding admin system
 admin = admin.Admin(app, 'eecc', index_view=MyAdminIndexView(), base_template='my_master.html')
 admin.add_view(MyModelView(User, db.session))
-admin.add_view(ModelView(subscribed_user, db.session))
 
 if __name__ == '__main__':
 	app.run()
