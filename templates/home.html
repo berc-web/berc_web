@@ -33,7 +33,7 @@
 							<li><a href="#one">What I Do</a></li>
 							<li><a href="#two">Who I Am</a></li>
 							<li><a href="#work">My Work</a></li>
-							<li><a href="#sign_up">Subscribe</a></li>
+							<li><a href="#sign_up">Sign Up</a></li>
 						</ul>
 					</nav>
 
@@ -122,23 +122,30 @@
 			<section id="sign_up" class="main style3 secondary">
 				<div class="content container">
 					<header>
-						<h2>Subscribe for updates.</h2>
+						<h2>Sign Up</h2>
 					</header>
 					<div class="box container small">
-							<form method="post" action="{{ url_for('sign_up') }}">
-								<div class="row half">
-									<div class="6u"><input type="text" name="name" placeholder="Name" /></div>
-									<div class="6u"><input type="text" name="email" placeholder="Email" /></div>
-									<div class="6u"><input type="text" name="name" placeholder="Name" /></div>
+						<form method="POST" action="{{ url_for('sign_up') }}" role="form">
+							<div class="row half">
+								<div class="6u"><input type="text" name="first_name" placeholder="First Name" /></div>
+								<div class="6u"><input type="text" name="last_name" placeholder="Last Name" /></div>
+							</div>
+							<div class="row half">
+								<div class="6u"><input type="text" name="login" placeholder="User Name" /></div>
+								<div class="6u"><input type="text" name="email" placeholder="Email" /></div>
+							</div>
+							<div class="row half">
+								<div class="6u"><input type="password" name="password" placeholder="Password" /></div>
+								<div class="6u"><input type="password" name="confirm_password" placeholder="Confirm Password" /></div>
+							</div>
+							<div class="row">
+								<div class="12u">
+									<ul class="actions">
+										<li><input id="sign_up"type="submit" class="button" value="Sign Up" /></li>
+									</ul>
 								</div>
-								<div class="row">
-									<div class="12u">
-										<ul class="actions">
-											<li><input id="sign_up"type="submit" class="button" value="Sign_up" /></li>
-										</ul>
-									</div>
-								</div>
-							</form>
+							</div>
+						</form>
 					</div>
 				</div>
 			</section>
