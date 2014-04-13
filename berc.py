@@ -1,5 +1,5 @@
 import os, re
-from models import db, subscribed_user, User, superUser
+from models import db, subscribed_user, User
 from admin_view import MyModelView, MyAdminIndexView
 from flask import Flask, request, session, g, redirect, url_for, abort, \
 	render_template, flash
@@ -14,7 +14,7 @@ app.config.update(dict(
 	SECRET_KEY='eecc2015web',
 	USERNAME='admin',
 	PASSWORD='Berc12345',
-	SQLALCHEMY_DATABASE_URI=os.environ['DATABASE_URL'],
+	# SQLALCHEMY_DATABASE_URI=os.environ['DATABASE_URL'],
 	SQLALCHEMY_ECHO=True
 ))
 
