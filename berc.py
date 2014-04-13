@@ -21,24 +21,23 @@ app.config.update(dict(
 
 app.config.from_envvar('BERC_SETTINGS', silent=True)
 
-# Initialize flask-login
-def init_login():
-	db.create_all()
-	login_manager = login.LoginManager()
-	login_manager.init_app(app)
+# # Initialize flask-login
+# def init_login():
+# 	login_manager = login.LoginManager()
+# 	login_manager.init_app(app)
 
-	# create Admin user
-	if db.session.query(User).filter_by(login=app.config['USERNAME']).count() == 0:
-		admin = User()
-		admin.login = app.config['USERNAME']
-		admin.password = app.config['PASSWORD']
-		db.session.add(admin)
-		db.session.commit()
+# 	# create Admin user
+# 	if db.session.query(User).filter_by(login=app.config['USERNAME']).count() == 0:
+# 		admin = User()
+# 		admin.login = app.config['USERNAME']
+# 		admin.password = app.config['PASSWORD']
+# 		db.session.add(admin)
+# 		db.session.commit()
 
-	# Create user Loader function
-	@login_manager.user_loader
-	def load_user(user_id):
-		return db.session.query(User).get(user_id)
+# 	# Create user Loader function
+# 	@login_manager.user_loader
+# 	def load_user(user_id):
+# 		return db.session.query(User).get(user_id)
 
 @app.route('/')
 def home():
@@ -67,7 +66,7 @@ def subscribe_email():
 # register the database with current app
 db.app = app
 db.init_app(app)
-init_login()
+# init_login()
 
 # create corresponding admin system
 admin = admin.Admin(app, 'eecc', index_view=MyAdminIndexView(), base_template='my_master.html')
