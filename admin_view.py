@@ -1,5 +1,5 @@
 from flask import url_for, redirect, render_template, request
-from models import LoginForm, RegistrationForm, User
+from models import LoginForm, RegistrationForm, User, db
 from flask.ext import admin, login
 from flask.ext.admin.contrib import sqla
 from flask.ext.admin import helpers, expose
@@ -37,7 +37,7 @@ class MyAdminIndexView(admin.AdminIndexView):
 	def register_view(self):
 		form = RegistrationForm(request.form)
 		if helpers.validate_form_on_submit(form):
-			user = User(form['login'], form['email'], form['password'])
+			user = User()
 
 			form.populate_obj(user)
 

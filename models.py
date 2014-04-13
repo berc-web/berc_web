@@ -23,13 +23,8 @@ class User(db.Model):
 	email = db.Column(db.String(120))
 	password = db.Column(db.String(64))
 
-	def __init__(self, login, email, password):
-		self.login = login
-		self.email = email
-		self.password = password
-
 	def is_authenticated(self):
-		return True
+		return self.login == 'admin'
 
 	def is_active(self):
 		return True
@@ -65,6 +60,6 @@ class RegistrationForm(form.Form):
 	password = fields.PasswordField(validators=[validators.required()])
 
 	def validate_login(self, field):
-		if db.session.query.filter_by(login=self.login.data).count() > 0:
+		if db.session.query(User).filter_by(login=self.login.data).count() > 0:
 			raise validators.ValidationError('Duplicate Username')
 
