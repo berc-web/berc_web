@@ -27,6 +27,12 @@ def init_login():
 	login_manager = login.LoginManager()
 	login_manager.init_app(app)
 
+	# create Admin user
+	if db.session.query(User).filter_by(login=app.config['USERNAME']).count() == 0:
+		admin = User(app.config['USERNAME'], app.config['EMAIL'], app.config['PASSWORD'])
+		db.session.add(admin)
+		db.session.commit()
+
 	# Create user Loader function
 	@login_manager.user_loader
 	def load_user(user_id):
@@ -66,8 +72,4 @@ admin = admin.Admin(app, 'eecc', index_view=MyAdminIndexView(), base_template='m
 admin.add_view(MyModelView(User, db.session))
 
 if __name__ == '__main__':
-	if db.session.query(User).filter_by(login=app.config['USERNAME']).count() == 0:
-		admin = User(app.config['USERNAME'], app.config['EMAIL'], app.config['PASSWORD'])
-		db.session.add(admin)
-		db.session.commit()
 	app.run()
