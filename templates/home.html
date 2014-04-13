@@ -39,8 +39,8 @@
 
 			</header>
 		{% for message in get_flashed_messages() %}
-			<div id="popout">
-				<p id="popout-message">{{ message }}</p>
+			<div class="popout">
+				<p class="popout-content">{{ message }}</p>
 			</div>
 			<div id="popout-mask"></div>
 		{% endfor %}
@@ -141,6 +141,7 @@
 					</div>
 				</div>
 			</section>
+
 			
 		<!-- Footer -->
 			<footer id="footer">
@@ -161,10 +162,10 @@
 
 			</footer>
 			<script>
-				if ($("#popout").length) {
+				if ($(".popout").length) {
 					$("section").addClass("popout-blur");
 					window.setTimeout(function() {
-						$("#popout").fadeOut(1600);
+						$(".popout").fadeOut(1600);
 						$("#popout-mask").fadeOut(1600);
 						$("section").addClass("fadeout-blur");
 						$("section").removeClass("popout-blur");

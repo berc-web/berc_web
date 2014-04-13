@@ -1414,7 +1414,7 @@
 			body.touch .poptrox-popup .closer {
 				opacity: 1.0 !important;
 			}
-#popout {
+.popout {
 	position: fixed;
 	width: 50%;
 	margin-left: 25%;
@@ -1424,7 +1424,7 @@
 	border-radius: 10px;
 	z-index: 2;
 }
-#popout-message {
+.popout-content {
 	padding: 3%;
 	margin: 0;
 	font-size: 22pt;
