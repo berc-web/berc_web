@@ -52,7 +52,7 @@ class LoginForm(form.Form):
 			raise validators.ValidationError('Invalid Password')
 
 	def get_user(self):
-		return db.session.query(User). filter_by(login=self.login.data).first()
+		return db.session.query(User).filter_by(login=self.login.data).first()
 
 class RegistrationForm(form.Form):
 	login = fields.TextField(validators=[validators.required()])
