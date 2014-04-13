@@ -14,7 +14,6 @@ app.config.update(dict(
 	SECRET_KEY='eecc2015web',
 	USERNAME='admin',
 	PASSWORD='Berc12345',
-	EMAIL='',
 	# SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://@localhost/testdb',
 	SQLALCHEMY_DATABASE_URI=os.environ['DATABASE_URL'],
 	SQLALCHEMY_ECHO=True
@@ -29,7 +28,9 @@ def init_login():
 
 	# create Admin user
 	if db.session.query(User).filter_by(login=app.config['USERNAME']).count() == 0:
-		admin = User(app.config['USERNAME'], app.config['EMAIL'], app.config['PASSWORD'])
+		admin = User()
+		admin.login = app.config['USERNAME']
+		admin.PASSWORD = app.config['PASSWORD']
 		db.session.add(admin)
 		db.session.commit()
 
