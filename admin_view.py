@@ -37,7 +37,7 @@ class MyAdminIndexView(admin.AdminIndexView):
 	def register_view(self):
 		form = RegistrationForm(request.form)
 		if helpers.validate_form_on_submit(form):
-			user = User()
+			user = User(form['login'], form['email'], form['password'])
 
 			form.populate_obj(user)
 

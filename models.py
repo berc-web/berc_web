@@ -23,8 +23,10 @@ class User(db.Model):
 	email = db.Column(db.String(120))
 	password = db.Column(db.String(64))
 
-	def is_admin(self):
-		return False
+	def __init__(self, login, email, password):
+		self.login = login
+		self.email = email
+		self.password = password
 
 	def is_authenticated(self):
 		return True
@@ -40,12 +42,6 @@ class User(db.Model):
 
 	def __unicode__(self):
 		return self.username
-
-class superUser(User):
-
-	def is_admin(self):
-		return True
-
 
 class LoginForm(form.Form):
 	login = fields.TextField(validators=[validators.required()])
