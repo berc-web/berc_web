@@ -25,6 +25,9 @@ class User(db.Model):
 	password = db.Column(db.String(100))
 
 	def is_authenticated(self):
+		return True
+
+	def is_admin(self):
 		return self.login == 'admin'
 
 	def is_active(self):
@@ -50,7 +53,6 @@ class LoginForm(form.Form):
 			raise validators.ValidationError('Invalid User')
 
 		if not sha256_crypt.verify(self.password.data, user.password):
-		# if user.password != self.password.data:
 			raise validators.ValidationError('Invalid Password')
 
 	def get_user(self):
