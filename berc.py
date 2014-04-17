@@ -29,12 +29,15 @@ def init_login():
 	login_manager.init_app(app)
 
 	# # create Admin user
-	# if db.session.query(User).filter_by(login=app.config['USERNAME']).count() == 0:
-	# 	admin = User()
-	# 	admin.login = app.config['USERNAME']
-	# 	admin.password = sha256_crypt.encrypt(app.config['PASSWORD'])
-	# 	db.session.add(admin)
-	# 	db.session.commit()
+	try:
+		if db.session.query(User).filter_by(login=app.config['USERNAME']).count() == 0:
+			admin = User()
+			admin.login = app.config['USERNAME']
+			admin.password = sha256_crypt.encrypt(app.config['PASSWORD'])
+			db.session.add(admin)
+			db.session.commit()
+	except Exception:
+		pass
 
 	# Create user Loader function
 	@login_manager.user_loader
