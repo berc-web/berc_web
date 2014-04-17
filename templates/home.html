@@ -199,7 +199,7 @@
 					}
 				});
 				$('[name="password"]').keyup(function() {
-					if ($('[name="confirm_password"]').val().length > 0 && $('[name="confirm_password"]').val() != "Confirm Password") {
+					if ($('[name="confirm_password"]').val().length > 0) {
 						if ($(this).val() != $('[name="confirm_password"]').val()) {
 							$(".sign_up_validator").insertAfter($(this).parent().parent());
 							$(".sign_up_validator").show();
