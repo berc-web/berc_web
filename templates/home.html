@@ -6,12 +6,10 @@
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
-		<link rel="stylesheet" href="static/css/bootstrap.min.css" />
 		<script src="static/js/jquery.min.js"></script>
 		<script src="static/js/jquery.poptrox.min.js"></script>
 		<script src="static/js/skel.min.js"></script>
 		<script src="static/js/init.js"></script>
-		<script src="static/js/bootstrap.min.js"></script>
 		<noscript>
 			<link rel="stylesheet" href="static/css/skel-noscript.css" />
 			<link rel="stylesheet" href="static/css/style.css" />
@@ -33,7 +31,7 @@
 							<li><a href="#one">What I Do</a></li>
 							<li><a href="#two">Who I Am</a></li>
 							<li><a href="#work">My Work</a></li>
-							<li><a href="#sign_up">Subscribe</a></li>
+							<li><a href="#sign_up">Sign Up</a></li>
 						</ul>
 					</nav>
 
@@ -43,6 +41,18 @@
 				<p class="popout-content">{{ message }}</p>
 			</div>
 			<div id="popout-mask"></div>
+			<script>
+				if ($(".popout").length) {
+					$("section").addClass("popout-blur");
+					window.setTimeout(function() {
+						$(".popout").fadeOut(1600);
+						$("#popout-mask").fadeOut(1600);
+						$("section").addClass("fadeout-blur");
+						$("section").removeClass("popout-blur");
+						$("section").removeClass("fadeout-blur");
+					}, 4000);
+				}
+			</script>
 		{% endfor %}
 		<!-- Intro -->
 			<section id="intro" class="main style1 dark fullscreen">
@@ -118,27 +128,34 @@
 				</div>
 			</section>
 
-		<!-- subscribe -->
+		<!-- sign up -->
 			<section id="sign_up" class="main style3 secondary">
 				<div class="content container">
 					<header>
-						<h2>Subscribe for updates.</h2>
+						<h2>Sign Up</h2>
 					</header>
 					<div class="box container small">
-							<form method="post" action="{{ url_for('sign_up') }}">
-								<div class="row half">
-									<div class="6u"><input type="text" name="name" placeholder="Name" /></div>
-									<div class="6u"><input type="text" name="email" placeholder="Email" /></div>
-									<div class="6u"><input type="text" name="name" placeholder="Name" /></div>
+						<form method="POST" action="{{ url_for('sign_up') }}">
+							<div class="row half">
+								<div class="6u"><input type="text" name="first_name" placeholder="First Name" /></div>
+								<div class="6u"><input type="text" name="last_name" placeholder="Last Name" /></div>
+							</div>
+							<div class="row half">
+								<div class="6u"><input type="text" name="login" placeholder="User Name" /></div>
+								<div class="6u"><input type="text" name="email" placeholder="Email" /></div>
+							</div>
+							<div class="row half">
+								<div class="6u"><input type="password" name="password" placeholder="Password" /></div>
+								<div class="6u"><input type="password" name="confirm_password" placeholder="Confirm Password" /></div>
+							</div>
+							<div class="row">
+								<div class="12u">
+									<ul class="actions">
+										<li><input type="submit" class="button" value="Sign Up" /></li>
+									</ul>
 								</div>
-								<div class="row">
-									<div class="12u">
-										<ul class="actions">
-											<li><input id="sign_up"type="submit" class="button" value="Sign_up" /></li>
-										</ul>
-									</div>
-								</div>
-							</form>
+							</div>
+						</form>
 					</div>
 				</div>
 			</section>
@@ -162,17 +179,40 @@
 					</ul>
 
 			</footer>
+
+			<div class="sign_up_validator" class="row half">
+				<div class="12u">
+					<p>Passwords do not match, please check</p>
+				</div>
+			</div>
+
 			<script>
-				if ($(".popout").length) {
-					$("section").addClass("popout-blur");
-					window.setTimeout(function() {
-						$(".popout").fadeOut(1600);
-						$("#popout-mask").fadeOut(1600);
-						$("section").addClass("fadeout-blur");
-						$("section").removeClass("popout-blur");
-						$("section").removeClass("fadeout-blur");
-					}, 4000);
-				}
-				</script>
+				$(".sign_up_validator").hide();
+				$('[name="confirm_password"]').keyup(function() {
+					if ($(this).val().length > 0) {
+						if ($(this).val() != $('[name="password"]').val()) {
+							$(".sign_up_validator").insertAfter($(this).parent().parent());
+							$(".sign_up_validator").show();
+						}
+						else {
+							$(".sign_up_validator").insertAfter($("#footer"));
+							$(".sign_up_validator").hide();
+						}
+					}
+				});
+				$('[name="password"]').keyup(function() {
+					if ($('[name="confirm_password"]').val().length > 0) {
+						if ($(this).val() != $('[name="confirm_password"]').val()) {
+							$(".sign_up_validator").insertAfter($(this).parent().parent());
+							$(".sign_up_validator").show();
+						}
+						else {
+							$(".sign_up_validator").insertAfter($("#footer"));
+							$(".sign_up_validator").hide();
+						}
+					}
+				});
+			</script>
+
 	</body>
 </html>

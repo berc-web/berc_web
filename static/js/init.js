@@ -196,8 +196,8 @@
 																}
 												});
 
-										// Contact
-											$('#contact')
+										// Sign_up
+											$('#sign_up')
 												.scrollwatch({
 													delay:		25,
 													range:		0.5,
@@ -235,8 +235,8 @@
 											.unscrollwatch()
 											.find('.row.images').removeClass('inactive');
 
-									// Contact
-										$('#contact')
+									// Sign_up
+										$('#sign_up')
 											.unscrollwatch()
 											.removeClass('inactive');
 								

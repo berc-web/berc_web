@@ -1160,15 +1160,15 @@
 				}
 			
 /*********************************************************************************/
-/* Contact                                                                       */
+/* Sign_up                                                                       */
 /*********************************************************************************/
 
-	#contact {
+	#sign_up {
 		padding-bottom: 0;
 		overflow: hidden;
 	}
 	
-		#contact .box {
+		#sign_up .box {
 			position: relative;
 			bottom: 0;
 			
@@ -1185,10 +1185,10 @@
 			transform: translateZ(0);
 		}
 		
-		#contact.inactive {
+		#sign_up.inactive {
 		}
 
-			#contact.inactive .box {
+			#sign_up.inactive .box {
 				bottom: -30em;
 			}
 

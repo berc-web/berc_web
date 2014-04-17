@@ -1,5 +1,6 @@
 from flask.ext.sqlalchemy import SQLAlchemy
 from wtforms import form, fields, validators
+from passlib.hash import sha256_crypt
 
 db = SQLAlchemy()
 
@@ -20,8 +21,8 @@ class User(db.Model):
 	first_name = db.Column(db.String(100))
 	last_name = db.Column(db.String(100))
 	login = db.Column(db.String(80), unique=True)
-	email = db.Column(db.String(120))
-	password = db.Column(db.String(64))
+	email = db.Column(db.String(120), unique=True)
+	password = db.Column(db.String(100))
 
 	def is_authenticated(self):
 		return self.login == 'admin'
@@ -48,7 +49,8 @@ class LoginForm(form.Form):
 		if user is None:
 			raise validators.ValidationError('Invalid User')
 
-		if user.password != self.password.data:
+		if not sha256_crypt.verify(self.password.data, user.password):
+		# if user.password != self.password.data:
 			raise validators.ValidationError('Invalid Password')
 
 	def get_user(self):
