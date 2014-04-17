@@ -23,8 +23,6 @@ class User(db.Model):
 	email = db.Column(db.String(120))
 	password = db.Column(db.String(64))
 
-	test = db.Column(db.String(100))
-
 	def is_authenticated(self):
 		return self.login == 'admin'
 
