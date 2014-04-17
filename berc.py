@@ -60,6 +60,10 @@ def sign_up():
 			flash('Email address already signed up.')
 			return redirect(url_for('home')+'/#sign_up')
 
+		if db.session.query(User).filter_by(login = request.form['login']).count() > 0:
+			flash('User name already existed. Pick another one.')
+			return redirect(url_for('home')+'/#sign_up')
+
 		form = RegistrationForm(request.form)
 		user = User()
 		form.populate_obj(user)
@@ -69,7 +73,7 @@ def sign_up():
 		flash('Signed Up Successfully!')
 	else:
 		flash('Invalid email address')
-		
+
 	return redirect(url_for('home')+'/#sign_up')
 
 # register the database with current app

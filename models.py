@@ -21,7 +21,7 @@ class User(db.Model):
 	first_name = db.Column(db.String(100))
 	last_name = db.Column(db.String(100))
 	login = db.Column(db.String(80), unique=True)
-	email = db.Column(db.String(120))
+	email = db.Column(db.String(120), unique=True)
 	password = db.Column(db.String(100))
 
 	def is_authenticated(self):
