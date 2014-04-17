@@ -22,7 +22,7 @@ class User(db.Model):
 	last_name = db.Column(db.String(100))
 	login = db.Column(db.String(80), unique=True)
 	email = db.Column(db.String(120))
-	password = db.Column(db.String(100))
+	password = db.Column(db.String(64))
 
 	def is_authenticated(self):
 		return self.login == 'admin'
