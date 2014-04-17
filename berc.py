@@ -5,7 +5,6 @@ from flask import Flask, request, session, g, redirect, url_for, abort, \
 	render_template, flash
 from flask.ext import admin, login
 from flask.ext.admin import Admin
-from flask.ext.admin.contrib.sqla import ModelView
 
 app = Flask(__name__)
 
@@ -90,7 +89,7 @@ init_login()
 # create corresponding admin system
 admin = admin.Admin(app, 'eecc', index_view=MyAdminIndexView(), base_template='my_master.html')
 admin.add_view(MyModelView(User, db.session))
-admin.add_view(ModelView(subscribed_user, db.session))
+admin.add_view(MyModelView(subscribed_user, db.session))
 
 if __name__ == '__main__':
 	app.run()
