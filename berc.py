@@ -1,5 +1,5 @@
 import os, re
-from models import db, subscribed_user, User
+from models import db, User
 from admin_view import MyModelView, MyAdminIndexView, RegistrationForm
 
 from flask import Flask, request, session, g, redirect, url_for, abort, \
