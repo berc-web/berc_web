@@ -1164,13 +1164,14 @@
 /*********************************************************************************/
 
 	#sign_up {
-		padding-bottom: 0;
+		padding-bottom: 50px;
 		overflow: hidden;
 	}
 	
 		#sign_up .box {
 			position: relative;
 			bottom: 0;
+			border-radius: 15px;
 			
 			-moz-transition: all 1s ease;
 			-webkit-transition: all 1s ease;
