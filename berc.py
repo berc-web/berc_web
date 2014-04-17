@@ -78,7 +78,7 @@ def sign_up():
 		except Exception:
 			flash('Email address already signed up.')
 			return redirect(url_for('home')+'/#sign_up')
-		flash('Thank you for your subscription!')
+		flash('Signed Up Successfully!')
 	else:
 		flash('Invalid email address')
 	return redirect(url_for('home')+'/#sign_up')
