@@ -56,19 +56,20 @@ def sign_up():
 	if (request.form['email'] is None) or (request.form['email'] == ''):
 		flash('Email can not be empty')
 	elif check_email(request.form['email']):
+		if db.session.query(User).filter_by(email = request.form['email']).count() > 0:
+			flash('Email address already signed up.')
+			return redirect(url_for('home')+'/#sign_up')
+
 		form = RegistrationForm(request.form)
 		user = User()
 		form.populate_obj(user)
 		user.password = sha256_crypt.encrypt(user.password)
 		db.session.add(user)
-		try:
-			db.session.commit()
-		except Exception:
-			flash('Email address already signed up.')
-			return redirect(url_for('home')+'/#sign_up')
+		db.session.commit()
 		flash('Signed Up Successfully!')
 	else:
 		flash('Invalid email address')
+		
 	return redirect(url_for('home')+'/#sign_up')
 
 # register the database with current app
