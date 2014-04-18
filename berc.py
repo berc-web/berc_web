@@ -1,6 +1,7 @@
 import os, re
 from models import db, User
-from admin_view import MyModelView, MyAdminIndexView, RegistrationForm
+from admin_view import MyModelView, MyAdminIndexView, RegistrationForm, \
+	mailSenderView
 
 from flask import Flask, request, session, g, redirect, url_for, abort, \
 	render_template, flash
@@ -15,9 +16,9 @@ app.config.update(dict(
 	SECRET_KEY='eecc2015web',
 	USERNAME='admin',
 	PASSWORD='Berc12345',
-	# SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://@localhost/testdb',
+	SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://@localhost/testdb',
 	# SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://jianzhongchen:CJZcps1230117@localhost/berc_dev',
-	SQLALCHEMY_DATABASE_URI=os.environ['DATABASE_URL'],
+	# SQLALCHEMY_DATABASE_URI=os.environ['DATABASE_URL'],
 	SQLALCHEMY_ECHO=True
 ))
 
@@ -84,6 +85,7 @@ init_login()
 # create corresponding admin system
 admin = admin.Admin(app, 'eecc', index_view=MyAdminIndexView(), base_template='my_master.html')
 admin.add_view(MyModelView(User, db.session))
+admin.add_view(mailSenderView(name='send'))
 
 if __name__ == '__main__':
 	app.run()

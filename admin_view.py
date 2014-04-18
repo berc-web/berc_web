@@ -2,7 +2,7 @@ from flask import url_for, redirect, render_template, request
 from models import LoginForm, RegistrationForm, User, db
 from flask.ext import admin, login
 from flask.ext.admin.contrib import sqla
-from flask.ext.admin import helpers, expose
+from flask.ext.admin import helpers, expose, BaseView
 
 # Create customized model view class
 class MyModelView(sqla.ModelView):
@@ -61,3 +61,15 @@ class MyAdminIndexView(admin.AdminIndexView):
 	def logout_view(self):
 		login.logout_user()
 		return redirect(url_for('.index'))
+
+
+class mailSenderView(BaseView):
+	def is_accessible(self):
+		if login.current_user.is_authenticated():
+			return login.current_user.is_admin()
+		else:
+			return False
+
+	@expose('/')
+	def send_mail(self):
+		return self.render('admin/send_mail.html')
