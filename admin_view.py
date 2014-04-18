@@ -7,6 +7,7 @@ from flask.ext.admin import helpers, expose, BaseView
 # Create customized model view class
 class MyModelView(sqla.ModelView):
 	column_exclude_list = 'password'
+	can_create = False
 
 	def is_accessible(self):
 		if login.current_user.is_authenticated():
