@@ -2,11 +2,11 @@ import os, re
 from models import db, User
 from admin_view import MyModelView, MyAdminIndexView, RegistrationForm, \
 	mailSenderView
-
 from flask import Flask, request, session, g, redirect, url_for, abort, \
 	render_template, flash
 from flask.ext import admin, login
 from flask.ext.admin import Admin
+from flask.ext.mail import Mail, Message
 from passlib.hash import sha256_crypt
 
 app = Flask(__name__)
@@ -16,10 +16,18 @@ app.config.update(dict(
 	SECRET_KEY='eecc2015web',
 	USERNAME='admin',
 	PASSWORD='Berc12345',
-	# SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://@localhost/testdb',
+	SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://@localhost/testdb',
 	# SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://jianzhongchen:CJZcps1230117@localhost/berc_dev',
-	SQLALCHEMY_DATABASE_URI=os.environ['DATABASE_URL'],
-	SQLALCHEMY_ECHO=True
+	# SQLALCHEMY_DATABASE_URI=os.environ['DATABASE_URL'],
+	SQLALCHEMY_ECHO=True,
+
+	#EMAIL SETTINGS
+	MAIL_SERVER='smtp.gmail.com',
+	MAIL_PORT=465,
+	MAIL_USE_SSL=True,
+	MAIL_USERNAME = 'berc.web@gmail.com',
+	MAIL_PASSWORD = 'Berc12345'
+	# DEFAULT_MAIL_SENDER = 'EECC2015'
 ))
 
 app.config.from_envvar('BERC_SETTINGS', silent=True)
@@ -76,6 +84,26 @@ def sign_up():
 		flash('Invalid email address')
 
 	return redirect(url_for('home')+'/#sign_up')
+
+
+@app.route('/send_email', methods=['POST'])
+def send():
+	subject = request.form['subject']
+	content = request.form['content']
+
+	mail = Mail(app)
+	users = db.session.query(User)
+	for user in users:
+		if user.login != 'admin':
+			msg = Message(recipients=[user.email],
+						  body=content,
+						  subject=subject,
+						  sender="eecc2015")
+
+			mail.send(msg)
+			
+	flash('emails sent Successfully')
+	return redirect(url_for('home')+'admin/mailsenderview')
 
 # register the database with current app
 db.app = app
