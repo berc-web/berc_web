@@ -135,18 +135,19 @@
 						<h2>Sign Up</h2>
 					</header>
 					<div class="box container small">
+						{% from "_formhelper.html" import render_field %}
 						<form method="POST" action="{{ url_for('sign_up') }}">
 							<div class="row half">
-								<div class="6u"><input type="text" name="first_name" placeholder="First Name" autocomplete="off"/></div>
-								<div class="6u"><input type="text" name="last_name" placeholder="Last Name" autocomplete="off"/></div>
+								{{ render_field(form.first_name, "First Name") }}
+								{{ render_field(form.last_name, "Last Name") }}
 							</div>
 							<div class="row half">
-								<div class="6u"><input type="text" name="login" placeholder="User Name" autocomplete="off"/></div>
-								<div class="6u"><input type="text" name="email" placeholder="Email" autocomplete="off"/></div>
+								{{ render_field(form.login, "Username") }}
+								{{ render_field(form.email, "Email") }}
 							</div>
 							<div class="row half">
-								<div class="6u"><input type="password" name="password" placeholder="Password" autocomplete="off"/></div>
-								<div class="6u"><input type="password" name="confirm_password" placeholder="Confirm Password" autocomplete="off"/></div>
+								{{ render_field(form.password, "Password") }}
+								{{ render_field(form.confirm_password, "Confirm Password" ) }}
 							</div>
 							<div class="row">
 								<div class="12u">

@@ -55,33 +55,23 @@ def init_login():
 
 @app.route('/')
 def home():
-	return render_template('home.html')
+	return render_template('home.html', form=RegistrationForm())
 
-def check_email(email):
-	return re.match(r'[^@]+@[^@]+\.[^@]+', email)
 
 @app.route('/sign_up', methods=['POST'])
 def sign_up():
-	if (request.form['email'] is None) or (request.form['email'] == ''):
-		flash('Email can not be empty')
-	elif check_email(request.form['email']):
-		if db.session.query(User).filter_by(email = request.form['email']).count() > 0:
-			flash('Email address already signed up.')
-			return redirect(url_for('home')+'/#sign_up')
+	form = RegistrationForm(request.form)
+	if not form.validate():
+		flash("Invalid Registration Information.")
+		return render_template('home.html', form=form)
 
-		if db.session.query(User).filter_by(login = request.form['login']).count() > 0:
-			flash('User name already existed. Pick another one.')
-			return redirect(url_for('home')+'/#sign_up')
-
-		form = RegistrationForm(request.form)
-		user = User()
-		form.populate_obj(user)
-		user.password = sha256_crypt.encrypt(user.password)
-		db.session.add(user)
-		db.session.commit()
-		flash('Signed Up Successfully!')
-	else:
-		flash('Invalid email address')
+	form = RegistrationForm(request.form)
+	user = User()
+	form.populate_obj(user)
+	user.password = sha256_crypt.encrypt(user.password)
+	db.session.add(user)
+	db.session.commit()
+	flash('Signed Up Successfully!')
 
 	return redirect(url_for('home')+'/#sign_up')
 
