@@ -16,9 +16,9 @@ app.config.update(dict(
 	SECRET_KEY='eecc2015web',
 	USERNAME='admin',
 	PASSWORD='Berc12345',
-	# SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://@localhost/testdb',
+	SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://@localhost/testdb',
 	# SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://jianzhongchen:CJZcps1230117@localhost/berc_dev',
-	SQLALCHEMY_DATABASE_URI=os.environ['DATABASE_URL'],
+	# SQLALCHEMY_DATABASE_URI=os.environ['DATABASE_URL'],
 	SQLALCHEMY_ECHO=True,
 
 	#EMAIL SETTINGS
@@ -99,6 +99,8 @@ def send():
 db.app = app
 db.init_app(app)
 init_login()
+
+
 
 # create corresponding admin system
 admin = admin.Admin(app, 'eecc', index_view=MyAdminIndexView(), base_template='my_master.html')
