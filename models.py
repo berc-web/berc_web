@@ -12,6 +12,7 @@ class User(db.Model):
 	login = db.Column(db.String(50), unique=True)
 	email = db.Column(db.String(100), unique=True)
 	password = db.Column(db.String(100))
+	subscribe_confirm = db.Column(db.Boolean)
 
 	def is_authenticated(self):
 		return True

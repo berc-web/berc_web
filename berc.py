@@ -66,22 +66,21 @@ def send():
 	users = db.session.query(User)
 	for user in users:
 		if user.login != 'admin':
-			msg = Message(recipients=[user.email],
-						  body=content,
-						  subject=subject,
-						  sender="eecc2015")
+			if user.subscribe_confirm:
+				msg = Message(recipients=[user.email],
+							  body=content,
+							  subject=subject,
+							  sender="eecc2015")
 
-			mail.send(msg)
+				mail.send(msg)
 			
-	flash('emails sent Successfully')
+	flash('Emails sent successfully')
 	return redirect(url_for('home')+'admin/mailsenderview')
 
 # register the database with current app
 db.app = app
 db.init_app(app)
 init_login()
-
-
 
 # create corresponding admin system
 admin = admin.Admin(app, 'eecc', index_view=MyAdminIndexView(), base_template='my_master.html')
