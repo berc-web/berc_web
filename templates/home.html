@@ -149,9 +149,13 @@
 								{{ render_field(form.password, "Password") }}
 								{{ render_field(form.confirm_password, "Confirm Password" ) }}
 							</div>
-							<div>
-								{{ form.subscribe_confirm }}
-								{{ form.subscribe_confirm.label }}
+							<div class="row half fush">
+								<div class="-4u 1u subscrib_check">
+									{{ form.subscribe_confirm }}
+								</div>
+								<div class="4u subscrib_label">
+									{{ form.subscribe_confirm.label }}
+								</div>
 							</div>
 							<div class="row">
 								<div class="12u">
