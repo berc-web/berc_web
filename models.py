@@ -64,6 +64,8 @@ class RegistrationForm(form.Form):
 							validators.required(),
 							validators.EqualTo('password', message='Passwords must match')])
 
+	subscribe_confirm = fields.BooleanField('Subscribe our newsletter', default='True')
+
 	def check_email(self, email):
 		return re.match(r'[^@]+@[^@]+\.[^@]+', email)
 

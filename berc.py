@@ -10,27 +10,8 @@ from flask.ext.mail import Mail, Message
 from passlib.hash import sha256_crypt
 
 app = Flask(__name__)
-
-app.config.update(dict(
-	DEBUG=True,
-	SECRET_KEY='eecc2015web',
-	USERNAME='admin',
-	PASSWORD='Berc12345',
-	# SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://@localhost/testdb',
-	# SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://jianzhongchen:CJZcps1230117@localhost/berc_dev',
-	SQLALCHEMY_DATABASE_URI=os.environ['DATABASE_URL'],
-	SQLALCHEMY_ECHO=True,
-
-	#EMAIL SETTINGS
-	MAIL_SERVER='smtp.gmail.com',
-	MAIL_PORT=465,
-	MAIL_USE_SSL=True,
-	MAIL_USERNAME = 'berc.web@gmail.com',
-	MAIL_PASSWORD = 'Berc12345'
-	# DEFAULT_MAIL_SENDER = 'EECC2015'
-))
-
-app.config.from_envvar('BERC_SETTINGS', silent=True)
+	
+app.config.from_object('config_berc.Config')
 
 # Initialize flask-login
 def init_login():
