@@ -7,7 +7,8 @@ class Config(object):
 	PASSWORD='Berc12345'
 
 	if os.environ.get('DATABASE_URL') is None:
-		SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://@localhost/localdb'
+		# SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://@localhost/localdb'
+		SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://jianzhongchen:CJZcps1230117@localhost/berc_dev'
 	else:
 		SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
 

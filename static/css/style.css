@@ -1189,3 +1189,9 @@
 				{
 					color: #fff;
 				}
+
+
+#nav > ul {
+	background: #222835 url('static/images/overlay.png');
+	background-color: rgba(44,50,63,0.925);
+}
