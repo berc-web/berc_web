@@ -7,11 +7,7 @@ from flask import Flask, request, session, g, redirect, url_for, abort, \
 from flask.ext import admin, login
 from flask.ext.admin import Admin
 from flask.ext.mail import Mail, Message
-
-from flask.ext.mandrill import Mandrill
-
 from passlib.hash import sha256_crypt
-
 
 app = Flask(__name__)
 	
@@ -67,7 +63,6 @@ def send():
 	content = request.form['content']
 
 	mail = Mail(app)
-	mandrill = Mandrill(app)
 	users = db.session.query(User)
 	for user in users:
 		if user.login != 'admin':
