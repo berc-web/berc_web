@@ -1,4 +1,4 @@
-from flask import url_for, redirect, render_template, request
+from flask import url_for, redirect, render_template, request, flash
 from models import LoginForm, RegistrationForm, User, db
 from flask.ext import admin, login
 from flask.ext.admin.contrib import sqla
@@ -31,7 +31,11 @@ class MyAdminIndexView(admin.AdminIndexView):
 		form = LoginForm(request.form)
 		if helpers.validate_form_on_submit(form):
 			user = form.get_user()
-			login.login_user(user)
+			if user.login == 'admin':
+				login.login_user(user)
+			else:
+				flash('You are not an admin user')
+				return redirect(url_for('.login_view'))
 
 		if login.current_user.is_authenticated() and login.current_user.is_admin():
 			return redirect(url_for('.index'))

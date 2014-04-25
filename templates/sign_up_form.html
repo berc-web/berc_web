@@ -1,0 +1,30 @@
+						{% from "_formhelper.html" import render_field %}
+						<form method="POST" action="{{ url_for('sign_up') }}">
+							<div class="row half">
+								{{ render_field(form.first_name, "First Name") }}
+								{{ render_field(form.last_name, "Last Name") }}
+							</div>
+							<div class="row half">
+								{{ render_field(form.login, "Username") }}
+								{{ render_field(form.email, "Email") }}
+							</div>
+							<div class="row half">
+								{{ render_field(form.password, "Password") }}
+								{{ render_field(form.confirm_password, "Confirm Password" ) }}
+							</div>
+							<div class="row half fush">
+								<div class="-4u 1u subscrib_check">
+									{{ form.subscribe_confirm }}
+								</div>
+								<div class="4u subscrib_label">
+									{{ form.subscribe_confirm.label }}
+								</div>
+							</div>
+							<div class="row">
+								<div class="12u">
+									<ul class="actions">
+										<li><input type="submit" class="button" value="Sign Up" /></li>
+									</ul>
+								</div>
+							</div>
+						</form>

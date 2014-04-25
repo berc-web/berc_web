@@ -20,3 +20,6 @@ class Config(object):
 	MAIL_USERNAME = 'berc.web@gmail.com'
 	MAIL_PASSWORD = 'Berc12345'
 	# DEFAULT_MAIL_SENDER = 'EECC2015'
+
+	# mandrill setup
+	MANDRILL_API_KEY = 'n10PXMTcNEr7bvNKFWX7aw'

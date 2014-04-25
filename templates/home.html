@@ -31,7 +31,7 @@
 							<li><a href="#one">What I Do</a></li>
 							<li><a href="#two">Who I Am</a></li>
 							<li><a href="#work">My Work</a></li>
-							<li><a href="#sign_up">Sign Up</a></li>
+							<li><a href="#sign_up">Subscribe</a></li>
 						</ul>
 					</nav>
 
@@ -132,32 +132,29 @@
 			<section id="sign_up" class="main style3 secondary">
 				<div class="content container">
 					<header>
-						<h2>Sign Up</h2>
+						<h2>Subscribe</h2>
 					</header>
 					<div class="box container small">
-						{% from "_formhelper.html" import render_field %}
-						<form method="POST" action="{{ url_for('sign_up') }}">
+						<form action="http://eecc2015.us8.list-manage.com/subscribe/post?u=a6e2416648e475de887eae720&amp;id=8d4e6caca8" method="post">
 							<div class="row half">
-								{{ render_field(form.first_name, "First Name") }}
-								{{ render_field(form.last_name, "Last Name") }}
-							</div>
-							<div class="row half">
-								{{ render_field(form.login, "Username") }}
-								{{ render_field(form.email, "Email") }}
-							</div>
-							<div class="row half">
-								{{ render_field(form.password, "Password") }}
-								{{ render_field(form.confirm_password, "Confirm Password" ) }}
-							</div>
-							<div class="row half fush">
-								<div class="-4u 1u subscrib_check">
-									{{ form.subscribe_confirm }}
+								<div class="6u">
+									<input type="text" value="" name="FNAME" id="mce-FNAME"  placeholder='First Name'>
 								</div>
-								<div class="4u subscrib_label">
-									{{ form.subscribe_confirm.label }}
+								<div class="6u">
+									<input type="text" value="" name="LNAME" id="mce-LNAME" placeholder='Last Name'>
 								</div>
 							</div>
-							<div class="row">
+							<div class="row half">
+								<div class="12u">
+									<input type="text" value="" name="EMAIL" id="mce-EMAIL" placeholder='Email'>
+								</div>
+							</div>
+							<br>
+							<div id="mce-responses" class="clear">
+								<div class="response" id="mce-error-response" style="display:none"></div>
+								<div class="response" id="mce-success-response" style="display:none"></div>
+							</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+						    <div class="row">
 								<div class="12u">
 									<ul class="actions">
 										<li><input type="submit" class="button" value="Sign Up" /></li>
