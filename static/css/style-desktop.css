@@ -285,6 +285,7 @@
 	#intro-wrapper
 	{
 		padding-bottom: 8em;
+		padding-top: 100px;
 	}
 
 /*********************************************************************************/
@@ -315,6 +316,7 @@
 		width: 100%;
 		text-align: center;
 		margin-top: -0.5em;
+		font-family: futura;
 	}
 
 		.homepage #logo
@@ -325,6 +327,7 @@
 		#logo h1
 		{
 			font-size: 2em;
+			color: #e2e2e2;
 			letter-spacing: 0.25em;
 		}
 		
@@ -333,7 +336,11 @@
 			margin: 1.25em 0 0 0;
 			display: block;
 			letter-spacing: 0.2em;
-			font-size: 0.9em;
+			font-size: 1em;
+			background: -webkit-linear-gradient(left,rgba(255,255,255,0),rgba(0,0,0,1), rgba(255,255,255,0)); /*Safari 5.1-6*/
+			background: -o-linear-gradient(right,rgba(255,255,255,0),rgba(0,0,0,1), rgba(255,255,255,0)); /*Opera 11.1-12*/
+			background: -moz-linear-gradient(right,rgba(255,255,255,0),rgba(0,0,0,1), rgba(255,255,255,0)); /*Fx 3.6-15*/
+			background: linear-gradient(to right, rgba(255,255,255,0), rgba(0,0,0,1), rgba(255,255,255,0)); /*Standard*/
 		}
 
 /*********************************************************************************/
@@ -342,15 +349,15 @@
 
 	#nav
 	{
-		position: absolute;
+		position: fixed;
 		display: block;
-		top: 2.5em;
+		top: 0;
 		left: 0;
 		width: 100%;
 		text-align: center;
 		z-index: 99;
-		-webkit-transition: all 0.8s ease-in-out;
-		-moz-transition: all 0.8s ease-in-out;
+		-webkit-transition: all 0.5s ease-in-out;
+		-moz-transition: all 0.5s ease-in-out;
 	}
 
 		#nav > ul > li > ul
@@ -362,8 +369,7 @@
 		{
 			background: #222835 ;
 			background-color: rgba(44,50,63,0.925);
-			display: inline-block;
-			border-radius: 0.35em;
+			border-radius: 0;
 			box-shadow: inset 0px 0px 1px 1px rgba(255,255,255,0.25);
 			padding: 0 1.5em 0 1.5em;
 			-webkit-transition: all 0.8s ease-in-out;
@@ -386,7 +392,7 @@
 				color: rgba(255,255,255,0.75);
 				text-transform: uppercase;
 				text-decoration: none;
-				font-size: 0.7em;
+				font-size: 0.9em;
 				letter-spacing: 0.25em;
 				height: 5em;
 				line-height: 5em;
@@ -483,6 +489,9 @@
 			font-size: 1.1em;
 			width: 48em;
 			margin: 0 auto;
+		}
+		#intro_content {
+			width: 100%;
 		}
 
 /*********************************************************************************/
