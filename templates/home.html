@@ -40,7 +40,7 @@
 									
 									<!-- Nav -->
 										<nav id="nav" >
-											<ul>
+											<ul id="nav-content">
 												<li class="current_page_item"><a href="index.html">Home</a></li>
 												<li>
 													<span>Dropdown</span>
@@ -362,6 +362,22 @@
 				</div>
 			</div>
 		<!-- /Footer Wrapper -->
-
+		<script>
+		$(document).ready(function(){
+			var navpos = $('#nav').offset();
+  		console.log(navpos.top);
+		   $(window).bind('scroll', function() {
+		   var navHeight = navpos.top;
+		         if ($(window).scrollTop() > navHeight) {
+		             $('#nav').css("position", "fixed").css("top", "0");
+		             $("#nav-content").css("width", "100%").css("background-color", "rgba(44,50,63,0.97)");
+		         }
+		         else {
+		             $('#nav').css("position", "absolut").css("top", "2.5em");
+		             $("#nav-content").css("display", "inline-block").css("background-color", "rgba(44,50,63,0.925)");
+		         }
+		    });
+		});
+		</script>
 	</body>
 </html>
