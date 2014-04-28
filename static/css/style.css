@@ -444,6 +444,10 @@
 				border-radius: 1em;
 				text-align: center;
 			}
+		.feature-list a
+		{
+			color: #e97770 !important;
+		}
 
 /*********************************************************************************/
 /* Icons                                                                         */
@@ -1278,9 +1282,9 @@
   background: #333333;
   background: rgba(0, 0, 0, 0.6);
   opacity: 0;
-  -webkit-transition: all 0.8s ease-in-out;
-  -moz-transition: all 0.8s ease-in-out;
-  transition: all 0.8s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }
 .ih-item.circle.effect1 .info h3 {
   color: #fff;
