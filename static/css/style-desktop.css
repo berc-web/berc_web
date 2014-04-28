@@ -490,7 +490,7 @@
 			width: 48em;
 			margin: 0 auto;
 		}
-		#intro_content {
+		#intro_img {
 			width: 100%;
 		}
 
@@ -559,6 +559,33 @@
 		.homepage #main
 		{
 			margin: 0;
+		}
+		.main_img {
+			width: 100%;
+		}
+		.main_h1 {
+			font-size: 2em;
+			color: #000000;
+			letter-spacing: 0.25em;
+			text-align: center;
+			font-family: futura;
+		}
+		.main_h2 {
+			font-size: 1.2em;
+			color: #000000;
+			letter-spacing: 0.25em;
+			text-align: left;
+			font-family: futura;
+		}
+		.main_h3 {
+			font-size: 1em;
+			color: #539200;
+			letter-spacing: 0.25em;
+			text-align: center;
+			font-family: futura;
+		}
+		.main_body {
+			font-family: bodoni;
 		}
 
 /*********************************************************************************/
