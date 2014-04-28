@@ -546,6 +546,9 @@
 		{
 			padding-left: 2em;
 		}
+		.highlight-body {
+			font-family: bodoni;
+		}
 
 /*********************************************************************************/
 /* Main                                                                          */
@@ -586,6 +589,8 @@
 		}
 		.main_body {
 			font-family: bodoni;
+			color: #ffffff;
+			font-size: 120%;
 		}
 
 /*********************************************************************************/
@@ -640,6 +645,13 @@
 		#footer .footer-two
 		{
 			padding-left: 1.5em;
+		}
+		.subscrib-h1 {
+			font-size: 1.3em;
+			color: #000000;
+			letter-spacing: 0.25em;
+			text-align: center;
+			font-family: futura;
 		}
 
 /*********************************************************************************/

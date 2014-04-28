@@ -9,6 +9,7 @@
 		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,700,900" rel="stylesheet" />
 		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
 		<script src="static/js/jquery.min.js"></script>
+		<script src="static/js/jquery.ba-resize.min.js"></script>
 		<script src="static/js/jquery.dropotron.min.js"></script>
 		<script src="static/js/config.js"></script>
 		<script src="static/js/skel.min.js"></script>
@@ -33,11 +34,11 @@
 										</div>
 										<nav id="nav" >
 											<ul id="nav-content">
-												<li class="current_page_item"><a href="#">Home</a></li>
-												<li><a href="#">Competition</a></li>
-												<li><a href="#">News & Resources</a></li>
-												<li><a href="#about_us">About Us</a></li>
-												<li><a href="#">Get Involved</a></li>
+												<li><a id="home" href="">Home</a></li>
+												<li><a id="competition" href="">Competition</a></li>
+												<li><a id="sponsor" href="">News & Resources</a></li>
+												<li><a id="about" href="">About Us</a></li>
+												<li><a id="contact" href="">Get Involved</a></li>
 											</ul>
 										</nav>
 								</div>
@@ -74,30 +75,65 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="-1u 2u">
-							<img class="main_img" src="../static/images/homepage/page3/icon1.png">
-							<br>
-							<center><b class="main_body">Air pollution</b></center>
+						<div class="-1u 2u hover-wrapper">
+							<div class="ih-item circle effect1 hover">
+								<a href="#">
+		        			<div class="img"><img src="../static/images/homepage/page3/icon1.png" alt="img"></div>
+					        <div class="info">
+					          <div class="info-back">
+					            <center><b class="main_body">Air pollution</b></center>
+					          </div>
+					        </div>
+				      	</a>
+			      	</div>
 						</div>
 						<div class="2u">
-							<img class="main_img" src="../static/images/homepage/page3/icon2.png">
-							<br>
-							<center><b class="main_body">Green Building</b></center>
+							<div class="ih-item circle effect1 hover">
+								<a href="#">
+		        			<div class="img"><img src="../static/images/homepage/page3/icon2.png" alt="img"></div>
+					        <div class="info">
+					          <div class="info-back">
+					            <center><b class="main_body">Green Building</b></center>
+					          </div>
+					        </div>
+				      	</a>
+			      	</div>
 						</div>
 						<div class="2u">
-							<img class="main_img" src="../static/images/homepage/page3/icon3.png">
-							<br>
-							<center><b class="main_body">Clean Water</b></center>
+							<div class="ih-item circle effect1 hover">
+								<a href="#">
+		        			<div class="img"><img src="../static/images/homepage/page3/icon3.png" alt="img"></div>
+					        <div class="info">
+					          <div class="info-back">
+					            <center><b class="main_body">Clean Water</b></center>
+					          </div>
+					        </div>
+				      	</a>
+			      	</div>
 						</div>
 						<div class="2u">
-							<img class="main_img" src="../static/images/homepage/page3/icon4.png">
-							<br>
-							<center><b class="main_body">Clean Transportation</b></center>
+							<div class="ih-item circle effect1 hover">
+								<a href="#">
+		        			<div class="img"><img src="../static/images/homepage/page3/icon4.png" alt="img"></div>
+					        <div class="info">
+					          <div class="info-back">
+					            <center><b class="main_body">Clean Transportation</b></center>
+					          </div>
+					        </div>
+				      	</a>
+			      	</div>
 						</div>
 						<div class="2u">
-							<img class="main_img" src="../static/images/homepage/page3/icon5.png">
-							<br>
-							<center><b class="main_body">Social Spaces</b></center>
+							<div class="ih-item circle effect1 hover">
+								<a href="#">
+		        			<div class="img"><img src="../static/images/homepage/page3/icon2.png" alt="img"></div>
+					        <div class="info">
+					          <div class="info-back">
+					            <center><b class="main_body">Social Spaces</b></center>
+					          </div>
+					        </div>
+				      	</a>
+			      	</div>
 						</div>
 					</div>
 					<div class="row">
@@ -111,7 +147,19 @@
 					</div>
 				</div>
 			</div>
-		
+			
+			<script>
+				var width = $(".hover-wrapper").width();
+				$(".hover").width(width);
+				$(".hover").height(width);
+				$(".hover-wrapper").resize(function() {
+					var width = $(".hover-wrapper").width();
+					$(".hover").width(width);
+					$(".hover").height(width);
+				})
+			</script>
+
+
 			<div id="highlights-wrapper" class="wrapper wrapper-style3">
 				<div class="title">SPONSORS</div>
 				<div class="container">
@@ -119,22 +167,22 @@
 						<div class="3u">
 							<img class="main_img" src="../static/images/homepage/page4/1.png">
 							<br>
-							<center><b class="main_body">University of California, Berkeley </b></center>
+							<center><b class="highlight-body">University of California, Berkeley </b></center>
 						</div>
 						<div class="3u">
 							<img class="main_img" src="../static/images/homepage/page4/2.png">
 							<br>
-							<center><b class="main_body">Joint US China Collaboration on Clean Energy </b></center>
+							<center><b class="highlight-body">Joint US China Collaboration on Clean Energy </b></center>
 						</div>
 						<div class="3u">
 							<img class="main_img" src="../static/images/homepage/page4/3.jpg">
 							<br>
-							<center><b class="main_body">Tsinghua, School of Environment</b></center>
+							<center><b class="highlight-body">Tsinghua, School of Environment</b></center>
 						</div>
 						<div class="3u">
 							<img class="main_img" src="../static/images/homepage/page4/4.jpg">
 							<br>
-							<center><b class="main_body">Chinese Research Academy of Environment Sciences</b></center>
+							<center><b class="highlight-body">Chinese Research Academy of Environment Sciences</b></center>
 						</div>
 					</div>
 				</div>
@@ -152,27 +200,30 @@
 												<!-- Contact Form -->
 													<section class="footer-one">
 														<form method="post" action="#">
-															<div>
-																<div class="row half">
-																	<div class="6u">
-																		<input type="text" class="text" name="name" id="contact-last-name" placeholder="Last Name" />
-																	</div>
-																	<div class="6u">
-																		<input type="text" class="text" name="name" id="contact-first-name" placeholder="First Name" />
-																	</div>
+															<div class="row half">
+																<div class="12u">
+																	<h1 class="subscrib-h1">Subscrib</h1>
 																</div>
-																<div class="row half">
-																	<div class="12u">
-																		<input type="text" class="text" name="name" id="contact-email" placeholder="Email" />
-																	</div>
+															</div>
+															<div class="row half">
+																<div class="6u">
+																	<input type="text" class="text" name="name" id="contact-last-name" placeholder="Last Name" />
 																</div>
-																<div class="row">
-																	<div class="12u">
-																		<ul class="actions">
-																			<li><input type="submit" class="button button-style1" value="Send" /></li>
-																			<li><input type="reset" class="button button-style2" value="Reset" /></li>
-																		</ul>
-																	</div>
+																<div class="6u">
+																	<input type="text" class="text" name="name" id="contact-first-name" placeholder="First Name" />
+																</div>
+															</div>
+															<div class="row half">
+																<div class="12u">
+																	<input type="text" class="text" name="name" id="contact-email" placeholder="Email" />
+																</div>
+															</div>
+															<div class="row">
+																<div class="12u">
+																	<ul class="actions">
+																		<li><input type="submit" class="button button-style1" value="Subscribe" /></li>
+																		<li><input type="reset" class="button button-style2" value="Reset" /></li>
+																	</ul>
 																</div>
 															</div>
 														</form>
@@ -219,9 +270,27 @@
 		<!-- /Footer Wrapper -->
 	
 <script>
-$(document).ready(function() {
-	window.scrollTo(0, 330);
-})
+$("#home").click(function(event) {
+	event.preventDefault();
+	window.scrollTo(0, 0);
+});
+$("#about").click(function(event) {
+	event.preventDefault();
+	window.scrollTo(0, $("#header-wrapper").height()-$("#nav-content").height()-$(".title").height()-parseInt($(".title").css("padding-top")));
+});
+$("#competition").click(function(event) {
+	event.preventDefault();
+	window.scrollTo(0, $("#header-wrapper").height()+$("#intro-wrapper").height()+parseInt($("#intro-wrapper").css("padding-top"))+parseInt($("#intro-wrapper").css("padding-bottom"))-$("#nav-content").height()-$(".title").height()-parseInt($(".title").css("padding-top")));
+});
+$("#sponsor").click(function(event) {
+	event.preventDefault();
+	window.scrollTo(0, $("#header-wrapper").height()+$("#intro-wrapper").height()+parseInt($("#intro-wrapper").css("padding-top"))+parseInt($("#intro-wrapper").css("padding-bottom"))+$("#main-wrapper").height()+parseInt($("#main-wrapper").css("padding-top"))+parseInt($("#main-wrapper").css("padding-bottom"))-$("#nav-content").height()-$(".title").height()-parseInt($(".title").css("padding-top")));
+});
+$("#contact").click(function(event) {
+	event.preventDefault();
+	window.scrollTo(0, $("#header-wrapper").height()+$("#intro-wrapper").height()+parseInt($("#intro-wrapper").css("padding-top"))+parseInt($("#intro-wrapper").css("padding-bottom"))+$("#main-wrapper").height()+parseInt($("#main-wrapper").css("padding-top"))+parseInt($("#main-wrapper").css("padding-bottom"))+$("#highlights-wrapper").height()+parseInt($("#highlights-wrapper").css("padding-top"))+parseInt($("#highlights-wrapper").css("padding-bottom"))-$("#nav-content").height()-$(".title").height()-parseInt($(".title").css("padding-top")));
+});
+
 </script>
 
 	</body>
