@@ -256,7 +256,7 @@
 
 	.wrapper
 	{
-		padding: 6em 0 9em 0;
+		padding: 4em 0 6em 0;
 	}
 
 		.wrapper .title
@@ -591,6 +591,9 @@
 			font-family: bodoni;
 			color: #ffffff;
 			font-size: 120%;
+		}
+		#main-wrapper {
+			padding-top: 1em;
 		}
 
 /*********************************************************************************/
