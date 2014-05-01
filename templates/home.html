@@ -47,17 +47,6 @@
 				</div>
 			</div>
 		
-			<div id="intro-wrapper" class="wrapper wrapper-style1">
-				<div class="title">About Us</div>
-				<div class="container">
-					<div class="row">
-						<div class="12u">
-							<img id="intro_img" src="../static/images/homepage/page2/Page 2background.jpg">
-						</div>
-					</div>
-				</div>
-			</div>
-		
 			<div id="main-wrapper" class="wrapper wrapper-style2">
 				<div class="title">The Competition</div>
 				<div class="container">
@@ -136,13 +125,15 @@
 			      	</div>
 						</div>
 					</div>
+					<br>
 					<div class="row half">
-						<div class="-3u 2u">
-							<img class="main_img" src="../static/images/homepage/page3/city.jpg">
+						<div class="12u">
+							<h3 class="main_h3">Final city remains to be announced</h3>
 						</div>
-						<div class="7u">
-							<br><br>
-							<h2 class="main_h2">Final city remains to be announced</h2>
+					</div>
+					<div class="row half">
+						<div class="-5u 2u">
+							<img class="main_img" src="../static/images/homepage/page3/city.jpg">
 						</div>
 					</div>
 				</div>
@@ -272,21 +263,17 @@ $("#home").click(function(event) {
 	event.preventDefault();
 	window.scrollTo(0, 0);
 });
-$("#about").click(function(event) {
+$("#competition").click(function(event) {
 	event.preventDefault();
 	window.scrollTo(0, $("#header-wrapper").height()-$("#nav-content").height()-$(".title").height()-parseInt($(".title").css("padding-top")));
 });
-$("#competition").click(function(event) {
-	event.preventDefault();
-	window.scrollTo(0, $("#header-wrapper").height()+$("#intro-wrapper").height()+parseInt($("#intro-wrapper").css("padding-top"))+parseInt($("#intro-wrapper").css("padding-bottom"))-$("#nav-content").height()-$(".title").height()-parseInt($(".title").css("padding-top")));
-});
 $("#sponsor").click(function(event) {
 	event.preventDefault();
-	window.scrollTo(0, $("#header-wrapper").height()+$("#intro-wrapper").height()+parseInt($("#intro-wrapper").css("padding-top"))+parseInt($("#intro-wrapper").css("padding-bottom"))+$("#main-wrapper").height()+parseInt($("#main-wrapper").css("padding-top"))+parseInt($("#main-wrapper").css("padding-bottom"))-$("#nav-content").height()-$(".title").height()-parseInt($(".title").css("padding-top")));
+	window.scrollTo(0, $("#header-wrapper").height()+$("#main-wrapper").height()+parseInt($("#main-wrapper").css("padding-top"))+parseInt($("#main-wrapper").css("padding-bottom"))-$("#nav-content").height()-$(".title").height()-parseInt($(".title").css("padding-top")));
 });
 $("#contact").click(function(event) {
 	event.preventDefault();
-	window.scrollTo(0, $("#header-wrapper").height()+$("#intro-wrapper").height()+parseInt($("#intro-wrapper").css("padding-top"))+parseInt($("#intro-wrapper").css("padding-bottom"))+$("#main-wrapper").height()+parseInt($("#main-wrapper").css("padding-top"))+parseInt($("#main-wrapper").css("padding-bottom"))+$("#highlights-wrapper").height()+parseInt($("#highlights-wrapper").css("padding-top"))+parseInt($("#highlights-wrapper").css("padding-bottom"))-$("#nav-content").height()-$(".title").height()-parseInt($(".title").css("padding-top")));
+	window.scrollTo(0, $("#header-wrapper").height()+$("#main-wrapper").height()+parseInt($("#main-wrapper").css("padding-top"))+parseInt($("#main-wrapper").css("padding-bottom"))+$("#highlights-wrapper").height()+parseInt($("#highlights-wrapper").css("padding-top"))+parseInt($("#highlights-wrapper").css("padding-bottom"))-$("#nav-content").height()-$(".title").height()-parseInt($(".title").css("padding-top")));
 });
 </script>
 

@@ -316,7 +316,7 @@
 		width: 100%;
 		text-align: center;
 		margin-top: -0.5em;
-		font-family: futura;
+		font-family: lato
 	}
 
 		.homepage #logo
@@ -328,14 +328,14 @@
 		{
 			font-size: 2em;
 			color: #e2e2e2;
-			letter-spacing: 0.25em;
+			letter-spacing: 0.1em;
 		}
 		
 		#logo .byline
 		{
 			margin: 1.25em 0 0 0;
 			display: block;
-			letter-spacing: 0.2em;
+			letter-spacing: 0.1em;
 			font-size: 1em;
 			background: -webkit-linear-gradient(left,rgba(255,255,255,0),rgba(0,0,0,1), rgba(255,255,255,0)); /*Safari 5.1-6*/
 			background: -o-linear-gradient(right,rgba(255,255,255,0),rgba(0,0,0,1), rgba(255,255,255,0)); /*Opera 11.1-12*/
@@ -547,7 +547,7 @@
 			padding-left: 2em;
 		}
 		.highlight-body {
-			font-family: bodoni;
+			font-family: lato;
 		}
 
 /*********************************************************************************/
@@ -569,23 +569,23 @@
 		.main_h1 {
 			font-size: 2em;
 			color: #000000;
-			letter-spacing: 0.25em;
+			letter-spacing: 0.1em;
 			text-align: center;
-			font-family: futura;
+			font-family: lato;
 		}
 		.main_h2 {
 			font-size: 1.2em;
 			color: #000000;
-			letter-spacing: 0.25em;
+			letter-spacing: 0.1em;
 			text-align: left;
-			font-family: futura;
+			font-family: lato;
 		}
 		.main_h3 {
 			font-size: 1em;
 			color: #539200;
-			letter-spacing: 0.25em;
+			letter-spacing: 0.1em;
 			text-align: center;
-			font-family: futura;
+			font-family: lato;
 		}
 		.main_body {
 			font-family: bodoni;
@@ -652,9 +652,9 @@
 		.subscrib-h1 {
 			font-size: 1.3em;
 			color: #000000;
-			letter-spacing: 0.25em;
+			letter-spacing: 0.1em;
 			text-align: center;
-			font-family: futura;
+			font-family: lato;
 		}
 		.footer-email {
 			text-align: center;
