@@ -659,6 +659,7 @@
 		.footer-email {
 			text-align: center;
 			text-decoration: none;
+			color: #d5d5d5;
 		}
 
 /*********************************************************************************/
@@ -676,3 +677,11 @@
 			line-height: 1em;
 			font-size: 0.8em;
 		}
+
+.logo_pic_wrapper {
+	vertical-align: bottom;
+}
+#logo_pic {
+	margin-top: 5%;
+	height: 80%;
+}

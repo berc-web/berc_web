@@ -34,10 +34,11 @@
 										</div>
 										<nav id="nav" >
 											<ul id="nav-content">
-												<li><a id="home" href="">Home</a></li>
+												<li class="logo_pic_wrapper"><a id="home1" href=""><img id="logo_pic" src="../static/images/homepage/page1/logo.png"></a></li>
+												<li><a id="home2" href="">Home</a></li>
 												<li><a id="competition" href="">Competition</a></li>
 												<li><a id="sponsor" href="">News & Resources</a></li>
-												<li><a id="about" href="">About Us</a></li>
+												<!-- <li><a id="about" href="">About Us</a></li> -->
 												<li><a id="contact" href="">Get Involved</a></li>
 											</ul>
 										</nav>
@@ -211,10 +212,7 @@
 															</div>
 															<div class="row">
 																<div class="12u">
-																	<ul class="actions">
-																		<li><input type="submit" class="button button-style1" value="Subscribe" /></li>
-																		<li><input type="reset" class="button button-style2" value="Reset" /></li>
-																	</ul>
+																	<center><input type="submit" class="button button-style1" value="Subscribe" /></center>
 																</div>
 															</div>
 														</form>
@@ -228,18 +226,12 @@
 													<section class="footer-two">
 														<div class="feature-list feature-list-small">
 															<div class="row">
-																<div class="6u">
+																<div class="12u">
 																	<section>
-																		<h3 class="fa fa-envelope">Email</h3>
-																		<p class="footer-email">eecc2015@gmail.com</p>
-																	</section>
-																</div>
-																<div class="6u">
-																	<section>
-																		<h3>Social</h3>
-																		<h3 class="fa fa-weibo contact-sub"><a href="http://weibo.com/BERCChinaFocus?topnav=1&wvr=5&topsug=1" target="_blank">Weibo</a></h3>
-																		<h3 class="fa fa-renren contact-sub"><a href="http://www.renren.com/601845509" target="_blank">RenRen</a></h3>
-																		<h3 class="fa fa-facebook contact-sub"><a href="https://www.facebook.com/bercchinafocus" target="_blank">Facebook</a></h3>
+																		<h3 class="fa fa-envelope"><a>Email: <span class="footer-email">eecc2015@gmail.com</span></a></h3>
+																		<h3 class="fa fa-weibo contact-sub"><a href="http://weibo.com/BERCChinaFocus?topnav=1&wvr=5&topsug=1" target="_blank">Weibo <span class="fa fa-arrow-circle-o-right footer-email"></span></a></h3>
+																		<h3 class="fa fa-renren contact-sub"><a href="http://www.renren.com/601845509" target="_blank">RenRen <span class="fa fa-arrow-circle-o-right footer-email"></span></a></h3>
+																		<h3 class="fa fa-facebook contact-sub"><a href="https://www.facebook.com/bercchinafocus" target="_blank">Facebook <span class="fa fa-arrow-circle-o-right footer-email"></span></a></h3>
 																	</section>
 																</div>
 															</div>
@@ -259,21 +251,35 @@
 		<!-- /Footer Wrapper -->
 	
 <script>
-$("#home").click(function(event) {
+$("#home1").click(function(event) {
 	event.preventDefault();
-	window.scrollTo(0, 0);
+	$('html,body').animate({
+      scrollTop: 0
+    }, 1000);
+});
+$("#home2").click(function(event) {
+	event.preventDefault();
+	$('html,body').animate({
+      scrollTop: 0
+    }, 1000);
 });
 $("#competition").click(function(event) {
 	event.preventDefault();
-	window.scrollTo(0, $("#header-wrapper").height()-$("#nav-content").height()-$(".title").height()-parseInt($(".title").css("padding-top")));
+	$('html,body').animate({
+      scrollTop: $("#header-wrapper").height()-$("#nav-content").height()-$(".title").height()-parseInt($(".title").css("padding-top"))
+    }, 1000);
 });
 $("#sponsor").click(function(event) {
 	event.preventDefault();
-	window.scrollTo(0, $("#header-wrapper").height()+$("#main-wrapper").height()+parseInt($("#main-wrapper").css("padding-top"))+parseInt($("#main-wrapper").css("padding-bottom"))-$("#nav-content").height()-$(".title").height()-parseInt($(".title").css("padding-top")));
+	$('html,body').animate({
+      scrollTop: $("#header-wrapper").height()+$("#main-wrapper").height()+parseInt($("#main-wrapper").css("padding-top"))+parseInt($("#main-wrapper").css("padding-bottom"))-$("#nav-content").height()-$(".title").height()-parseInt($(".title").css("padding-top"))
+    }, 1000);
 });
 $("#contact").click(function(event) {
 	event.preventDefault();
-	window.scrollTo(0, $("#header-wrapper").height()+$("#main-wrapper").height()+parseInt($("#main-wrapper").css("padding-top"))+parseInt($("#main-wrapper").css("padding-bottom"))+$("#highlights-wrapper").height()+parseInt($("#highlights-wrapper").css("padding-top"))+parseInt($("#highlights-wrapper").css("padding-bottom"))-$("#nav-content").height()-$(".title").height()-parseInt($(".title").css("padding-top")));
+	$('html,body').animate({
+      scrollTop: $("#header-wrapper").height()+$("#main-wrapper").height()+parseInt($("#main-wrapper").css("padding-top"))+parseInt($("#main-wrapper").css("padding-bottom"))+$("#highlights-wrapper").height()+parseInt($("#highlights-wrapper").css("padding-top"))+parseInt($("#highlights-wrapper").css("padding-bottom"))-$("#nav-content").height()-$(".title").height()-parseInt($(".title").css("padding-top"))
+    }, 1000);
 });
 </script>
 
