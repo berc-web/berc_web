@@ -52,6 +52,7 @@ def upload_avatar():
 		db.session.commit()
 	return redirect(url_for('user', uname=current_user.username))
 
+db.app = app
 db.init_app(app)
 babel = Babel(app)
 user_manager.init_app(app)
