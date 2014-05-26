@@ -1,4 +1,5 @@
 import os
+from flask import url_for
 
 class Config(object):
 	DEBUG=True
@@ -23,8 +24,7 @@ class Config(object):
 	MAIL_PASSWORD = 'Berc12345'
 	MAIL_DEFAULT_SENDER = 'eecc2015@gmail.com'
 
-	# flask-user config
-	# URL CONFIG
+	# FLASK-USER URL CONFIG
 	USER_CHANGE_PASSWORD_URL  = '/change-password'
 	USER_CHANGE_USERNAME_URL  = '/change-username'
 	USER_CONFIRM_EMAIL_URL    = '/confirm-email/<token>'
@@ -33,10 +33,14 @@ class Config(object):
 	USER_RESET_PASSWORD_URL   = '/reset-password/<token>'
 	USER_LOGIN_URL            = '/login'
 	USER_LOGOUT_URL           = '/logout'
-	# TEMPLATES
+
+	# FLASK-USER TEMPLATES
 	# USER_LOGIN_TEMPLATE                     = 'flask_user/login.html'
 	# USER_REGISTER_TEMPLATE                  = 'flask_user/register.html'
 	# USER_CHANGE_PASSWORD_TEMPLATE           = 'flask_user/change_password.html'
 	# USER_CHANGE_USERNAME_TEMPLATE           = 'flask_user/change_username.html'
 	# USER_FORGOT_PASSWORD_TEMPLATE           = 'flask_user/forgot_password.html'
 	# USER_RESET_PASSWORD_TEMPLATE            = 'flask_user/reset_password.html'
+
+	UPLOAD_FOLDER = 'static/upload'
+	# DEFAULT_FILE_STORAGE = 'filesystem'

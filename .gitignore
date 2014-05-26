@@ -2,3 +2,4 @@ venv
 *.pyc
 berc.db
 testdb
+upload/*

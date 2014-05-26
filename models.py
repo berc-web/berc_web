@@ -1,5 +1,6 @@
 from flask.ext.sqlalchemy import SQLAlchemy
 from flask.ext.user import UserMixin, SQLAlchemyAdapter
+from hashlib import md5
 
 db = SQLAlchemy()
 
@@ -20,13 +21,22 @@ class User(db.Model, UserMixin):
 	first_name = db.Column(db.String(30))
 	last_name = db.Column(db.String(30))
 	username = db.Column(db.String(50), unique=True)
-	email = db.Column(db.String(100), unique=True)
 	password = db.Column(db.String(100))
+	email = db.Column(db.String(100), unique=True)
+	avatar = db.Column(db.String(200), unique=True, default=None)
 	active = db.Column(db.Boolean(), nullable=False, default=False)
 	confirmed_at = db.Column(db.DateTime())
 	# Relationships
 	roles = db.relationship('Role', secondary=user_roles,
 					backref=db.backref('users', lazy='dynamic'))
+ 
+	def __init__(self, first_name=None, last_name=None, username=None, password=None, email=None, avatar=None):
+		self.first_name = first_name
+		self.last_name 	= last_name
+		self.username 	= username
+		self.password 	= password
+		self.email 		= email
+		self.avatar 	= avatar
 
 	def is_authenticated(self):
 		return True
