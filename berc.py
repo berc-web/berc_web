@@ -23,7 +23,7 @@ def home():
 	return render_template('home.html')
 
 @app.route('/user/<uname>', methods=['GET'])
-# @login_required
+@login_required
 def user(uname):
 	user = user_manager.find_user_by_username(uname)
 	if user is None:

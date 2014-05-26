@@ -20,7 +20,7 @@ class MyModelView(sqla.ModelView):
 class MyAdminIndexView(admin.AdminIndexView):
 
 	@expose('/')
-	# @roles_required('admin')
+	@roles_required('admin')
 	def index(self):
 		return super(MyAdminIndexView, self).index()
 
