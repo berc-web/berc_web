@@ -64,8 +64,8 @@ try:
 	if db.session.query(User).filter_by(username=app.config['USERNAME']).count() == 0:
 		admin = User()
 		admin.username = app.config['USERNAME']
-		admin.password = user_manager.hash_password(app.config['PASSWORD'])
 		admin.email = app.config['ADMIN_EMAIL']
+		admin.password = user_manager.hash_password(app.config['PASSWORD'])
 		admin.roles.append(Role(name='admin'))
 		admin.active = True
 		db.session.add(admin)
