@@ -65,6 +65,7 @@ try:
 		admin = User()
 		admin.username = app.config['USERNAME']
 		admin.password = user_manager.hash_password(app.config['PASSWORD'])
+		admin.email = app.config['ADMIN_EMAIL']
 		admin.roles.append(Role(name='admin'))
 		admin.active = True
 		db.session.add(admin)

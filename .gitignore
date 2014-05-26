@@ -1,4 +1,3 @@
 venv
 *.pyc
 berc.db
-db-ctrl

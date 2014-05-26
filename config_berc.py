@@ -6,6 +6,7 @@ class Config(object):
 	SECRET_KEY='eecc2015web'
 	USERNAME='admin'
 	PASSWORD='Berc12345'
+	ADMIN_EMAIL='eecc2015@gmail.com'
 
 	if os.environ.get('DATABASE_URL') is None:
 		# SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://@localhost/localdb'
