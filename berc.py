@@ -25,6 +25,9 @@ def home():
 @app.route('/user/<uname>', methods=['GET'])
 @login_required
 def user(uname):
+	if uname != current_user.username:
+		return redirect(url_for('userProfile', uname=current_user.username, uname2=uname))
+
 	user = user_manager.find_user_by_username(uname)
 	if user is None:
 		flash('User '+uname+' not found.')
@@ -32,9 +35,26 @@ def user(uname):
 	else:
 		return render_template('user.html', user=user)
 
-@app.route('/user/upload_avatar', methods=['POST', 'GET'])
+@app.route('/user/<uname>/profile/<uname2>', methods=['GET'])
 @login_required
-def upload_avatar():
+def userProfile(uname, uname2):
+	if uname != current_user.username:
+		return redirect(url_for('userProfile', uname=current_user.username, uname2=uname2))
+
+	user = user_manager.find_user_by_username(uname2)
+	if user is None:
+		flash('User '+uname2+' not found.')
+		return redirect(url_for('home'))
+	else:
+		return render_template('profile.html', user=user)
+
+@app.route('/user/<uname>/upload_avatar', methods=['POST'])
+@login_required
+def upload_avatar(uname):
+
+	if uname != current_user.username:
+		flash("You are not autorized to modify the profile of user: " + uname)
+		return redirect(url_for('home')+'/admin')
 
 	##### DELETE OLD AVATAR FILE WHEN USER UPLOAD A NEW ONE #####
 	# path = os.path.join(app.config['UPLOAD_FOLDER'], 'user_avatar')
