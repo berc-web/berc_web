@@ -5,6 +5,7 @@ from flask.ext.babel import Babel
 from flask.ext.mail import Mail
 from flask.ext.admin import Admin
 from flask.ext.user import login_required, current_user
+from flask_debugtoolbar import DebugToolbarExtension
 from admin_view import MyModelView, MyAdminIndexView
 from config_user import user_manager
 from models import db, User, Role
@@ -77,6 +78,7 @@ db.init_app(app)
 babel = Babel(app)
 user_manager.init_app(app)
 mail = Mail(app)
+toolbar = DebugToolbarExtension(app)
 admin = Admin(app, 'eecc', index_view=MyAdminIndexView(), base_template='my_master.html')
 admin.add_view(MyModelView(User, db.session))
 admin.add_view(MyModelView(Role, db.session))
