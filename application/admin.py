@@ -1,15 +1,13 @@
 from flask import url_for, redirect, render_template, request, flash
-from models import User, db
+from models import User, Role
+from application import db, app
 from flask.ext import admin, login
 from flask.ext.admin.contrib import sqla
-from flask.ext.admin import expose
-from flask.ext.user import roles_required
-
-# import mailchimp
-
-# apikey = '9ff33749afa74071578e2d427ec3a8b2-us8'
+from flask.ext.admin import expose, Admin
+from flask.ext.user import roles_required, login_required
 
 # Create customized model view class
+# ----------------------------------
 class MyModelView(sqla.ModelView):
 	column_exclude_list = 'password'
 	# can_create = False
@@ -20,11 +18,19 @@ class MyModelView(sqla.ModelView):
 class MyAdminIndexView(admin.AdminIndexView):
 
 	@expose('/')
-	@roles_required('admin')
+	@login_required
 	def index(self):
 		return super(MyAdminIndexView, self).index()
 
 	@expose('/logout/')
+	@login_required	
 	def logout_view(self):
 		login.logout_user()
 		return redirect(url_for('.index'))
+
+# Admin Setup
+# -----------
+admin = Admin(name='EECC Admin Panel', index_view=MyAdminIndexView(), base_template='my_master.html')
+admin.add_view(MyModelView(User, db.session, category="models"))
+admin.add_view(MyModelView(Role, db.session, category="models"))
+admin.init_app(app)

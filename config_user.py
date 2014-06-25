@@ -1,6 +1,6 @@
 from flask import render_template
 from flask.ext.user import UserManager, forms, tokens
-from models import db_adapter
+from application import db_adapter
 
 def user_login():
 	return render_template('flask_user/login.html')

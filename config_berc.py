@@ -36,12 +36,12 @@ class Config(object):
 	USER_LOGOUT_URL           = '/logout'
 
 	# FLASK-USER TEMPLATES
-	# USER_LOGIN_TEMPLATE                     = 'flask_user/login.html'
-	# USER_REGISTER_TEMPLATE                  = 'flask_user/register.html'
-	# USER_CHANGE_PASSWORD_TEMPLATE           = 'flask_user/change_password.html'
-	# USER_CHANGE_USERNAME_TEMPLATE           = 'flask_user/change_username.html'
-	# USER_FORGOT_PASSWORD_TEMPLATE           = 'flask_user/forgot_password.html'
-	# USER_RESET_PASSWORD_TEMPLATE            = 'flask_user/reset_password.html'
+	USER_LOGIN_TEMPLATE                     = 'flask_user/login.html'
+	USER_REGISTER_TEMPLATE                  = 'flask_user/register.html'
+	USER_CHANGE_PASSWORD_TEMPLATE           = 'flask_user/change_password.html'
+	USER_CHANGE_USERNAME_TEMPLATE           = 'flask_user/change_username.html'
+	USER_FORGOT_PASSWORD_TEMPLATE           = 'flask_user/forgot_password.html'
+	USER_RESET_PASSWORD_TEMPLATE            = 'flask_user/reset_password.html'
 
 	UPLOAD_FOLDER = 'static/upload'
 	# DEFAULT_FILE_STORAGE = 'filesystem'

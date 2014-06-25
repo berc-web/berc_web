@@ -1,13 +1,21 @@
-from flask.ext.sqlalchemy import SQLAlchemy
-from flask.ext.user import UserMixin, SQLAlchemyAdapter
+from flask.ext.user import UserMixin
 from hashlib import md5
 
-db = SQLAlchemy()
+from datetime import datetime
+
+from flask.ext.security import UserMixin, RoleMixin
+from sqlalchemy import event
+from sqlalchemy.ext.declarative import declared_attr
+from sqlalchemy.ext.orderinglist import ordering_list
+
+from application import db
+
 
 user_roles = db.Table('user_roles',
 	db.Column('id', db.Integer(), primary_key=True),
 	db.Column('user_id', db.Integer(), db.ForeignKey('user.id', ondelete='CASCADE')),
 	db.Column('role_id', db.Integer(), db.ForeignKey('role.id', ondelete='CASCADE')))
+
 
 class Role(db.Model):
 	id = db.Column(db.Integer(), primary_key=True)
@@ -15,6 +23,7 @@ class Role(db.Model):
 
 	def __unicode__(self):
 		return self.name
+
 
 class User(db.Model, UserMixin):
 	id = db.Column(db.Integer, primary_key=True)
@@ -53,4 +62,11 @@ class User(db.Model, UserMixin):
 	def __unicode__(self):
 		return self.username
 
-db_adapter = SQLAlchemyAdapter(db, User)
+
+class TimestampMixin(object):
+    created = db.Column(db.DateTime, default=datetime.utcnow)
+    updated = db.Column(db.DateTime, default=datetime.utcnow)
+
+    def readable_date(self, date, format='%H:%M on %-d %B'):
+        """Format the given date using the given format."""
+        return date.strftime(format)

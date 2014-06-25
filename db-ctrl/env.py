@@ -6,8 +6,7 @@ from logging.config import fileConfig
 import os, sys
 sys.path.append(os.getcwd())
 
-from berc import app
-from models import db
+from application import app, db
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
