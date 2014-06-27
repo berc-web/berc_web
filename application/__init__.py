@@ -74,7 +74,6 @@ def upload_avatar(uname):
 	filename = secure_filename(file.filename)
 	if file and file_allowed(filename, ALLOWED_PIC):
 		path = url_for('static', filename=os.path.join('upload', 'user_avatar', filename))
-		# import pdb; pdb.set_trace()
 		current_user.avatar = os.path.join('..', path)
 		db.session.commit()
 		path = 'application' + path
