@@ -1150,7 +1150,35 @@
 		#intro .style3
 		{
 		}
-		
+	
+/*********************************************************************************/
+/* member base                                                                   */
+/*********************************************************************************/
+	    .user_wrapper
+	    {
+	        min-height:100%;
+	        width:150%;
+	        position:relative;
+	        display:inline-block;
+			left: -100px;
+			top: 100px;
+	    }
+	    .user_navbar
+	    {
+	        width:25%;
+	        top:0px;
+	        left:0px;
+	        bottom:0px;
+	        position:absolute;
+			border-right: 1px solid lightgray;
+	    }
+	    .user_content
+	    {
+	        min-height:500px;
+	        width:50%;
+	        position:relative;
+	        float:right;
+	    }
 /*********************************************************************************/
 /* Highlights                                                                    */
 /*********************************************************************************/

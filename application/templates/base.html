@@ -8,6 +8,7 @@
 
     <!-- Bootstrap -->
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="static/css/style.css" />
     <style>
         .col-centered { float: none; margin: 0 auto; }
         hr { border-color: #cccccc; }
@@ -38,9 +39,23 @@
                         {% endif %}
                     {%- endwith %}
                 {% endblock %}
+					<div class="user_wrapper">
+					<nav class="user_navbar">
+						<h3> {{ current_user.username }} </h3>
+					      <ul class="nav">
+							<li><a href="">Profile</a></li>
+					        <li><a href="{{ url_for('user.change_password') }}">Change Password</a></li>
+					        <li><a href="{{ url_for('user.change_username') }}">Change username</a></li>
+					        <li><a href="#">Reset Password</a></li>
+					      </ul>
 
-                {% block content %}
-                {% endblock %}
+					</nav>
+					<div class="user_content">
+		                {% block content %}
+		                {% endblock %}
+					</div>
+				</div>
+                
             </div>
         </div>
     </div>
