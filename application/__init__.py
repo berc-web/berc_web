@@ -13,7 +13,7 @@ ALLOWED_PIC = set(['jpg', 'jpe', 'jpeg', 'png', 'gif', 'svg', 'bmp'])
 
 # Database
 db = SQLAlchemy(app)
-from models import db, User, Role
+from models import User, Role
 
 # db_adapter
 db_adapter = SQLAlchemyAdapter(db, User)
@@ -107,6 +107,6 @@ try:
 		db.session.commit()
 except Exception:
 	pass
-	
+
 if __name__ == '__main__':
 	app.run()
