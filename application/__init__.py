@@ -73,10 +73,12 @@ def upload_avatar(uname):
 	file  = request.files['avatar']
 	filename = secure_filename(file.filename)
 	if file and file_allowed(filename, ALLOWED_PIC):
-		path = os.path.join(app.config['UPLOAD_FOLDER'], 'user_avatar', filename)
-		file.save(path)
+		path = url_for('static', filename=os.path.join('upload', 'user_avatar', filename))
+		# import pdb; pdb.set_trace()
 		current_user.avatar = os.path.join('..', path)
 		db.session.commit()
+		path = 'application' + path
+		file.save(path)
 	return redirect(url_for('user', uname=current_user.username))
 
 babel = Babel(app)

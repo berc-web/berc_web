@@ -15,7 +15,7 @@ class Config(object):
 	else:
 		SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
 
-	SQLALCHEMY_ECHO=True
+	# SQLALCHEMY_ECHO=True
 
 	#EMAIL SETTINGS
 	MAIL_SERVER='smtp.gmail.com'
@@ -43,5 +43,5 @@ class Config(object):
 	USER_FORGOT_PASSWORD_TEMPLATE           = 'flask_user/forgot_password.html'
 	USER_RESET_PASSWORD_TEMPLATE            = 'flask_user/reset_password.html'
 
-	UPLOAD_FOLDER = 'static/upload'
+	# UPLOAD_FOLDER = '../static/upload'
 	# DEFAULT_FILE_STORAGE = 'filesystem'
