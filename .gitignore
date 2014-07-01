@@ -1,5 +1,6 @@
 venv
-*.pyc
+*/*.pyc
 berc.db
-static/upload
+application/static/upload
+application/static/upload/*
 */.DS_Store
