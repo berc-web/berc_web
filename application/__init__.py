@@ -13,6 +13,7 @@ ALLOWED_PIC = set(['jpg', 'jpe', 'jpeg', 'png', 'gif', 'svg', 'bmp'])
 
 # Database
 db = SQLAlchemy(app)
+db.create_all()
 from models import User, Role
 
 # db_adapter
@@ -60,8 +61,8 @@ def userProfile(uname, uname2):
 @login_required
 def upload_avatar(uname):
 	if uname != current_user.username:
-		flash("You are not autorized to modify the profile of user: " + uname)
-		return redirect(url_for('home')+'/admin')
+		flash('You are not autorized to modify the profile of user: ' + uname)
+		return redirect(url_for('user', uname=current_user.username))
 
 	##### DELETE OLD AVATAR FILE WHEN USER UPLOAD A NEW ONE #####
 	# path = os.path.join(app.config['UPLOAD_FOLDER'], 'user_avatar')
@@ -73,8 +74,8 @@ def upload_avatar(uname):
 	file  = request.files['avatar']
 	filename = secure_filename(file.filename)
 	if file and file_allowed(filename, ALLOWED_PIC):
-		path = url_for('static', filename=os.path.join('upload', 'user_avatar', filename))
-		current_user.avatar = os.path.join('..', path)
+		path = os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(filename))
+		current_user.avatar = path
 		db.session.commit()
 		path = 'application' + path
 		file.save(path)

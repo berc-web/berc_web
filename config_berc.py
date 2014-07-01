@@ -43,5 +43,5 @@ class Config(object):
 	USER_FORGOT_PASSWORD_TEMPLATE           = 'flask_user/forgot_password.html'
 	USER_RESET_PASSWORD_TEMPLATE            = 'flask_user/reset_password.html'
 
-	# UPLOAD_FOLDER = '../static/upload'
+	UPLOAD_FOLDER = '/static/upload/user_avatar/'
 	# DEFAULT_FILE_STORAGE = 'filesystem'
