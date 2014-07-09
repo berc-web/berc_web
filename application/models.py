@@ -39,19 +39,11 @@ class User(db.Model, UserMixin):
 	roles = db.relationship('Role', secondary=user_roles,
 					backref=db.backref('users', lazy='dynamic'))
 
-	# def __init__(self, first_name=None, last_name=None, username=None, password=None, email=None, avatar=None):
-	# 	self.first_name = first_name
-	# 	self.last_name 	= last_name
-	# 	self.username 	= username
-	# 	self.password 	= password
-	# 	self.email 		= email
-	# 	self.avatar 	= avatar
-
 	def is_authenticated(self):
 		return True
 
 	def is_active(self):
-		return True
+		return self.active
 
 	def is_anonymous(self):
 		return False

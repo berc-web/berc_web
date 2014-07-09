@@ -1,5 +1,5 @@
 run:
-	python runserver.py
+	python run.py
 
 clean:
 	rm application/*.pyc
