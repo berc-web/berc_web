@@ -1,6 +1,6 @@
 venv
 */*.pyc
 berc.db
-application/static/upload
-application/static/upload/*
+application/static/upload/user_avatar/*
+!application/static/upload/user_avatar/default1.png
 */.DS_Store
