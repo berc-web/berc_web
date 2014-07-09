@@ -9,7 +9,7 @@ user_manager = UserManager(
     db_adapter,
     app = None,
 
-    # view functions 
+    # view functions
         # login_view_function           = user_login,
         # change_password_view_function = my_view_function1,
         # change_username_view_function = my_view_function2,

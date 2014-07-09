@@ -1,7 +1,7 @@
 <!-- extend base layout -->
 {% extends "base.html" %}
 
-{% block body %}
+{% block content %}
 
 <h1>Upload new File</h1>
 <form action="{{ url_for('upload_avatar', uname=current_user.username) }}" method="post" enctype="multipart/form-data">

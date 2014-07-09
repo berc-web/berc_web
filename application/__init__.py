@@ -13,7 +13,6 @@ ALLOWED_PIC = set(['jpg', 'jpe', 'jpeg', 'png', 'gif', 'svg', 'bmp'])
 
 # Database
 db = SQLAlchemy(app)
-db.create_all()
 from models import User, Role
 
 # db_adapter
@@ -29,29 +28,21 @@ def home():
 	return render_template('home.html')
 
 
-@app.route('/user/<uname>', methods=['GET'])
+@app.route('/profile', methods=['GET'])
 @login_required
-def user(uname):
-	if uname != current_user.username:
-		return redirect(url_for('userProfile', uname=current_user.username, uname2=uname))
+def user():
+	return render_template('user.html', user=current_user)
+
+
+@app.route('/<uname>/profile', methods=['GET'])
+@login_required
+def userProfile(uname):
+	if uname == current_user.username:
+		return redirect(url_for('user'))
 
 	user = user_manager.find_user_by_username(uname)
 	if user is None:
 		flash('User '+uname+' not found.')
-		return redirect(url_for('home'))
-	else:
-		return render_template('user.html', user=user)
-
-
-@app.route('/user/<uname>/viewprofile/<uname2>', methods=['GET'])
-@login_required
-def userProfile(uname, uname2):
-	if uname != current_user.username:
-		return redirect(url_for('userProfile', uname=current_user.username, uname2=uname2))
-
-	user = user_manager.find_user_by_username(uname2)
-	if user is None:
-		flash('User '+uname2+' not found.')
 		return redirect(url_for('home'))
 	else:
 		return render_template('profile.html', user=user)
@@ -62,7 +53,7 @@ def userProfile(uname, uname2):
 def upload_avatar(uname):
 	if uname != current_user.username:
 		flash('You are not autorized to modify the profile of user: ' + uname)
-		return redirect(url_for('user', uname=current_user.username))
+		return redirect(url_for('user'))
 
 	##### DELETE OLD AVATAR FILE WHEN USER UPLOAD A NEW ONE #####
 	# path = os.path.join(app.config['UPLOAD_FOLDER'], 'user_avatar')
@@ -79,7 +70,7 @@ def upload_avatar(uname):
 		db.session.commit()
 		path = 'application' + path
 		file.save(path)
-	return redirect(url_for('user', uname=current_user.username))
+	return redirect(url_for('user'))
 
 babel = Babel(app)
 user_manager.init_app(app)

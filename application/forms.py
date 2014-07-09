@@ -29,3 +29,4 @@ class CreatePostForm(Form):
 
 class EditPostForm(CreatePostForm):
     pass
+
