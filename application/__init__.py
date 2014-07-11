@@ -100,6 +100,3 @@ try:
 		db.session.commit()
 except Exception:
 	pass
-
-if __name__ == '__main__':
-	app.run()

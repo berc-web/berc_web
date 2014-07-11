@@ -1,1 +1,1 @@
-web: gunicorn berc:app
+web: gunicorn application:app
