@@ -32,27 +32,26 @@ class User(db.Model, UserMixin):
 	username = db.Column(db.String(50), unique=True)
 	password = db.Column(db.String(100))
 	email = db.Column(db.String(100), unique=True)
+	school = db.Column(db.String(100))
 	avatar = db.Column(db.String(200), unique=True, default=None)
 	active = db.Column(db.Boolean(), nullable=False, default=False)
 	confirmed_at = db.Column(db.DateTime())
 	# Relationships
 	roles = db.relationship('Role', secondary=user_roles,
 					backref=db.backref('users', lazy='dynamic'))
-
-	def is_authenticated(self):
-		return True
+	team_id = db.Column(db.Integer, db.ForeignKey('team.id'), nullable=True)
 
 	def is_active(self):
 		return self.active
 
-	def is_anonymous(self):
-		return False
-
-	def get_id(self):
-		return self.id
-
 	def __unicode__(self):
 		return self.username
+
+
+class Team(db.Model):
+	id = db.Column(db.Integer, primary_key=True)
+	name = db.Column(db.String(100), unique=True, nullable=False)
+	members = db.relationship('User', backref='team', lazy='dynamic')
 
 
 class TimestampMixin(object):

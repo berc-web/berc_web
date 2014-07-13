@@ -5,11 +5,12 @@ from flask import Flask, request, session, g, redirect, url_for, render_template
 from flask.ext.babel import Babel
 from flask.ext.mail import Mail
 from flask.ext.user import login_required, current_user, SQLAlchemyAdapter
+from flask.ext.wtf.csrf import CsrfProtect
 from werkzeug import secure_filename
+from forms import AvatarForm
 
 app = Flask(__name__)
 app.config.from_object('config_berc.Config')
-ALLOWED_PIC = set(['jpg', 'jpe', 'jpeg', 'png', 'gif', 'svg', 'bmp'])
 
 # Database
 db = SQLAlchemy(app)
@@ -19,9 +20,8 @@ from models import User, Role
 db_adapter = SQLAlchemyAdapter(db, User)
 from config_user import user_manager
 
-def file_allowed(filename, ext_set):
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1] in ext_set
+# CsrfProtect
+csrf = CsrfProtect(app)
 
 @app.route('/')
 def home():
@@ -31,7 +31,7 @@ def home():
 @app.route('/profile', methods=['GET'])
 @login_required
 def user():
-	return render_template('user.html', user=current_user)
+	return render_template('user_profile.html', user=current_user)
 
 
 @app.route('/<uname>/profile', methods=['GET'])
@@ -45,32 +45,24 @@ def userProfile(uname):
 		flash('User '+uname+' not found.')
 		return redirect(url_for('home'))
 	else:
-		return render_template('profile.html', user=user)
+		return render_template('user_profile.html', user=user)
 
 
-@app.route('/user/<uname>/upload_avatar', methods=['POST'])
+@app.route('/upload_avatar', methods=['POST', 'GET'])
 @login_required
-def upload_avatar(uname):
-	if uname != current_user.username:
-		flash('You are not autorized to modify the profile of user: ' + uname)
-		return redirect(url_for('user'))
-
-	##### DELETE OLD AVATAR FILE WHEN USER UPLOAD A NEW ONE #####
-	# path = os.path.join(app.config['UPLOAD_FOLDER'], 'user_avatar')
-	# filename = current_user.avatar.split('/')[-1]
-	# current = send_from_directory(path, filename)
-	# if current:
-	# 	current.delete()
-
-	file  = request.files['avatar']
-	filename = secure_filename(file.filename)
-	if file and file_allowed(filename, ALLOWED_PIC):
-		path = os.path.join(app.config['UPLOAD_FOLDER'], secure_filename(filename))
+@csrf.exempt
+def upload_avatar():
+	form = AvatarForm()
+	if form.validate_on_submit():
+		file_name = secure_filename(form.photo.data.filename)
+		path = os.path.join(app.config['UPLOAD_FOLDER'], file_name)
 		current_user.avatar = path
 		db.session.commit()
 		path = 'application' + path
-		file.save(path)
-	return redirect(url_for('user'))
+		form.photo.data.save(path)
+		return redirect(url_for('user'))
+
+	return render_template('upload_avatar.html', form=form)
 
 babel = Babel(app)
 user_manager.init_app(app)
