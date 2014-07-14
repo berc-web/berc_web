@@ -5,17 +5,13 @@ from wtforms.validators import Required
 from flask.ext.wtf import Form
 from flask.ext.wtf.file import FileField, FileRequired, FileAllowed
 from flask.ext.user import current_user
+from flask.ext.user.forms import password_validator, username_validator, \
+	unique_username_validator, unique_email_validator
 
 
 # **************************
 # ** Validation Functions **
 # **************************
-
-def unique_email_validator(form, field):
-    """ Username must be unique"""
-    user_manager =  current_app.user_manager
-    if not user_manager.email_is_available(field.data):
-        raise ValidationError(_('This Email is no longer available. Please try another one.'))
 
 
 # ***********
@@ -43,6 +39,56 @@ class EditPostForm(CreatePostForm):
 
 
 # class TeamSignUpForm(Form):
+
+
+
+
+class RegisterFormWithName(Form):
+	password_validator_added = False
+
+	username = StringField('Username', validators=[
+        validators.Required('Username is required'),
+        unique_username_validator])
+	name = TextField('Name', validators=[Required()])
+	email = StringField('Email', validators=[
+		validators.Required('Email is required'),
+		validators.Email('Invalid Email'),
+		unique_email_validator])
+	password = PasswordField('Password', validators=[
+		validators.Required('Password is required')])
+	retype_password = PasswordField('Retype Password', validators=[
+		validators.EqualTo('password', message='Password and Retype Password did not match')])
+	submit = SubmitField('Register')
+
+	def validate(self):
+		# remove certain form fields depending on user manager config
+		user_manager =  current_app.user_manager
+		if not user_manager.enable_username:
+			delattr(self, 'username')
+		if not user_manager.enable_email:
+			delattr(self, 'email')
+		if not user_manager.enable_retype_password:
+			delattr(self, 'retype_password')
+		# Add custom username validator if needed
+		if user_manager.enable_username:
+			has_been_added = False
+			for v in self.username.validators:
+				if v==user_manager.username_validator:
+					has_been_added = True
+		if not has_been_added:
+			self.username.validators.append(user_manager.username_validator)
+		# Add custom password validator if needed
+		has_been_added = False
+		for v in self.password.validators:
+			if v==user_manager.password_validator:
+				has_been_added = True
+		if not has_been_added:
+			self.password.validators.append(user_manager.password_validator)
+		# Validate field-validators
+		if not super(RegisterFormWithName, self).validate():
+		    return False
+		# All is well
+		return True
 
 
 
