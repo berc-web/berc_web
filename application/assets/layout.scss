@@ -1,0 +1,50 @@
+$navbar_height: 70px;
+body {
+	padding-top: 70px;
+}
+.navbar {
+	height: $navbar_height;
+	line-height: $navbar_height;
+	margin: 0;
+	.container-fluid {
+		height: $navbar_height;
+		line-height: $navbar_height;
+		background: #222835;
+		background-color: rgba(44,50,63,1);
+		text-align: center;
+		.navbar-header {
+			height: $navbar_height;
+			line-height: $navbar_height;
+			.logo-pic {
+				height: 80%;
+				margin: auto;
+			}
+		}
+		.navbar-collapse {
+			height: $navbar_height;
+			line-height: $navbar_height;
+			.navbar-nav {
+				height: $navbar_height;
+				line-height: $navbar_height;
+				position: relative;
+				li {
+					height: $navbar_height;
+					line-height: $navbar_height;
+					vertical-align: middle;
+					padding: 0 26px;;
+					a {
+						display: block;
+						height: $navbar_height;
+						line-height: $navbar_height;
+						padding: 0;
+						color: rgba(255,255,255,0.75);
+						text-transform: uppercase;
+						text-decoration: none;
+						font-size: 16px;
+						letter-spacing: 4px;
+					}
+				}
+			}
+		}
+	}
+}

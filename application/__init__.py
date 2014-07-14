@@ -8,9 +8,13 @@ from flask.ext.user import login_required, current_user, SQLAlchemyAdapter
 from flask.ext.wtf.csrf import CsrfProtect
 from werkzeug import secure_filename
 from forms import AvatarForm
+#config Scss
+from flask.ext.scss import Scss
 
 app = Flask(__name__)
 app.config.from_object('config_berc.Config')
+#Scss
+Scss(app)
 
 # Database
 db = SQLAlchemy(app)
