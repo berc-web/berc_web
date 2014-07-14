@@ -1,20 +1,33 @@
 {% extends 'layout.html' %}
 {% block head %}
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
 {% endblock %}
 {% block content %}
 <div class="home">
-	<div id="header-wrapper" class="wrapper">
-		<div class="container">
-			<div class="row">
-				<div class="12u">
-					<div id="header">
-							<div id="logo">
-								<h1>US-China Energy and Environment</h1>
-								<h1>Case Competition</h1>
-								<span class="byline">The forefront of the next wave of China-US collaboration</span>
-							</div>
-					</div>
+	<div class="container-fluid header">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="header-content">
+					<h1>US-China Energy and Environment</h1>
+					<h1>Case Competition</h1>
+					<span class="byline">The forefront of the next wave of China-US collaboration</span>
 				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container-fluid competition">
+		<div class="competition-title">The Competition</div>
+		<div class="row">
+			<div class="col-md-12">
+				<img class="main_img" src="../static/images/homepage/page3/challenge.png">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
 			</div>
 		</div>
 	</div>

@@ -1,0 +1,28 @@
+.home {
+	font-family: lato;
+	.header {
+		height: 500px;
+		background: url('../images/homepage/page1/pic2.jpg') center center;
+		background-size: cover;
+		.header-content {
+			width: 70%;
+			margin: 0 auto;
+			margin-top: 150px;
+			h1 {
+				margin-top: 10px;
+				text-align: center;
+				color: #e2e2e2;
+				font-size: 35px;
+				font-weight: 900;
+			}
+			.byline {
+				margin-top: 20px;
+				display: block;
+				background: linear-gradient(to right, rgba(255,255,255,0), rgba(0,0,0,1), rgba(255,255,255,0));
+				color: rgba(255,255,255,0.9);
+				font-size: 17px;
+				text-align: center;
+			}
+		}
+	}
+}

@@ -1,0 +1,24 @@
+.home {
+  font-family: lato; }
+  .home .header {
+    height: 500px;
+    background: url('../images/homepage/page1/pic2.jpg') center center;
+    background-size: cover; }
+    .home .header .header-content {
+      width: 70%;
+      margin: 0 auto;
+      margin-top: 150px; }
+      .home .header .header-content h1 {
+        margin-top: 10px;
+        text-align: center;
+        color: #e2e2e2;
+        font-size: 35px;
+        font-weight: 900; }
+        .home .header .header-content .byline {
+          margin-top: 20px;
+          display: block;
+          background: linear-gradient(to right, rgba(255, 255, 255, 0), black 50%, rgba(255,
+                    255, 255, 0));
+          color: rgba(255, 255, 255, 0.9);
+          font-size: 17px;
+          text-align: center; }

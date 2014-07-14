@@ -1,6 +1,7 @@
 $navbar_height: 70px;
 body {
 	padding-top: 70px;
+	font-family: 'Source Sans Pro', sans-serif;
 }
 .navbar {
 	height: $navbar_height;
@@ -37,7 +38,7 @@ body {
 						height: $navbar_height;
 						line-height: $navbar_height;
 						padding: 0;
-						color: rgba(255,255,255,0.75);
+						color: rgba(255,255,255,0.8);
 						text-transform: uppercase;
 						text-decoration: none;
 						font-size: 16px;
