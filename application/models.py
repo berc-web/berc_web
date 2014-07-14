@@ -27,12 +27,12 @@ class Role(db.Model):
 
 class User(db.Model, UserMixin):
 	id = db.Column(db.Integer, primary_key=True)
-	first_name = db.Column(db.String(30))
-	last_name = db.Column(db.String(30))
+	first_name = db.Column(db.String(30), nullable=False, default='')
+	last_name = db.Column(db.String(30), nullable=False, default='')
 	username = db.Column(db.String(50), unique=True)
 	password = db.Column(db.String(100))
 	email = db.Column(db.String(100), unique=True)
-	school = db.Column(db.String(100))
+	school = db.Column(db.String(100), nullable=False, default='')
 	avatar = db.Column(db.String(200), unique=True, default=None)
 	active = db.Column(db.Boolean(), nullable=False, default=False)
 	confirmed_at = db.Column(db.DateTime())
@@ -52,6 +52,9 @@ class Team(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	name = db.Column(db.String(100), unique=True, nullable=False)
 	members = db.relationship('User', backref='team', lazy='dynamic')
+
+	def __unicode__(self):
+		return self.name
 
 
 class TimestampMixin(object):

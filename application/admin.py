@@ -1,5 +1,5 @@
 from flask import url_for, redirect, render_template, request, flash
-from models import User, Role
+from models import User, Role, Team
 from application import db, app
 from flask.ext import admin, login
 from flask.ext.admin.contrib import sqla
@@ -23,7 +23,7 @@ class MyAdminIndexView(admin.AdminIndexView):
 		return super(MyAdminIndexView, self).index()
 
 	@expose('/logout/')
-	@login_required	
+	@login_required
 	def logout_view(self):
 		login.logout_user()
 		return redirect(url_for('.index'))
@@ -33,4 +33,5 @@ class MyAdminIndexView(admin.AdminIndexView):
 admin = Admin(name='EECC Admin Panel', index_view=MyAdminIndexView(), base_template='my_master.html')
 admin.add_view(MyModelView(User, db.session, category="models"))
 admin.add_view(MyModelView(Role, db.session, category="models"))
+admin.add_view(MyModelView(Team, db.session, category="models"))
 admin.init_app(app)

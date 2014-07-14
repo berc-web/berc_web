@@ -5,9 +5,8 @@ from flask import Flask, request, session, g, redirect, url_for, render_template
 from flask.ext.babel import Babel
 from flask.ext.mail import Mail
 from flask.ext.user import login_required, current_user, SQLAlchemyAdapter
-from flask.ext.wtf.csrf import CsrfProtect
 from werkzeug import secure_filename
-from forms import AvatarForm
+from forms import UpdateProfileForm
 
 app = Flask(__name__)
 app.config.from_object('config_berc.Config')
@@ -19,9 +18,6 @@ from models import User, Role
 # db_adapter
 db_adapter = SQLAlchemyAdapter(db, User)
 from config_user import user_manager
-
-# CsrfProtect
-csrf = CsrfProtect(app)
 
 @app.route('/')
 def home():
@@ -48,21 +44,29 @@ def userProfile(uname):
 		return render_template('user_profile.html', user=user)
 
 
-@app.route('/upload_avatar', methods=['POST', 'GET'])
+@app.route('/update_profile', methods=['POST', 'GET'])
 @login_required
-@csrf.exempt
-def upload_avatar():
-	form = AvatarForm()
+def update_profile():
+	form = UpdateProfileForm()
 	if form.validate_on_submit():
-		file_name = secure_filename(form.photo.data.filename)
-		path = os.path.join(app.config['UPLOAD_FOLDER'], file_name)
-		current_user.avatar = path
+
+		# update avatar
+		if form.photo.data:
+			file_name = secure_filename(form.photo.data.filename)
+			path = os.path.join(app.config['UPLOAD_FOLDER'], file_name)
+			current_user.avatar = path
+			path = 'application' + path
+			form.photo.data.save(path)
+
+		current_user.first_name = form.first_name.data
+		current_user.last_name = form.last_name.data
+		current_user.school = form.school.data
+
 		db.session.commit()
-		path = 'application' + path
-		form.photo.data.save(path)
+
 		return redirect(url_for('user'))
 
-	return render_template('upload_avatar.html', form=form)
+	return render_template('update_profile.html', form=form, user=current_user)
 
 babel = Babel(app)
 user_manager.init_app(app)

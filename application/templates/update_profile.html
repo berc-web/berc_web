@@ -5,8 +5,12 @@
 {% from "flask_user/_macros.html" import render_field, render_submit_field %}
 
 <form action="" method="POST" class="form" role="form" enctype='multipart/form-data'>
-	{{ form.csrf_token }}
+	{{ form.hidden_tag() }}
     {{ render_field(form.photo, tabindex=10) }}
+    {{ render_field(form.first_name, tabindex=10, placeholder=user.first_name) }}
+    {{ render_field(form.last_name, tabindex=10, placeholder=user.last_name) }}
+    {{ render_field(form.school, tabindex=10, placeholder=user.school) }}
+    {{ render_field(form.old_password, tabindex=10) }}
     {{ render_submit_field(form.submit, tabindex=90) }}
 </form>
 
