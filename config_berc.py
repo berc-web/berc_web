@@ -42,5 +42,12 @@ class Config(object):
 	USER_FORGOT_PASSWORD_TEMPLATE           = 'flask_user/forgot_password.html'
 	USER_RESET_PASSWORD_TEMPLATE            = 'flask_user/reset_password.html'
 
+    # Email templates
+	USER_CONFIRM_EMAIL_EMAIL_TEMPLATE       = 'flask_user/emails/confirm_email'
+	USER_FORGOT_PASSWORD_EMAIL_TEMPLATE     = 'flask_user/emails/forgot_password'
+	USER_PASSWORD_CHANGED_EMAIL_TEMPLATE    = 'flask_user/emails/password_changed'
+	USER_REGISTERED_EMAIL_TEMPLATE          = 'flask_user/emails/registered'
+	USER_USERNAME_CHANGED_EMAIL_TEMPLATE    = 'flask_user/emails/username_changed'
+
 	UPLOAD_FOLDER = '/static/upload/user_avatar/'
 	# DEFAULT_FILE_STORAGE = 'filesystem'

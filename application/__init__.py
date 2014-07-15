@@ -82,7 +82,7 @@ def update_profile():
 		try:
 			pm.listSubscribe(id='8d4e6caca8', email_address=current_user.email, double_optin=False)
 		except Exception, e:
-			pass
+			passm
 
 		return redirect(url_for('user'))
 

@@ -36,5 +36,4 @@ user_manager = UserManager(
 
     # Miscellaneous
     token_manager                   = tokens.TokenManager(),
-
 )

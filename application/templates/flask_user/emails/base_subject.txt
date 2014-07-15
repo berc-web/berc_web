@@ -1,1 +1,1 @@
-Flask-User {% block subject %}{% endblock %}
+EECC2015: {% block subject %}{% endblock %}

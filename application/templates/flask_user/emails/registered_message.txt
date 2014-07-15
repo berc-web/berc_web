@@ -1,6 +1,17 @@
 {% extends 'flask_user/emails/base_message.txt' %}
 
 {% block message %}
-Thank you for registering with Flask-User.
+
+Welcome! You have created an account with the 2015 US-China Energy and Environment Competition.
+
+As a member of EECC2015, you will get updates from the competition organizers.
+
+Please also visit us on:
+- Competition Website: http://www.eecc2015.org/
+- BERC Website: http://berc.berkeley.edu/
+- Facebook: https://www.facebook.com/bercchinafocus
+- Renren: http://page.renren.com/601845509
+
+If you have any comments or questions, please contact eecc2015@gmail.com.
 
 {% endblock %}

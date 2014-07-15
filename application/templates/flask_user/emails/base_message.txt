@@ -1,7 +1,7 @@
-Dear User,
+Dear Friend,
 
 {% block message %}
 {% endblock %}
 
-Sincerely,
-The Flask-User Team
+Best regards,
+The Organizers of the 2015 US-China Energy and Environment Competition
