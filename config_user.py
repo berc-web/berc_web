@@ -2,7 +2,8 @@ from flask import render_template
 from flask.ext.user import forms as flask_user_forms
 from flask.ext.user import UserManager, tokens
 from application import db_adapter
-from application import forms as customize_forms
+from application import forms as my_forms
+from application.my_user_view import my_login
 
 def user_login():
 	return render_template('flask_user/login.html')
@@ -12,13 +13,13 @@ user_manager = UserManager(
     app = None,
 
     # view functions
-        # login_view_function           = user_login,
+        login_view_function           = my_login,
         # change_password_view_function = my_view_function1,
         # change_username_view_function = my_view_function2,
-        # confirm_email_view_function   = my_view_function3,
+        # confirm_email_view_function   = my_confirm_email,
         # forgot_password_view_function = my_view_function4,
         # logout_view_function          = my_view_function6,
-        # register_view_function        = my_view_function7,
+        # register_view_function        = my_register,
         # reset_password_view_function  = my_view_function8
 
     # Forms
@@ -26,7 +27,7 @@ user_manager = UserManager(
     change_username_form            = flask_user_forms.ChangeUsernameForm,
     forgot_password_form            = flask_user_forms.ForgotPasswordForm,
     login_form                      = flask_user_forms.LoginForm,
-    register_form                   = customize_forms.RegisterFormWithName,
+    register_form                   = my_forms.RegisterFormWithName,
     reset_password_form             = flask_user_forms.ResetPasswordForm,
 
     # Validators

@@ -3,7 +3,6 @@ from hashlib import md5
 
 from datetime import datetime
 
-from flask.ext.security import UserMixin, RoleMixin
 from sqlalchemy import event
 from sqlalchemy.ext.declarative import declared_attr
 from sqlalchemy.ext.orderinglist import ordering_list
@@ -27,13 +26,15 @@ class Role(db.Model):
 
 class User(db.Model, UserMixin):
 	id = db.Column(db.Integer, primary_key=True)
-	name = db.Column(db.String(30), nullable=False, default='')
+	fname = db.Column(db.String(30), nullable=False, default='')
+	lname = db.Column(db.String(30), nullable=False, default='')
 	username = db.Column(db.String(50), unique=True)
 	password = db.Column(db.String(100))
 	email = db.Column(db.String(100), unique=True)
 	school = db.Column(db.String(100), nullable=False, default='')
 	avatar = db.Column(db.String(200), unique=True, default=None)
 	active = db.Column(db.Boolean(), nullable=False, default=False)
+	subscribed = db.Column(db.Boolean(), default=False)
 	confirmed_at = db.Column(db.DateTime())
 	# Relationships
 	roles = db.relationship('Role', secondary=user_roles,

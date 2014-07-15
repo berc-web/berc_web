@@ -19,6 +19,7 @@ class MyAdminIndexView(admin.AdminIndexView):
 
 	@expose('/')
 	@login_required
+	@roles_required('admin')
 	def index(self):
 		return super(MyAdminIndexView, self).index()
 

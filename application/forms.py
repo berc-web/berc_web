@@ -1,6 +1,6 @@
 from flask import current_app
 from wtforms import SubmitField, TextField, TextAreaField, HiddenField, \
-	PasswordField, StringField, validators
+	PasswordField, StringField, SelectField, validators
 from wtforms.validators import Required
 from flask.ext.wtf import Form
 from flask.ext.wtf.file import FileField, FileRequired, FileAllowed
@@ -49,7 +49,8 @@ class RegisterFormWithName(Form):
 	username = StringField('Username', validators=[
         validators.Required('Username is required'),
         unique_username_validator])
-	name = TextField('Name', validators=[Required()])
+	fname = TextField('First Name', validators=[Required()])
+	lname = TextField('Last Name', validators=[Required()])
 	email = StringField('Email', validators=[
 		validators.Required('Email is required'),
 		validators.Email('Invalid Email'),
@@ -91,15 +92,18 @@ class RegisterFormWithName(Form):
 		return True
 
 
-
 class UpdateProfileForm(Form):
 	photo = FileField('Avatar', validators=[
 			FileAllowed(['jpg', 'jpe', 'jpeg', 'png', 'gif', 'svg', 'bmp'], 'Images only!')
 		])
 	next = HiddenField()
-	first_name = TextField()
-	last_name = TextField()
-	school = TextField()
+	fname = TextField('First Name', validators=[Required()])
+	lname = TextField('Last Name', validators=[Required()])
+	school = TextField('School', validators=[Required()])
+	email = StringField('Email', validators=[
+		validators.Required('Email is required'),
+		validators.Email('Invalid Email'),
+		unique_email_validator])
 
 	old_password = PasswordField('Current Password', validators=[
 		validators.Required('Current Password is required'),
