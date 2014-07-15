@@ -1,0 +1,78 @@
+.competition {
+  font-family: lato; }
+  .competition .intro .intro-title {
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold; }
+  .competition .rules .rules-title {
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold; }
+  .competition .judges .judges-title {
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+    background-color: #fea022;
+    color: #ffffff;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 50px;
+    line-height: 30px; }
+    .competition .judges .judges-content .berkeley .title {
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      height: 300px;
+      line-height: 300px;
+      background-color: #ff6700;
+      color: #ffffff; }
+      .competition .judges .judges-content .berkeley .content .single {
+        height: 150px; }
+    .competition .judges .judges-content .tsinghua .title {
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      height: 450px;
+      line-height: 450px;
+      background-color: #fea022;
+      color: #ffffff; }
+      .competition .judges .judges-content .tsinghua .content .single {
+        height: 150px; }
+    .competition .judges .judges-content .lbl .title {
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      height: 450px;
+      line-height: 450px;
+      background-color: #fea022;
+      color: #ffffff; }
+      .competition .judges .judges-content .lbl .content .single {
+        height: 150px; }
+    .competition .judges .judges-content .ngo .title {
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      height: 150px;
+      line-height: 150px;
+      background-color: #fea022;
+      color: #ffffff; }
+      .competition .judges .judges-content .ngo .content .single {
+        height: 150px; }
+    .competition .judges .judges-content .industry .title {
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold;
+      height: 450px;
+      line-height: 450px;
+      background-color: #fea022;
+      color: #ffffff; }
+      .competition .judges .judges-content .industry .content .single {
+        height: 150px; }
+  .competition .rubrics .rubrics-title {
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold; }
+  .competition .prizes .prizes-title {
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold; }

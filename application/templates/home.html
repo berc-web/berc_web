@@ -1,6 +1,6 @@
 {% extends 'layout.html' %}
 {% block head %}
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
 {% endblock %}
 {% block content %}
 <div class="home">
@@ -17,108 +17,92 @@
 	</div>
 	<div class="container-fluid competition">
 		<div class="competition-title">The Competition</div>
-		<div class="row">
-			<div class="col-md-12">
-				<img class="main_img" src="../static/images/homepage/page3/challenge.png">
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12">
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12">
-			</div>
-		</div>
-	</div>
-
-	<div id="main-wrapper" class="wrapper wrapper-style2">
-		<div class="title">The Competition</div>
-		<div class="container">
+		<div class="container competition-content">
 			<div class="row">
-				<div class="12u">
-					<img class="main_img" src="../static/images/homepage/page3/challenge.png">
+				<div class="col-md-12">
+					<img class="competition-img" src="../static/images/homepage/page3/challenge.png">
 				</div>
 			</div>
-			<div class="row half">
-				<div class="12u">
-					<h1 class="main_h1">Five Topics, One Chinese City</h1>
-				</div>
-				<div class="12u">
-					<h3 class="main_h3">Preliminary Round: Solving Cases in Five Topics</h3>
+			<div class="row">
+				<div class="col-md-12">
+					<h1>Five Topics, One Chinese City</h1>
 				</div>
 			</div>
-			<div class="row half">
-				<div class="-1u 2u hover-wrapper">
+			<div class="row">
+				<div class="col-md-12">
+					<h3>Preliminary Round: Solving Cases in Five Topics</h3>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-offset-1 col-md-2 hover-wrapper">
 					<div class="ih-item circle effect1 hover">
 						<a href="#">
-	    			<div class="img"><img src="../static/images/homepage/page3/icon1.png" alt="img"></div>
+	    			<div class="competition-ihover-img"><img src="../static/images/homepage/page3/icon1.png" alt="img"></div>
 			        <div class="info">
 			          <div class="info-back">
-			            <center><b class="main_body">Air pollution</b></center>
+			            <center><b class="competition-ihover-text">Air pollution</b></center>
 			          </div>
 			        </div>
 		      	</a>
 	      	</div>
 				</div>
-				<div class="2u">
+				<div class="col-md-2">
 					<div class="ih-item circle effect1 hover">
 						<a href="#">
-	    			<div class="img"><img src="../static/images/homepage/page3/icon2.png" alt="img"></div>
+	    			<div class="competition-ihover-img"><img src="../static/images/homepage/page3/icon2.png" alt="img"></div>
 			        <div class="info">
 			          <div class="info-back">
-			            <center><b class="main_body">Green Building</b></center>
+			            <center><b class="competition-ihover-text">Green Building</b></center>
 			          </div>
 			        </div>
 		      	</a>
 	      	</div>
 				</div>
-				<div class="2u">
+				<div class="col-md-2">
 					<div class="ih-item circle effect1 hover">
 						<a href="#">
-	    			<div class="img"><img src="../static/images/homepage/page3/icon3.png" alt="img"></div>
+	    			<div class="competition-ihover-img"><img src="../static/images/homepage/page3/icon3.png" alt="img"></div>
 			        <div class="info">
 			          <div class="info-back">
-			            <center><b class="main_body">Clean Water</b></center>
+			            <center><b class="competition-ihover-text">Clean Water</b></center>
 			          </div>
 			        </div>
 		      	</a>
 	      	</div>
 				</div>
-				<div class="2u">
+				<div class="col-md-2">
 					<div class="ih-item circle effect1 hover">
 						<a href="#">
-	    			<div class="img"><img src="../static/images/homepage/page3/icon4.png" alt="img"></div>
+	    			<div class="competition-ihover-img"><img src="../static/images/homepage/page3/icon4.png" alt="img"></div>
 			        <div class="info">
 			          <div class="info-back">
-			            <center><b class="main_body">Clean Transportation</b></center>
+			            <center><b class="competition-ihover-text">Clean Transportation</b></center>
 			          </div>
 			        </div>
 		      	</a>
 	      	</div>
 				</div>
-				<div class="2u">
+				<div class="col-md-2">
 					<div class="ih-item circle effect1 hover">
 						<a href="#">
-	    			<div class="img"><img src="../static/images/homepage/page3/icon2.png" alt="img"></div>
+	    			<div class="competition-ihover-img"><img src="../static/images/homepage/page3/icon2.png" alt="img"></div>
 			        <div class="info">
 			          <div class="info-back">
-			            <center><b class="main_body">Social Spaces</b></center>
+			            <center><b class="competition-ihover-text">Social Spaces</b></center>
 			          </div>
 			        </div>
 		      	</a>
 	      	</div>
 				</div>
 			</div>
-			<br>
-			<div class="row half">
-				<div class="12u">
-					<h3 class="main_h3">Final city remains to be announced</h3>
+			<div class="row">
+				<div class="col-md-12">
+					<h3>Final city remains to be announced</h3>
 				</div>
 			</div>
-			<div class="row half">
-				<div class="-5u 2u">
-					<img class="main_img" src="../static/images/homepage/page3/city.jpg">
+			<div class="row">
+				<div class="col-md-offset-5 col-md-2">
+					<img class="competition-ihover-img" src="../static/images/homepage/page3/city.jpg">
 				</div>
 			</div>
 		</div>
@@ -135,66 +119,62 @@
 		})
 	</script>
 
-
-	<div id="highlights-wrapper" class="wrapper wrapper-style3">
-		<div class="title">SPONSORS</div>
+	<div class="container-fluid sponsor">
+		<div class="sponsor-title">Sponsor</div>
 		<div class="container">
 			<div class="row">
-				<div class="3u">
-					<img class="main_img" src="../static/images/homepage/page4/1.png">
-					<br>
-					<center><b class="highlight-body">University of California, Berkeley</b></center>
+				<div class="col-md-3">
+					<img class="sponsor-img" src="../static/images/homepage/page4/1.png">
+					<h1>University of California, Berkeley</h1>
 				</div>
-				<div class="3u">
-					<img class="main_img" src="../static/images/homepage/page4/2.png">
-					<br>
-					<center><b class="highlight-body">Tsinghua, School of Environment</b></center>
+				<div class="col-md-3">
+					<img class="sponsor-img" src="../static/images/homepage/page4/2.png">
+					<h1>Tsinghua, School of Environment</h1>
 				</div>
-				<div class="3u">
-					<img class="main_img" src="../static/images/homepage/page4/3.jpg">
-					<br>
-					<center><b class="highlight-body">Chinese Research Academy of Environment Sciences</b></center>
+				<div class="col-md-3">
+					<img class="sponsor-img" src="../static/images/homepage/page4/3.jpg">
+					<h1>Chinese Research Academy of Environment Sciences</h1>
 				</div>
-				<div class="3u">
-					<img class="main_img" src="../static/images/homepage/page4/4.jpg">
-					<br>
-					<center><b class="highlight-body">Joint US China Collaboration on Clean Energy</b></center>
+				<div class="col-md-3">
+					<img class="sponsor-img" src="../static/images/homepage/page4/4.jpg">
+					<h1>Joint US China Collaboration on Clean Energy</h1>
 				</div>
 			</div>
 		</div>
 	</div>
 
+
 	<script>
-	$("#home1").click(function(event) {
-		event.preventDefault();
-		$('html,body').animate({
-	      scrollTop: 0
-	    }, 1000);
-	});
-	$("#home2").click(function(event) {
-		event.preventDefault();
-		$('html,body').animate({
-	      scrollTop: 0
-	    }, 1000);
-	});
-	$("#competition").click(function(event) {
-		event.preventDefault();
-		$('html,body').animate({
-	      scrollTop: $("#header-wrapper").height()-$("#nav-content").height()-$(".title").height()-parseInt($(".title").css("padding-top"))
-	    }, 1000);
-	});
-	$("#sponsor").click(function(event) {
-		event.preventDefault();
-		$('html,body').animate({
-	      scrollTop: $("#header-wrapper").height()+$("#main-wrapper").height()+parseInt($("#main-wrapper").css("padding-top"))+parseInt($("#main-wrapper").css("padding-bottom"))-$("#nav-content").height()-$(".title").height()-parseInt($(".title").css("padding-top"))
-	    }, 1000);
-	});
-	$("#contact").click(function(event) {
-		event.preventDefault();
-		$('html,body').animate({
-	      scrollTop: $("#header-wrapper").height()+$("#main-wrapper").height()+parseInt($("#main-wrapper").css("padding-top"))+parseInt($("#main-wrapper").css("padding-bottom"))+$("#highlights-wrapper").height()+parseInt($("#highlights-wrapper").css("padding-top"))+parseInt($("#highlights-wrapper").css("padding-bottom"))-$("#nav-content").height()-$(".title").height()-parseInt($(".title").css("padding-top"))
-	    }, 1000);
-	});
-	</script>
+	// $("#home1").click(function(event) {
+	// 	event.preventDefault();
+	// 	$('html,body').animate({
+	//       scrollTop: 0
+	//     }, 1000);
+	// });
+	// $("#home2").click(function(event) {
+	// 	event.preventDefault();
+	// 	$('html,body').animate({
+	//       scrollTop: 0
+	//     }, 1000);
+	// });
+	// $("#competition").click(function(event) {
+	// 	event.preventDefault();
+	// 	$('html,body').animate({
+	//       scrollTop: $("#header-wrapper").height()-$("#nav-content").height()-$(".title").height()-parseInt($(".title").css("padding-top"))
+	//     }, 1000);
+	// });
+	// $("#sponsor").click(function(event) {
+	// 	event.preventDefault();
+	// 	$('html,body').animate({
+	//       scrollTop: $("#header-wrapper").height()+$("#main-wrapper").height()+parseInt($("#main-wrapper").css("padding-top"))+parseInt($("#main-wrapper").css("padding-bottom"))-$("#nav-content").height()-$(".title").height()-parseInt($(".title").css("padding-top"))
+	//     }, 1000);
+	// });
+	// $("#contact").click(function(event) {
+	// 	event.preventDefault();
+	// 	$('html,body').animate({
+	//       scrollTop: $("#header-wrapper").height()+$("#main-wrapper").height()+parseInt($("#main-wrapper").css("padding-top"))+parseInt($("#main-wrapper").css("padding-bottom"))+$("#highlights-wrapper").height()+parseInt($("#highlights-wrapper").css("padding-top"))+parseInt($("#highlights-wrapper").css("padding-bottom"))-$("#nav-content").height()-$(".title").height()-parseInt($(".title").css("padding-top"))
+	//     }, 1000);
+	// });
+	// </script>
 </div>
 {% endblock %}
