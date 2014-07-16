@@ -4,7 +4,7 @@
   background: #ffffff url('images/overlay.png');
   padding-top: 50px;
   margin-bottom: 50px;
-  min-height: 100%; }
+  min-height: 900px; }
   .news .navigation {
     font-size: 18px;
     margin-bottom: 20px; }
@@ -17,3 +17,5 @@
         .news .main .content {
           text-align: center;
           font-size: 18px; }
+          .news .main #resources, .news .main #news {
+            margin-bottom: 20px; }

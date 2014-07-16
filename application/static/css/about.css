@@ -4,7 +4,7 @@
   background: #ffffff url('images/overlay.png');
   padding-top: 50px;
   margin-bottom: 50px;
-  min-height: 100%; }
+  min-height: 900px; }
   .about .navigation {
     font-size: 18px;
     margin-bottom: 20px; }
@@ -17,3 +17,17 @@
         .about .main .content {
           text-align: center;
           font-size: 18px; }
+          .about .main #sponsors .organizers-img, .about .main #organizers .organizers-img {
+            width: 100%; }
+            .about .main #sponsors h1, .about .main #organizers h1 {
+              font-size: 17px;
+              font-weight: bold;
+              text-align: center;
+              margin-top: 15px; }
+      .about .main #involve .content a {
+        text-decoration: none; }
+        .about .main #involve .content a:hover {
+          text-decoration: none; }
+      .about .main #about, .about .main #sponsors, .about .main #organizers,
+      .about .main #involve, .about .main #contact {
+        margin-bottom: 20px; }

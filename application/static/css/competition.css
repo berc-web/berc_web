@@ -4,7 +4,7 @@
   background: #ffffff url('images/overlay.png');
   padding-top: 50px;
   margin-bottom: 50px;
-  min-height: 100%; }
+  min-height: 900px; }
   .competition .navigation {
     font-size: 18px;
     margin-bottom: 20px; }
@@ -17,18 +17,21 @@
         .competition .main .content {
           text-align: center;
           font-size: 18px; }
-          .competition .main .judge {
-            margin-top: 10px;
-            margin-bottom: 10px; }
-            .competition .main .judge .judges-img {
-              width: 100%; }
-              .competition .main .judge .name {
-                text-align: center;
-                font-size: 16px;
-                font-weight: bold; }
-                .competition .main .judge .detail {
-                  margin-top: 10px;
+          .competition .main #mission, .competition .main #rules, .competition .main #judges,
+          .competition .main #rubrics, .competition .main #prizes {
+            margin-bottom: 20px; }
+            .competition .main .judge {
+              margin-top: 10px;
+              margin-bottom: 10px; }
+              .competition .main .judge .judges-img {
+                width: 100%; }
+                .competition .main .judge .name {
                   text-align: center;
                   font-size: 16px;
-                  font-weight: normal;
-                  color: #7f7f7f; }
+                  font-weight: bold; }
+                  .competition .main .judge .detail {
+                    margin-top: 10px;
+                    text-align: center;
+                    font-size: 16px;
+                    font-weight: normal;
+                    color: #7f7f7f; }

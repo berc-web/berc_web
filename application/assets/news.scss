@@ -4,7 +4,7 @@
 	background: #ffffff url('images/overlay.png');
 	padding-top: 50px;
 	margin-bottom: 50px;
-	min-height: 100%;
+	min-height: 900px;
 	.navigation {
 		font-size: 18px;
 		margin-bottom: 20px;
@@ -19,6 +19,9 @@
 		.content {
 			text-align: center;
 			font-size: 18px;
+		}
+		#resources, #news {
+			margin-bottom: 20px;
 		}
 	}
 }

@@ -1,4 +1,7 @@
 $navbar_height: 70px;
+html, body {
+	min-height: 100%;
+}
 body {
 	padding-top: 70px;
 	font-family: 'Source Sans Pro', sans-serif;
@@ -48,7 +51,4 @@ body {
 			}
 		}
 	}
-}
-.content {
-	min-height: 100%;
 }
