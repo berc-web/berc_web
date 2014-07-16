@@ -3,188 +3,101 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/competition.css') }}">
 {% endblock %}
 {% block content %}
-<div class="competition">
-	<div class="container intro">
-		<div class="intro-title">Intro</div>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="intro-content mission">
-						Mission statement here
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<div class="intro-content five-focuses">
-						five-focuses here
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<div class="intro-content flow-chart">
-						flow-chart here
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<div class="intro-content etc">
-						etc here
-					</div>
-				</div>
-			</div>
+<div class="container competition">
+	<div class="row">
+		<div class="col-md-2 navigation">
+			<ul class="nav nav-pills nav-stacked">
+				<li><a href="#mission">Mission</a></li>
+				<li><a href="#rules">Rules</a></li>
+				<li><a href="#judges">Judges</a></li>
+				<li><a href="#rubrics">Rubrics</a></li>
+				<li><a href="#prizes">The Prizes</a></li>
+			</ul>
 		</div>
-	</div>
-	<div class="container rules">
-		<div class="rules-title">Rules</div>
-		<div class="container">
-			<div class="row">
+		<div class="col-md-10 main">
+			<div class="row" id="mission">
 				<div class="col-md-12">
-					<div class="rules-content">
+					<div class="title">Our Mission</div>
+					<div class="content">
+						In the past few years, the United States and China are leading the global energy and environment industry. Recent developments have revealed difficulties that come with collaboration efforts between the two power-players, often caused by lack of cultural understanding and channels for open thought and technology exchange.
+						While difficulties exist, the energy industry will only become more globalized in the future, favoring those who are prepared with collaboration skills, cultural understanding, and developed networks. China and the US will be at the center of the globalization. Thus, BERC China Focus and Tsinghua Green Association are organizing a student case-study competition to get students in the world’s top universities an opportunity to focus their skills, meet like-minded peers, and provide solutions to today's real-life issues.
+					</div>
+				</div>
+			</div>
+			<div class="row" id="rules">
+				<div class="col-md-12">
+					<div class="title">Rules</div>
+					<div class="content"></div>
+				</div>
+			</div>
+			<div class="row" id="judges">
+				<div class="col-md-12">
+					<div class="title">Judges</div>
+					<div class="content">
 						<div class="row">
-							<div class="col-md-12"></div>
-						</div>
-						<div class="row">
-							<div class="col-md-12"></div>
-						</div>
-						<div class="row">
-							<div class="col-md-12"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="container judges">
-		<div class="judges-title">Judges</div>
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="judges-content">
-						<div class="row berkeley">
-							<div class="col-md-3 title">BERKELEY PROFESSORS</div>
-							<div class="col-md-9 content">
-								<div class="row single">
-									<div class="col-md-3">photo1</div>
-									<div class="col-md-9 text">
-										<div class="name">HARRISON FRAKER JR.</div>
-										<div class="detail">
-											Professor of architecture, Chair of Energy and Resources Group, former dean of UC Berkeley’s College of Environmental Design
-										</div>
-									</div>
-								</div>
-								<div class="row single">
-									<div class="col-md-3">photo2</div>
-									<div class="col-md-9 text">
-										<div class="name">DANIEL KAMMEN</div>
-										<div class="detail">
-											Distinguished Professor of Energy at the University or California, Berkeley, with parallel appointments in the Energy and Resources Group, the Goldman School of Public Policy, and the department or Nuclear Engineering.
-										</div>
-									</div>
+							<div class="col-md-6">
+								<div class="col-md-4"></div>
+								<div class="col-md-8">
+									<div class="name">HARRISON FRAKER JR.</div>
+									<div class="detail">Professor of architecture, Chair of Energy and Resources Group, former dean of UC Berkeley’s College of Environmental Design</div>
 								</div>
 							</div>
-						</div>
-						<div class="row tsinghua">
-							<div class="col-md-3 title">TSINGHUA PROFESSORS</div>
-							<div class="col-md-9 content">
-								<div class="row single">
-									<div class="col-md-3">photo3</div>
-									<div class="col-md-9 text">
-										<div class="name">KEBIN HE</div>
-										<div class="detail">
-											Division of Air Pollution Control, Chair of Tsinghua School of Environment
-										</div>
-									</div>
-								</div>
-								<div class="row single">
-									<div class="col-md-3">photo4</div>
-									<div class="col-md-9 text">
-										<div class="name">JIANE ZUO</div>
-										<div class="detail">
-											Professor and Vice Chair of Tsinghua School of Environment
-										</div>
-									</div>
-								</div>
-								<div class="row single">
-									<div class="col-md-3">photo5</div>
-									<div class="col-md-9 text">
-										<div class="name">CAN WANG</div>
-										<div class="detail">
-											Professor and Chair of the Department of Environmental Planning and Management
-										</div>
-									</div>
+							<div class="col-md-6">
+								<div class="col-md-4"></div>
+								<div class="col-md-8">
+									<div class="name">DANIEL KAMMEN</div>
+									<div class="detail">Distinguished Professor of Energy at the University or California, Berkeley, with parallel appointments in the Energy and Resources Group, the Goldman School of Public Policy, and the department or Nuclear Engineering</div>
 								</div>
 							</div>
-						</div>
-						<div class="row lbl">
-							<div class="col-md-3 title">LBL National Lab Research Directors</div>
-							<div class="col-md-9 content">
-								<div class="row single">
-									<div class="col-md-3">photo6</div>
-									<div class="col-md-9 text">
-										<div class="name">STEPHANIE OHSHITA</div>
-										<div class="detail">
-											Working in China Energy Group, Associate Professor in University of San Francisco
-										</div>
-									</div>
+							<div class="col-md-6">
+								<div class="col-md-4"></div>
+								<div class="col-md-8">
+									<div class="name">KEBIN HE</div>
+									<div class="detail">Division of Air Pollution Control, Chair of Tsinghua School of Environment</div>
 								</div>
 							</div>
-						</div>
-						<div class="row ngo">
-							<div class="col-md-3 title">NGO FOUNDERS</div>
-							<div class="col-md-9 content">
-								<div class="row single">
-									<div class="col-md-3">photo7</div>
-									<div class="col-md-9 text">
-										<div class="name">PEGGY LIU</div>
-										<div class="detail">
-											Chairperson of JUCCCE, is internationally recognized for her expertise on China’s sustainability landscape and for fostering international collaboration with China
-										</div>
-									</div>
+							<div class="col-md-6">
+								<div class="col-md-4"></div>
+								<div class="col-md-8">
+									<div class="name">JIANE ZUO</div>
+									<div class="detail">Professor and Vice Chair of Tsinghua School of Environment</div>
 								</div>
 							</div>
-						</div>
-						<div class="row industry">
-							<div class="col-md-3 title">INDUSTRY REPRESENTATIVS</div>
-							<div class="col-md-9 content">
-								<div class="row single">
-									<div class="col-md-3">photo8</div>
-									<div class="col-md-9 text">
-										<div class="name">XIAOMING FENG</div>
-										<div class="detail">
-											Corporate Research Fellow, ABB
-										</div>
-									</div>
+							<div class="col-md-6">
+								<div class="col-md-4"></div>
+								<div class="col-md-8">
+									<div class="name">CAN WANG</div>
+									<div class="detail">Professor and Chair of the Department of Environmental Planning and Management</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="col-md-4"></div>
+								<div class="col-md-8">
+									<div class="name">STEPHANIE OHSHITA</div>
+									<div class="detail">Working in China Energy Group, Associate Professor in University of San Francisco</div>
+								</div>
+							</div>
+							<div class="col-md-6">
+								<div class="col-md-4"></div>
+								<div class="col-md-8">
+									<div class="name">PEGGY LIU</div>
+									<div class="detail">Chairperson of JUCCCE, is internationally recognized for her expertise on China’s sustainability landscape and for fostering international collaboration with China</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
-	<div class="container rubrics">
-		<div class="rubrics-title">Rubrics</div>
-		<div class="container">
-			<div class="row">
+			<div class="row" id="rubrics">
 				<div class="col-md-12">
-					<div class="rubrics-content">
-						Rubrics here
-					</div>
+					<div class="title">Rubrics</div>
+					<div class="content"></div>
 				</div>
 			</div>
-		</div>
-	</div>
-	<div class="container prizes">
-		<div class="prizes-title">The Prizes</div>
-		<div class="container">
-			<div class="row">
+			<div class="row" id="prizes">
 				<div class="col-md-12">
-					<div class="prizes-content">
-						The Prizes here
-					</div>
+					<div class="title">The Prizes</div>
+					<div class="content"></div>
 				</div>
 			</div>
 		</div>

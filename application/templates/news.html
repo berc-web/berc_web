@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/news.css') }}">
+{% endblock %}
+{% block content %}
+<div class="news">
+	<div class="container resources">
+		<div class="row">
+			<div class="col-md-12">resources</div>
+		</div>
+	</div>
+	<div class="container news">
+		<div class="row">
+			<div class="col-md-12">news</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

@@ -1,128 +1,23 @@
 .competition {
-  font-family: lato; }
-  .competition .intro .intro-title {
-    text-align: center;
-    font-size: 25px;
-    font-weight: bold; }
-  .competition .rules .rules-title {
-    text-align: center;
-    font-size: 25px;
-    font-weight: bold; }
-  .competition .judges .judges-title {
-    text-align: center;
-    font-size: 25px;
-    font-weight: bold;
-    background-color: #fea022;
-    color: #ffffff;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    height: 50px;
-    line-height: 30px; }
-    .competition .judges .judges-content .berkeley {
-      background-color: #ff6700; }
-      .competition .judges .judges-content .berkeley .title {
+  font-family: lato;
+  box-shadow: 0px 10px 30px 2px #888888;
+  background: #ffffff url('images/overlay.png');
+  padding-top: 50px; }
+  .competition .navigation {
+    font-size: 18px; }
+    .competition .main .title {
+      text-align: center;
+      font-size: 20px;
+      font-weight: bold; }
+      .competition .main .content {
         text-align: center;
-        font-size: 20px;
-        font-weight: bold;
-        color: #ffffff; }
-        .competition .judges .judges-content .berkeley .content .single {
-          background-color: #ffffff; }
-          .competition .judges .judges-content .berkeley .content .single .text {
-            padding-top: 15px;
-            padding-bottom: 15px; }
-            .competition .judges .judges-content .berkeley .content .single .text .name {
-              font-size: 20px;
-              font-weight: bold;
-              text-align: center; }
-              .competition .judges .judges-content .berkeley .content .single .text .detail {
-                font-size: 18px;
-                color: #7f7f7f;
-                text-align: center; }
-    .competition .judges .judges-content .tsinghua {
-      background-color: #fea022; }
-      .competition .judges .judges-content .tsinghua .title {
-        text-align: center;
-        font-size: 20px;
-        font-weight: bold;
-        color: #ffffff; }
-        .competition .judges .judges-content .tsinghua .content .single {
-          background-color: #ffffff; }
-          .competition .judges .judges-content .tsinghua .content .single .text {
-            padding-top: 15px;
-            padding-bottom: 15px; }
-            .competition .judges .judges-content .tsinghua .content .single .text .name {
-              font-size: 20px;
-              font-weight: bold;
-              text-align: center; }
-              .competition .judges .judges-content .tsinghua .content .single .text .detail {
-                font-size: 18px;
-                color: #7f7f7f;
-                text-align: center; }
-    .competition .judges .judges-content .lbl {
-      background-color: #20768c; }
-      .competition .judges .judges-content .lbl .title {
-        text-align: center;
-        font-size: 20px;
-        font-weight: bold;
-        color: #ffffff; }
-        .competition .judges .judges-content .lbl .content .single {
-          background-color: #ffffff; }
-          .competition .judges .judges-content .lbl .content .single .text {
-            padding-top: 15px;
-            padding-bottom: 15px; }
-            .competition .judges .judges-content .lbl .content .single .text .name {
-              font-size: 20px;
-              font-weight: bold;
-              text-align: center; }
-              .competition .judges .judges-content .lbl .content .single .text .detail {
-                font-size: 18px;
-                color: #7f7f7f;
-                text-align: center; }
-    .competition .judges .judges-content .ngo {
-      background-color: #a5d848; }
-      .competition .judges .judges-content .ngo .title {
-        text-align: center;
-        font-size: 20px;
-        font-weight: bold;
-        color: #ffffff; }
-        .competition .judges .judges-content .ngo .content .single {
-          background-color: #ffffff; }
-          .competition .judges .judges-content .ngo .content .single .text {
-            padding-top: 15px;
-            padding-bottom: 15px; }
-            .competition .judges .judges-content .ngo .content .single .text .name {
-              font-size: 20px;
-              font-weight: bold;
-              text-align: center; }
-              .competition .judges .judges-content .ngo .content .single .text .detail {
-                font-size: 18px;
-                color: #7f7f7f;
-                text-align: center; }
-    .competition .judges .judges-content .industry {
-      background-color: #70a525; }
-      .competition .judges .judges-content .industry .title {
-        text-align: center;
-        font-size: 20px;
-        font-weight: bold;
-        color: #ffffff; }
-        .competition .judges .judges-content .industry .content .single {
-          background-color: #ffffff; }
-          .competition .judges .judges-content .industry .content .single .text {
-            padding-top: 15px;
-            padding-bottom: 15px; }
-            .competition .judges .judges-content .industry .content .single .text .name {
-              font-size: 20px;
-              font-weight: bold;
-              text-align: center; }
-              .competition .judges .judges-content .industry .content .single .text .detail {
-                font-size: 18px;
-                color: #7f7f7f;
-                text-align: center; }
-  .competition .rubrics .rubrics-title {
-    text-align: center;
-    font-size: 25px;
-    font-weight: bold; }
-  .competition .prizes .prizes-title {
-    text-align: center;
-    font-size: 25px;
-    font-weight: bold; }
+        font-size: 18px; }
+        .competition .main .name {
+          text-align: center;
+          font-size: 16px;
+          font-weight: bold; }
+          .competition .main .detail {
+            text-align: center;
+            font-size: 16px;
+            font-weight: normal;
+            color: #7f7f7f; }

@@ -37,11 +37,11 @@ def competition():
 
 @app.route('/news_and_resources')
 def news_and_resources():
-	return render_template('news_and_resources.html')
+	return render_template('news.html')
 
 @app.route('/about_us')
 def about_us():
-	return render_template('about_us.html')
+	return render_template('about.html')
 
 
 @app.route('/profile', methods=['GET'])

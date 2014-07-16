@@ -1,0 +1,33 @@
+{% extends 'layout.html' %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+{% endblock %}
+{% block content %}
+<div class="about">
+	<div class="container committee">
+		<div class="row">
+			<div class="col-md-12">committee</div>
+		</div>
+	</div>
+	<div class="container co-organizers">
+		<div class="row">
+			<div class="col-md-12">co-organizers</div>
+		</div>
+	</div>
+	<div class="container sponsor">
+		<div class="row">
+			<div class="col-md-12">sponsor</div>
+		</div>
+	</div>
+	<div class="container involve">
+		<div class="row">
+			<div class="col-md-12">involve</div>
+		</div>
+	</div>
+	<div class="container contact">
+		<div class="row">
+			<div class="col-md-12">contact</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

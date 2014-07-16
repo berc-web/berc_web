@@ -1,186 +1,31 @@
 .competition {
 	font-family: lato;
-	.intro {
-		.intro-title {
-			text-align: center;
-			font-size: 25px;
-			font-weight: bold;
-		}
+	box-shadow: 0px 10px 30px 2px #888888;
+	background: #ffffff url('images/overlay.png');
+	padding-top: 50px;
+	.navigation {
+		font-size: 18px;
 	}
-	.rules {
-		.rules-title {
+	.main {
+		.title {
 			text-align: center;
-			font-size: 25px;
+			font-size: 20px;
 			font-weight: bold;
 		}
-	}
-	.judges {
-		.judges-title {
+		.content {
 			text-align: center;
-			font-size: 25px;
-			font-weight: bold;
-			background-color: #fea022;
-			color: #ffffff;
-			padding-top: 10px;
-			padding-bottom: 10px;
-			height: 50px;
-			line-height: 30px;
+			font-size: 18px;
 		}
-		.judges-content {
-			.berkeley {
-				background-color: #ff6700;
-				.title {
-					text-align: center;
-					font-size: 20px;
-					font-weight: bold;
-					color: #ffffff;
-				}
-				.content {
-					.single {
-						background-color: #ffffff;
-						.text {
-							padding-top: 15px;
-							padding-bottom: 15px;
-							.name {
-								font-size: 20px;
-								font-weight: bold;
-								text-align: center;
-							}
-							.detail {
-								font-size: 18px;
-								color: #7f7f7f;
-								text-align: center;
-							}
-						}
-					}
-				}
-			}
-			.tsinghua {
-				background-color: #fea022;
-				.title {
-					text-align: center;
-					font-size: 20px;
-					font-weight: bold;
-					color: #ffffff;
-				}
-				.content {
-					.single {
-						background-color: #ffffff;
-						.text {
-							padding-top: 15px;
-							padding-bottom: 15px;
-							.name {
-								font-size: 20px;
-								font-weight: bold;
-								text-align: center;
-							}
-							.detail {
-								font-size: 18px;
-								color: #7f7f7f;
-								text-align: center;
-							}
-						}
-					}
-				}
-			}
-			.lbl {
-				background-color: #20768c;
-				.title {
-					text-align: center;
-					font-size: 20px;
-					font-weight: bold;
-					color: #ffffff;
-				}
-				.content {
-					.single {
-						background-color: #ffffff;
-						.text {
-							padding-top: 15px;
-							padding-bottom: 15px;
-							.name {
-								font-size: 20px;
-								font-weight: bold;
-								text-align: center;
-							}
-							.detail {
-								font-size: 18px;
-								color: #7f7f7f;
-								text-align: center;
-							}
-						}
-					}
-				}
-			}
-			.ngo {
-				background-color: #a5d848;
-				.title {
-					text-align: center;
-					font-size: 20px;
-					font-weight: bold;
-					color: #ffffff;
-				}
-				.content {
-					.single {
-						background-color: #ffffff;
-						.text {
-							padding-top: 15px;
-							padding-bottom: 15px;
-							.name {
-								font-size: 20px;
-								font-weight: bold;
-								text-align: center;
-							}
-							.detail {
-								font-size: 18px;
-								color: #7f7f7f;
-								text-align: center;
-							}
-						}
-					}
-				}
-			}
-			.industry {
-				background-color: #70a525;
-				.title {
-					text-align: center;
-					font-size: 20px;
-					font-weight: bold;
-					color: #ffffff;
-				}
-				.content {
-					.single {
-						background-color: #ffffff;
-						.text {
-							padding-top: 15px;
-							padding-bottom: 15px;
-							.name {
-								font-size: 20px;
-								font-weight: bold;
-								text-align: center;
-							}
-							.detail {
-								font-size: 18px;
-								color: #7f7f7f;
-								text-align: center;
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-	.rubrics {
-		.rubrics-title {
+		.name {
 			text-align: center;
-			font-size: 25px;
+			font-size: 16px;
 			font-weight: bold;
 		}
-	}
-	.prizes {
-		.prizes-title {
+		.detail {
 			text-align: center;
-			font-size: 25px;
-			font-weight: bold;
+			font-size: 16px;
+			font-weight: normal;
+			color: #7f7f7f;
 		}
 	}
 }
