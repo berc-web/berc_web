@@ -3,7 +3,7 @@
 
 {% block content %}
 {% from "flask_user/_macros.html" import render_field, render_submit_field %}
-
+<h1>Update Profile</h1>
 <form action="" method="POST" class="form" role="form" enctype='multipart/form-data'>
 	{{ form.hidden_tag() }}
     {{ render_field(form.photo, tabindex=10) }}

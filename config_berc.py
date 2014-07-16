@@ -49,7 +49,7 @@ class Config(object):
 	USER_REGISTERED_EMAIL_TEMPLATE          = 'flask_user/emails/registered'
 	USER_USERNAME_CHANGED_EMAIL_TEMPLATE    = 'flask_user/emails/username_changed'
 
-	UPLOAD_FOLDER = url_for('static') + '/upload/user_avatar/'
+	UPLOAD_FOLDER = 'upload/user_avatar/'
 	# DEFAULT_FILE_STORAGE = 'filesystem'
 
 	S3_BUCKET_NAME = os.environ.get('S3_BUCKET_NAME')

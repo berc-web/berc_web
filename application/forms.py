@@ -13,6 +13,10 @@ from flask.ext.user.forms import password_validator, username_validator, \
 # ** Validation Functions **
 # **************************
 
+def email_validator(form, field):
+    """ If email changed """
+    if field.data != current_user.email:
+    	unique_email_validator(form, field)
 
 # ***********
 # ** Forms **
@@ -103,7 +107,7 @@ class UpdateProfileForm(Form):
 	email = StringField('Email', validators=[
 		validators.Required('Email is required'),
 		validators.Email('Invalid Email'),
-		unique_email_validator])
+		email_validator])
 
 	old_password = PasswordField('Current Password', validators=[
 		validators.Required('Current Password is required'),
@@ -119,7 +123,7 @@ class UpdateProfileForm(Form):
 
 		# Verify current_user and current_password
 		if not current_user or not user_manager.verify_password(self.old_password.data, current_user.password):
-			self.old_password.errors.append(_('Old Password is incorrect'))
+			self.old_password.errors.append('Old Password is incorrect')
 			return False
 
 		# All is well

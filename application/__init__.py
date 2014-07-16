@@ -65,7 +65,8 @@ def update_profile():
 		# update avatar
 		if form.photo.data:
 			file_name = secure_filename(form.photo.data.filename)
-			path = os.path.join(app.config['UPLOAD_FOLDER'], file_name)
+			filename = os.path.join(app.config['UPLOAD_FOLDER'], file_name)
+			path = url_for('static', filename = filename)
 			current_user.avatar = path
 			path = 'application' + path
 			form.photo.data.save(path)
