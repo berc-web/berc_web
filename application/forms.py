@@ -109,9 +109,6 @@ class UpdateProfileForm(Form):
 		validators.Email('Invalid Email'),
 		email_validator])
 
-	old_password = PasswordField('Current Password', validators=[
-		validators.Required('Current Password is required'),
-	])
 	submit = SubmitField('Update Profile')
 
 	def validate(self):
@@ -119,11 +116,6 @@ class UpdateProfileForm(Form):
 
 		# Validate field-validators
 		if not super(UpdateProfileForm, self).validate():
-			return False
-
-		# Verify current_user and current_password
-		if not current_user or not user_manager.verify_password(self.old_password.data, current_user.password):
-			self.old_password.errors.append('Old Password is incorrect')
 			return False
 
 		# All is well
