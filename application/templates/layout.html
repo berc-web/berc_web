@@ -32,13 +32,19 @@
 		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="nav navbar-nav">
-		        <li><a href="{{ url_for('home') }}">HOME</a></li>
+		        <li><a href="{{ url_for('home') }}">Home</a></li>
 		        <li><a href="{{ url_for('competition') }}">Competition</a></li>
 		        <li><a href="{{ url_for('news_and_resources') }}">News and Resources</a></li>
 		        <li><a href="{{ url_for('about_us') }}">About Us</a></li>
 		      </ul>
-		      <ul class="nav navbar-nav navbar-right">
-		        <li><a href="/login">SIGN IN</a></li>
+		      <ul class="nav navbar-nav navbar-right action-hint">
+		      	{% if current_user.is_authenticated() %}
+		          	<li><a href="{{ url_for('user') }}">Hi, {{ current_user.username }}</a></li>
+		          	<li><a href="{{ url_for('user.logout') }}">Logout</a></li>
+		        {% else %}
+		        	<li><a href="{{ url_for('user.login') }}">Sign In</a></li>
+		        	<li><a href="{{ url_for('user.register') }}">Register</a></li>
+		        {% endif %}
 		      </ul>
 		    </div><!-- /.navbar-collapse -->
 		  </div><!-- /.container-fluid -->
@@ -47,5 +53,29 @@
 	    {% block body %}
 	    {% endblock %}
 		</div>
+		<script>
+			$(function() {
+				$(window).scroll(function() {
+					$('.navigation').css('top', $(window).scrollTop() + 'px');
+					return false;
+				});
+			});
+			$(function() {
+			  $('a[href*=#]:not([href=#])').click(function() {
+			  	// $(this).parent().parent().children().removeClass("active");
+			  	// $(this).parent().addClass("active");
+			    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+			      var target = $(this.hash);
+			      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+			      if (target.length) {
+			        $('html,body').animate({
+			          scrollTop: target.offset().top - 90
+			        }, 0);
+			        return false;
+			      }
+			    }
+			  });
+			});
+		</script>
 	</body>
 </html>
