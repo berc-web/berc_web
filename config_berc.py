@@ -49,9 +49,9 @@ class Config(object):
 	USER_REGISTERED_EMAIL_TEMPLATE          = 'flask_user/emails/registered'
 	USER_USERNAME_CHANGED_EMAIL_TEMPLATE    = 'flask_user/emails/username_changed'
 
-	UPLOAD_FOLDER = 'upload/user_avatar/'
 	# DEFAULT_FILE_STORAGE = 'filesystem'
 
+	S3_UPLOAD_DIRECTORY = '/static/upload/user_avatar'
 	S3_BUCKET_NAME = os.environ.get('S3_BUCKET_NAME')
 	AWS_ACCESS_KEY_ID = 'AKIAJXPD4DCVTVKEQDXA'
 	AWS_SECRET_ACCESS_KEY = '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'

@@ -9,6 +9,8 @@ from flask.ext.user.views import register
 from werkzeug import secure_filename
 from forms import UpdateProfileForm
 from postmonkey import PostMonkey
+import boto
+
 
 pm = PostMonkey('9ff33749afa74071578e2d427ec3a8b2-us8', timeout=10)
 
@@ -66,11 +68,16 @@ def update_profile():
 		# update avatar
 		if form.photo.data:
 			file_name = secure_filename(form.photo.data.filename)
-			filename = os.path.join(app.config['UPLOAD_FOLDER'], file_name)
-			path = flask_s3.url_for('static', filename = filename)
+
+			connection = boto.connect_s3(app.config['AWS_ACCESS_KEY_ID'],
+				app.config['AWS_SECRET_ACCESS_KEY'])
+			bucket = connection.get_bucket(app.config['S3_BUCKET_NAME'])
+			path = os.path.join(app.config['S3_UPLOAD_DIRECTORY'], file_name)
+			sml = bucket.new_key(path)
+			sml.set_contents_from_string(form.photo.data.readlines())
+			sml.set_acl('public-read')
+
 			current_user.avatar = path
-			path = 'application' + path
-			form.photo.data.save(path)
 
 		current_user.fname = form.fname.data
 		current_user.lname = form.lname.data
