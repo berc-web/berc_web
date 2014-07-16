@@ -27,7 +27,7 @@
           <li class="user-name"><center>{{ current_user.username }}</center></li>
           <br>
           <li><a href="{{ url_for('user') }}">Profile</a></li>
-          <li><a href="{{ url_for('upload_avatar') }}">Upload Avatar</a></li>
+            <li><a href="{{ url_for('update_profile') }}">Update Profile</a></li>
           <li><a href="{{ url_for('user.change_password') }}">Change Password</a></li>
           <li><a href="{{ url_for('user.change_username') }}">Change username</a></li>
         {% else %}
@@ -44,4 +44,3 @@
   </div>
 </div>
 {% endblock %}
-
