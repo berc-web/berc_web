@@ -1,12 +1,14 @@
 $navbar_height: 70px;
 html, body {
 	min-height: 100%;
+	min-width: 1300px;
 }
 body {
 	padding-top: 70px;
 	font-family: "Helvetica Neue", Arial, sans-serif;
 }
 .navbar {
+	min-width: 1300px;
 	height: $navbar_height;
 	line-height: $navbar_height;
 	margin: 0;
