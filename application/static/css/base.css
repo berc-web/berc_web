@@ -1,0 +1,28 @@
+.base {
+  font-family: lato;
+  margin-bottom: 50px;
+  min-height: 900px; }
+  .base .navigation {
+    font-size: 18px;
+    margin-top: 50px;
+    padding-top: 30px;
+    margin-bottom: 20px;
+    min-height: 500px;
+    border-right: 1px solid lightgrey; }
+    .base .navigation .user-name {
+      font-size: 20px;
+      font-weight: bold; }
+  .base .main {
+    margin-top: 50px;
+    margin-bottom: 20px; }
+    .base .main .avatar {
+      box-shadow: 0px 0px 30px 1px #888888;
+      padding: 0;
+      margin-bottom: 5px; }
+      .base .main .avatar img {
+        width: 100%; }
+    .base .main .name, .base .main .email, .base .main .school {
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 30px;
+      padding: 0; }
