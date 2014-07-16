@@ -1,5 +1,6 @@
 .home {
-  font-family: lato; }
+  font-family: lato;
+  min-height: 100%; }
   .home .header {
     height: 500px;
     background: url('../images/homepage/page1/pic2.jpg') center center;
