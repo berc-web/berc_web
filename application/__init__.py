@@ -66,7 +66,7 @@ def update_profile():
 		if form.photo.data:
 			file_name = secure_filename(form.photo.data.filename)
 			filename = os.path.join(app.config['UPLOAD_FOLDER'], file_name)
-			path = url_for('static', filename = filename)
+			path = flask_s3.url_for('static', filename = filename)
 			current_user.avatar = path
 			path = 'application' + path
 			form.photo.data.save(path)
