@@ -2,7 +2,8 @@
   font-family: lato;
   box-shadow: 0px 10px 30px 2px #888888;
   background: #ffffff url('images/overlay.png');
-  padding-top: 50px; }
+  padding-top: 50px;
+  margin-bottom: 50px; }
   .competition .navigation {
     font-size: 18px; }
     .competition .main .title {
@@ -12,12 +13,18 @@
       .competition .main .content {
         text-align: center;
         font-size: 18px; }
-        .competition .main .name {
-          text-align: center;
-          font-size: 16px;
-          font-weight: bold; }
-          .competition .main .detail {
-            text-align: center;
-            font-size: 16px;
-            font-weight: normal;
-            color: #7f7f7f; }
+        .competition .main .judge {
+          margin-top: 10px;
+          margin-bottom: 10px; }
+          .competition .main .judge .judges-img {
+            width: 100%; }
+            .competition .main .judge .name {
+              text-align: center;
+              font-size: 16px;
+              font-weight: bold; }
+              .competition .main .judge .detail {
+                margin-top: 10px;
+                text-align: center;
+                font-size: 16px;
+                font-weight: normal;
+                color: #7f7f7f; }
