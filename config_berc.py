@@ -55,4 +55,4 @@ class Config(object):
 	S3_BUCKET_NAME = os.environ.get('S3_BUCKET_NAME')
 	AWS_ACCESS_KEY_ID = 'AKIAJXPD4DCVTVKEQDXA'
 	AWS_SECRET_ACCESS_KEY = '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'
-
+	AWS_URL = 'https://s3-us-west-1.amazonaws.com'

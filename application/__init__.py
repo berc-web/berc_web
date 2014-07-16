@@ -93,10 +93,11 @@ def update_profile():
 			bucket = connection.get_bucket(app.config['S3_BUCKET_NAME'])
 			path = os.path.join(app.config['S3_UPLOAD_DIRECTORY'], file_name)
 			sml = bucket.new_key(path)
-			sml.set_contents_from_string(form.photo.data.readlines())
+			sml.set_contents_from_file(form.photo.data)
 			sml.set_acl('public-read')
 
-			current_user.avatar = path
+			current_user.avatar = '/'.join([app.config['AWS_URL'],
+				app.config['S3_BUCKET_NAME']]) + path
 
 		current_user.fname = form.fname.data
 		current_user.lname = form.lname.data
