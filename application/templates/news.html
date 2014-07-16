@@ -3,16 +3,29 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/news.css') }}">
 {% endblock %}
 {% block content %}
-<div class="news">
-	<div class="container resources">
-		<div class="row">
-			<div class="col-md-12">resources</div>
+<div class="container news">
+	<div class="row">
+		<div class="col-md-3 navigation">
+			<ul class="nav nav-pills nav-stacked">
+				<li><a href="#resourcecs">Online Resources</a></li>
+				<li><a href="#news">News and Events</a></li>
+			</ul>
 		</div>
-	</div>
-	<div class="container news">
-		<div class="row">
-			<div class="col-md-12">news</div>
+		<div class="col-md-9 main">
+			<div class="row" id="resourcecs">
+				<div class="col-md-12">
+					<div class="title">Online Resources</div>
+					<div class="content">
+					</div>
+				</div>
+			</div>
+			<div class="row" id="news">
+				<div class="col-md-12">
+					<div class="title">News and Events</div>
+					<div class="content">
+					</div>
+				</div>
+			</div>
 		</div>
-	</div>
 </div>
 {% endblock %}

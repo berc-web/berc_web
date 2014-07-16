@@ -3,31 +3,52 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
 {% endblock %}
 {% block content %}
-<div class="about">
-	<div class="container committee">
-		<div class="row">
-			<div class="col-md-12">committee</div>
+<div class="container about">
+	<div class="row">
+		<div class="col-md-3 navigation">
+			<ul class="nav nav-pills nav-stacked">
+				<li><a href="#about">Organizing Committee</a></li>
+				<li><a href="#organizers">Co-organizers</a></li>
+				<li><a href="#involve">Get Involved</a></li>
+				<li><a href="#contact">Contact Us</a></li>
+			</ul>
 		</div>
-	</div>
-	<div class="container co-organizers">
-		<div class="row">
-			<div class="col-md-12">co-organizers</div>
+		<div class="col-md-9 main">
+			<div class="row" id="about">
+				<div class="col-md-12">
+					<div class="title">Organizing Committee</div>
+					<div class="content">
+						BERC China Focus was founded to create a student community to educate and empower those who want to make a difference in China and beyond. With established relationships with international non-profits and companies, and the experience of organizing a panel for the largest student-run energy conference in the United States, BERC China Focus pushes to become the go-to resource for anyone interested in the environment and China
+					</div>
+				</div>
+			</div>
+			<div class="row" id="organizers">
+				<div class="col-md-12">
+					<div class="title">Co-organizers</div>
+					<div class="content">
+					</div>
+				</div>
+			</div>
+			<div class="row" id="involve">
+				<div class="col-md-12">
+					<div class="title">Get Involved</div>
+					<div class="content">
+						Weibo： http://weibo.com/BERCChinaFocus
+						<br>
+						Facebook: https://www.facebook.com/bercchinafocus
+						<br>
+						Renren: http://page.renren.com/601845509
+					</div>
+				</div>
+			</div>
+			<div class="row" id="contact">
+				<div class="col-md-12">
+					<div class="title">Contact Us</div>
+					<div class="content">
+						eecc2015@gmail.com 
+					</div>
+				</div>
+			</div>
 		</div>
-	</div>
-	<div class="container sponsor">
-		<div class="row">
-			<div class="col-md-12">sponsor</div>
-		</div>
-	</div>
-	<div class="container involve">
-		<div class="row">
-			<div class="col-md-12">involve</div>
-		</div>
-	</div>
-	<div class="container contact">
-		<div class="row">
-			<div class="col-md-12">contact</div>
-		</div>
-	</div>
 </div>
 {% endblock %}
