@@ -1,5 +1,4 @@
 .competition {
-	font-family: lato;
 	box-shadow: 0px 10px 30px 2px #888888;
 	background: #ffffff url('images/overlay.png');
 	padding-top: 50px;
@@ -22,6 +21,12 @@
 		}
 		#mission, #rules, #judges, #rubrics, #prizes {
 			margin-bottom: 20px;
+		}
+		#mission {
+			.content {
+				text-align: left;
+				text-indent: 15px;
+			}
 		}
 		.judge {
 			margin-top: 10px;
