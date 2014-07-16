@@ -40,17 +40,21 @@ from config_user import user_manager
 def home():
 	return render_template('home.html')
 
+
 @app.route('/competition')
 def competition():
 	return render_template('competition.html')
+
 
 @app.route('/news_and_resources')
 def news_and_resources():
 	return render_template('news.html')
 
+
 @app.route('/about_us')
 def about_us():
 	return render_template('about.html')
+
 
 @app.route('/profile', methods=['GET'])
 @login_required
@@ -81,6 +85,8 @@ def update_profile():
 		# update avatar
 		if form.photo.data:
 			file_name = secure_filename(form.photo.data.filename)
+			extension = file_name.split('.')[-1]
+			file_name = '.'.join([current_user.username, extension])
 
 			connection = boto.connect_s3(app.config['AWS_ACCESS_KEY_ID'],
 				app.config['AWS_SECRET_ACCESS_KEY'])
