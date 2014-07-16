@@ -19,15 +19,18 @@ body {
 		.navbar-header {
 			height: $navbar_height;
 			line-height: $navbar_height;
-			.logo-pic {
-				height: 80%;
-				margin: auto;
-			}
 		}
 		.navbar-collapse {
 			height: $navbar_height;
 			line-height: $navbar_height;
+			text-align: center;
 			.navbar-nav {
+				.logo-pic {
+					height: 80%;
+					margin: auto;
+				}
+				display: inline-block;
+				float: none;
 				height: $navbar_height;
 				line-height: $navbar_height;
 				position: relative;
@@ -47,9 +50,6 @@ body {
 						letter-spacing: 4px;
 					}
 				}
-			}
-			.action-hint {
-				margin-right: 50px;
 			}
 		}
 	}

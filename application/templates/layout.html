@@ -21,7 +21,6 @@
 		  <div class="container-fluid">
 		  	<!-- Brand and toggle get grouped for better mobile display -->
 		    <div class="navbar-header">
-		      <a href=""><img class="logo-pic" src="../static/images/homepage/page1/logo.png"></a>
 		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 		        <span class="sr-only">Toggle navigation</span>
 		        <span class="icon-bar"></span>
@@ -33,12 +32,11 @@
 		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="nav navbar-nav">
+		      	<li><a href="{{ url_for('home') }}"><img class="logo-pic" src="../static/images/homepage/page1/logo.png"></a></li>
 		        <li><a href="{{ url_for('home') }}">Home</a></li>
 		        <li><a href="{{ url_for('competition') }}">Competition</a></li>
 		        <li><a href="{{ url_for('news_and_resources') }}">News and Resources</a></li>
 		        <li><a href="{{ url_for('about_us') }}">About Us</a></li>
-		      </ul>
-		      <ul class="nav navbar-nav navbar-right action-hint">
 		      	{% if current_user.is_authenticated() %}
 		          	<li><a href="{{ url_for('user') }}">Hi, {{ current_user.username }}</a></li>
 		          	<li><a href="{{ url_for('user.logout') }}">Logout</a></li>
