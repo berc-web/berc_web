@@ -1,289 +1,180 @@
-<!DOCTYPE HTML>
-
-<html>
-	<head>
-		<title>EECC2015</title>
-		<link rel="shortcut icon" href="/static/images/homepage/logo_icon/favicon.ico" >
-		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<meta name="description" content="" />
-		<meta name="keywords" content="" />
-		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,700,900" rel="stylesheet" />
-		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
-		<script src="static/js/jquery.min.js"></script>
-		<script src="static/js/jquery.ba-resize.min.js"></script>
-		<script src="static/js/jquery.dropotron.min.js"></script>
-		<script src="static/js/config.js"></script>
-		<script src="static/js/skel.min.js"></script>
-		<script src="static/js/skel-panels.min.js"></script>
-		<noscript>
-			<link rel="stylesheet" href="static/css/skel-noscript.css" />
-			<link rel="stylesheet" href="static/css/style.css" />
-			<link rel="stylesheet" href="static/css/style-desktop.css" />
-		</noscript>
-	</head>
-
-	<body class="homepage">
-
-			<div id="header-wrapper" class="wrapper">
-				<div class="container">
-					<div class="row">
-						<div class="12u">
-								<div id="header">
-										<div id="logo">
-											<h1>US-China Energy and Environment</h1>
-											<h1>Case Competition</h1>
-											<span class="byline">The forefront of the next wave of China-US collaboration</span>
-										</div>
-										<nav id="nav" >
-											<ul id="nav-content">
-												<li class="logo_pic_wrapper"><a id="home1" href=""><img id="logo_pic" src="../static/images/homepage/page1/logo.png"></a></li>
-												<li><a id="home2" href="">Home</a></li>
-												<li><a id="competition" href="">Competition</a></li>
-												<li><a id="sponsor" href="">News & Resources</a></li>
-												<!-- <li><a id="about" href="">About Us</a></li> -->
-												<li><a id="contact" href="">Get Involved</a></li>
-											</ul>
-										</nav>
-								</div>
-						</div>
-					</div>
+{% extends 'layout.html' %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+{% endblock %}
+{% block body %}
+<div class="home">
+	<div class="container-fluid header">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="header-content">
+					<h1>US-China Energy and Environment</h1>
+					<h1>Case Competition</h1>
+					<span class="byline">The forefront of the next wave of China-US collaboration</span>
 				</div>
 			</div>
-
-			<div id="main-wrapper" class="wrapper wrapper-style2">
-				<div class="title">The Competition</div>
-				<div class="container">
-					<div class="row">
-						<div class="12u">
-							<img class="main_img" src="../static/images/homepage/page3/challenge.png">
-						</div>
-					</div>
-					<div class="row half">
-						<div class="12u">
-							<h1 class="main_h1">Five Topics, One Chinese City</h1>
-						</div>
-						<div class="12u">
-							<h3 class="main_h3">Preliminary Round: Solving Cases in Five Topics</h3>
-						</div>
-					</div>
-					<div class="row half">
-						<div class="-1u 2u hover-wrapper">
-							<div class="ih-item circle effect1 hover">
-								<a href="#">
-		        			<div class="img"><img src="../static/images/homepage/page3/icon1.png" alt="img"></div>
-					        <div class="info">
-					          <div class="info-back">
-					            <center><b class="main_body">Air pollution</b></center>
-					          </div>
-					        </div>
-				      	</a>
-			      	</div>
-						</div>
-						<div class="2u">
-							<div class="ih-item circle effect1 hover">
-								<a href="#">
-		        			<div class="img"><img src="../static/images/homepage/page3/icon2.png" alt="img"></div>
-					        <div class="info">
-					          <div class="info-back">
-					            <center><b class="main_body">Green Building</b></center>
-					          </div>
-					        </div>
-				      	</a>
-			      	</div>
-						</div>
-						<div class="2u">
-							<div class="ih-item circle effect1 hover">
-								<a href="#">
-		        			<div class="img"><img src="../static/images/homepage/page3/icon3.png" alt="img"></div>
-					        <div class="info">
-					          <div class="info-back">
-					            <center><b class="main_body">Clean Water</b></center>
-					          </div>
-					        </div>
-				      	</a>
-			      	</div>
-						</div>
-						<div class="2u">
-							<div class="ih-item circle effect1 hover">
-								<a href="#">
-		        			<div class="img"><img src="../static/images/homepage/page3/icon4.png" alt="img"></div>
-					        <div class="info">
-					          <div class="info-back">
-					            <center><b class="main_body">Clean Transportation</b></center>
-					          </div>
-					        </div>
-				      	</a>
-			      	</div>
-						</div>
-						<div class="2u">
-							<div class="ih-item circle effect1 hover">
-								<a href="#">
-		        			<div class="img"><img src="../static/images/homepage/page3/icon2.png" alt="img"></div>
-					        <div class="info">
-					          <div class="info-back">
-					            <center><b class="main_body">Social Spaces</b></center>
-					          </div>
-					        </div>
-				      	</a>
-			      	</div>
-						</div>
-					</div>
-					<br>
-					<div class="row half">
-						<div class="12u">
-							<h3 class="main_h3">Final city remains to be announced</h3>
-						</div>
-					</div>
-					<div class="row half">
-						<div class="-5u 2u">
-							<img class="main_img" src="../static/images/homepage/page3/city.jpg">
-						</div>
-					</div>
+		</div>
+	</div>
+	<div class="container-fluid competition">
+		<div class="competition-title">The Competition</div>
+		<div class="container competition-content">
+			<div class="row">
+				<div class="col-md-12">
+					<img class="competition-img" src="../static/images/homepage/page3/challenge.png">
 				</div>
 			</div>
-
-			<script>
-				var width = $(".hover-wrapper").width();
-				$(".hover").width(width);
-				$(".hover").height(width);
-				$(".hover-wrapper").resize(function() {
-					var width = $(".hover-wrapper").width();
-					$(".hover").width(width);
-					$(".hover").height(width);
-				})
-			</script>
-
-
-			<div id="highlights-wrapper" class="wrapper wrapper-style3">
-				<div class="title">SPONSORS</div>
-				<div class="container">
-					<div class="row">
-						<div class="3u">
-							<img class="main_img" src="../static/images/homepage/page4/1.png">
-							<br>
-							<center><b class="highlight-body">University of California, Berkeley</b></center>
-						</div>
-						<div class="3u">
-							<img class="main_img" src="../static/images/homepage/page4/2.png">
-							<br>
-							<center><b class="highlight-body">Tsinghua, School of Environment</b></center>
-						</div>
-						<div class="3u">
-							<img class="main_img" src="../static/images/homepage/page4/3.jpg">
-							<br>
-							<center><b class="highlight-body">Chinese Research Academy of Environment Sciences</b></center>
-						</div>
-						<div class="3u">
-							<img class="main_img" src="../static/images/homepage/page4/4.jpg">
-							<br>
-							<center><b class="highlight-body">Joint US China Collaboration on Clean Energy</b></center>
-						</div>
-					</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h1>Five Topics, One Chinese City</h1>
 				</div>
 			</div>
-
-			<div id="footer-wrapper" class="wrapper">
-				<div class="title">Contact US</div>
-				<div class="container">
-					<div class="row">
-						<div class="12u">
-								<div id="footer">
-									<div>
-										<div class="row">
-											<div class="6u">
-												<!-- Contact Form -->
-													<section class="footer-one">
-														<form method="post" action="http://eecc2015.us8.list-manage.com/subscribe/post?u=a6e2416648e475de887eae720&id=8d4e6caca8">
-															<div class="row half">
-																<div class="12u">
-																	<h1 class="subscrib-h1">Subscribe</h1>
-																</div>
-															</div>
-															<div class="row half">
-																<div class="6u">
-																	<input type="text" class="text" name="FNAME" id="mce-FNAME" placeholder="Last Name" />
-																</div>
-																<div class="6u">
-																	<input type="text" class="text" name="LNAME" id="mce-LNAME" placeholder="First Name" />
-																</div>
-															</div>
-															<div class="row half">
-																<div class="12u">
-																	<input type="text" class="text" name="EMAIL" id="mce-EMAIL" placeholder="Email" />
-																</div>
-															</div>
-															<div class="row">
-																<div class="12u">
-																	<center><input type="submit" class="button button-style1" value="Subscribe" /></center>
-																</div>
-															</div>
-														</form>
-													</section>
-												<!-- /Contact Form -->
-
-											</div>
-											<div class="6u">
-
-												<!-- Contacts -->
-													<section class="footer-two">
-														<div class="feature-list feature-list-small">
-															<div class="row">
-																<div class="12u">
-																	<section>
-																		<h3 class="fa fa-envelope"><a>Email: <span class="footer-email">eecc2015@gmail.com</span></a></h3>
-																		<h3 class="fa fa-weibo contact-sub"><a href="http://weibo.com/BERCChinaFocus?topnav=1&wvr=5&topsug=1" target="_blank">Weibo <span class="fa fa-arrow-circle-o-right footer-email"></span></a></h3>
-																		<h3 class="fa fa-renren contact-sub"><a href="http://www.renren.com/601845509" target="_blank">RenRen <span class="fa fa-arrow-circle-o-right footer-email"></span></a></h3>
-																		<h3 class="fa fa-facebook contact-sub"><a href="https://www.facebook.com/bercchinafocus" target="_blank">Facebook <span class="fa fa-arrow-circle-o-right footer-email"></span></a></h3>
-																	</section>
-																</div>
-															</div>
-														</div>
-													</section>
-												<!-- /Contacts -->
-											</div>
-										</div>
-									</div>
-									<hr />
-								</div>
-							<!-- /Footer -->
-						</div>
-					</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h3>Preliminary Round: Solving Cases in Five Topics</h3>
 				</div>
 			</div>
-		<!-- /Footer Wrapper -->
+			<div class="row">
+				<div class="col-md-offset-1 col-md-2 hover-wrapper">
+					<div class="ih-item circle effect1 hover">
+						<a href="#">
+	    			<div class="competition-ihover-img"><img src="../static/images/homepage/page3/icon1.png" alt="img"></div>
+			        <div class="info">
+			          <div class="info-back">
+			            <center><b class="competition-ihover-text">Air pollution</b></center>
+			          </div>
+			        </div>
+		      	</a>
+	      	</div>
+				</div>
+				<div class="col-md-2">
+					<div class="ih-item circle effect1 hover">
+						<a href="#">
+	    			<div class="competition-ihover-img"><img src="../static/images/homepage/page3/icon2.png" alt="img"></div>
+			        <div class="info">
+			          <div class="info-back">
+			            <center><b class="competition-ihover-text">Green Building</b></center>
+			          </div>
+			        </div>
+		      	</a>
+	      	</div>
+				</div>
+				<div class="col-md-2">
+					<div class="ih-item circle effect1 hover">
+						<a href="#">
+	    			<div class="competition-ihover-img"><img src="../static/images/homepage/page3/icon3.png" alt="img"></div>
+			        <div class="info">
+			          <div class="info-back">
+			            <center><b class="competition-ihover-text">Clean Water</b></center>
+			          </div>
+			        </div>
+		      	</a>
+	      	</div>
+				</div>
+				<div class="col-md-2">
+					<div class="ih-item circle effect1 hover">
+						<a href="#">
+	    			<div class="competition-ihover-img"><img src="../static/images/homepage/page3/icon4.png" alt="img"></div>
+			        <div class="info">
+			          <div class="info-back">
+			            <center><b class="competition-ihover-text">Clean Transportation</b></center>
+			          </div>
+			        </div>
+		      	</a>
+	      	</div>
+				</div>
+				<div class="col-md-2">
+					<div class="ih-item circle effect1 hover">
+						<a href="#">
+	    			<div class="competition-ihover-img"><img src="../static/images/homepage/page3/icon2.png" alt="img"></div>
+			        <div class="info">
+			          <div class="info-back">
+			            <center><b class="competition-ihover-text">Social Spaces</b></center>
+			          </div>
+			        </div>
+		      	</a>
+	      	</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<h3>Final city remains to be announced</h3>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-offset-5 col-md-2">
+					<img class="competition-ihover-img" src="../static/images/homepage/page3/city.jpg">
+				</div>
+			</div>
+		</div>
+	</div>
 
-<script>
-$("#home1").click(function(event) {
-	event.preventDefault();
-	$('html,body').animate({
-      scrollTop: 0
-    }, 1000);
-});
-$("#home2").click(function(event) {
-	event.preventDefault();
-	$('html,body').animate({
-      scrollTop: 0
-    }, 1000);
-});
-$("#competition").click(function(event) {
-	event.preventDefault();
-	$('html,body').animate({
-      scrollTop: $("#header-wrapper").height()-$("#nav-content").height()-$(".title").height()-parseInt($(".title").css("padding-top"))
-    }, 1000);
-});
-$("#sponsor").click(function(event) {
-	event.preventDefault();
-	$('html,body').animate({
-      scrollTop: $("#header-wrapper").height()+$("#main-wrapper").height()+parseInt($("#main-wrapper").css("padding-top"))+parseInt($("#main-wrapper").css("padding-bottom"))-$("#nav-content").height()-$(".title").height()-parseInt($(".title").css("padding-top"))
-    }, 1000);
-});
-$("#contact").click(function(event) {
-	event.preventDefault();
-	$('html,body').animate({
-      scrollTop: $("#header-wrapper").height()+$("#main-wrapper").height()+parseInt($("#main-wrapper").css("padding-top"))+parseInt($("#main-wrapper").css("padding-bottom"))+$("#highlights-wrapper").height()+parseInt($("#highlights-wrapper").css("padding-top"))+parseInt($("#highlights-wrapper").css("padding-bottom"))-$("#nav-content").height()-$(".title").height()-parseInt($(".title").css("padding-top"))
-    }, 1000);
-});
-</script>
+	<script>
+		var width = $(".hover-wrapper").width();
+		$(".hover").width(width);
+		$(".hover").height(width);
+		$(".hover-wrapper").resize(function() {
+			var width = $(".hover-wrapper").width();
+			$(".hover").width(width);
+			$(".hover").height(width);
+		})
+	</script>
 
-	</body>
-</html>
+	<div class="container-fluid sponsor">
+		<div class="sponsor-title">Sponsor</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3">
+					<img class="sponsor-img" src="../static/images/homepage/page4/1.png">
+					<h1>University of California, Berkeley</h1>
+				</div>
+				<div class="col-md-3">
+					<img class="sponsor-img" src="../static/images/homepage/page4/2.png">
+					<h1>Tsinghua, School of Environment</h1>
+				</div>
+				<div class="col-md-3">
+					<img class="sponsor-img" src="../static/images/homepage/page4/3.jpg">
+					<h1>Chinese Research Academy of Environment Sciences</h1>
+				</div>
+				<div class="col-md-3">
+					<img class="sponsor-img" src="../static/images/homepage/page4/4.jpg">
+					<h1>Joint US China Collaboration on Clean Energy</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<script>
+	// $("#home1").click(function(event) {
+	// 	event.preventDefault();
+	// 	$('html,body').animate({
+	//       scrollTop: 0
+	//     }, 1000);
+	// });
+	// $("#home2").click(function(event) {
+	// 	event.preventDefault();
+	// 	$('html,body').animate({
+	//       scrollTop: 0
+	//     }, 1000);
+	// });
+	// $("#competition").click(function(event) {
+	// 	event.preventDefault();
+	// 	$('html,body').animate({
+	//       scrollTop: $("#header-wrapper").height()-$("#nav-content").height()-$(".title").height()-parseInt($(".title").css("padding-top"))
+	//     }, 1000);
+	// });
+	// $("#sponsor").click(function(event) {
+	// 	event.preventDefault();
+	// 	$('html,body').animate({
+	//       scrollTop: $("#header-wrapper").height()+$("#main-wrapper").height()+parseInt($("#main-wrapper").css("padding-top"))+parseInt($("#main-wrapper").css("padding-bottom"))-$("#nav-content").height()-$(".title").height()-parseInt($(".title").css("padding-top"))
+	//     }, 1000);
+	// });
+	// $("#contact").click(function(event) {
+	// 	event.preventDefault();
+	// 	$('html,body').animate({
+	//       scrollTop: $("#header-wrapper").height()+$("#main-wrapper").height()+parseInt($("#main-wrapper").css("padding-top"))+parseInt($("#main-wrapper").css("padding-bottom"))+$("#highlights-wrapper").height()+parseInt($("#highlights-wrapper").css("padding-top"))+parseInt($("#highlights-wrapper").css("padding-bottom"))-$("#nav-content").height()-$(".title").height()-parseInt($(".title").css("padding-top"))
+	//     }, 1000);
+	// });
+	// </script>
+</div>
+{% endblock %}

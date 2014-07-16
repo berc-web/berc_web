@@ -14,15 +14,17 @@ import boto
 
 pm = PostMonkey('9ff33749afa74071578e2d427ec3a8b2-us8', timeout=10)
 
-
 app = Flask(__name__)
 app.config.from_object('config_berc.Config')
-
 
 from flask_s3 import FlaskS3
 from flask_s3 import url_for
 s3 = FlaskS3(app)
 
+# Scss
+# config Scss
+from flask.ext.scss import Scss
+Scss(app)
 
 # Database
 db = SQLAlchemy(app)
@@ -38,6 +40,17 @@ from config_user import user_manager
 def home():
 	return render_template('home.html')
 
+@app.route('/competition')
+def competition():
+	return render_template('competition.html')
+
+@app.route('/news_and_resources')
+def news_and_resources():
+	return render_template('news.html')
+
+@app.route('/about_us')
+def about_us():
+	return render_template('about.html')
 
 @app.route('/profile', methods=['GET'])
 @login_required

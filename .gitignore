@@ -5,3 +5,4 @@ berc.db
 application/static/upload/user_avatar/*
 !application/static/upload/user_avatar/default1.png
 */.DS_Store
+build/*

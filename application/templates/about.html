@@ -1,0 +1,90 @@
+{% extends 'layout.html' %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">
+{% endblock %}
+{% block body %}
+<div class="container about">
+	<div class="row">
+		<div class="col-md-3 navigation">
+			<ul class="nav nav-pills nav-stacked">
+				<li><a id="nav-about" href="#about">Organizing Committee</a></li>
+				<li><a id="nav-sponsors" href="#sponsors">Sponsors</a></li>
+				<li><a id="nav-organizers" href="#organizers">Co-organizers</a></li>
+				<li><a id="nav-involve" href="#involve">Get Involved</a></li>
+				<li><a id="nav-contact" href="#contact">Contact Us</a></li>
+			</ul>
+		</div>
+		<div class="col-md-9 main">
+			<div class="row" id="about">
+				<div class="col-md-12">
+					<div class="title">Organizing Committee</div>
+					<div class="content">
+						BERC China Focus was founded to create a student community to educate and empower those who want to make a difference in China and beyond. With established relationships with international non-profits and companies, and the experience of organizing a panel for the largest student-run energy conference in the United States, BERC China Focus pushes to become the go-to resource for anyone interested in the environment and China
+					</div>
+				</div>
+			</div>
+			<div class="row" id="sponsors">
+				<div class="col-md-12">
+					<div class="title">Sponsors</div>
+					<div class="content">
+						<div class="row">
+							<div class="col-md-4">
+								<a href="http://ced.berkeley.edu/"><img class="organizers-img" src="../static/images/homepage/page4/1.png"></a>
+								<h1>University of California, Berkeley</h1>
+							</div>
+							<div class="col-md-4">
+								<a href="http://www.tsinghua.edu.cn/publish/env/8897/"><img class="organizers-img" src="../static/images/homepage/page4/2.png"></a>
+								<h1>Tsinghua, School of Environment</h1>
+							</div>
+							<div class="col-md-4">
+								<a href="http://www.craes.cn"><img class="organizers-img" src="../static/images/homepage/page4/3.jpg"></a>
+								<h1>Chinese Research Academy of Environment Sciences</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row" id="organizers">
+				<div class="col-md-12">
+					<div class="title">Organizers</div>
+					<div class="content">
+						<div class="row">
+							<div class="col-md-4">
+								<a href=""><img class="organizers-img" src=""></a>
+								<h1>BERC</h1>
+							</div>
+							<div class="col-md-4">
+								<a href=""><img class="organizers-img" src=""></a>
+								<h1>CYCAN</h1>
+							</div>
+							<div class="col-md-4">
+								<a href="http://juccce.org/"><img class="organizers-img" src="../static/images/homepage/page4/4.jpg"></a>
+								<h1>Joint US China Collaboration on Clean Energy</h1>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row" id="involve">
+				<div class="col-md-12">
+					<div class="title">Get Involved</div>
+					<div class="content">
+						Weibo: <a href="http://weibo.com/BERCChinaFocus">http://weibo.com/BERCChinaFocus</a>
+						<br>
+						Facebook: <a href="https://www.facebook.com/bercchinafocus">https://www.facebook.com/bercchinafocus</a>
+						<br>
+						Renren: <a href="http://page.renren.com/601845509">http://page.renren.com/601845509</a>
+					</div>
+				</div>
+			</div>
+			<div class="row" id="contact">
+				<div class="col-md-12">
+					<div class="title">Contact Us</div>
+					<div class="content">
+						eecc2015@gmail.com 
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
+{% endblock %}

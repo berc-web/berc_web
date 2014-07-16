@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>EECC2015</title>
+		<!-- <link rel="shortcut icon" href="/static/images/homepage/logo_icon/logo.ico" > -->
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,700,900" rel="stylesheet" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+		<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+		{% block head %}
+		{% endblock %}
+	</head>
+
+	<body>
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+		  <div class="container-fluid">
+		  	<!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <a href=""><img class="logo-pic" src="../static/images/homepage/page1/logo.png"></a>
+		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		    </div>
+
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav">
+		        <li><a href="{{ url_for('home') }}">HOME</a></li>
+		        <li><a href="{{ url_for('competition') }}">Competition</a></li>
+		        <li><a href="{{ url_for('news_and_resources') }}">News and Resources</a></li>
+		        <li><a href="{{ url_for('about_us') }}">About Us</a></li>
+		      </ul>
+		      <ul class="nav navbar-nav navbar-right">
+		        <li><a href="/login">SIGN IN</a></li>
+		      </ul>
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
+		<div class="content-wrapper">
+	    {% block body %}
+	    {% endblock %}
+		</div>
+	</body>
+</html>
