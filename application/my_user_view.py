@@ -203,7 +203,11 @@ def my_login():
                 if not user.subscribed:
                     from application import pm
                     try:
-                        pm.listSubscribe(id='8d4e6caca8', email_address=user.email, double_optin=False)
+                        pm.listSubscribe(id='8d4e6caca8',
+                            email_address=user.email,
+                            double_optin=False,
+                            merge_vars = {'FNAME':user.fname, 'LNAME':user.lname}
+                            )
                         db_adapter.update_object(user, subscribed=True)
                         db_adapter.commit()
                     except Exception:
