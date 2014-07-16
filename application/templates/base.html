@@ -31,14 +31,14 @@
           <h3> {{ current_user.username }} </h3>
           <ul class="nav">
             {% if current_user.is_authenticated() %}
-            <li><a href="{{ url_for('user') }}">Profile</a></li>
-            <li><a href="{{ url_for('') }}">Upload Avatar</a></li>
-            <li><a href="{{ url_for('user.change_password') }}">Change Password</a></li>
-            <li><a href="{{ url_for('user.change_username') }}">Change username</a></li>
+                <li><a href="{{ url_for('user') }}">Profile</a></li>
+                <li><a href="{{ url_for('update_profile') }}">Update Profile</a></li>
+                <li><a href="{{ url_for('user.change_password') }}">Change Password</a></li>
+                <li><a href="{{ url_for('user.change_username') }}">Change username</a></li>
             {% else %}
-            <li><a href="{{ url_for('user.register') }}">Register</a></li>
-            <li><a href="{{ url_for('user.login') }}">Sign in</a></li>
-            <li><a href="{{ url_for('user.forgot_password') }}">Forgot password?</a></li>
+                <li><a href="{{ url_for('user.register') }}">Register</a></li>
+                <li><a href="{{ url_for('user.login') }}">Sign in</a></li>
+                <li><a href="{{ url_for('user.forgot_password') }}">Forgot password?</a></li>
             {% endif %}
           </ul>
         </nav>
