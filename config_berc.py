@@ -51,3 +51,7 @@ class Config(object):
 
 	UPLOAD_FOLDER = '/static/upload/user_avatar/'
 	# DEFAULT_FILE_STORAGE = 'filesystem'
+
+	S3_BUCKET_NAME = 'eecc2015'
+	AWS_ACCESS_KEY_ID = 'AKIAJXPD4DCVTVKEQDXA'
+	AWS_SECRET_ACCESS_KEY = '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'

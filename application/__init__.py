@@ -17,6 +17,10 @@ app = Flask(__name__)
 app.config.from_object('config_berc.Config')
 
 
+from flask_s3 import FlaskS3
+s3 = FlaskS3(app)
+
+
 # Database
 db = SQLAlchemy(app)
 from models import User, Role

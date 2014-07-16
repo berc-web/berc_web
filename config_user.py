@@ -2,7 +2,7 @@ from flask import render_template
 from flask.ext.user import forms as flask_user_forms
 from flask.ext.user import UserManager, tokens
 from application import db_adapter
-from application import forms as my_forms
+from application.forms import RegisterFormWithName
 from application.my_user_view import my_login
 
 def user_login():
@@ -27,7 +27,7 @@ user_manager = UserManager(
     change_username_form            = flask_user_forms.ChangeUsernameForm,
     forgot_password_form            = flask_user_forms.ForgotPasswordForm,
     login_form                      = flask_user_forms.LoginForm,
-    register_form                   = my_forms.RegisterFormWithName,
+    register_form                   = RegisterFormWithName,
     reset_password_form             = flask_user_forms.ResetPasswordForm,
 
     # Validators
