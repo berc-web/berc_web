@@ -1,0 +1,22 @@
+.rules {
+  box-shadow: 0px 10px 30px 2px #888888;
+  background: #ffffff url('images/overlay.png');
+  padding-top: 50px;
+  margin-bottom: 50px;
+  min-height: 900px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 50px; }
+  .rules .main-title {
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center; }
+    .rules .single {
+      margin-top: 20px; }
+      .rules .single .title {
+        font-size: 20px;
+        font-weight: bold; }
+        .rules .single .content {
+          font-size: 18px; }
+  .rules .underline {
+    text-decoration: underline; }

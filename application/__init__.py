@@ -45,6 +45,9 @@ def home():
 def competition():
 	return render_template('competition.html')
 
+@app.route('/rules')
+def rules():
+	return render_template('rules.html')
 
 @app.route('/news_and_resources')
 def news_and_resources():
