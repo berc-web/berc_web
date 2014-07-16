@@ -1,6 +1,6 @@
 import os
 from flask.ext.sqlalchemy import SQLAlchemy
-from flask import Flask, request, session, g, redirect, url_for, render_template, \
+from flask import Flask, request, session, g, redirect, render_template, \
 					flash, send_from_directory
 from flask.ext.babel import Babel
 from flask.ext.mail import Mail
@@ -18,6 +18,7 @@ app.config.from_object('config_berc.Config')
 
 
 from flask_s3 import FlaskS3
+from flask_s3 import url_for
 s3 = FlaskS3(app)
 
 
