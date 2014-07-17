@@ -48,3 +48,12 @@ html, body {
                     text-decoration: none;
                     font-size: 16px;
                     letter-spacing: 4px; }
+
+.footer {
+  height: 50px;
+  line-height: 50px;
+  background-color: #2c323f; }
+  .footer .copy-right {
+    color: #ffffff; }
+    .footer .navbar-nav a:hover {
+      background-color: #2c323f; }
