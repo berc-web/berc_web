@@ -20,7 +20,15 @@
           .news .main #resources, .news .main #news {
             margin-bottom: 20px; }
             .news .main #carousel {
-              margin-bottom: 15px; }
+              margin-bottom: 15px;
+              height: 450px; }
+              .news .main #carousel .carousel-inner {
+                height: 450px; }
+                .news .main #carousel .carousel-inner .item {
+                  height: 450px; }
+                  .news .main #carousel .carousel-inner .item img {
+                    height: 450px;
+                    margin: 0 auto; }
               .news .main #carousel .carousel-indicators li {
                 width: 15px;
                 height: 15px;
@@ -46,6 +54,7 @@
                           top: 3px;
                           padding: 0;
                           padding-left: 20%;
-                          padding-right: 20%; }
+                          padding-right: 20%;
+                          padding-top: 40px; }
                           .news .main #carousel .carousel-caption p {
                             color: #000000; }
