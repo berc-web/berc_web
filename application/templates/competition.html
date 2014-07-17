@@ -19,6 +19,7 @@
 					<div class="content">
 						In the past few years, the United States and China are leading the global energy and environment industry. Recent developments have revealed difficulties that come with collaboration efforts between the two power-players, often caused by lack of cultural understanding and channels for open thought and technology exchange.
 					</div>
+					<br>
 					<div class="content">
 						While difficulties exist, the energy industry will only become more globalized in the future, favoring those who are prepared with collaboration skills, cultural understanding, and developed networks. China and the US will be at the center of the globalization. Thus, BERC China Focus and Tsinghua Green Association are organizing a student case-study competition to get students in the world’s top universities an opportunity to focus their skills, meet like-minded peers, and provide solutions to today's real-life issues.
 					</div>
@@ -28,6 +29,32 @@
 				<div class="col-md-12">
 					<div class="title">Rules</div>
 					<div class="content">
+
+						<div id="carousel" class="carousel slide" data-ride="carousel">
+						    <ol class="carousel-indicators">
+						        <li data-target="#carousel" data-slide-to="0" class="active"></li>
+						        <li data-target="#carousel" data-slide-to="1"></li>
+						        <li data-target="#carousel" data-slide-to="2"></li>
+						    </ol>
+						    <div class="carousel-inner">
+						        <div class="item active">
+						            <img src="../static/images/competition/rules/1.png" alt="Slide 1" />
+						        </div>
+						        <div class="item">
+						            <img src="../static/images/competition/rules/2.png" alt="Slide 2" />
+						        </div>
+						        <div class="item">
+						            <img src="../static/images/competition/rules/3.png" alt="Slide 3" />
+						        </div>
+						    </div> 
+						    <a href="#carousel" class="left carousel-control" data-slide="prev">
+						        <span class="glyphicon glyphicon-chevron-left black-glyphicon"></span>
+						    </a>
+						    <a href="#carousel" class="right carousel-control" data-slide="next">
+						        <span class="glyphicon glyphicon-chevron-right black-glyphicon"></span>
+						    </a>
+						</div>
+
 						<a href="{{ url_for('rules') }}">Read Competition Rules  <span class="glyphicon glyphicon-arrow-right"></span></a>
 					</div>
 				</div>
@@ -93,4 +120,12 @@
 		</div>
 	</div>
 </div>
+<script>
+$(document).ready(function () {
+    $('#carousel').carousel({
+        interval: 3000
+    });
+    $('#carousel').carousel('cycle');
+});
+</script>
 {% endblock %}

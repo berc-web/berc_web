@@ -10,18 +10,19 @@
     .competition .main {
       margin-bottom: 20px; }
       .competition .main .title {
-        text-align: center;
-        font-size: 20px;
-        font-weight: bold; }
+        font-size: 25px;
+        font-weight: bold;
+        color: #428bca;
+        text-transform: uppercase;
+        margin-bottom: 10px; }
         .competition .main .content {
           text-align: center;
           font-size: 18px; }
           .competition .main #mission, .competition .main #rules, .competition .main #judges,
           .competition .main #rubrics, .competition .main #prizes {
-            margin-bottom: 20px; }
+            margin-bottom: 50px; }
             .competition .main #mission .content {
-              text-align: left;
-              text-indent: 15px; }
+              text-align: left; }
       .competition .main .judge {
         margin-top: 10px;
         margin-bottom: 10px; }
@@ -37,3 +38,19 @@
               font-size: 16px;
               font-weight: normal;
               color: #7f7f7f; }
+      .competition .main #carousel {
+        margin-bottom: 10px; }
+        .competition .main #carousel .carousel-indicators li {
+          width: 15px;
+          height: 15px;
+          margin: 2px;
+          border: 1px solid #000000; }
+          .competition .main #carousel .carousel-indicators .active {
+            background-color: #000000; }
+            .competition .main #carousel .carousel-control.left,
+            .competition .main #carousel .carousel-control.left:hover,
+            .competition .main #carousel .carousel-control.right,
+            .competition .main #carousel .carousel-control.left:hover {
+              background: none; }
+              .competition .main #carousel .black-glyphicon {
+                color: #000000; }

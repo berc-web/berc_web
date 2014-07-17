@@ -11,12 +11,13 @@
 	.main {
 		margin-bottom: 20px;
 		.title {
-			text-align: center;
-			font-size: 20px;
+			font-size: 25px;
 			font-weight: bold;
+			color: #428bca;
+			text-transform: uppercase;
+			margin-bottom: 10px;
 		}
 		.content {
-			text-align: center;
 			font-size: 18px;
 		}
 		#sponsors, #organizers {
@@ -41,7 +42,7 @@
 			}
 		}
 		#about, #sponsors, #organizers, #involve, #contact {
-			margin-bottom: 20px;
+			margin-bottom: 50px;
 		}
 	}
 }

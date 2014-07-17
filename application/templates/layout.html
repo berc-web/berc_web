@@ -8,8 +8,6 @@
 		<meta name="keywords" content="" />
 		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,700,900" rel="stylesheet" />
 		<link rel="shortcut icon" href="{{ url_for('static', filename='images/homepage/logo_icon/favicon.ico') }}" >
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 		<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
 		{% block head %}
@@ -52,6 +50,8 @@
 		    {% block body %}
 		    {% endblock %}
 		</div>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 		<script>
 			$(function() {
 				$(window).scroll(function() {
@@ -61,7 +61,7 @@
 				});
 			});
 			$(function() {
-			  $('a[href*=#]:not([href=#])').click(function() {
+			  $('a[href*=#]:not([href=#]):not([data-toggle]):not([data-slide])').click(function() {
 			  	// $(this).parent().parent().children().removeClass("active");
 			  	// $(this).parent().addClass("active");
 			    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
