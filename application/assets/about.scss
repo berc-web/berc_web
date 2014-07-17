@@ -30,6 +30,12 @@
 				text-align: center;
 				margin-top: 15px;
 			}
+			img:hover {
+				border-radius: 4px;
+				border: 2px solid #646464;
+				box-shadow: 0px 0px 30px 1px #888888;
+				padding: 2px;
+			}
 		}
 		#involve {
 			.content {
