@@ -41,7 +41,7 @@ body {
 					height: $navbar_height;
 					line-height: $navbar_height;
 					vertical-align: middle;
-					padding: 0 26px;;
+					padding: 0 10px;;
 					a {
 						display: block;
 						height: $navbar_height;
@@ -50,8 +50,11 @@ body {
 						color: rgba(255,255,255,0.8);
 						text-decoration: none;
 						font-size: 16px;
-						letter-spacing: 4px;
+						letter-spacing: 1px;
 					}
+				}
+				.action-hint {
+					margin-left: 50px;
 				}
 			}
 		}

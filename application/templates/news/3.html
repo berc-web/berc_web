@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/news.css') }}">
+{% endblock %}
+{% block body %}
+<div class="container new">
+	<div class="row">
+		<div class="col-md-offset-2 col-md-8">
+			<div class="title"></div>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-offset-2 col-md-8">
+			<div class="image"><img src="../static/images/news/3.png"></div>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-md-offset-2 col-md-8">
+			<div class="content">On July 17th-20th 2014, the Sixth International Youth Summit on Energy and Climate Change (IYSECC) will be held in Beijing. Jointly organized by CYCAN, CDM Club and TUSGA since 2009, IYSECC has achieved tremendous success in the past five conferences by attracting hundreds of young people from around the globe. Characterized by its professionalism, enterprise and internationalization, IYSECC has provided the youngsters with a stage to demonstrate and communicate their environmental achievements with friends worldwide.  In addition, the summit has also established a platform for government officers, scholars, professionals, green firms, environmental NGOs and the news media to further enable equal dialogues between different domains of the society.  With the help of IYSECC, young people interested in the environment will be given the opportunity to broaden their horizons and get in touch with the elites in the field</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

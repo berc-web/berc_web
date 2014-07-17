@@ -40,17 +40,24 @@
               color: #7f7f7f; }
       .competition .main #carousel {
         margin-bottom: 10px; }
-        .competition .main #carousel .carousel-indicators li {
-          width: 15px;
-          height: 15px;
-          margin: 2px;
-          border: 1px solid #000000; }
-          .competition .main #carousel .carousel-indicators .active {
-            background-color: #000000; }
-            .competition .main #carousel .carousel-control.left,
-            .competition .main #carousel .carousel-control.left:hover,
-            .competition .main #carousel .carousel-control.right,
-            .competition .main #carousel .carousel-control.left:hover {
-              background: none; }
-              .competition .main #carousel .black-glyphicon {
-                color: #000000; }
+        .competition .main #carousel .carousel-inner .item {
+          padding: 0 15%;
+          padding-bottom: 15px; }
+        .competition .main #carousel .carousel-indicators {
+          bottom: 0;
+          margin-bottom: 0;
+          height: 15px; }
+          .competition .main #carousel .carousel-indicators li {
+            width: 15px;
+            height: 15px;
+            margin: 2px;
+            border: 1px solid #000000; }
+            .competition .main #carousel .carousel-indicators .active {
+              background-color: #000000; }
+              .competition .main #carousel .carousel-control.left,
+              .competition .main #carousel .carousel-control.left:hover,
+              .competition .main #carousel .carousel-control.right,
+              .competition .main #carousel .carousel-control.left:hover {
+                background: none; }
+                .competition .main #carousel .black-glyphicon {
+                  color: #000000; }
