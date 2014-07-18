@@ -36,7 +36,7 @@
 		      	<li><a href="{{ url_for('home') }}"><img class="logo-pic" src="../static/images/homepage/page1/logo.png"></a></li>
 		        <li><a href="{{ url_for('home') }}">Home</a></li>
 		        <li><a href="{{ url_for('competition') }}">Competition</a></li>
-		        <li><a href="{{ url_for('news_and_resources') }}">News&Resources</a></li>
+		        <li><a href="{{ url_for('news_and_resources') }}">News & Resources</a></li>
 		        <li><a href="{{ url_for('about_us') }}">About Us</a></li>
 		      	{% if current_user.is_authenticated() %}
 		          	<li class="action-hint"><a href="{{ url_for('user') }}">Hi, {{ current_user.username }}</a></li>
@@ -50,13 +50,30 @@
 		  </div><!-- /.container-fluid -->
 		</nav>
 		<div class="content-wrapper">
+			<div class="container">
+			  <div class="row">
+			    <div class="col-xs-offset-3 col-xs-6">
+			      {% block flash_messages %}
+			        {%- with messages = get_flashed_messages(with_categories=true) -%}
+			          {% if messages %}
+			            {% for category, message in messages %}
+			              {% if category=='error' %}
+			                {% set category='danger' %}
+			              {% endif %}
+			              <div class="alert alert-{{category}}">{{ message }}</div>
+			            {% endfor %}
+			          {% endif %}
+			        {%- endwith %}
+			      {% endblock %}
+			    </div>
+			  </div>
+			</div>
 		    {% block body %}
 		    {% endblock %}
 		</div>
 		<div class="footer">
 	      <div class="container">
 	        <span class="copy-right">&#169; EECC2015</span>
-	        <span class="powered">Powered By Jianzhong Chen & Fan Ye</span>
 	        <ul class="nav navbar-nav pull-right">
 		        <li><a href="https://www.facebook.com/bercchinafocus"><i class="fa fa-facebook"></i> Facebook</a></li>
 		        <li><a href="http://page.renren.com/601845509"><i class="fa fa-renren"></i> RenRen</a></li>
