@@ -1,5 +1,4 @@
 .about {
-  font-family: lato;
   box-shadow: 0px 10px 30px 2px #888888;
   background: #ffffff url('images/overlay.png');
   padding-top: 50px;
@@ -11,11 +10,12 @@
     .about .main {
       margin-bottom: 20px; }
       .about .main .title {
-        text-align: center;
-        font-size: 20px;
-        font-weight: bold; }
+        font-size: 25px;
+        font-weight: bold;
+        color: #428bca;
+        text-transform: uppercase;
+        margin-bottom: 10px; }
         .about .main .content {
-          text-align: center;
           font-size: 18px; }
           .about .main #sponsors .organizers-img, .about .main #organizers .organizers-img {
             width: 100%; }
@@ -24,10 +24,15 @@
               font-weight: bold;
               text-align: center;
               margin-top: 15px; }
+              .about .main #sponsors img:hover, .about .main #organizers img:hover {
+                border-radius: 4px;
+                border: 2px solid #646464;
+                box-shadow: 0px 0px 30px 1px #888888;
+                padding: 2px; }
       .about .main #involve .content a {
         text-decoration: none; }
         .about .main #involve .content a:hover {
           text-decoration: none; }
       .about .main #about, .about .main #sponsors, .about .main #organizers,
       .about .main #involve, .about .main #contact {
-        margin-bottom: 20px; }
+        margin-bottom: 50px; }

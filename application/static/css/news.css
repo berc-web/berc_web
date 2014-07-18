@@ -1,5 +1,4 @@
 .news {
-  font-family: lato;
   box-shadow: 0px 10px 30px 2px #888888;
   background: #ffffff url('images/overlay.png');
   padding-top: 50px;
@@ -11,11 +10,53 @@
     .news .main {
       margin-bottom: 20px; }
       .news .main .title {
-        text-align: center;
-        font-size: 20px;
-        font-weight: bold; }
+        font-size: 25px;
+        font-weight: bold;
+        color: #428bca;
+        text-transform: uppercase;
+        margin-bottom: 10px; }
         .news .main .content {
-          text-align: center;
           font-size: 18px; }
           .news .main #resources, .news .main #news {
             margin-bottom: 20px; }
+            .news .main #carousel {
+              margin-bottom: 15px;
+              height: 450px; }
+              .news .main #carousel .carousel-inner {
+                height: 450px; }
+                .news .main #carousel .carousel-inner .item {
+                  height: 450px;
+                  padding: 0 15%;
+                  padding-bottom: 15px; }
+                  .news .main #carousel .carousel-inner .item img {
+                    height: 100%;
+                    margin: 0 auto; }
+              .news .main #carousel .carousel-indicators {
+                bottom: 0;
+                margin-bottom: 0;
+                height: 15px; }
+                .news .main #carousel .carousel-indicators li {
+                  width: 15px;
+                  height: 15px;
+                  margin: 2px;
+                  border: 1px solid #000000; }
+                  .news .main #carousel .carousel-indicators .active {
+                    background-color: #000000; }
+                    .news .main #carousel .carousel-control.left,
+                    .news .main #carousel .carousel-control.left:hover,
+                    .news .main #carousel .carousel-control.right,
+                    .news .main #carousel .carousel-control.left:hover {
+                      background: none; }
+                      .news .main #carousel .black-glyphicon {
+                        color: #000000; }
+
+.new {
+  box-shadow: 0px 10px 30px 2px #888888;
+  background: #ffffff url('images/overlay.png');
+  padding-top: 50px;
+  margin-bottom: 50px;
+  min-height: 900px; }
+  .new .image img {
+    width: 100%; }
+  .new .content {
+    font-size: 18px; }

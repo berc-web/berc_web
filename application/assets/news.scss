@@ -1,5 +1,4 @@
 .news {
-	font-family: lato;
 	box-shadow: 0px 10px 30px 2px #888888;
 	background: #ffffff url('images/overlay.png');
 	padding-top: 50px;
@@ -12,16 +11,71 @@
 	.main {
 		margin-bottom: 20px;
 		.title {
-			text-align: center;
-			font-size: 20px;
+			font-size: 25px;
 			font-weight: bold;
+			color: #428bca;
+			text-transform: uppercase;
+			margin-bottom: 10px;
 		}
 		.content {
-			text-align: center;
 			font-size: 18px;
 		}
 		#resources, #news {
 			margin-bottom: 20px;
 		}
+		#carousel {
+			margin-bottom: 15px;
+			height: 450px;
+			.carousel-inner {
+				height: 450px;
+				.item {
+					height: 450px;
+					padding: 0 15%;
+					padding-bottom: 15px;
+					img {
+						height: 100%;
+						margin: 0 auto;
+					}
+				}
+			}
+			.carousel-indicators {
+				bottom: 0;
+				margin-bottom: 0;
+				height: 15px;
+			}
+			.carousel-indicators li {
+				width: 15px;
+				height: 15px;
+				margin: 2px;
+				border: 1px solid #000000;
+			}
+			.carousel-indicators .active {
+				background-color: #000000;
+			}
+			.carousel-control.left, .carousel-control.left:hover, .carousel-control.right, .carousel-control.left:hover {
+				background: none;
+			}
+			.black-glyphicon {
+				color: #000000;
+			}
+		}
+	}
+}
+.new {
+	box-shadow: 0px 10px 30px 2px #888888;
+	background: #ffffff url('images/overlay.png');
+	padding-top: 50px;
+	margin-bottom: 50px;
+	min-height: 900px;
+	.title {
+
+	}
+	.image {
+		img {
+			width: 100%;
+		}
+	}
+	.content {
+		font-size: 18px;
 	}
 }

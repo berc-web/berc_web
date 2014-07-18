@@ -6,11 +6,12 @@
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
-		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,700,900" rel="stylesheet" />
-		<link rel="shortcut icon" href="{{ url_for('static', filename='images/homepage/logo_icon/favicon.ico') }}" >
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,700,900" rel="stylesheet" />
+		<link rel="shortcut icon" href="{{ url_for('static', filename='images/homepage/logo_icon/favicon.ico') }}" >
 		<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+		<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 		<link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
 		{% block head %}
 		{% endblock %}
@@ -21,7 +22,6 @@
 		  <div class="container-fluid">
 		  	<!-- Brand and toggle get grouped for better mobile display -->
 		    <div class="navbar-header">
-		      <a href=""><img class="logo-pic" src="../static/images/homepage/page1/logo.png"></a>
 		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 		        <span class="sr-only">Toggle navigation</span>
 		        <span class="icon-bar"></span>
@@ -33,17 +33,16 @@
 		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="nav navbar-nav">
+		      	<li><a href="{{ url_for('home') }}"><img class="logo-pic" src="../static/images/homepage/page1/logo.png"></a></li>
 		        <li><a href="{{ url_for('home') }}">Home</a></li>
 		        <li><a href="{{ url_for('competition') }}">Competition</a></li>
-		        <li><a href="{{ url_for('news_and_resources') }}">News and Resources</a></li>
+		        <li><a href="{{ url_for('news_and_resources') }}">News&Resources</a></li>
 		        <li><a href="{{ url_for('about_us') }}">About Us</a></li>
-		      </ul>
-		      <ul class="nav navbar-nav navbar-right action-hint">
 		      	{% if current_user.is_authenticated() %}
-		          	<li><a href="{{ url_for('user') }}">Hi, {{ current_user.username }}</a></li>
+		          	<li class="action-hint"><a href="{{ url_for('user') }}">Hi, {{ current_user.username }}</a></li>
 		          	<li><a href="{{ url_for('user.logout') }}">Logout</a></li>
 		        {% else %}
-		        	<li><a href="{{ url_for('user.login') }}">Sign In</a></li>
+		        	<li class="action-hint"><a href="{{ url_for('user.login') }}">Sign In</a></li>
 		        	<li><a href="{{ url_for('user.register') }}">Register</a></li>
 		        {% endif %}
 		      </ul>
@@ -51,18 +50,31 @@
 		  </div><!-- /.container-fluid -->
 		</nav>
 		<div class="content-wrapper">
-	    {% block body %}
-	    {% endblock %}
+		    {% block body %}
+		    {% endblock %}
 		</div>
+		<div class="footer">
+	      <div class="container">
+	        <span class="copy-right">&#169; EECC2015</span>
+	        <span class="powered">Powered By Jianzhong Chen & Fan Ye</span>
+	        <ul class="nav navbar-nav pull-right">
+		        <li><a href="https://www.facebook.com/bercchinafocus"><i class="fa fa-facebook"></i> Facebook</a></li>
+		        <li><a href="http://page.renren.com/601845509"><i class="fa fa-renren"></i> RenRen</a></li>
+		        <li><a href="http://weibo.com/BERCChinaFocus"><i class="fa fa-weibo"></i> Weibo</a></li>
+		        <li><a><i class="fa fa-envelope-o"></i> eecc2015@gmail.com</a></li>
+		      </ul>
+	      </div>
+	    </div>
 		<script>
 			$(function() {
 				$(window).scroll(function() {
 					$('.navigation').css('top', $(window).scrollTop() + 'px');
+					$('.navbar-nav').css('left', '-' + $(window).scrollLeft() + 'px');
 					return false;
 				});
 			});
 			$(function() {
-			  $('a[href*=#]:not([href=#])').click(function() {
+			  $('a[href*=#]:not([href=#]):not([data-toggle]):not([data-slide])').click(function() {
 			  	// $(this).parent().parent().children().removeClass("active");
 			  	// $(this).parent().addClass("active");
 			    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {

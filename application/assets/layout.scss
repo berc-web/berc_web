@@ -1,12 +1,15 @@
 $navbar_height: 70px;
+$footer_height: 50px;
 html, body {
 	min-height: 100%;
+	min-width: 1300px;
 }
 body {
 	padding-top: 70px;
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: "Helvetica Neue", Arial, sans-serif;
 }
 .navbar {
+	min-width: 1300px;
 	height: $navbar_height;
 	line-height: $navbar_height;
 	margin: 0;
@@ -19,15 +22,18 @@ body {
 		.navbar-header {
 			height: $navbar_height;
 			line-height: $navbar_height;
-			.logo-pic {
-				height: 80%;
-				margin: auto;
-			}
 		}
 		.navbar-collapse {
 			height: $navbar_height;
 			line-height: $navbar_height;
+			text-align: center;
 			.navbar-nav {
+				.logo-pic {
+					height: 80%;
+					margin: auto;
+				}
+				display: inline-block;
+				float: none;
 				height: $navbar_height;
 				line-height: $navbar_height;
 				position: relative;
@@ -35,7 +41,7 @@ body {
 					height: $navbar_height;
 					line-height: $navbar_height;
 					vertical-align: middle;
-					padding: 0 26px;;
+					padding: 0 10px;;
 					a {
 						display: block;
 						height: $navbar_height;
@@ -44,13 +50,30 @@ body {
 						color: rgba(255,255,255,0.8);
 						text-decoration: none;
 						font-size: 16px;
-						letter-spacing: 4px;
+						letter-spacing: 1px;
 					}
 				}
+				.action-hint {
+					margin-left: 50px;
+				}
 			}
-			.action-hint {
-				margin-right: 50px;
-			}
+		}
+	}
+}
+.footer {
+	height: $footer_height;
+	line-height: $footer_height;
+	background-color: rgba(44,50,63,1);
+	.copy-right {
+		color: #ffffff;
+	}
+	.powered {
+		color: #ffffff;
+		margin-left: 50px;
+	}
+	.navbar-nav {
+		a:hover {
+			background-color: rgba(44,50,63,1);
 		}
 	}
 }

@@ -1,5 +1,4 @@
 .competition {
-	font-family: lato;
 	box-shadow: 0px 10px 30px 2px #888888;
 	background: #ffffff url('images/overlay.png');
 	padding-top: 50px;
@@ -12,16 +11,23 @@
 	.main {
 		margin-bottom: 20px;
 		.title {
-			text-align: center;
-			font-size: 20px;
+			font-size: 25px;
 			font-weight: bold;
+			color: #428bca;
+			text-transform: uppercase;
+			margin-bottom: 10px;
 		}
 		.content {
 			text-align: center;
 			font-size: 18px;
 		}
 		#mission, #rules, #judges, #rubrics, #prizes {
-			margin-bottom: 20px;
+			margin-bottom: 50px;
+		}
+		#mission {
+			.content {
+				text-align: left;
+			}
 		}
 		.judge {
 			margin-top: 10px;
@@ -40,6 +46,35 @@
 				font-size: 16px;
 				font-weight: normal;
 				color: #7f7f7f;
+			}
+		}
+		#carousel {
+			margin-bottom: 10px;
+			.carousel-inner {
+				.item {
+					padding: 0 15%;
+					padding-bottom: 15px;
+				}
+			}
+			.carousel-indicators {
+				bottom: 0;
+				margin-bottom: 0;
+				height: 15px;
+			}
+			.carousel-indicators li {
+				width: 15px;
+				height: 15px;
+				margin: 2px;
+				border: 1px solid #000000;
+			}
+			.carousel-indicators .active {
+				background-color: #000000;
+			}
+			.carousel-control.left, .carousel-control.left:hover, .carousel-control.right, .carousel-control.left:hover {
+				background: none;
+			}
+			.black-glyphicon {
+				color: #000000;
 			}
 		}
 	}

@@ -7,21 +7,44 @@
 	<div class="row">
 		<div class="col-md-3 navigation">
 			<ul class="nav nav-pills nav-stacked">
-				<li><a href="#resources">Online Resources</a></li>
 				<li><a href="#news">News and Events</a></li>
+				<li><a href="#resources">Online Resources</a></li>
 			</ul>
 		</div>
 		<div class="col-md-9 main">
-			<div class="row" id="resources">
-				<div class="col-md-12">
-					<div class="title">Online Resources</div>
-					<div class="content">
-					</div>
-				</div>
-			</div>
 			<div class="row" id="news">
 				<div class="col-md-12">
 					<div class="title">News and Events</div>
+					<div id="carousel" class="carousel slide" data-ride="carousel">
+					    <ol class="carousel-indicators">
+					        <li data-target="#carousel" data-slide-to="0" class="active"></li>
+					        <li data-target="#carousel" data-slide-to="1"></li>
+					        <li data-target="#carousel" data-slide-to="2"></li>
+					    </ol>
+					    <div class="carousel-inner">
+					        <div class="item active">
+					        	<a href="{{ url_for('news_1') }}"><img src="../static/images/news/1.png"></a>
+					        </div>
+					        <div class="item">
+					        	<a href="{{ url_for('news_2') }}"><img src="../static/images/news/2.png"></a>
+					        </div>
+					        <div class="item">
+					        	<a href="{{ url_for('news_3') }}"><img src="../static/images/news/3.png"></a>
+					        </div>
+					    </div> 
+					    <a href="#carousel" class="left carousel-control" data-slide="prev">
+					        <span class="glyphicon glyphicon-chevron-left black-glyphicon"></span>
+					    </a>
+					    <a href="#carousel" class="right carousel-control" data-slide="next">
+					        <span class="glyphicon glyphicon-chevron-right black-glyphicon"></span>
+					    </a>
+					</div>
+					<div class="content">This time, BERC China Focus will be participating with great pride and confidence, presenting ourselves not only in different speeches but sharing our thoughts during energy conservation and innovation programs. On the last day of IYSECC, US-China Energy Student Competition will be kicking off with a grand opening at the end of the summit. So stay tuned!</div>
+				</div>
+			</div>
+			<div class="row" id="resources">
+				<div class="col-md-12">
+					<div class="title">Online Resources</div>
 					<div class="content">
 					</div>
 				</div>

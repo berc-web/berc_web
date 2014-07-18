@@ -45,10 +45,24 @@ def home():
 def competition():
 	return render_template('competition.html')
 
+@app.route('/rules')
+def rules():
+	return render_template('rules.html')
 
 @app.route('/news_and_resources')
 def news_and_resources():
 	return render_template('news.html')
+
+#Need to change to a dynamic route logic
+@app.route('/news/1')
+def news_1():
+	return render_template('news/1.html')
+@app.route('/news/2')
+def news_2():
+	return render_template('news/2.html')
+@app.route('/news/3')
+def news_3():
+	return render_template('news/3.html')
 
 
 @app.route('/about_us')
