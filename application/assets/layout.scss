@@ -60,6 +60,11 @@ body {
 		}
 	}
 }
+.message {
+	position: absolute;
+	width: 100%;
+	text-align: center;
+}
 .footer {
 	height: $footer_height;
 	line-height: $footer_height;
@@ -76,4 +81,10 @@ body {
 			background-color: rgba(44,50,63,1);
 		}
 	}
+}
+.anchor{
+  display: block;
+  height: 90px; /*same height as header*/
+  margin-top: -90px; /*same height as header*/
+  visibility: hidden;
 }
