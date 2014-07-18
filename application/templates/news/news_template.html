@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/news.css') }}">
+{% endblock %}
+{% block body %}
+<div class="container new">
+	<div class="row">
+		<div class="col-xs-offset-2 col-xs-8">
+			<div class="title"> {{ news.title }} </div>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-xs-offset-2 col-xs-8">
+			<div class="image"><img src="{{ news.image }}"></div>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-xs-offset-2 col-xs-8">
+			<div class="content">{{ news.content }}</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
