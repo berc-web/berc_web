@@ -106,8 +106,8 @@ def update_profile():
 				app.config['AWS_SECRET_ACCESS_KEY'])
 			bucket = connection.get_bucket(app.config['S3_BUCKET_NAME'])
 			file_path = os.path.join(app.config['S3_UPLOAD_DIRECTORY'], file_name)
+			sml = bucket.new_key(os.path.join('static', file_path))
 			path = url_for('static', filename=file_path)
-			sml = bucket.new_key(path)
 			sml.set_contents_from_file(form.photo.data)
 			sml.set_acl('public-read')
 
