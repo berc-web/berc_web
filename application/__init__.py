@@ -105,13 +105,13 @@ def update_profile():
 			connection = boto.connect_s3(app.config['AWS_ACCESS_KEY_ID'],
 				app.config['AWS_SECRET_ACCESS_KEY'])
 			bucket = connection.get_bucket(app.config['S3_BUCKET_NAME'])
-			path = os.path.join(app.config['S3_UPLOAD_DIRECTORY'], file_name)
+			file_path = os.path.join(app.config['S3_UPLOAD_DIRECTORY'], file_name)
+			path = url_for('static', filename=file_path)
 			sml = bucket.new_key(path)
 			sml.set_contents_from_file(form.photo.data)
 			sml.set_acl('public-read')
 
-			current_user.avatar = '/'.join([app.config['AWS_URL'],
-				app.config['S3_BUCKET_NAME']]) + path
+			current_user.avatar = path
 
 		current_user.fname = form.fname.data
 		current_user.lname = form.lname.data

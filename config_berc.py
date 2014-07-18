@@ -2,15 +2,15 @@ import os
 from flask import url_for
 
 class Config(object):
-	DEBUG=True
+	DEBUG=False
 	SECRET_KEY='eecc2015web'
 	USERNAME='admin'
 	PASSWORD='Berc12345'
 	ADMIN_EMAIL='eecc2015@gmail.com'
 
 	if os.environ.get('DATABASE_URL') is None:
-		# SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://@localhost/v2db'
-		SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://jianzhongchen:CJZcps1230117@localhost/berc_dev'
+		SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://@localhost/v2db'
+		# SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://jianzhongchen:CJZcps1230117@localhost/berc_dev'
 	else:
 		SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
 
@@ -51,8 +51,7 @@ class Config(object):
 
 	# DEFAULT_FILE_STORAGE = 'filesystem'
 
-	S3_UPLOAD_DIRECTORY = '/static/upload/user_avatar'
+	S3_UPLOAD_DIRECTORY = 'upload/user_avatar'
 	S3_BUCKET_NAME = os.environ.get('S3_BUCKET_NAME')
 	AWS_ACCESS_KEY_ID = 'AKIAJXPD4DCVTVKEQDXA'
 	AWS_SECRET_ACCESS_KEY = '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'
-	AWS_URL = 'https://s3-us-west-1.amazonaws.com'
