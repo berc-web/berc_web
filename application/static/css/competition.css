@@ -19,10 +19,30 @@
           text-align: center;
           font-size: 18px; }
           .competition .main #mission, .competition .main #rules, .competition .main #judges,
-          .competition .main #rubrics, .competition .main #prizes {
+          .competition .main #themes {
             margin-bottom: 50px; }
             .competition .main #mission .content {
               text-align: left; }
+      .competition .main #themes .content .single {
+        border-radius: 110px;
+        -webkit-border-radius: 110px;
+        -moz-border-radius: 110px;
+        border: 1px solid #d9d9d9;
+        background: #f7f7f7 url('images/overlay.png');
+        margin-bottom: 20px;
+        padding-top: 8px;
+        padding-bottom: 5px; }
+      .competition .main #themes .sub-image {
+        width: 100%;
+        border-radius: 100px;
+        -webkit-border-radius: 100px;
+        -moz-border-radius: 100px; }
+        .competition .main #themes .sub-title {
+          font-weight: bold; }
+          .competition .main #themes .sub-content {
+            text-align: left;
+            font-weight: normal;
+            font-size: 16px; }
       .competition .main .judge {
         margin-top: 10px;
         margin-bottom: 10px; }
@@ -40,9 +60,13 @@
               color: #7f7f7f; }
       .competition .main #carousel {
         margin-bottom: 10px; }
-        .competition .main #carousel .carousel-inner .item {
-          padding: 0 15%;
-          padding-bottom: 15px; }
+        .competition .main #carousel .carousel-inner {
+          width: 100%; }
+          .competition .main #carousel .carousel-inner .item {
+            width: 100%;
+            padding-bottom: 15px; }
+            .competition .main #carousel .carousel-inner .item img {
+              width: 100%; }
         .competition .main #carousel .carousel-indicators {
           bottom: 0;
           margin-bottom: 0;
