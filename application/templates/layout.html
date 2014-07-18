@@ -39,7 +39,7 @@
 		        <li><a href="{{ url_for('news_and_resources') }}">News & Resources</a></li>
 		        <li><a href="{{ url_for('about_us') }}">About Us</a></li>
 		      	{% if current_user.is_authenticated() %}
-		          	<li class="action-hint"><a href="{{ url_for('user') }}">Hi, {{ current_user.username }}</a></li>
+		          	<li class="action-hint"><a href="{{ url_for('user') }}">Hi, {{ current_user.fname }} {{ current_user.lname }}</a></li>
 		          	<li><a href="{{ url_for('user.logout') }}">Logout</a></li>
 		        {% else %}
 		        	<li class="action-hint"><a href="{{ url_for('user.login') }}">Sign In</a></li>
