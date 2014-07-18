@@ -50,26 +50,26 @@
 		  </div><!-- /.container-fluid -->
 		</nav>
 		<div class="content-wrapper">
-			<div class="container message">
-			  <div class="row">
-			    <div class="col-xs-offset-4 col-xs-4">
-			      {% block flash_messages %}
-			        {%- with messages = get_flashed_messages(with_categories=true) -%}
-			          {% if messages %}
+      {% block flash_messages %}
+        {%- with messages = get_flashed_messages(with_categories=true) -%}
+          {% if messages %}
+						<div class="container message">
+						  <div class="row">
+						    <div class="col-xs-offset-4 col-xs-4">
 			            {% for category, message in messages %}
 			              {% if category=='error' %}
 			                {% set category='danger' %}
 			              {% endif %}
 			              <div class="alert alert-{{category}}">{{ message }}</div>
-			            {% endfor %}
-			          {% endif %}
-			        {%- endwith %}
-			      {% endblock %}
-			    </div>
-			  </div>
-			</div>
-		    {% block body %}
-		    {% endblock %}
+	            		{% endfor %}
+						    </div>
+						  </div>
+						</div>
+          {% endif %}
+        {%- endwith %}
+      {% endblock %}
+	    {% block body %}
+	    {% endblock %}
 		</div>
 		<div class="footer">
 	      <div class="container">
