@@ -60,6 +60,11 @@ body {
 		}
 	}
 }
+.message {
+	position: absolute;
+	width: 100%;
+	text-align: center;
+}
 .footer {
 	height: $footer_height;
 	line-height: $footer_height;
