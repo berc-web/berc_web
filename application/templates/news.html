@@ -22,16 +22,12 @@
 					        <li data-target="#carousel" data-slide-to="2"></li>
 					    </ol>
 					    <div class="carousel-inner">
-					        <div class="item active">
-					        	<a href="{{ url_for('news_1') }}"><img src="../static/images/news/1.png"></a>
-					        </div>
-					        <div class="item">
-					        	<a href="{{ url_for('news_2') }}"><img src="../static/images/news/2.png"></a>
-					        </div>
-					        <div class="item">
-					        	<a href="{{ url_for('news_3') }}"><img src="../static/images/news/3.png"></a>
-					        </div>
-					    </div> 
+					    	{% for news in news_lst[-3:] %}
+						        <div class="{{ 'item active' if loop.index == 1 else 'item' }}">
+						        	<a href="{{ url_for('news', news_id=news.id) }}"><img src="{{ news.image }}"></a>
+						        </div>
+						    {% endfor %}
+					    </div>
 					    <a href="#carousel" class="left carousel-control" data-slide="prev">
 					        <span class="glyphicon glyphicon-chevron-left black-glyphicon"></span>
 					    </a>

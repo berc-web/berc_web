@@ -1,6 +1,7 @@
 from flask import url_for, redirect, render_template, request, flash
-from models import User, Role, Team
+from models import User, Role, Team, News
 from application import db, app
+from application.forms import UploadNewsForm
 from flask.ext import admin, login
 from flask.ext.admin.contrib import sqla
 from flask.ext.admin import expose, Admin
@@ -10,10 +11,14 @@ from flask.ext.user import roles_required, login_required
 # ----------------------------------
 class MyModelView(sqla.ModelView):
 	column_exclude_list = 'password'
-	# can_create = False
+	can_create = False
 
 	def is_accessible(self):
-		return login.current_user.is_authenticated()
+		return login.current_user.is_authenticated() and login.current_user.has_roles('admin')
+
+class CustomBaseView(admin.BaseView):
+	def is_accessible(self):
+		return login.current_user.is_authenticated() and login.current_user.has_roles('admin')
 
 class MyAdminIndexView(admin.AdminIndexView):
 
@@ -25,9 +30,18 @@ class MyAdminIndexView(admin.AdminIndexView):
 
 	@expose('/logout/')
 	@login_required
+	@roles_required('admin')
 	def logout_view(self):
 		login.logout_user()
-		return redirect(url_for('.index'))
+		return redirect(url_for('home'))
+
+class UploadNewsView(CustomBaseView):
+
+	@expose('/')
+	def upload_news(self):
+		return self.render('admin/upload_news.html', form=UploadNewsForm())
+
+
 
 # Admin Setup
 # -----------
@@ -35,4 +49,6 @@ admin = Admin(name='EECC Admin Panel', index_view=MyAdminIndexView(), base_templ
 admin.add_view(MyModelView(User, db.session, category="models"))
 admin.add_view(MyModelView(Role, db.session, category="models"))
 admin.add_view(MyModelView(Team, db.session, category="models"))
+admin.add_view(MyModelView(News, db.session, category="models"))
+admin.add_view(UploadNewsView(name="upload news", endpoint="uploadnews"))
 admin.init_app(app)

@@ -4,10 +4,10 @@ from flask import Flask, request, session, g, redirect, render_template, \
 					flash, send_from_directory
 from flask.ext.babel import Babel
 from flask.ext.mail import Mail
-from flask.ext.user import login_required, current_user, SQLAlchemyAdapter
+from flask.ext.user import login_required, current_user, SQLAlchemyAdapter, roles_required
 from flask.ext.user.views import register
 from werkzeug import secure_filename
-from forms import UpdateProfileForm
+from forms import UpdateProfileForm, UploadNewsForm
 from postmonkey import PostMonkey
 import boto
 
@@ -28,7 +28,7 @@ Scss(app)
 
 # Database
 db = SQLAlchemy(app)
-from models import User, Role
+from models import User, Role, Team, News
 
 
 # db_adapter
@@ -40,7 +40,6 @@ from config_user import user_manager
 def home():
 	return render_template('home.html')
 
-
 @app.route('/competition')
 def competition():
 	return render_template('competition.html')
@@ -51,18 +50,14 @@ def rules():
 
 @app.route('/news_and_resources')
 def news_and_resources():
-	return render_template('news.html')
+	news_lst = db.session.query(News).all()
+	return render_template('news.html', news_lst = news_lst)
 
-#Need to change to a dynamic route logic
-@app.route('/news/1')
-def news_1():
-	return render_template('news/1.html')
-@app.route('/news/2')
-def news_2():
-	return render_template('news/2.html')
-@app.route('/news/3')
-def news_3():
-	return render_template('news/3.html')
+
+@app.route('/news/<news_id>')
+def news(news_id):
+	news = db.session.query(News).filter(News.id==news_id)[0]
+	return render_template('news/news_template.html', news=news)
 
 
 @app.route('/about_us')
@@ -134,6 +129,35 @@ def update_profile():
 		return redirect(url_for('user'))
 
 	return render_template('update_profile.html', form=form, user=current_user)
+
+
+@app.route('/news_upload', methods=['POST'])
+@login_required
+@roles_required('admin')
+def admin_news_uploads():
+	form = UploadNewsForm()
+	if form.validate_on_submit():
+		news = News()
+		db.session.add(news)
+		db.session.commit()
+		news.title = form.title.data
+		news.content = form.content.data
+		news.author = current_user.username
+
+		file_name = secure_filename(form.image.data.filename)
+		extension = file_name.split('.')[-1]
+		file_name = '.'.join([str(news.id), extension])
+		connection = boto.connect_s3(app.config['AWS_ACCESS_KEY_ID'],
+			app.config['AWS_SECRET_ACCESS_KEY'])
+		bucket = connection.get_bucket(app.config['S3_BUCKET_NAME'])
+		file_path = os.path.join(app.config['S3_NEWS_IMAGE_DIR'], file_name)
+		sml = bucket.new_key(os.path.join('static', file_path))
+		path = url_for('static', filename=file_path)
+		sml.set_contents_from_file(form.image.data)
+		sml.set_acl('public-read')
+		news.image = path
+		db.session.commit()
+	return redirect(url_for('news_and_resources'))
 
 
 babel = Babel(app)

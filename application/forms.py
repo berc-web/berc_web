@@ -121,3 +121,12 @@ class UpdateProfileForm(Form):
 		# All is well
 		return True
 
+class UploadNewsForm(Form):
+	title = TextField('Title', validators=[Required()])
+	next = HiddenField()
+	image = FileField('Image', validators=[
+			FileAllowed(['jpg', 'jpe', 'jpeg', 'png', 'gif', 'svg', 'bmp'], 'Images only!')
+		])
+	content = TextAreaField('Content', validators=[Required()])
+	submit = SubmitField('Upload News')
+
