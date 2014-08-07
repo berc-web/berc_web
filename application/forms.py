@@ -22,20 +22,6 @@ def email_validator(form, field):
 # ** Forms **
 # ***********
 
-class CreateThreadForm(Form):
-    name = TextField(validators=[Required()])
-    content = TextAreaField(validators=[Required()])
-    submit = SubmitField()
-
-class CreatePostForm(Form):
-    content = TextAreaField(validators=[Required()])
-    submit = SubmitField()
-
-
-class EditPostForm(CreatePostForm):
-    pass
-
-
 
 # class TeamRegistrationForm(Form):
 
