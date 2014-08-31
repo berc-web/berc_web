@@ -7,10 +7,10 @@
 <form action="" method="POST" class="form" role="form" enctype='multipart/form-data'>
 	{{ form.hidden_tag() }}
     {{ render_field(form.photo, tabindex=10) }}
-    {{ render_field(form.fname, tabindex=10, value=user.fname) }}
-    {{ render_field(form.lname, tabindex=10, value=user.lname) }}
-    {{ render_field(form.email, tabindex=10, value=user.email) }}
-    {{ render_field(form.school, tabindex=10, value=user.school) }}
+    {{ render_field(form.fname, tabindex=20, value=user.fname) }}
+    {{ render_field(form.lname, tabindex=30, value=user.lname) }}
+    {{ render_field(form.email, tabindex=40, value=user.email) }}
+    {{ render_field(form.school, tabindex=50, value=user.school) }}
     {{ render_submit_field(form.submit, tabindex=90) }}
 </form>
 

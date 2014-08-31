@@ -84,7 +84,8 @@ class RegisterFormWithName(Form):
 
 class UpdateProfileForm(Form):
 	photo = FileField('Avatar', validators=[
-			FileAllowed(['jpg', 'jpe', 'jpeg', 'png', 'gif', 'svg', 'bmp'], 'Images only!')
+			FileAllowed(['jpg', 'jpe', 'jpeg', 'png', 'gif', 'svg', 'bmp'], 'Images only!'),
+			validators.Required('Photo is required')
 		])
 	next = HiddenField()
 	fname = TextField('First Name', validators=[Required()])
@@ -94,11 +95,14 @@ class UpdateProfileForm(Form):
 		validators.Required('Email is required'),
 		validators.Email('Invalid Email'),
 		email_validator])
+	major = TextField('Major', validators=[Required()])
+	intro = TextField('Short Introduction', validators=[Required()])
+	location = SelectField('location', choices=[('USA', 'United States'), ('CH', 'China')])
 
 	submit = SubmitField('Update Profile')
 
 	def validate(self):
-		user_manager =  current_app.user_manager
+		user_manager = current_app.user_manager
 
 		# Validate field-validators
 		if not super(UpdateProfileForm, self).validate():
