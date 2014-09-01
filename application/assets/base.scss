@@ -35,4 +35,20 @@
 			font-weight: 600;
 		}
 	}
+	.invitation {
+		ul {
+			li {
+				a {
+					cursor: pointer;
+				}
+			}
+		}
+		form {
+			margin-top: 50px;
+			button[type="submit"] {
+				display: block;
+				margin: 0 auto;
+			}
+		}
+	}
 }

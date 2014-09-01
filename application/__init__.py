@@ -72,6 +72,9 @@ def about_us():
 def invitation():
 	return render_template('invitation.html')
 
+@app.route('/users')
+def users():
+	return render_template('users.html')
 
 @app.route('/profile', methods=['GET'])
 @login_required

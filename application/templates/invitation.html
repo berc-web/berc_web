@@ -1,0 +1,55 @@
+{% extends 'flask_user/public_base.html' %}
+{% block content %}
+<div class="container-fluid invitation">
+	<ul class="nav nav-tabs nav-justified" role="tablist">
+	  <li class="by-username active"><a>By Username</a></li>
+	  <li class="by-email"><a>By Email</a></li>
+	</ul>
+	<form role="form" id="by-username">
+	  <div class="form-group">
+	    <label for="username">Invite By Username</label>
+	    <div class="input-group">
+	      <input type="text" class="form-control" id="username" placeholder="Enter Username">
+	      <span class="input-group-btn">
+	        <button type="submit" class="btn btn-info">Invite</button>
+	      </span>
+	    </div>
+	  </div>
+	</form>
+	<form role="form" id="by-email">
+	  <div class="form-group">
+	    <label for="email">Inivite By Email Address</label>
+		  <div class="input-group">
+	      <input type="text" class="form-control" id="email" placeholder="Enter Email">
+	      <span class="input-group-btn">
+	        <button type="submit" class="btn btn-info">Invite</button>
+	      </span>
+	    </div>
+	  </div>
+	</form>
+</div>
+<script type="text/javascript">
+	$(document).ready( function() {
+		if ($(".by-username").hasClass("active")) {
+			$("#by-username").css("display", "block");
+			$("#by-email").css("display", "none");
+		}
+		if ($(".by-email").hasClass("active")) {
+			$("#by-email").css("display", "block");
+			$("#by-username").css("display", "none");
+		}
+		$(".by-username").children("a").click( function() {
+			$(".by-username").addClass("active");
+			$(".by-email").removeClass("active");
+			$("#by-username").css("display", "block");
+			$("#by-email").css("display", "none");
+		});
+		$(".by-email").children("a").click( function() {
+			$(".by-email").addClass("active");
+			$(".by-username").removeClass("active");
+			$("#by-email").css("display", "block");
+			$("#by-username").css("display", "none");
+		});
+	});
+</script>
+{% endblock %}
