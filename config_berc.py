@@ -9,8 +9,7 @@ class Config(object):
 	ADMIN_EMAIL='eecc2015@gmail.com'
 
 	if os.environ.get('DATABASE_URL') is None:
-		SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://@localhost/v2db'
-		# SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://jianzhongchen:CJZcps1230117@localhost/berc_dev'
+		SQLALCHEMY_DATABASE_URI = 'postgres://jipeygltlszdkq:PSFcu0xgRh-FLw0Yw2XUZXBp15@ec2-54-204-31-33.compute-1.amazonaws.com:5432/d2aa1kemin647'
 	else:
 		SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
 

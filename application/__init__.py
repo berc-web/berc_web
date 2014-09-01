@@ -68,6 +68,17 @@ def news(news_id):
 def about_us():
 	return render_template('about.html')
 
+@app.route('/send_request')
+def send_request():
+	# TODO
+	return render_template('send_request.html')
+
+
+@app.route('/request_list')
+def request_list():
+	# TODO
+	return render_template('request_list.html')
+
 
 @app.route('/profile', methods=['GET'])
 @login_required
@@ -89,6 +100,18 @@ def userProfile(uname):
 		return render_template('user_profile.html', user=user)
 
 
+def upload_s3(file_name, data):
+	connection = boto.connect_s3(app.config['AWS_ACCESS_KEY_ID'],
+		app.config['AWS_SECRET_ACCESS_KEY'])
+	bucket = connection.get_bucket(app.config['S3_BUCKET_NAME'])
+	file_path = os.path.join(app.config['S3_UPLOAD_DIRECTORY'], file_name)
+	sml = bucket.new_key(os.path.join('static', file_path))
+	path = url_for('static', filename=file_path)
+	sml.set_contents_from_file(data)
+	sml.set_acl('public-read')
+	return path
+
+
 @app.route('/update_profile', methods=['POST', 'GET'])
 @login_required
 def update_profile():
@@ -96,25 +119,18 @@ def update_profile():
 	if form.validate_on_submit():
 
 		# update avatar
-		file_name = secure_filename(form.photo.data.filename)
-		extension = file_name.split('.')[-1]
-		file_name = '.'.join([current_user.username, extension])
-
-		connection = boto.connect_s3(app.config['AWS_ACCESS_KEY_ID'],
-			app.config['AWS_SECRET_ACCESS_KEY'])
-		bucket = connection.get_bucket(app.config['S3_BUCKET_NAME'])
-		file_path = os.path.join(app.config['S3_UPLOAD_DIRECTORY'], file_name)
-		sml = bucket.new_key(os.path.join('static', file_path))
-		path = url_for('static', filename=file_path)
-		sml.set_contents_from_file(form.photo.data)
-		sml.set_acl('public-read')
-
-		current_user.avatar = path
+		if form.photo.data:
+			file_name = secure_filename(form.photo.data.filename)
+			extension = file_name.split('.')[-1]
+			file_name = '.'.join([current_user.username, extension])
+			path = upload_s3(file_name, form.photo.data)
+			current_user.avatar = path
 
 		current_user.fname = form.fname.data
 		current_user.lname = form.lname.data
 		current_user.school = form.school.data
 		current_user.major = form.major.data
+		current_user.intro = form.intro.data
 		current_user.location = form.location.data
 
 		try:
@@ -152,25 +168,79 @@ def admin_news_uploads():
 		file_name = secure_filename(form.image.data.filename)
 		extension = file_name.split('.')[-1]
 		file_name = '.'.join([str(news.id), extension])
-		connection = boto.connect_s3(app.config['AWS_ACCESS_KEY_ID'],
-			app.config['AWS_SECRET_ACCESS_KEY'])
-		bucket = connection.get_bucket(app.config['S3_BUCKET_NAME'])
-		file_path = os.path.join(app.config['S3_NEWS_IMAGE_DIR'], file_name)
-		sml = bucket.new_key(os.path.join('static', file_path))
-		path = url_for('static', filename=file_path)
-		sml.set_contents_from_file(form.image.data)
-		sml.set_acl('public-read')
+		path = upload_s3(file_name, form.image.data)
 		news.image = path
 		db.session.commit()
 	return redirect(url_for('news_and_resources'))
 
 
-@app.route('/buildteam/email/<useremail>', methods=['POST'])
+@app.route('/request/email/<useremail>', methods=['POST'])
+def request_team_by_email(useremail):
+	user = user_manager.find_user_by_email(useremail)
+	request_team(user)
 
 
+@app.route('/request/uname/<username>', methods=['POST'])
+def request_team_by_uname(username):
+	user = user_manager.find_user_by_username(username)
+	request_team(user)
 
-@app.route('/buildteam/uname/<username>', methods=['POST'])
 
+def request_team(user):
+	if current_user.team_id or user.team_id:
+		flash("Not both members are available to form a new team.")
+	elif current_user.request_teammate:
+		flash("You can only send one request at the same time. You have to wait for a response before you send your next request.")
+	else:
+		current_user.request_teammate = user.id
+		db.session.commit()
+		flash("Invitation sent. You will be notified by email when he/she make a decision.")
+
+	return redirect(url_for('send_request'))
+
+
+@app.route('/invitation/accept/<user_id>', methods=['POST'])
+def accept_invitation(user_id):
+	user = user_manager.find_user_by_id(user_id)
+	if user.team_id:
+		flash('This user has already formed a team with someone else. Please pick another teammate.')
+		return redirect(url_for('request_list'))
+	else:
+		team = new Team()
+		team.members.append(current_user)
+		team.members.append(user)
+		db.session.add(team)
+		user.request_teammate = None
+		current_user.request_teammate = None
+
+		lst1 = db.session.query(User).filter_by(request_teammate==user_id).all()
+		lst2 = db.session.query(User).filter_by(request_teammate==current_user.id).all()
+		user_lst = lst1.extend(lst2)
+
+		for usr in user_lst:
+			usr.request_teammate = None
+			# # TODO
+			# send_mail(usr, 'fail_invitation')
+
+		# # TODO
+		# send_mail(user, 'new_team', u1=user, u2=current_user)
+		# send_mail(current_user, 'new_team', u1=user, u2=current_user)
+
+
+@app.route('/invitation/reject/<user_id>', methods=['POST'])
+def reject_invitation(user_id):
+	user = user_manager.find_user_by_id(user_id)
+	user.request_teammate = None
+	send_mail(user, 'fail_invitation')
+
+
+def send_mail(user, theme):
+    subject = render_template(theme+'_subject.txt')
+    subject = subject.replace('\n', ' ')
+    subject = subject.replace('\r', ' ')
+    html_message = render_template(theme+'_message.html')
+    text_message = render_template(theme+'_message.txt')
+    user_manager.send_email_function(user.email, subject, html_message, text_message)
 
 
 babel = Babel(app)

@@ -22,17 +22,6 @@ def email_validator(form, field):
 # ** Forms **
 # ***********
 
-
-# class TeamRegistrationForm(Form):
-
-
-
-
-# class TeamSignUpForm(Form):
-
-
-
-
 class RegisterFormWithName(Form):
 	password_validator_added = False
 
@@ -96,7 +85,9 @@ class UpdateProfileForm(Form):
 		email_validator])
 	major = TextField('Major', validators=[Required()])
 	intro = TextAreaField('Short Introduction', validators=[Required()])
-	location = SelectField('location', choices=[('USA', 'United States'), ('CH', 'China')])
+	location = SelectField('location',
+		choices=[('United States'), ('China')],
+		validators=[Required()])
 
 	submit = SubmitField('Update Profile')
 
@@ -118,4 +109,14 @@ class UploadNewsForm(Form):
 		])
 	content = TextAreaField('Content', validators=[Required()])
 	submit = SubmitField('Upload News')
+
+
+class TeammateInvitationForm(Form):
+	email = StringField('Email', validators=[
+		validators.Email('Invalid Email')])
+	username = StringField('Username')
+	submit = SubmitField('Send Invitation')
+
+
+
 

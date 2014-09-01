@@ -38,10 +38,10 @@ class User(db.Model, UserMixin):
 	confirmed_at = db.Column(db.DateTime())
 
 	major = db.Column(db.String(50), default='')
-	location = db.Column(db.String(2), default='')
-	intro = db.Column(db.Text())
+	location = db.Column(db.String(20), default='')
+	intro = db.Column(db.Text(), default='')
 
-	stages = db.Column(db.Integer, default=0)
+	request_teammate = db.Column(db.Integer, nullable = True, default=None)
 
 	# Relationships
 	roles = db.relationship('Role', secondary=user_roles,
@@ -68,8 +68,7 @@ class Team(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	name = db.Column(db.String(100), unique=True, nullable=False)
 	members = db.relationship('User', backref='team', lazy='dynamic')
-	idea = db.relationship('Idea', backref='team', uselist=False)
-
+	idea = db.relationship('Idea', backref='team', uselist=False, nullable=True)
 
 	def __unicode__(self):
 		return self.name
@@ -80,3 +79,4 @@ class Idea(db.Model):
 	team_id = db.Column(db.Integer, db.ForeignKey('team.id'))
 	endorsement = db.Column(db.Integer)
 	content = db.Column(db.Text())
+
