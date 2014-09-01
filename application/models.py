@@ -6,7 +6,6 @@ from datetime import datetime
 from sqlalchemy import event
 from sqlalchemy.ext.declarative import declared_attr
 from sqlalchemy.ext.orderinglist import ordering_list
-from sqlalchemy.types import Enum
 
 from application import db
 
@@ -42,6 +41,8 @@ class User(db.Model, UserMixin):
 	location = db.Column(db.String(2), default='')
 	intro = db.Column(db.Text())
 
+	stages = db.Column(db.Integer, default=0)
+
 	# Relationships
 	roles = db.relationship('Role', secondary=user_roles,
 					backref=db.backref('users', lazy='dynamic'))
@@ -68,6 +69,7 @@ class Team(db.Model):
 	name = db.Column(db.String(100), unique=True, nullable=False)
 	members = db.relationship('User', backref='team', lazy='dynamic')
 	idea = db.relationship('Idea', backref='team', uselist=False)
+
 
 	def __unicode__(self):
 		return self.name
