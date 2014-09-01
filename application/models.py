@@ -38,10 +38,10 @@ class User(db.Model, UserMixin):
 	confirmed_at = db.Column(db.DateTime())
 
 	major = db.Column(db.String(50), default='')
-	location = db.Column(db.String(2), default='')
+	location = db.Column(db.String(20), default='')
 	intro = db.Column(db.Text())
 
-	stages = db.Column(db.Integer, default=0)
+	# stages = db.Column(db.Integer, default=0)
 
 	# Relationships
 	roles = db.relationship('Role', secondary=user_roles,

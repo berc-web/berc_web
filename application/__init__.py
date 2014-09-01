@@ -119,6 +119,7 @@ def update_profile():
 		current_user.lname = form.lname.data
 		current_user.school = form.school.data
 		current_user.major = form.major.data
+		current_user.intro = form.intro.data
 		current_user.location = form.location.data
 
 		try:
@@ -169,11 +170,11 @@ def admin_news_uploads():
 	return redirect(url_for('news_and_resources'))
 
 
-@app.route('/buildteam/email/<useremail>', methods=['POST'])
+# @app.route('/buildteam/email/<useremail>', methods=['POST'])
 
 
 
-@app.route('/buildteam/uname/<username>', methods=['POST'])
+# @app.route('/buildteam/uname/<username>', methods=['POST'])
 
 
 
