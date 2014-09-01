@@ -25,3 +25,14 @@
       font-weight: bold;
       margin-top: 30px;
       padding: 0; }
+      .base .main #fname, .base .main #lname, .base .main #email, .base .main #school,
+      .base .main #school, .base .main #major, .base .main #intro {
+        color: #000000;
+        font-weight: 600; }
+  .base .invitation ul li a {
+    cursor: pointer; }
+  .base .invitation form {
+    margin-top: 50px; }
+    .base .invitation form button[type="submit"] {
+      display: block;
+      margin: 0 auto; }

@@ -68,16 +68,22 @@ def news(news_id):
 def about_us():
 	return render_template('about.html')
 
-@app.route('/send_request')
-def send_request():
+
+@app.route('/invitation')
+def invitation():
 	# TODO
-	return render_template('send_request.html')
+	return render_template('invitation.html')
 
 
 @app.route('/request_list')
 def request_list():
 	# TODO
 	return render_template('request_list.html')
+
+
+@app.route('/users')
+def user_lst():
+	return render_template('users.html')
 
 
 @app.route('/profile', methods=['GET'])
@@ -196,7 +202,7 @@ def request_team(user):
 		db.session.commit()
 		flash("Invitation sent. You will be notified by email when he/she make a decision.")
 
-	return redirect(url_for('send_request'))
+	return redirect(url_for('invitation'))
 
 
 @app.route('/invitation/accept/<user_id>', methods=['POST'])
@@ -206,7 +212,7 @@ def accept_invitation(user_id):
 		flash('This user has already formed a team with someone else. Please pick another teammate.')
 		return redirect(url_for('request_list'))
 	else:
-		team = new Team()
+		team = Team()
 		team.members.append(current_user)
 		team.members.append(user)
 		db.session.add(team)

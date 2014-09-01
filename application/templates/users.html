@@ -1,0 +1,18 @@
+{% extends 'layout.html' %}
+{% block head %}
+<script type="text/javascript" src="{{ url_for('static', filename='javascript/masonry.pkgd.min.js') }}"></script>
+{% endblock %}
+{% block body %}
+<div class="container users">
+  Show all users here
+  <div id="container" class="js-masonry"
+  data-masonry-options='{ "columnWidth": 0, "itemSelector": ".item" }'>
+    <div class="item col-xs-3"></div>
+    <div class="item col-xs-3"></div>
+    <div class="item col-xs-3"></div>
+    <div class="item col-xs-3"></div>
+    <div class="item col-xs-3"></div>
+    <div class="item col-xs-3"></div>
+  </div>
+</div>
+{% endblock %}

@@ -68,7 +68,8 @@ class Team(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	name = db.Column(db.String(100), unique=True, nullable=False)
 	members = db.relationship('User', backref='team', lazy='dynamic')
-	idea = db.relationship('Idea', backref='team', uselist=False, nullable=True)
+	idea = db.relationship('Idea', backref='team', uselist=False)
+	comp_status = db.Column(db.Boolean(), nullable=False, default=False)
 
 	def __unicode__(self):
 		return self.name
