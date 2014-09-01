@@ -100,25 +100,26 @@ def update_profile():
 	if form.validate_on_submit():
 
 		# update avatar
-		if form.photo.data:
-			file_name = secure_filename(form.photo.data.filename)
-			extension = file_name.split('.')[-1]
-			file_name = '.'.join([current_user.username, extension])
+		file_name = secure_filename(form.photo.data.filename)
+		extension = file_name.split('.')[-1]
+		file_name = '.'.join([current_user.username, extension])
 
-			connection = boto.connect_s3(app.config['AWS_ACCESS_KEY_ID'],
-				app.config['AWS_SECRET_ACCESS_KEY'])
-			bucket = connection.get_bucket(app.config['S3_BUCKET_NAME'])
-			file_path = os.path.join(app.config['S3_UPLOAD_DIRECTORY'], file_name)
-			sml = bucket.new_key(os.path.join('static', file_path))
-			path = url_for('static', filename=file_path)
-			sml.set_contents_from_file(form.photo.data)
-			sml.set_acl('public-read')
+		connection = boto.connect_s3(app.config['AWS_ACCESS_KEY_ID'],
+			app.config['AWS_SECRET_ACCESS_KEY'])
+		bucket = connection.get_bucket(app.config['S3_BUCKET_NAME'])
+		file_path = os.path.join(app.config['S3_UPLOAD_DIRECTORY'], file_name)
+		sml = bucket.new_key(os.path.join('static', file_path))
+		path = url_for('static', filename=file_path)
+		sml.set_contents_from_file(form.photo.data)
+		sml.set_acl('public-read')
 
-			current_user.avatar = path
+		current_user.avatar = path
 
 		current_user.fname = form.fname.data
 		current_user.lname = form.lname.data
 		current_user.school = form.school.data
+		current_user.major = form.major.data
+		current_user.location = form.location.data
 
 		try:
 			pm.listUnsubscribe(id='8d4e6caca8', email_address=current_user.email)
@@ -166,6 +167,14 @@ def admin_news_uploads():
 		news.image = path
 		db.session.commit()
 	return redirect(url_for('news_and_resources'))
+
+
+@app.route('/buildteam/email/<useremail>', methods=['POST'])
+
+
+
+@app.route('/buildteam/uname/<username>', methods=['POST'])
+
 
 
 babel = Babel(app)

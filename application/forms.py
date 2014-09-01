@@ -84,8 +84,7 @@ class RegisterFormWithName(Form):
 
 class UpdateProfileForm(Form):
 	photo = FileField('Avatar', validators=[
-			FileAllowed(['jpg', 'jpe', 'jpeg', 'png', 'gif', 'svg', 'bmp'], 'Images only!'),
-			validators.Required('Photo is required')
+			FileAllowed(['jpg', 'jpe', 'jpeg', 'png', 'gif', 'svg', 'bmp'], 'Images only!')
 		])
 	next = HiddenField()
 	fname = TextField('First Name', validators=[Required()])
