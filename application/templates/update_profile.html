@@ -2,15 +2,21 @@
 {% extends 'flask_user/public_base.html' %}
 
 {% block content %}
-{% from "flask_user/_macros.html" import render_field, render_submit_field %}
+{% from "flask_user/_macros.html" import render_field, render_submit_field, render_textarea_field, render_select_field %}
 <h1>Update Profile</h1>
 <form action="" method="POST" class="form" role="form" enctype='multipart/form-data'>
 	{{ form.hidden_tag() }}
     {{ render_field(form.photo, tabindex=10) }}
-    {{ render_field(form.fname, tabindex=20, value=user.fname) }}
-    {{ render_field(form.lname, tabindex=30, value=user.lname) }}
-    {{ render_field(form.email, tabindex=40, value=user.email) }}
-    {{ render_field(form.school, tabindex=50, value=user.school) }}
+    {{ render_field(form.fname, tabindex=20, value=user.fname, placeholder="Your First Name") }}
+    {{ render_field(form.lname, tabindex=30, value=user.lname, placeholder="Your Last Name") }}
+    {{ render_field(form.email, tabindex=40, value=user.email, placeholder="Email Address") }}
+    {{ render_field(form.school, tabindex=50, value=user.school, placeholder="School Name") }}
+
+    {{ render_field(form.major, tabindex=60, value=user.major, placeholder="Major") }}
+    {{ render_textarea_field(form.intro, tabindex=70, value=user.intro, placeholder="Self Introduction") }}
+    {{ render_select_field(form.location, tabindex=80, value=user.location) }}
+
+
     {{ render_submit_field(form.submit, tabindex=90) }}
 </form>
 

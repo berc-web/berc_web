@@ -68,6 +68,10 @@ def news(news_id):
 def about_us():
 	return render_template('about.html')
 
+@app.route('/invitation')
+def invitation():
+	return render_template('invitation.html')
+
 
 @app.route('/profile', methods=['GET'])
 @login_required

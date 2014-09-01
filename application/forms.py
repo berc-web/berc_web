@@ -96,7 +96,7 @@ class UpdateProfileForm(Form):
 		validators.Email('Invalid Email'),
 		email_validator])
 	major = TextField('Major', validators=[Required()])
-	intro = TextField('Short Introduction', validators=[Required()])
+	intro = TextAreaField('Short Introduction', validators=[Required()])
 	location = SelectField('location', choices=[('USA', 'United States'), ('CH', 'China')])
 
 	submit = SubmitField('Update Profile')
