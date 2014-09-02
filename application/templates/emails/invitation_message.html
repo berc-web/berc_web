@@ -1,0 +1,7 @@
+{% extends 'emails/base_message.html' %}
+
+{% block message %}
+
+<p>{{sender.username}} just sent you a <a href="{{url_for('user')}}">new team invitation!</a></p>
+
+{% endblock %}

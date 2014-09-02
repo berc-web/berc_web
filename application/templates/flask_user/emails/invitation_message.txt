@@ -1,0 +1,5 @@
+{% extends 'flask_user/emails/base_message.txt' %}
+
+{% block message %}
+{{sender.username}} just sent you a new team invitation! Check it out here: {{url_for(user)}}
+{% endblock %}

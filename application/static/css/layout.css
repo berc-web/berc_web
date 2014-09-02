@@ -54,7 +54,8 @@ html, body {
 .message {
   position: absolute;
   width: 100%;
-  text-align: center; }
+  text-align: center;
+  z-index: 999; }
 
   .footer {
     height: 50px;

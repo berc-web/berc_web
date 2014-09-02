@@ -7,7 +7,7 @@ from flask.ext.mail import Mail
 from flask.ext.user import login_required, current_user, SQLAlchemyAdapter, roles_required
 from flask.ext.user.views import register
 from werkzeug import secure_filename
-from forms import UpdateProfileForm, UploadNewsForm
+from forms import UpdateProfileForm, UploadNewsForm, TeammateInvitationForm
 from postmonkey import PostMonkey
 import boto
 
@@ -63,24 +63,29 @@ def news(news_id):
 	news = db.session.query(News).filter(News.id==news_id)[0]
 	return render_template('news/news_template.html', news=news)
 
-
 @app.route('/about_us')
 def about_us():
 	return render_template('about.html')
 
-@app.route('/invitation')
-def invitation():
-	return render_template('invitation.html')
+@app.route('/request_list')
+def request_list():
+	# TODO
+	return render_template('request_list.html')
 
 @app.route('/users')
-def users():
+def user_lst():
 	return render_template('users.html')
+
 
 @app.route('/profile', methods=['GET'])
 @login_required
 def user():
 	return render_template('user_profile.html', user=current_user)
 
+@app.route('/invitation')
+def invitation():
+	# TODO
+	return render_template('invitation.html', user=current_user)
 
 @app.route('/<uname>/profile', methods=['GET'])
 @login_required
@@ -96,6 +101,18 @@ def userProfile(uname):
 		return render_template('user_profile.html', user=user)
 
 
+def upload_s3(file_name, data):
+	connection = boto.connect_s3(app.config['AWS_ACCESS_KEY_ID'],
+		app.config['AWS_SECRET_ACCESS_KEY'])
+	bucket = connection.get_bucket(app.config['S3_BUCKET_NAME'])
+	file_path = os.path.join(app.config['S3_UPLOAD_DIRECTORY'], file_name)
+	sml = bucket.new_key(os.path.join('static', file_path))
+	path = url_for('static', filename=file_path)
+	sml.set_contents_from_file(data)
+	sml.set_acl('public-read')
+	return path
+
+
 @app.route('/update_profile', methods=['POST', 'GET'])
 @login_required
 def update_profile():
@@ -103,20 +120,12 @@ def update_profile():
 	if form.validate_on_submit():
 
 		# update avatar
-		file_name = secure_filename(form.photo.data.filename)
-		extension = file_name.split('.')[-1]
-		file_name = '.'.join([current_user.username, extension])
-
-		connection = boto.connect_s3(app.config['AWS_ACCESS_KEY_ID'],
-			app.config['AWS_SECRET_ACCESS_KEY'])
-		bucket = connection.get_bucket(app.config['S3_BUCKET_NAME'])
-		file_path = os.path.join(app.config['S3_UPLOAD_DIRECTORY'], file_name)
-		sml = bucket.new_key(os.path.join('static', file_path))
-		path = url_for('static', filename=file_path)
-		sml.set_contents_from_file(form.photo.data)
-		sml.set_acl('public-read')
-
-		current_user.avatar = path
+		if form.photo.data:
+			file_name = secure_filename(form.photo.data.filename)
+			extension = file_name.split('.')[-1]
+			file_name = '.'.join([current_user.username, extension])
+			path = upload_s3(file_name, form.photo.data)
+			current_user.avatar = path
 
 		current_user.fname = form.fname.data
 		current_user.lname = form.lname.data
@@ -160,25 +169,79 @@ def admin_news_uploads():
 		file_name = secure_filename(form.image.data.filename)
 		extension = file_name.split('.')[-1]
 		file_name = '.'.join([str(news.id), extension])
-		connection = boto.connect_s3(app.config['AWS_ACCESS_KEY_ID'],
-			app.config['AWS_SECRET_ACCESS_KEY'])
-		bucket = connection.get_bucket(app.config['S3_BUCKET_NAME'])
-		file_path = os.path.join(app.config['S3_NEWS_IMAGE_DIR'], file_name)
-		sml = bucket.new_key(os.path.join('static', file_path))
-		path = url_for('static', filename=file_path)
-		sml.set_contents_from_file(form.image.data)
-		sml.set_acl('public-read')
+		path = upload_s3(file_name, form.image.data)
 		news.image = path
 		db.session.commit()
 	return redirect(url_for('news_and_resources'))
 
 
-# @app.route('/buildteam/email/<useremail>', methods=['POST'])
+@app.route('/team_invitation', methods=['POST'])
+def team_invitation():
+	form = TeammateInvitationForm()
+	user = None
+	if form.email.data:
+		user = user_manager.find_user_by_email(form.email.data)
+	elif form.username.data:
+		user = user_manager.find_user_by_username(form.username.data)
+
+	if not user:
+		flash("User does not exist.")
+		return redirect(url_for('invitation'))
+
+	if current_user.team_id or user.team_id:
+		flash("Not both members are available to form a new team.")
+	elif current_user.request_teammate:
+		flash("You can only send one request at the same time. You have to wait for a response before you send your next request.")
+	else:
+		send_mail(user, 'invitation', sender=current_user)
+		current_user.request_teammate = user.id
+		db.session.commit()
+		flash("Invitation sent. You will be notified by email when he/she make a decision.")
+
+	return redirect(url_for('invitation'))
 
 
+@app.route('/invitation/accept/<uname>', methods=['POST'])
+def accept_invitation(uname):
+	user = user_manager.find_user_by_username(uname)
+	if user.team_id:
+		flash('This user has already formed a team with someone else. Please pick another teammate.')
+		return redirect(url_for('request_list'))
+	else:
+		team = Team()
+		team.members.append(current_user)
+		team.members.append(user)
+		db.session.add(team)
+		user.request_teammate = None
+		current_user.request_teammate = None
 
-# @app.route('/buildteam/uname/<username>', methods=['POST'])
+		lst1 = db.session.query(User).filter_by(request_teammate==user_id).all()
+		lst2 = db.session.query(User).filter_by(request_teammate==current_user.id).all()
+		user_lst = lst1.extend(lst2)
 
+		for usr in user_lst:
+			usr.request_teammate = None
+			send_mail(usr, 'fail_invitation')
+
+		# TODO
+		send_mail(user, 'new_team', u1=user, u2=current_user)
+		send_mail(current_user, 'new_team', u1=user, u2=current_user)
+
+
+@app.route('/invitation/reject/<uname>', methods=['POST'])
+def reject_invitation(uname):
+	user = user_manager.find_user_by_username(uname)
+	user.request_teammate = None
+	send_mail(user, 'fail_invitation')
+
+
+def send_mail(user, theme, **kwargs):
+	subject = render_template('emails/'+theme+'_subject.txt',  user=user, **kwargs)
+	subject = subject.replace('\n', ' ')
+	subject = subject.replace('\r', ' ')
+	html_message = render_template('emails/'+theme+'_message.html',  user=user, **kwargs)
+	text_message = render_template('emails/'+theme+'_message.txt',  user=user, **kwargs)
+	user_manager.send_email_function(user.email, subject, html_message, text_message)
 
 
 babel = Babel(app)

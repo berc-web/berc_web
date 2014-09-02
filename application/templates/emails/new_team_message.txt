@@ -1,0 +1,7 @@
+{% extends 'emails/base_message.txt' %}
+
+{% block message %}
+	You have been added to a new team. Team member: {{u1.username}} and {{u2.username}}.
+{% endblock %}
+
+
