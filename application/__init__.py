@@ -89,7 +89,7 @@ def user_lst():
 @app.route('/profile', methods=['GET'])
 @login_required
 def user():
-	invitation_list = db.session.query(User).filter_by(request_teammate==user_id).all()
+	invitation_list = db.session.query(User).filter_by(User.request_teammate==user_id).all()
 	invitation_list = [user.username for user in invitation_list]
 	return render_template('user_profile.html', user=current_user, inv_list=invitation_list)
 
@@ -222,8 +222,8 @@ def accept_invitation(uname):
 		user.request_teammate = None
 		current_user.request_teammate = None
 
-		lst1 = db.session.query(User).filter_by(request_teammate==user_id).all()
-		lst2 = db.session.query(User).filter_by(request_teammate==current_user.id).all()
+		lst1 = db.session.query(User).filter_by(User.request_teammate==user_id).all()
+		lst2 = db.session.query(User).filter_by(User.request_teammate==current_user.id).all()
 		user_lst = lst1.extend(lst2)
 
 		for usr in user_lst:
@@ -271,7 +271,7 @@ import admin
 # Init admin user
 # ---------------
 try:
-	if db.session.query(User).filter_by(username=app.config['USERNAME']).count() == 0:
+	if db.session.query(User).filter_by(User.username=app.config['USERNAME']).count() == 0:
 		admin = User()
 		admin.username = app.config['USERNAME']
 		admin.email = app.config['ADMIN_EMAIL']
