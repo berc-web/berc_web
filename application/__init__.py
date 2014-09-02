@@ -7,7 +7,7 @@ from flask.ext.mail import Mail
 from flask.ext.user import login_required, current_user, SQLAlchemyAdapter, roles_required
 from flask.ext.user.views import register
 from werkzeug import secure_filename
-from forms import UpdateProfileForm, UploadNewsForm
+from forms import UpdateProfileForm, UploadNewsForm, TeammateInvitationForm
 from postmonkey import PostMonkey
 import boto
 
@@ -180,24 +180,25 @@ def admin_news_uploads():
 	return redirect(url_for('news_and_resources'))
 
 
-@app.route('/request/email/<useremail>', methods=['POST'])
-def request_team_by_email(useremail):
-	user = user_manager.find_user_by_email(useremail)
-	request_team(user)
+@app.route('/team_invitation', methods=['POST'])
+def team_invitation():
+	form = TeammateInvitationForm()
+	user = None
+	if form.email.data:
+		user = user_manager.find_user_by_email(form.email.data)
+	elif form.username.data:
+		user = user_manager.find_user_by_username(form.username.data)
 
+	if not user:
+		flash("User does not exist.")
+		return redirect(url_for('invitation'))
 
-@app.route('/request/uname/<username>', methods=['POST'])
-def request_team_by_uname(username):
-	user = user_manager.find_user_by_username(username)
-	request_team(user)
-
-
-def request_team(user):
 	if current_user.team_id or user.team_id:
 		flash("Not both members are available to form a new team.")
 	elif current_user.request_teammate:
 		flash("You can only send one request at the same time. You have to wait for a response before you send your next request.")
 	else:
+		send_mail(user, 'invitation', sender=current_user)
 		current_user.request_teammate = user.id
 		db.session.commit()
 		flash("Invitation sent. You will be notified by email when he/she make a decision.")
@@ -205,9 +206,9 @@ def request_team(user):
 	return redirect(url_for('invitation'))
 
 
-@app.route('/invitation/accept/<user_id>', methods=['POST'])
-def accept_invitation(user_id):
-	user = user_manager.find_user_by_id(user_id)
+@app.route('/invitation/accept/<uname>', methods=['POST'])
+def accept_invitation(uname):
+	user = user_manager.find_user_by_username(uname)
 	if user.team_id:
 		flash('This user has already formed a team with someone else. Please pick another teammate.')
 		return redirect(url_for('request_list'))
@@ -225,28 +226,27 @@ def accept_invitation(user_id):
 
 		for usr in user_lst:
 			usr.request_teammate = None
-			# # TODO
-			# send_mail(usr, 'fail_invitation')
+			send_mail(usr, 'fail_invitation')
 
-		# # TODO
-		# send_mail(user, 'new_team', u1=user, u2=current_user)
-		# send_mail(current_user, 'new_team', u1=user, u2=current_user)
+		# TODO
+		send_mail(user, 'new_team', u1=user, u2=current_user)
+		send_mail(current_user, 'new_team', u1=user, u2=current_user)
 
 
-@app.route('/invitation/reject/<user_id>', methods=['POST'])
-def reject_invitation(user_id):
-	user = user_manager.find_user_by_id(user_id)
+@app.route('/invitation/reject/<uname>', methods=['POST'])
+def reject_invitation(uname):
+	user = user_manager.find_user_by_username(uname)
 	user.request_teammate = None
 	send_mail(user, 'fail_invitation')
 
 
-def send_mail(user, theme):
-    subject = render_template(theme+'_subject.txt')
-    subject = subject.replace('\n', ' ')
-    subject = subject.replace('\r', ' ')
-    html_message = render_template(theme+'_message.html')
-    text_message = render_template(theme+'_message.txt')
-    user_manager.send_email_function(user.email, subject, html_message, text_message)
+def send_mail(user, theme, **kwargs):
+	subject = render_template('emails/'+theme+'_subject.txt',  user=user, **kwargs)
+	subject = subject.replace('\n', ' ')
+	subject = subject.replace('\r', ' ')
+	html_message = render_template('emails/'+theme+'_message.html',  user=user, **kwargs)
+	text_message = render_template('emails/'+theme+'_message.txt',  user=user, **kwargs)
+	user_manager.send_email_function(user.email, subject, html_message, text_message)
 
 
 babel = Babel(app)

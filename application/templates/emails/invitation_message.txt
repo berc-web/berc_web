@@ -1,0 +1,5 @@
+{% extends 'emails/base_message.txt' %}
+
+{% block message %}
+Someone just sent you a new team invitation! Check it out here: {{url_for('user')}}
+{% endblock %}

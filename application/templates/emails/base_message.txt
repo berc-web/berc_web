@@ -1,0 +1,7 @@
+Dear Friend,
+
+{% block message %}
+{% endblock %}
+
+Best regards,
+The Organizers of the 2015 US-China Energy and Environment Competition

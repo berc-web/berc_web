@@ -86,7 +86,7 @@ class UpdateProfileForm(Form):
 	major = TextField('Major', validators=[Required()])
 	intro = TextAreaField('Short Introduction', validators=[Required()])
 	location = SelectField('location',
-		choices=[('United States'), ('China')],
+		choices=[('US', 'United States'), ('CH', 'China')],
 		validators=[Required()])
 
 	submit = SubmitField('Update Profile')

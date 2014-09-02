@@ -1,0 +1,7 @@
+{% extends 'emails/base_message.html' %}
+
+{% block message %}
+
+<p>You invitation is declined. Please <a href="{{url_for('invitation')}}">find a new partner</a>.</p>
+
+{% endblock %}
