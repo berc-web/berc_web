@@ -80,7 +80,9 @@ def user_lst():
 @app.route('/profile', methods=['GET'])
 @login_required
 def user():
-	return render_template('user_profile.html', user=current_user)
+	invitation_list = db.session.query(User).filter_by(request_teammate==user_id).all()
+	invitation_list = [user.username for user in invitation_list]
+	return render_template('user_profile.html', user=current_user, inv_list=invitation_list)
 
 @app.route('/invitation')
 def invitation():
@@ -95,7 +97,7 @@ def userProfile(uname):
 
 	user = user_manager.find_user_by_username(uname)
 	if user is None:
-		flash('User '+uname+' not found.')
+		flash('User '+uname+' not found.', 'error')
 		return redirect(url_for('home'))
 	else:
 		return render_template('user_profile.html', user=user)
@@ -185,18 +187,18 @@ def team_invitation():
 		user = user_manager.find_user_by_username(form.username.data)
 
 	if not user:
-		flash("User does not exist.")
+		flash("User does not exist.", 'error')
 		return redirect(url_for('invitation'))
 
 	if current_user.team_id or user.team_id:
-		flash("Not both members are available to form a new team.")
+		flash("Not both members are available to form a new team.", 'error')
 	elif current_user.request_teammate:
-		flash("You can only send one request at the same time. You have to wait for a response before you send your next request.")
+		flash("You can only send one request at the same time. You have to wait for a response before you send your next request.", 'error')
 	else:
 		send_mail(user, 'invitation', sender=current_user)
 		current_user.request_teammate = user.id
 		db.session.commit()
-		flash("Invitation sent. You will be notified by email when he/she make a decision.")
+		flash("Invitation sent. You will be notified by email when he/she make a decision.", 'success')
 
 	return redirect(url_for('invitation'))
 
@@ -205,7 +207,7 @@ def team_invitation():
 def accept_invitation(uname):
 	user = user_manager.find_user_by_username(uname)
 	if user.team_id:
-		flash('This user has already formed a team with someone else. Please pick another teammate.')
+		flash('This user has already formed a team with someone else. Please pick another teammate.', 'error')
 		return redirect(url_for('request_list'))
 	else:
 		team = Team()
