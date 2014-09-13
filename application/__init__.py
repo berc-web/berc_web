@@ -71,14 +71,7 @@ def about_us():
 
 @app.route('/invitation')
 def invitation():
-	# TODO
 	return render_template('invitation.html')
-
-
-@app.route('/request_list')
-def request_list():
-	# TODO
-	return render_template('request_list.html')
 
 
 @app.route('/users')
@@ -213,7 +206,7 @@ def accept_invitation(uname):
 	user = user_manager.find_user_by_username(uname)
 	if user.team_id:
 		flash('This user has already formed a team with someone else. Please pick another teammate.', 'error')
-		return redirect(url_for('request_list'))
+		return redirect(url_for('user'))
 	else:
 		team = Team()
 		team.members.append(current_user)
@@ -222,11 +215,11 @@ def accept_invitation(uname):
 		user.request_teammate = None
 		current_user.request_teammate = None
 
-		lst1 = db.session.query(User).filter(User.request_teammate==user_id).all()
+		lst1 = db.session.query(User).filter(User.request_teammate==user.id).all()
 		lst2 = db.session.query(User).filter(User.request_teammate==current_user.id).all()
-		user_lst = lst1.extend(lst2)
+		lst1.extend(lst2)
 
-		for usr in user_lst:
+		for usr in lst1:
 			usr.request_teammate = None
 			send_mail(usr, 'fail_invitation')
 
@@ -234,12 +227,16 @@ def accept_invitation(uname):
 		send_mail(user, 'new_team', u1=user, u2=current_user)
 		send_mail(current_user, 'new_team', u1=user, u2=current_user)
 
+		return redirect(url_for('team_page'))
+
 
 @app.route('/invitation/reject/<uname>', methods=['POST'])
 def reject_invitation(uname):
 	user = user_manager.find_user_by_username(uname)
 	user.request_teammate = None
 	send_mail(user, 'fail_invitation')
+
+	return redirect(url_for('user'))
 
 
 def send_mail(user, theme, **kwargs):
