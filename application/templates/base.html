@@ -4,8 +4,18 @@
 {% endblock %}
 {% block body %}
 <div class="container base">
+  {% if current_user.is_authenticated() %}
+    <div class="row">
+      <div class="col-xs-12 top-cover">
+        <img class="cover-image" src="{{ url_for('static', filename='images/homepage/page1/cover_photo.jpg') }}">
+        <div class="avatar">
+          <img class="avatar-image" src="{{ user.avatar if user.avatar != None else url_for('static', filename='upload/user_avatar/default1.png') }}">
+        </div>
+      </div>
+    </div>
+  {% endif %}
   <div class="row">
-    <div class="col-xs-3 col-xs-offset-1 navigation">
+    <div class="col-xs-3 navigation">
       <ul class="nav nav-pills nav-stacked">
         {% if current_user.is_authenticated() %}
           <li class="user-name"><center>{{ current_user.fname }} {{ current_user.lname }}</center></li>
@@ -28,4 +38,10 @@
     </div>
   </div>
 </div>
+<script type="text/javascript">
+  $(document).ready( function() {
+    $('.cover-image').resizeToParent();
+    $('.avatar-image').resizeToParent();
+  });
+</script>
 {% endblock %}

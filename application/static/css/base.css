@@ -1,9 +1,20 @@
 .base {
   margin-bottom: 50px;
   min-height: 900px; }
+  .base .top-cover {
+    height: 250px;
+    overflow: hidden;
+    position: relative; }
+    .base .top-cover .avatar {
+      position: absolute;
+      left: 50px;
+      bottom: 0px;
+      height: 150px;
+      width: 150px;
+      overflow: hidden; }
   .base .navigation {
     font-size: 18px;
-    margin-top: 50px;
+    margin-top: 0px;
     padding-top: 30px;
     margin-bottom: 20px;
     min-height: 500px;

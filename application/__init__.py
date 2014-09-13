@@ -63,16 +63,14 @@ def news(news_id):
 	news = db.session.query(News).filter(News.id==news_id)[0]
 	return render_template('news/news_template.html', news=news)
 
-
 @app.route('/about_us')
 def about_us():
 	return render_template('about.html')
 
-
-@app.route('/invitation')
-def invitation():
-	return render_template('invitation.html')
-
+@app.route('/request_list')
+def request_list():
+	# TODO
+	return render_template('request_list.html')
 
 @app.route('/users')
 def user_lst():
@@ -86,6 +84,10 @@ def user():
 	invitation_list = [user.username for user in invitation_list]
 	return render_template('user_profile.html', user=current_user, inv_list=invitation_list)
 
+@app.route('/invitation')
+def invitation():
+	# TODO
+	return render_template('invitation.html', user=current_user)
 
 @app.route('/<uname>/profile', methods=['GET'])
 @login_required
