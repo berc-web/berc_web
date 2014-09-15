@@ -2,6 +2,6 @@
 
 {% block message %}
 
-<p>{{sender.username}} just sent you a <a href="{{url_for('user')}}">new team invitation!</a></p>
+<p>{{sender.username}} just sent you a <a href="{{url_for('user', _external=True)}}">new team invitation!</a></p>
 
 {% endblock %}
