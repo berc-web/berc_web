@@ -25,9 +25,9 @@
           <li><a href="{{ url_for('user.change_password') }}">Change Password</a></li>
           <li><a href="{{ url_for('user.change_username') }}">Change username</a></li>
           {% if current_user.team_id != None %}
-            <li><a href="{{ url_for('invitation') }}">Invitation</a></li>
-          {% else %}
             <li><a href="{{ url_for('team_page') }}">Team</a></li>
+          {% else %}
+            <li><a href="{{ url_for('invitation') }}">Invitation</a></li>
           {% endif %}
         {% else %}
           <li><a href="{{ url_for('user.register') }}">Register</a></li>
