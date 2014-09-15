@@ -194,11 +194,13 @@ def team_invitation():
 		flash("Not both members are available to form a new team.", 'error')
 	elif current_user.request_teammate:
 		flash("You can only send one request at the same time. You have to wait for a response before you send your next request.", 'error')
+	elif current_user.location != user.location:
+		flash("You can only form team with people from the same location(US or CH)", "error")
 	else:
 		send_mail(user, 'invitation', sender=current_user)
 		current_user.request_teammate = user.id
 		db.session.commit()
-		flash("Invitation sent. You will be notified by email when he/she make a decision.", 'success')
+		flash("Invitation sent. You will be notified by email when he/she makes a decision.", 'success')
 
 	return redirect(url_for('invitation'))
 
@@ -213,6 +215,8 @@ def accept_invitation(uname):
 		team = Team()
 		team.members.append(current_user)
 		team.members.append(user)
+		team.name = current_user.username
+
 		db.session.add(team)
 		user.request_teammate = None
 		current_user.request_teammate = None
@@ -225,9 +229,12 @@ def accept_invitation(uname):
 			usr.request_teammate = None
 			send_mail(usr, 'fail_invitation')
 
-		# TODO
 		send_mail(user, 'new_team', u1=user, u2=current_user)
 		send_mail(current_user, 'new_team', u1=user, u2=current_user)
+		db.session.commit()
+
+		team.name = "New Team No. " + str(team.id)
+		db.session.commit()
 
 		return redirect(url_for('team_page'))
 
@@ -239,6 +246,17 @@ def reject_invitation(uname):
 	send_mail(user, 'fail_invitation')
 
 	return redirect(url_for('user'))
+
+
+@app.route('/team', methods=['GET'])
+def team_page():
+	team_id = current_user.team_id;
+	team = db.session.query(Team).filter(Team.id == team_id).first()
+	if team:
+		return render_template("team_profile.html", team = team)
+	else:
+		flash("You have not formed a team yet.")
+		return redirect(url_for("invitation"))
 
 
 def send_mail(user, theme, **kwargs):
