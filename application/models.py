@@ -78,6 +78,6 @@ class Team(db.Model):
 class Idea(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	team_id = db.Column(db.Integer, db.ForeignKey('team.id'))
-	endorsement = db.Column(db.Integer)
+	endorsement = db.Column(db.Integer, default=0)
 	content = db.Column(db.Text())
 

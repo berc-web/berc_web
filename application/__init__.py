@@ -7,7 +7,7 @@ from flask.ext.mail import Mail
 from flask.ext.user import login_required, current_user, SQLAlchemyAdapter, roles_required
 from flask.ext.user.views import register
 from werkzeug import secure_filename
-from forms import UpdateProfileForm, UploadNewsForm, TeammateInvitationForm
+from forms import UpdateProfileForm, UploadNewsForm, TeammateInvitationForm, UpdateTeamInfoForm
 from postmonkey import PostMonkey
 import boto
 
@@ -29,7 +29,7 @@ Scss(app)
 
 # Database
 db = SQLAlchemy(app)
-from models import User, Role, Team, News
+from models import User, Role, Team, News, Idea
 
 
 # db_adapter
@@ -75,6 +75,12 @@ def request_list():
 @app.route('/users')
 def user_lst():
 	return render_template('users.html')
+
+
+@app.route('/team_update')
+def team_update():
+	# TODO
+	return render_template('team_update.html')
 
 
 @app.route('/profile', methods=['GET'])
@@ -233,7 +239,7 @@ def accept_invitation(uname):
 		send_mail(current_user, 'new_team', u1=user, u2=current_user)
 		db.session.commit()
 
-		team.name = "New Team No. " + str(team.id)
+		team.name = "New Team No." + str(team.id)
 		db.session.commit()
 
 		return redirect(url_for('team_page'))
@@ -250,13 +256,45 @@ def reject_invitation(uname):
 
 @app.route('/team', methods=['GET'])
 def team_page():
-	team_id = current_user.team_id;
+	team_id = current_user.team_id
 	team = db.session.query(Team).filter(Team.id == team_id).first()
 	if team:
 		return render_template("team_profile.html", team = team)
 	else:
 		flash("You have not formed a team yet.")
 		return redirect(url_for("invitation"))
+
+
+@app.route('/update_team_info', methods=['POST'])
+def update_team_info():
+	# TODO
+	form = UpdateTeamInfoForm()
+	if form.validate_on_submit():
+		team_id = current_user.team_id
+		team = db.session.query(Team).filter(Team.id == team_id).first()
+		if team:
+			team.name = form.name.data
+			if team.idea is None:
+				idea = Idea()
+				db.session.add(idea)
+			else:
+				idea = team.idea
+
+			idea.content = form.idea.data
+			db.session.commit()
+		else:
+			flash("Team does not exist.", "error")
+			return redirect(url_for('team_update'))
+
+
+@app.route('/dismiss_team', methods=['POST'])
+def dismiss_team():
+	team_id = current_user.team_id
+	team = db.session.query(Team).filter(Team.id == team_id).first()
+	db.session.delete(team)
+	db.session.commit()
+	flash("Team dismissed.", "success")
+	return redirect(url_for('invitation'))
 
 
 def send_mail(user, theme, **kwargs):
