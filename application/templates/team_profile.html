@@ -3,19 +3,24 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/team_profile.css') }}">
 {% endblock %}
 {% block body %}
-  <div class="container team-profile">
-    <div class="row">
-      <div class="col-xs-12 name">Name: {{ team.name }}</div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12 member">Member:
-        {% for member in team.members %}
-          <div>{{member.fname}} {{member.lname}}</div>
-        {% endfor %}
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12 idea">Idea: {{ team.idea }}</div>
+<div class="container team-profile">
+  <div class="row">
+    <div class="col-xs-12 name">Name: {{ team.name }}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 member">Member:
+      {% for member in team.members %}
+        <div>{{member.fname}} {{member.lname}}</div>
+      {% endfor %}
     </div>
   </div>
+  <div class="row">
+    <div class="col-xs-12 idea">Idea: {{ team.idea }}</div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 update">
+      <a href="{{ url_for('team_update') }}">Update Team Profile</a>
+    </div>
+  </div>
+</div>
 {% endblock %}

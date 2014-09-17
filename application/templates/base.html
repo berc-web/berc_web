@@ -21,7 +21,7 @@
           <li class="user-name"><center>{{ current_user.fname }} {{ current_user.lname }}</center></li>
           <br>
           <li><a href="{{ url_for('user') }}">Profile</a></li>
-            <li><a href="{{ url_for('update_profile') }}">Update Profile</a></li>
+          <li><a href="{{ url_for('update_profile') }}">Update Profile</a></li>
           <li><a href="{{ url_for('user.change_password') }}">Change Password</a></li>
           <li><a href="{{ url_for('user.change_username') }}">Change username</a></li>
           {% if current_user.team_id != None %}
