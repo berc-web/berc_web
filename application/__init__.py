@@ -77,12 +77,6 @@ def user_lst():
 	return render_template('users.html')
 
 
-@app.route('/team_update')
-def team_update():
-	# TODO
-	return render_template('team_update.html')
-
-
 @app.route('/profile', methods=['GET'])
 @login_required
 def user():
@@ -265,9 +259,8 @@ def team_page():
 		return redirect(url_for("invitation"))
 
 
-@app.route('/update_team_info', methods=['POST'])
-def update_team_info():
-	# TODO
+@app.route('/update_team', methods=['POST'])
+def update_team():
 	form = UpdateTeamInfoForm()
 	if form.validate_on_submit():
 		team_id = current_user.team_id
@@ -282,9 +275,12 @@ def update_team_info():
 
 			idea.content = form.idea.data
 			db.session.commit()
+			return redirect(url_for('team_profile.html'))
 		else:
 			flash("Team does not exist.", "error")
 			return redirect(url_for('team_update'))
+
+	return render_template('team_update.html', form=form)
 
 
 @app.route('/dismiss_team', methods=['POST'])
