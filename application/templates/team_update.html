@@ -7,8 +7,8 @@
 <h1>Update Profile</h1>
 <form action="" method="POST" class="form" role="form" enctype='multipart/form-data'>
   {{ form.hidden_tag() }}
-  {{ render_field(form.name, tabindex=10) }}
-  {{ render_field(form.idea, tabindex=20, value=user.fname, placeholder="Your First Name") }}
-  {{ render_submit_field(form.submit, tabindex=90) }}
+  {{ render_field(form.name, tabindex=10, value=team.name, placeholder="Team Name") }}
+  {{ render_textarea_field(form.idea, tabindex=20, value=team.idea.content, placeholder="Team Idea") }}
+  {{ render_submit_field(form.submit, tabindex=30) }}
 </form>
 {% endblock %}

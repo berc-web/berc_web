@@ -15,11 +15,16 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-xs-12 idea">Idea: {{ team.idea }}</div>
+    <div class="col-xs-12 idea">Idea: {{ team.idea.content }}</div>
   </div>
   <div class="row">
-    <div class="col-xs-12 update">
-      <a href="{{ url_for('team_update') }}">Update Team Profile</a>
+    <div class="col-xs-6 update">
+      <a href="{{ url_for('update_team') }}">Update Team Profile</a>
+    </div>
+    <div class="col-xs-6 dismiss">
+      <form method="post" action="{{ url_for('dismiss_team') }}">
+        <input type="submit" value="Dismiss Team">
+      </form>
     </div>
   </div>
 </div>

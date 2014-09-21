@@ -148,7 +148,7 @@ def update_profile():
 		try:
 			pm.listSubscribe(id='8d4e6caca8', email_address=current_user.email, double_optin=False)
 		except Exception, e:
-			passm
+			pass
 
 		return redirect(url_for('user'))
 
@@ -259,34 +259,36 @@ def team_page():
 		return redirect(url_for("invitation"))
 
 
-@app.route('/update_team', methods=['POST'])
+@app.route('/update_team', methods=['POST', 'GET'])
 def update_team():
 	form = UpdateTeamInfoForm()
+	team_id = current_user.team_id
+	team = db.session.query(Team).filter(Team.id == team_id).first()
 	if form.validate_on_submit():
-		team_id = current_user.team_id
-		team = db.session.query(Team).filter(Team.id == team_id).first()
 		if team:
 			team.name = form.name.data
 			if team.idea is None:
 				idea = Idea()
+				idea.content = form.idea.data
 				db.session.add(idea)
+				team.idea = idea
 			else:
-				idea = team.idea
+				team.idea.content = form.idea.data
 
-			idea.content = form.idea.data
 			db.session.commit()
-			return redirect(url_for('team_profile.html'))
+			return redirect(url_for('team_page'))
 		else:
 			flash("Team does not exist.", "error")
-			return redirect(url_for('team_update'))
+			return redirect(url_for('invitation'))
 
-	return render_template('team_update.html', form=form)
+	return render_template('team_update.html', form=form, team=team)
 
 
 @app.route('/dismiss_team', methods=['POST'])
 def dismiss_team():
 	team_id = current_user.team_id
 	team = db.session.query(Team).filter(Team.id == team_id).first()
+	db.session.delete(team.idea)
 	db.session.delete(team)
 	db.session.commit()
 	flash("Team dismissed.", "success")

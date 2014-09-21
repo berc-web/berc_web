@@ -81,3 +81,6 @@ class Idea(db.Model):
 	endorsement = db.Column(db.Integer, default=0)
 	content = db.Column(db.Text())
 
+	def __unicode__(self):
+		return self.content
+

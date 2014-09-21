@@ -121,5 +121,5 @@ class TeammateInvitationForm(Form):
 class UpdateTeamInfoForm(Form):
 	name = TextField("Team Name", validators=[Required()])
 	idea = TextAreaField("Comptetion Idea", validators=[Required()])
-	submite = SubmitField("Update Team Information")
+	submit = SubmitField("Update Team Information")
 
