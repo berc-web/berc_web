@@ -83,17 +83,15 @@ class Idea(db.Model):
 	content = db.Column(db.Text())
 	comment = db.relationship('Comment', backref='idea')
 
+	def __unicode__(self):
+		return "Team " + str(self.team_id) + "\'s idea"
+
 
 class Comment(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 	idea_id = db.Column(db.Integer, db.ForeignKey('idea.id'))
 	content = db.Column(db.Text())
-	timeStamp = db.Column(db.DateTime(), default=db.func.now())
+	time = db.Column(db.DateTime(), default=db.func.now())
 
-	def __unicode__(self):
-		return self.content
-
-	def __unicode__(self):
-		return self.content
 

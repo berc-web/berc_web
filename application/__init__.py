@@ -64,14 +64,16 @@ def news(news_id):
 	news = db.session.query(News).filter(News.id==news_id)[0]
 	return render_template('news/news_template.html', news=news)
 
+
 @app.route('/about_us')
 def about_us():
 	return render_template('about.html')
 
+
 @app.route('/request_list')
 def request_list():
-	# TODO
 	return render_template('request_list.html')
+
 
 @app.route('/users')
 def user_lst():
@@ -85,9 +87,9 @@ def user():
 	invitation_list = [user.username for user in invitation_list]
 	return render_template('user_profile.html', user=current_user, inv_list=invitation_list)
 
+
 @app.route('/invitation')
 def invitation():
-	# TODO
 	return render_template('invitation.html', user=current_user)
 
 
@@ -248,6 +250,7 @@ def accept_invitation(uname):
 		db.session.commit()
 
 		team.name = "New Team No." + str(team.id)
+		team.idea = Idea()
 		db.session.commit()
 
 		return redirect(url_for('team_page'))
@@ -281,16 +284,7 @@ def update_team():
 	if form.validate_on_submit():
 		if team:
 			team.name = form.name.data
-			if team.idea is None:
-				idea = Idea()
-				idea.content = form.idea.data
-				db.session.add(idea)
-				team.idea = idea
-			else:
-				team.idea.content = form.idea.data
-
-			idea.content = form.idea.data
-			team.idea = idea
+			team.idea.content = form.idea.data
 			db.session.commit()
 			return redirect(url_for('team_page'))
 		else:
@@ -304,6 +298,8 @@ def update_team():
 def dismiss_team():
 	team_id = current_user.team_id
 	team = db.session.query(Team).filter(Team.id == team_id).first()
+	for cmt in team.idea.comment:
+		db.session.delete(cmt)
 	db.session.delete(team.idea)
 	db.session.delete(team)
 	db.session.commit()
@@ -319,7 +315,10 @@ def comment_idea(idea_id):
 		if idea:
 			comment = Comment()
 			comment.content = form.comment.data
+			idea.comment.append(comment)
 			current_user.comment.append(comment)
+			db.session.add(comment)
+			db.session.commit()
 		else:
 			flash("Idea does not exist.", "error")
 			return redirect(url_for('all_ideas'))
