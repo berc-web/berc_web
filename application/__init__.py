@@ -7,7 +7,8 @@ from flask.ext.mail import Mail
 from flask.ext.user import login_required, current_user, SQLAlchemyAdapter, roles_required
 from flask.ext.user.views import register
 from werkzeug import secure_filename
-from forms import UpdateProfileForm, UploadNewsForm, TeammateInvitationForm, UpdateTeamInfoForm
+from forms import UpdateProfileForm, UploadNewsForm, TeammateInvitationForm, \
+					UpdateTeamInfoForm, CommentForm
 from postmonkey import PostMonkey
 import boto
 
@@ -29,7 +30,7 @@ Scss(app)
 
 # Database
 db = SQLAlchemy(app)
-from models import User, Role, Team, News, Idea
+from models import User, Role, Team, News, Idea, Comment
 
 
 # db_adapter
@@ -88,6 +89,19 @@ def user():
 def invitation():
 	# TODO
 	return render_template('invitation.html', user=current_user)
+
+
+@app.route('/disp_teams')
+def all_teams():
+	#TODO
+	pass
+
+
+@app.route('/disp_ideas')
+def all_ideas():
+	#TODO
+	pass
+
 
 @app.route('/<uname>/profile', methods=['GET'])
 @login_required
@@ -275,6 +289,8 @@ def update_team():
 			else:
 				team.idea.content = form.idea.data
 
+			idea.content = form.idea.data
+			team.idea = idea
 			db.session.commit()
 			return redirect(url_for('team_page'))
 		else:
@@ -293,6 +309,22 @@ def dismiss_team():
 	db.session.commit()
 	flash("Team dismissed.", "success")
 	return redirect(url_for('invitation'))
+
+
+@app.route('/comment_idea/<idea_id>', methods=['POST', 'GET'])
+def comment_idea(idea_id):
+	form = CommentForm()
+	if form.validate_on_submit():
+		idea = db.session.query(Idea).filter(Idea.id == idea_id).first()
+		if idea:
+			comment = Comment()
+			comment.content = form.comment.data
+			current_user.comment.append(comment)
+		else:
+			flash("Idea does not exist.", "error")
+			return redirect(url_for('all_ideas'))
+
+	return render_template('comment_idea.html', form = form, idea_id = idea_id)
 
 
 def send_mail(user, theme, **kwargs):

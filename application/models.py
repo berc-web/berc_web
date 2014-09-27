@@ -47,6 +47,7 @@ class User(db.Model, UserMixin):
 	roles = db.relationship('Role', secondary=user_roles,
 					backref=db.backref('users', lazy='dynamic'))
 	team_id = db.Column(db.Integer, db.ForeignKey('team.id'), nullable=True)
+	comment = db.relationship('Comment', backref="user")
 
 	def is_active(self):
 		return self.active
@@ -80,6 +81,18 @@ class Idea(db.Model):
 	team_id = db.Column(db.Integer, db.ForeignKey('team.id'))
 	endorsement = db.Column(db.Integer, default=0)
 	content = db.Column(db.Text())
+	comment = db.relationship('Comment', backref='idea')
+
+
+class Comment(db.Model):
+	id = db.Column(db.Integer, primary_key=True)
+	user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+	idea_id = db.Column(db.Integer, db.ForeignKey('idea.id'))
+	content = db.Column(db.Text())
+	timeStamp = db.Column(db.DateTime(), default=db.func.now())
+
+	def __unicode__(self):
+		return self.content
 
 	def __unicode__(self):
 		return self.content

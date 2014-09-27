@@ -123,3 +123,7 @@ class UpdateTeamInfoForm(Form):
 	idea = TextAreaField("Comptetion Idea", validators=[Required()])
 	submit = SubmitField("Update Team Information")
 
+
+class CommentForm(Form):
+	comment = TextAreaField("Comment", validators=[Required()])
+	submit = SubmitField("Submit Comment")
