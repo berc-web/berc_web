@@ -51,6 +51,11 @@ def competition():
 	return render_template('competition.html')
 
 
+@app.route('/event')
+def event():
+	return render_template('event.html')
+
+
 @app.route('/rules')
 def rules():
 	return render_template('rules.html')
