@@ -96,13 +96,15 @@ def invitation():
 @app.route('/disp_teams')
 def all_teams():
 	#TODO
-	pass
+	teams = db.session.query(Team).all()
+	# return render_template("xxxxx.html", teams = teams)
 
 
 @app.route('/disp_ideas')
 def all_ideas():
 	#TODO
-	pass
+	ideas = db.session.query(Idea).all()
+	# return render_template("xxxxx.html", ideas = ideas)
 
 
 @app.route('/<uname>/profile', methods=['GET'])
@@ -269,6 +271,10 @@ def reject_invitation(uname):
 def team_page():
 	team_id = current_user.team_id
 	team = db.session.query(Team).filter(Team.id == team_id).first()
+
+	#TODO:
+	comments = db.session.query(Comment).filter(Comment.idea_id == team.idea.id).all()
+
 	if team:
 		return render_template("team_profile.html", team = team)
 	else:
