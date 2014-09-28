@@ -8,15 +8,7 @@
 <form action="" method="POST" class="form" role="form" enctype='multipart/form-data'>
   {{ form.hidden_tag() }}
   {{ render_field(form.name, tabindex=10, value=team.name, placeholder="Team Name") }}
-  <label for="idea" class="control-label">Comptetion Idea</label>
-  <textarea name="editor1" id="editor1" tabindex=20 rows="10">
-    {{team.idea.content}}
-  </textarea>
-  <script>
-    // Replace the <textarea id="editor1"> with a CKEditor
-    // instance, using default configuration.
-    CKEDITOR.replace('editor1');
-  </script>
+  {{ render_textarea_field(form.idea, tabindex=20, value=team.idea.content, placeholder="Team Idea") }}
   {{ render_submit_field(form.submit, tabindex=30) }}
 </form>
 {% endblock %}
