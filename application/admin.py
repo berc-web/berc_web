@@ -1,5 +1,5 @@
 from flask import url_for, redirect, render_template, request, flash
-from models import User, Role, Team, News
+from models import User, Role, Team, News, Idea, Comment
 from application import db, app
 from application.forms import UploadNewsForm
 from flask.ext import admin, login
@@ -50,5 +50,7 @@ admin.add_view(MyModelView(User, db.session, category="models"))
 admin.add_view(MyModelView(Role, db.session, category="models"))
 admin.add_view(MyModelView(Team, db.session, category="models"))
 admin.add_view(MyModelView(News, db.session, category="models"))
+admin.add_view(MyModelView(Idea, db.session, category="models"))
+admin.add_view(MyModelView(Comment, db.session, category="models"))
 admin.add_view(UploadNewsView(name="upload news", endpoint="uploadnews"))
 admin.init_app(app)

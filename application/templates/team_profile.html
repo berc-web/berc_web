@@ -3,6 +3,7 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/team_profile.css') }}">
 {% endblock %}
 {% block body %}
+{% from "flask_user/_macros.html" import render_field, render_submit_field %}
 <div class="container team-profile">
   <div class="row">
     <div class="col-xs-12 name">Name: {{ team.name }}</div>
@@ -27,5 +28,6 @@
       </form>
     </div>
   </div>
+  <a href="{{ url_for('comment_idea', idea_id=team.idea.id) }}"> Comment </a>
 </div>
 {% endblock %}

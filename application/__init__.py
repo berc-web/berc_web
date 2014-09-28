@@ -7,7 +7,8 @@ from flask.ext.mail import Mail
 from flask.ext.user import login_required, current_user, SQLAlchemyAdapter, roles_required
 from flask.ext.user.views import register
 from werkzeug import secure_filename
-from forms import UpdateProfileForm, UploadNewsForm, TeammateInvitationForm, UpdateTeamInfoForm
+from forms import UpdateProfileForm, UploadNewsForm, TeammateInvitationForm, \
+					UpdateTeamInfoForm, CommentForm
 from postmonkey import PostMonkey
 import boto
 
@@ -29,7 +30,7 @@ Scss(app)
 
 # Database
 db = SQLAlchemy(app)
-from models import User, Role, Team, News, Idea
+from models import User, Role, Team, News, Idea, Comment
 
 
 # db_adapter
@@ -63,14 +64,16 @@ def news(news_id):
 	news = db.session.query(News).filter(News.id==news_id)[0]
 	return render_template('news/news_template.html', news=news)
 
+
 @app.route('/about_us')
 def about_us():
 	return render_template('about.html')
 
+
 @app.route('/request_list')
 def request_list():
-	# TODO
 	return render_template('request_list.html')
+
 
 @app.route('/users')
 def user_lst():
@@ -84,10 +87,25 @@ def user():
 	invitation_list = [user.username for user in invitation_list]
 	return render_template('user_profile.html', user=current_user, inv_list=invitation_list)
 
+
 @app.route('/invitation')
 def invitation():
-	# TODO
 	return render_template('invitation.html', user=current_user)
+
+
+@app.route('/disp_teams')
+def all_teams():
+	#TODO
+	teams = db.session.query(Team).all()
+	# return render_template("xxxxx.html", teams = teams)
+
+
+@app.route('/disp_ideas')
+def all_ideas():
+	#TODO
+	ideas = db.session.query(Idea).all()
+	# return render_template("xxxxx.html", ideas = ideas)
+
 
 @app.route('/<uname>/profile', methods=['GET'])
 @login_required
@@ -234,6 +252,7 @@ def accept_invitation(uname):
 		db.session.commit()
 
 		team.name = "New Team No." + str(team.id)
+		team.idea = Idea()
 		db.session.commit()
 
 		return redirect(url_for('team_page'))
@@ -252,6 +271,10 @@ def reject_invitation(uname):
 def team_page():
 	team_id = current_user.team_id
 	team = db.session.query(Team).filter(Team.id == team_id).first()
+
+	#TODO:
+	comments = db.session.query(Comment).filter(Comment.idea_id == team.idea.id).all()
+
 	if team:
 		return render_template("team_profile.html", team = team)
 	else:
@@ -267,14 +290,7 @@ def update_team():
 	if form.validate_on_submit():
 		if team:
 			team.name = form.name.data
-			if team.idea is None:
-				idea = Idea()
-				idea.content = form.idea.data
-				db.session.add(idea)
-				team.idea = idea
-			else:
-				team.idea.content = form.idea.data
-
+			team.idea.content = form.idea.data
 			db.session.commit()
 			return redirect(url_for('team_page'))
 		else:
@@ -288,11 +304,32 @@ def update_team():
 def dismiss_team():
 	team_id = current_user.team_id
 	team = db.session.query(Team).filter(Team.id == team_id).first()
+	for cmt in team.idea.comment:
+		db.session.delete(cmt)
 	db.session.delete(team.idea)
 	db.session.delete(team)
 	db.session.commit()
 	flash("Team dismissed.", "success")
 	return redirect(url_for('invitation'))
+
+
+@app.route('/comment_idea/<idea_id>', methods=['POST', 'GET'])
+def comment_idea(idea_id):
+	form = CommentForm()
+	if form.validate_on_submit():
+		idea = db.session.query(Idea).filter(Idea.id == idea_id).first()
+		if idea:
+			comment = Comment()
+			comment.content = form.comment.data
+			idea.comment.append(comment)
+			current_user.comment.append(comment)
+			db.session.add(comment)
+			db.session.commit()
+		else:
+			flash("Idea does not exist.", "error")
+			return redirect(url_for('all_ideas'))
+
+	return render_template('comment_idea.html', form = form, idea_id = idea_id)
 
 
 def send_mail(user, theme, **kwargs):
