@@ -127,3 +127,11 @@ class UpdateTeamInfoForm(Form):
 class CommentForm(Form):
 	comment = TextAreaField("Comment", validators=[Required()])
 	submit = SubmitField("Submit Comment")
+
+
+class UploadCompArticleForm(Form):
+	article = FileField('File', validators=[
+		FileAllowed(['pdf'], 'PDF file only'),
+		required()
+	])
+	submit = SubmitField("Submit")

@@ -53,6 +53,11 @@ class Config(object):
 
 	S3_UPLOAD_DIRECTORY = 'upload/user_avatar'
 	S3_NEWS_IMAGE_DIR = 'upload/news_image'
+	S3_COMP_DIR	= 'upload/competition'
+
 	S3_BUCKET_NAME = os.environ.get('S3_BUCKET_NAME')
 	AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 	AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+
+	COMPETATION_CLOSED = False
+	LANGUAGE = "en"
