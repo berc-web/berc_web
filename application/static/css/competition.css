@@ -1,87 +1,85 @@
 .competition {
   box-shadow: 0px 10px 30px 2px #888888;
-  background: #ffffff url('images/overlay.png');
+  background: #ffffff;
   padding-top: 50px;
   margin-bottom: 50px;
   min-height: 900px; }
-  .competition .navigation {
-    font-size: 18px;
-    margin-bottom: 20px; }
-    .competition .main {
+  .competition .navigation-container {
+    position: relative; }
+    .competition .navigation-container .navigation {
+      font-size: 18px;
       margin-bottom: 20px; }
-      .competition .main .title {
-        font-size: 25px;
-        font-weight: bold;
-        color: #428bca;
-        text-transform: uppercase;
-        margin-bottom: 10px; }
-        .competition .main .content {
+      .competition .navigation-container .navigation.stick {
+        position: fixed;
+        top: 0;
+        z-index: 10000;
+        margin-top: 120px; }
+        .competition .navigation-container a.nav-active {
+          background-color: #ccc; }
+  .competition .main {
+    margin-bottom: 20px; }
+    .competition .main .title {
+      font-size: 25px;
+      font-weight: bold;
+      color: #428bca;
+      text-transform: uppercase;
+      margin-bottom: 10px; }
+      .competition .main .content {
+        text-align: center;
+        font-size: 18px; }
+        .competition .main .mission, .competition .main .rules, .competition .main .judges,
+        .competition .main .themes {
+          margin-bottom: 50px; }
+          .competition .main .mission .content {
+            text-align: left; }
+    .competition .main .themes .content .single {
+      border-radius: 110px;
+      -webkit-border-radius: 110px;
+      -moz-border-radius: 110px;
+      border: 1px solid #d9d9d9;
+      background: #f7f7f7;
+      margin-bottom: 20px;
+      padding-top: 8px;
+      padding-bottom: 5px; }
+    .competition .main .themes .sub-image {
+      width: 100%;
+      border-radius: 100px;
+      -webkit-border-radius: 100px;
+      -moz-border-radius: 100px; }
+      .competition .main .themes .sub-title {
+        font-weight: bold; }
+        .competition .main .themes .sub-content {
+          text-align: left;
+          font-weight: normal;
+          font-size: 16px; }
+    .competition .main .judge {
+      margin-top: 10px;
+      margin-bottom: 10px; }
+      .competition .main .judge .judges-img {
+        width: 100%; }
+        .competition .main .judge .name {
           text-align: center;
-          font-size: 18px; }
-          .competition .main #mission, .competition .main #rules, .competition .main #judges,
-          .competition .main #themes {
-            margin-bottom: 50px; }
-            .competition .main #mission .content {
-              text-align: left; }
-      .competition .main #themes .content .single {
-        border-radius: 110px;
-        -webkit-border-radius: 110px;
-        -moz-border-radius: 110px;
-        border: 1px solid #d9d9d9;
-        background: #f7f7f7 url('images/overlay.png');
-        margin-bottom: 20px;
-        padding-top: 8px;
-        padding-bottom: 5px; }
-      .competition .main #themes .sub-image {
-        width: 100%;
-        border-radius: 100px;
-        -webkit-border-radius: 100px;
-        -moz-border-radius: 100px; }
-        .competition .main #themes .sub-title {
+          font-size: 16px;
           font-weight: bold; }
-          .competition .main #themes .sub-content {
-            text-align: left;
-            font-weight: normal;
-            font-size: 16px; }
-      .competition .main .judge {
-        margin-top: 10px;
-        margin-bottom: 10px; }
-        .competition .main .judge .judges-img {
-          width: 100%; }
-          .competition .main .judge .name {
+          .competition .main .judge .detail {
+            margin-top: 10px;
             text-align: center;
             font-size: 16px;
-            font-weight: bold; }
-            .competition .main .judge .detail {
-              margin-top: 10px;
-              text-align: center;
-              font-size: 16px;
-              font-weight: normal;
-              color: #7f7f7f; }
-      .competition .main #carousel {
-        margin-bottom: 10px; }
-        .competition .main #carousel .carousel-inner {
-          width: 100%; }
-          .competition .main #carousel .carousel-inner .item {
-            width: 100%;
-            padding-bottom: 15px; }
-            .competition .main #carousel .carousel-inner .item img {
-              width: 100%; }
-        .competition .main #carousel .carousel-indicators {
-          bottom: 0;
-          margin-bottom: 0;
-          height: 15px; }
-          .competition .main #carousel .carousel-indicators li {
-            width: 15px;
-            height: 15px;
-            margin: 2px;
-            border: 1px solid #000000; }
-            .competition .main #carousel .carousel-indicators .active {
-              background-color: #000000; }
-              .competition .main #carousel .carousel-control.left,
-              .competition .main #carousel .carousel-control.left:hover,
-              .competition .main #carousel .carousel-control.right,
-              .competition .main #carousel .carousel-control.left:hover {
-                background: none; }
-                .competition .main #carousel .black-glyphicon {
-                  color: #000000; }
+            font-weight: normal;
+            color: #7f7f7f; }
+    .competition .main #carousel {
+      margin-bottom: 10px; }
+      .competition .main #carousel .carousel-inner {
+        width: 100%; }
+        .competition .main #carousel .carousel-inner .item {
+          width: 100%;
+          padding-bottom: 15px; }
+          .competition .main #carousel .carousel-inner .item img {
+            width: 100%; }
+      .competition .main #carousel .carousel-control.left,
+      .competition .main #carousel .carousel-control.left:hover,
+      .competition .main #carousel .carousel-control.right,
+      .competition .main #carousel .carousel-control.left:hover {
+        background: none; }
+        .competition .main #carousel .black-glyphicon {
+          color: #000000; }

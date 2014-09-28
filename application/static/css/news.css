@@ -1,6 +1,6 @@
 .news {
   box-shadow: 0px 10px 30px 2px #888888;
-  background: #ffffff url('images/overlay.png');
+  background: #ffffff;
   padding-top: 50px;
   margin-bottom: 50px;
   min-height: 900px; }
@@ -31,24 +31,13 @@
                   .news .main #carousel .carousel-inner .item img {
                     height: 100%;
                     margin: 0 auto; }
-              .news .main #carousel .carousel-indicators {
-                bottom: 0;
-                margin-bottom: 0;
-                height: 15px; }
-                .news .main #carousel .carousel-indicators li {
-                  width: 15px;
-                  height: 15px;
-                  margin: 2px;
-                  border: 1px solid #000000; }
-                  .news .main #carousel .carousel-indicators .active {
-                    background-color: #000000; }
-                    .news .main #carousel .carousel-control.left,
-                    .news .main #carousel .carousel-control.left:hover,
-                    .news .main #carousel .carousel-control.right,
-                    .news .main #carousel .carousel-control.left:hover {
-                      background: none; }
-                      .news .main #carousel .black-glyphicon {
-                        color: #000000; }
+              .news .main #carousel .carousel-control.left,
+              .news .main #carousel .carousel-control.left:hover,
+              .news .main #carousel .carousel-control.right,
+              .news .main #carousel .carousel-control.left:hover {
+                background: none; }
+                .news .main #carousel .black-glyphicon {
+                  color: #000000; }
 
 .new {
   box-shadow: 0px 10px 30px 2px #888888;

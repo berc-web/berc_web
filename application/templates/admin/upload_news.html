@@ -1,14 +1,22 @@
 {% extends 'admin/master.html' %}
 {% block body %}
 {{ super() }}
-
+<script src="//cdn.ckeditor.com/4.4.5/full/ckeditor.js"></script>
 {% from "flask_user/_macros.html" import render_field, render_submit_field %}
 
 <form action="{{ url_for('admin_news_uploads') }}" method="POST" class="form" role="form" enctype='multipart/form-data'>
     {{ form.hidden_tag() }}
     {{ render_field(form.title, tabindex=10) }}
     {{ render_field(form.image) }}
-    {{ render_field(form.content, style="width:100%", rows="10") }}
+    <label for="content" class="control-label">Content</label>
+    <textarea name="editor1" id="editor1" tabindex=20 rows="10">
+    	Content for news
+	  </textarea>
+	  <script>
+	    // Replace the <textarea id="editor1"> with a CKEditor
+	    // instance, using default configuration.
+	    CKEDITOR.replace('editor1');
+	  </script>
     {{ render_submit_field(form.submit, tabindex=90) }}
 </form>
 

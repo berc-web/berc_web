@@ -1,12 +1,24 @@
 .competition {
 	box-shadow: 0px 10px 30px 2px #888888;
-	background: #ffffff url('images/overlay.png');
+	background: #ffffff;
 	padding-top: 50px;
 	margin-bottom: 50px;
 	min-height: 900px;
-	.navigation {
-		font-size: 18px;
-		margin-bottom: 20px;
+	.navigation-container {
+		position: relative;
+		.navigation {
+			font-size: 18px;
+			margin-bottom: 20px;
+		}
+		.navigation.stick {
+			position: fixed;
+	    top: 0;
+	    z-index: 10000;
+	    margin-top: 120px;
+		}
+		a.nav-active {
+	    background-color: #ccc;
+		}
 	}
 	.main {
 		margin-bottom: 20px;
@@ -21,22 +33,22 @@
 			text-align: center;
 			font-size: 18px;
 		}
-		#mission, #rules, #judges, #themes {
+		.mission, .rules, .judges, .themes {
 			margin-bottom: 50px;
 		}
-		#mission {
+		.mission {
 			.content {
 				text-align: left;
 			}
 		}
-		#themes {
+		.themes {
 			.content {
 				.single {
 					border-radius: 110px;
 					-webkit-border-radius: 110px;
 					-moz-border-radius: 110px;
 					border: 1px solid #d9d9d9;
-					background: #f7f7f7 url('images/overlay.png');
+					background: #f7f7f7;
 					margin-bottom: 20px;
 					padding-top: 8px;
 					padding-bottom: 5px;
@@ -87,20 +99,6 @@
 						width: 100%;
 					}
 				}
-			}
-			.carousel-indicators {
-				bottom: 0;
-				margin-bottom: 0;
-				height: 15px;
-			}
-			.carousel-indicators li {
-				width: 15px;
-				height: 15px;
-				margin: 2px;
-				border: 1px solid #000000;
-			}
-			.carousel-indicators .active {
-				background-color: #000000;
 			}
 			.carousel-control.left, .carousel-control.left:hover, .carousel-control.right, .carousel-control.left:hover {
 				background: none;

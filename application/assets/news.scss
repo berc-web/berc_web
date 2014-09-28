@@ -1,6 +1,6 @@
 .news {
 	box-shadow: 0px 10px 30px 2px #888888;
-	background: #ffffff url('images/overlay.png');
+	background: #ffffff;
 	padding-top: 50px;
 	margin-bottom: 50px;
 	min-height: 900px;
@@ -37,20 +37,6 @@
 						margin: 0 auto;
 					}
 				}
-			}
-			.carousel-indicators {
-				bottom: 0;
-				margin-bottom: 0;
-				height: 15px;
-			}
-			.carousel-indicators li {
-				width: 15px;
-				height: 15px;
-				margin: 2px;
-				border: 1px solid #000000;
-			}
-			.carousel-indicators .active {
-				background-color: #000000;
 			}
 			.carousel-control.left, .carousel-control.left:hover, .carousel-control.right, .carousel-control.left:hover {
 				background: none;
