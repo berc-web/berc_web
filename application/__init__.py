@@ -43,17 +43,23 @@ def home():
 	if app.config['LANGUAGE'] == 'en':
 		return render_template('home.html')
 	else:
-		return render_template('home.html')
+		return render_template('home_ch.html')
 
 
 @app.route('/competition')
 def competition():
-	return render_template('competition.html')
+	if app.config['LANGUAGE'] == 'en':
+		return render_template('competition.html')
+	else:
+		return render_template('competition_ch.html')
 
 
 @app.route('/rules')
 def rules():
-	return render_template('rules.html')
+	if app.config['LANGUAGE'] == 'en':
+		return render_template('rules.html')
+	else:
+		return render_template('rules_ch.html')
 
 
 @app.route('/news_and_resources')
