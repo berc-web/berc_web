@@ -70,6 +70,7 @@ class Team(db.Model):
 	name = db.Column(db.String(100), unique=True, nullable=False)
 	members = db.relationship('User', backref='team', lazy='dynamic')
 	idea = db.relationship('Idea', backref='team', uselist=False)
+	submission = db.Column(db.String(200), unique=True, default=None)
 	comp_status = db.Column(db.Boolean(), nullable=False, default=False)
 
 	def __unicode__(self):

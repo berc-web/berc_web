@@ -8,7 +8,7 @@ from flask.ext.user import login_required, current_user, SQLAlchemyAdapter, role
 from flask.ext.user.views import register
 from werkzeug import secure_filename
 from forms import UpdateProfileForm, UploadNewsForm, TeammateInvitationForm, \
-					UpdateTeamInfoForm, CommentForm
+					UpdateTeamInfoForm, CommentForm, UploadCompArticleForm
 from postmonkey import PostMonkey
 import boto
 
@@ -40,7 +40,10 @@ from config_user import user_manager
 
 @app.route('/')
 def home():
-	return render_template('home.html')
+	if app.config['LANGUAGE'] == 'en':
+		return render_template('home.html')
+	else:
+		return render_template('home.html')
 
 
 @app.route('/competition')
@@ -121,11 +124,11 @@ def userProfile(uname):
 		return render_template('user_profile.html', user=user)
 
 
-def upload_s3(file_name, data):
+def upload_s3(file_name, data, directory):
 	connection = boto.connect_s3(app.config['AWS_ACCESS_KEY_ID'],
 		app.config['AWS_SECRET_ACCESS_KEY'])
 	bucket = connection.get_bucket(app.config['S3_BUCKET_NAME'])
-	file_path = os.path.join(app.config['S3_UPLOAD_DIRECTORY'], file_name)
+	file_path = os.path.join(directory, file_name)
 	sml = bucket.new_key(os.path.join('static', file_path))
 	path = url_for('static', filename=file_path)
 	sml.set_contents_from_file(data)
@@ -144,7 +147,7 @@ def update_profile():
 			file_name = secure_filename(form.photo.data.filename)
 			extension = file_name.split('.')[-1]
 			file_name = '.'.join([current_user.username, extension])
-			path = upload_s3(file_name, form.photo.data)
+			path = upload_s3(file_name, form.photo.data, app.config['S3_UPLOAD_DIRECTORY'])
 			current_user.avatar = path
 
 		current_user.fname = form.fname.data
@@ -189,7 +192,7 @@ def admin_news_uploads():
 		file_name = secure_filename(form.image.data.filename)
 		extension = file_name.split('.')[-1]
 		file_name = '.'.join([str(news.id), extension])
-		path = upload_s3(file_name, form.image.data)
+		path = upload_s3(file_name, form.image.data, app.config['S3_NEWS_IMAGE_DIR'])
 		news.image = path
 		db.session.commit()
 	return redirect(url_for('news_and_resources'))
@@ -267,16 +270,23 @@ def reject_invitation(uname):
 	return redirect(url_for('user'))
 
 
-@app.route('/team', methods=['GET'])
+@app.route('/team', methods=['GET', 'POST'])
 def team_page():
 	team_id = current_user.team_id
 	team = db.session.query(Team).filter(Team.id == team_id).first()
 
-	#TODO:
-	comments = db.session.query(Comment).filter(Comment.idea_id == team.idea.id).all()
-
 	if team:
-		return render_template("team_profile.html", team = team)
+		#TODO:
+		comments = db.session.query(Comment).filter(Comment.idea_id == team.idea.id).all()
+
+		form = UploadCompArticleForm()
+		if form.validate_on_submit():
+			file_name = "team"+team.id+".pdf"
+			team.submission = upload_s3(file_name, form.article.data, app.config['S3_COMP_DIR'])
+			db.session.commit()
+
+		return render_template("team_profile.html", form = form, team = team, \
+			show_result = app.config[COMPETATION_CLOSED])
 	else:
 		flash("You have not formed a team yet.")
 		return redirect(url_for("invitation"))
