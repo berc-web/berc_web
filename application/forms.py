@@ -132,6 +132,6 @@ class CommentForm(Form):
 class UploadCompArticleForm(Form):
 	article = FileField('File', validators=[
 		FileAllowed(['pdf'], 'PDF file only'),
-		required()
+		Required()
 	])
 	submit = SubmitField("Submit")
