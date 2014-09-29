@@ -287,12 +287,12 @@ def team_page():
 
 		form = UploadCompArticleForm()
 		if form.validate_on_submit():
-			file_name = "team"+team.id+".pdf"
+			file_name = "team"+str(team.id)+".pdf"
 			team.submission = upload_s3(file_name, form.article.data, app.config['S3_COMP_DIR'])
 			db.session.commit()
 
 		return render_template("team_profile.html", form = form, team = team, \
-			show_result = app.config[COMPETATION_CLOSED])
+			show_result = app.config['COMPETATION_CLOSED'])
 	else:
 		flash("You have not formed a team yet.")
 		return redirect(url_for("invitation"))
