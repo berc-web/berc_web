@@ -1,12 +1,24 @@
 .about {
 	box-shadow: 0px 10px 30px 2px #888888;
-	background: #ffffff url('images/overlay.png');
+	background: #ffffff;
 	padding-top: 50px;
 	margin-bottom: 50px;
 	min-height: 900px;
-	.navigation {
-		font-size: 18px;
-		margin-bottom: 20px;
+	.navigation-container {
+		position: relative;
+		.navigation {
+			font-size: 18px;
+			margin-bottom: 20px;
+			a.nav-active {
+		    background-color: #ccc;
+			}
+		}
+		.navigation.stick {
+			position: fixed;
+	    top: 0;
+	    z-index: 10000;
+	    margin-top: 120px;
+		}
 	}
 	.main {
 		margin-bottom: 20px;
@@ -20,7 +32,7 @@
 		.content {
 			font-size: 18px;
 		}
-		#sponsors, #organizers {
+		.sponsors, .organizers {
 			.organizers-img {
 				width: 100%;
 			}
@@ -35,7 +47,7 @@
 				border-radius: 3px;
 			}
 		}
-		#involve {
+		.involve {
 			.content {
 				a {
 					text-decoration: none;
@@ -45,7 +57,7 @@
 				}
 			}
 		}
-		#about, #sponsors, #organizers, #involve, #contact {
+		.intro, .sponsors, .organizers, .involve, .contact {
 			margin-bottom: 50px;
 		}
 	}

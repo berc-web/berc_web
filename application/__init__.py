@@ -43,12 +43,15 @@ def home():
 	if app.config['LANGUAGE'] == 'en':
 		return render_template('home.html')
 	else:
-		return render_template('home.html')
+		return render_template('home_ch.html')
 
 
 @app.route('/competition')
 def competition():
-	return render_template('competition.html')
+	if app.config['LANGUAGE'] == 'en':
+		return render_template('competition.html')
+	else:
+		return render_template('competition_ch.html')
 
 
 @app.route('/event')
@@ -58,7 +61,10 @@ def event():
 
 @app.route('/rules')
 def rules():
-	return render_template('rules.html')
+	if app.config['LANGUAGE'] == 'en':
+		return render_template('rules.html')
+	else:
+		return render_template('rules_ch.html')
 
 
 @app.route('/news_and_resources')
@@ -286,12 +292,12 @@ def team_page():
 
 		form = UploadCompArticleForm()
 		if form.validate_on_submit():
-			file_name = "team"+team.id+".pdf"
+			file_name = "team"+str(team.id)+".pdf"
 			team.submission = upload_s3(file_name, form.article.data, app.config['S3_COMP_DIR'])
 			db.session.commit()
 
 		return render_template("team_profile.html", form = form, team = team, \
-			show_result = app.config[COMPETATION_CLOSED])
+			show_result = app.config['COMPETATION_CLOSED'])
 	else:
 		flash("You have not formed a team yet.")
 		return redirect(url_for("invitation"))

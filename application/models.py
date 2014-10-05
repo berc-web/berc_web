@@ -72,6 +72,7 @@ class Team(db.Model):
 	idea = db.relationship('Idea', backref='team', uselist=False)
 	submission = db.Column(db.String(200), unique=True, default=None)
 	comp_status = db.Column(db.Boolean(), nullable=False, default=False)
+	judged = db.Column(db.Boolean(), nullable=False, default=False)
 
 	def __unicode__(self):
 		return self.name

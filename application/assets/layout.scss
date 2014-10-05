@@ -8,6 +8,9 @@ body {
 	padding-top: 70px;
 	font-family: 'Brandon Grotesque', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+.nav>li>a:hover {
+	background: none;
+}
 .navbar {
 	min-width: 1300px;
 	height: $navbar_height;

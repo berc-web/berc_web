@@ -16,6 +16,14 @@ class MyModelView(sqla.ModelView):
 	def is_accessible(self):
 		return login.current_user.is_authenticated() and login.current_user.has_roles('admin')
 
+
+class JudgeTeamView(sqla.ModelView):
+	column_list = 'submission', 'comp_status', 'judged'
+
+	def is_accessible(self):
+		return login.current_user.is_authenticated() and login.current_user.has_roles('admin')
+
+
 class CustomBaseView(admin.BaseView):
 	def is_accessible(self):
 		return login.current_user.is_authenticated() and login.current_user.has_roles('admin')
@@ -42,7 +50,6 @@ class UploadNewsView(CustomBaseView):
 		return self.render('admin/upload_news.html', form=UploadNewsForm())
 
 
-
 # Admin Setup
 # -----------
 admin = Admin(name='EECC Admin Panel', index_view=MyAdminIndexView(), base_template='my_master.html')
@@ -53,4 +60,5 @@ admin.add_view(MyModelView(News, db.session, category="models"))
 admin.add_view(MyModelView(Idea, db.session, category="models"))
 admin.add_view(MyModelView(Comment, db.session, category="models"))
 admin.add_view(UploadNewsView(name="upload news", endpoint="uploadnews"))
+admin.add_view(JudgeTeamView(Team, db.session, endpoint="judge"))
 admin.init_app(app)
