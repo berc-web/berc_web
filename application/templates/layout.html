@@ -118,7 +118,7 @@
 		        for (var i=0; i < aArray.length; i++) {
 	            var theID = aArray[i];
 	            var divPos = $(theID).offset().top;
-	            var divHeight = $(theID).next().height();
+	            var divHeight = $(theID).next().outerHeight();
 	            if (windowPos >= divPos && windowPos < (divPos + divHeight)) {
                 $("a[href='" + theID + "']").addClass("nav-active");
 	            } else {

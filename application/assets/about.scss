@@ -22,6 +22,7 @@
 	}
 	.main {
 		margin-bottom: 20px;
+		padding-bottom: 300px;
 		.title {
 			font-size: 25px;
 			font-weight: bold;
@@ -58,7 +59,7 @@
 			}
 		}
 		.intro, .sponsors, .organizers, .involve, .contact {
-			margin-bottom: 50px;
+			padding-bottom: 50px;
 		}
 	}
 }

@@ -17,7 +17,8 @@
       z-index: 10000;
       margin-top: 120px; }
   .about .main {
-    margin-bottom: 20px; }
+    margin-bottom: 20px;
+    padding-bottom: 300px; }
     .about .main .title {
       font-size: 25px;
       font-weight: bold;
@@ -43,4 +44,4 @@
         text-decoration: none; }
     .about .main .intro, .about .main .sponsors, .about .main .organizers,
     .about .main .involve, .about .main .contact {
-      margin-bottom: 50px; }
+      padding-bottom: 50px; }

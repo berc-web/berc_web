@@ -22,6 +22,7 @@
 	}
 	.main {
 		margin-bottom: 20px;
+		padding-bottom: 300px;
 		.title {
 			font-size: 25px;
 			font-weight: bold;
@@ -34,7 +35,7 @@
 			font-size: 18px;
 		}
 		.mission, .rules, .judges, .themes {
-			margin-bottom: 50px;
+			padding-bottom: 50px;
 		}
 		.mission {
 			.content {
