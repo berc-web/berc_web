@@ -7,11 +7,16 @@
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="http://use.edgefonts.net/tenor-sans;marmelad;quattrocento-sans.js"></script>
+		<script type="text/javascript" src="https://rawgithub.com/cowboy/jquery-resize/v1.1/jquery.ba-resize.js"></script>
 		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 		<script src="//cdn.ckeditor.com/4.4.5/full/ckeditor.js"></script>
 		<script src="{{ url_for('static', filename='javascript/jquery.resizeimagetoparent.min.js') }}"></script>
 		<script src="{{ url_for('static', filename='javascript/masonry.pkgd.min.js') }}"></script>
 		<script src="{{ url_for('static', filename='javascript/jquery.scrollto.js') }}"></script>
+		<script src="{{ url_for('static', filename='javascript/jssor.core.js') }}"></script>
+		<script src="{{ url_for('static', filename='javascript/jssor.utils.js') }}"></script>
+		<script src="{{ url_for('static', filename='javascript/jssor.slider.js') }}"></script>
 		<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,700,900" rel="stylesheet" />
 		<link rel="shortcut icon" href="{{ url_for('static', filename='images/homepage/logo_icon/favicon.ico') }}" >
 		<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
@@ -22,7 +27,7 @@
 	</head>
 
 	<body>
-		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<nav class="navbar navbar-default navbar-fixed-top header" role="navigation">
 		  <div class="container-fluid">
 		  	<!-- Brand and toggle get grouped for better mobile display -->
 		    <div class="navbar-header">
@@ -134,6 +139,9 @@
 		        }
 			    });
 				}
+				$(window).scroll(function(){
+					$('.header').css('left', '-' + $(window).scrollLeft() + 'px');
+				});
 			});
 			// $(function() {
 			//   $('a[href*=#]:not([href=#]):not([data-toggle]):not([data-slide])').click(function() {

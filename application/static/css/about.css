@@ -36,7 +36,7 @@
             margin-top: 15px; }
             .about .main .sponsors .single-wrapper:hover,
             .about .main .organizers .single-wrapper:hover {
-              background: #e2e2e2 url('images/overlay.png');
+              background: #e2e2e2;
               border-radius: 3px; }
     .about .main .involve .content a {
       text-decoration: none; }

@@ -2,7 +2,6 @@
   box-shadow: 0px 10px 30px 2px #888888;
   background: #ffffff;
   padding-top: 50px;
-  margin-bottom: 50px;
   min-height: 900px; }
   .competition .navigation-container {
     position: relative; }
@@ -31,8 +30,12 @@
         .competition .main .mission, .competition .main .rules, .competition .main .judges,
         .competition .main .themes {
           padding-bottom: 50px; }
-          .competition .main .mission .content {
-            text-align: left; }
+          .competition .main .mission .title, .competition .main .rules .title,
+          .competition .main .judges .title, .competition .main .themes .title {
+            color: #279911;
+            font-family: tenor-sans; }
+    .competition .main .mission .content {
+      text-align: left; }
     .competition .main .themes .content .single {
       border-radius: 110px;
       -webkit-border-radius: 110px;
