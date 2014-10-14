@@ -124,7 +124,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12">
-					<div id="slider1_container" style="position: relative; top: 0px; left: 0px; width: 980px; height: 140px; overflow: hidden; margin: 0 auto;">
+					<div id="slider1_container" style="position: relative; top: 0px; left: 0px; width: 980px; height: 150px; overflow: hidden; margin: 0 auto;">
 
 		        <!-- Loading Screen -->
 		        <div u="loading" style="position: absolute; top: 0px; left: 0px;">
@@ -136,17 +136,17 @@
 		        </div>
 
 		        <!-- Slides Container -->
-		        <div u="slides" style="position: absolute; left: 0px; top: 0px; width: 980px; height: 140px; overflow: hidden;">
-	            <div><img u="image" src="../static/images/homepage/page4/a.png" /></div>
-	            <div><img u="image" src="../static/images/homepage/page4/b.png" /></div>
-	            <div><img u="image" src="../static/images/homepage/page4/c.png" /></div>
-	            <div><img u="image" src="../static/images/homepage/page4/d.png" /></div>
-	            <div><img u="image" src="../static/images/homepage/page4/e.png" /></div>
-	            <div><img u="image" src="../static/images/homepage/page4/f.png" /></div>
-	            <div><img u="image" src="../static/images/homepage/page4/g.png" /></div>
-	            <div><img u="image" src="../static/images/homepage/page4/h.png" /></div>
-	            <div><img u="image" src="../static/images/homepage/page4/i.png" /></div>
-	            <div><img u="image" src="../static/images/homepage/page4/j.png" /></div>
+		        <div u="slides" style="position: absolute; left: 0px; top: 0px; width: 980px; height: 150px; overflow: hidden;">
+	            <div><img class="logo_slider_img" u="image" src="../static/images/homepage/page4/a.png" /></div>
+	            <div><img class="logo_slider_img" u="image" src="../static/images/homepage/page4/b.png" /></div>
+	            <div><img class="logo_slider_img" u="image" src="../static/images/homepage/page4/c.png" /></div>
+	            <div><img class="logo_slider_img" u="image" src="../static/images/homepage/page4/d.png" /></div>
+	            <div><img class="logo_slider_img" u="image" src="../static/images/homepage/page4/e.png" /></div>
+	            <div><img class="logo_slider_img" u="image" src="../static/images/homepage/page4/f.png" /></div>
+	            <div><img class="logo_slider_img" u="image" src="../static/images/homepage/page4/g.png" /></div>
+	            <div><img class="logo_slider_img" u="image" src="../static/images/homepage/page4/h.png" /></div>
+	            <div><img class="logo_slider_img" u="image" src="../static/images/homepage/page4/i.png" /></div>
+	            <div><img class="logo_slider_img" u="image" src="../static/images/homepage/page4/j.png" /></div>
 		        </div>
 			    </div>
 				</div>
@@ -166,9 +166,9 @@ jQuery(document).ready(function ($) {
     $SlideEasing: $JssorEasing$.$EaseLinear,          //[Optional] Specifies easing for right to left animation, default value is $JssorEasing$.$EaseOutQuad
     $SlideDuration: 3000,                                //[Optional] Specifies default duration (swipe) for slide in milliseconds, default value is 500
     $MinDragOffsetToSlide: 20,                          //[Optional] Minimum drag offset to trigger slide , default value is 20
-    $SlideWidth: 140,                                   //[Optional] Width of every slide in pixels, default value is width of 'slides' container
-    //$SlideHeight: 100,                                //[Optional] Height of every slide in pixels, default value is height of 'slides' container
-    $SlideSpacing: 0, 					                //[Optional] Space between each slide in pixels, default value is 0
+    $SlideWidth: 200,                                   //[Optional] Width of every slide in pixels, default value is width of 'slides' container
+    // $SlideHeight: 140,                                //[Optional] Height of every slide in pixels, default value is height of 'slides' container
+    $SlideSpacing: 10, 					                //[Optional] Space between each slide in pixels, default value is 0
     $DisplayPieces: 7,                                  //[Optional] Number of pieces to display (the slideshow would be disabled if the value is set to greater than 1), the default value is 1
     $ParkingPosition: 0,                              //[Optional] The offset position to park slide (this options applys only when slideshow disabled), default value is 0.
     $UISearchMode: 1,                                   //[Optional] The way (0 parellel, 1 recursive, default value is 1) to search UI components (slides container, loading screen, navigator container, arrow navigator container, thumbnail navigator container etc).
@@ -196,6 +196,6 @@ jQuery(document).ready(function ($) {
   //    $(window).bind("orientationchange", ScaleSlider);
   //}
   //responsive code end
-  });
+});
 </script>
 {% endblock %}
