@@ -22,7 +22,8 @@
     .about .main .title {
       font-size: 25px;
       font-weight: bold;
-      color: #428bca;
+      color: #279911;
+      font-family: tenor-sans;
       text-transform: uppercase;
       margin-bottom: 10px; }
       .about .main .content {

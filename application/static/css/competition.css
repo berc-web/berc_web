@@ -21,7 +21,8 @@
     .competition .main .title {
       font-size: 25px;
       font-weight: bold;
-      color: #428bca;
+      color: #279911;
+      font-family: tenor-sans;
       text-transform: uppercase;
       margin-bottom: 10px; }
       .competition .main .content {
@@ -30,12 +31,8 @@
         .competition .main .mission, .competition .main .rules, .competition .main .judges,
         .competition .main .themes {
           padding-bottom: 50px; }
-          .competition .main .mission .title, .competition .main .rules .title,
-          .competition .main .judges .title, .competition .main .themes .title {
-            color: #279911;
-            font-family: tenor-sans; }
-    .competition .main .mission .content {
-      text-align: left; }
+          .competition .main .mission .content {
+            text-align: left; }
     .competition .main .themes .content .single {
       border-radius: 110px;
       -webkit-border-radius: 110px;

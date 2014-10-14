@@ -228,10 +228,3 @@
           -o-transform: scaleX(-1);
           -ms-transform: scaleX(-1);
           transform: scaleX(-1); }
-          .home .sponsor .sponsor-img {
-            width: 100%; }
-            .home .sponsor h1 {
-              font-size: 17px;
-              font-weight: bold;
-              text-align: center;
-              margin-top: 15px; }
