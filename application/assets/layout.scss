@@ -2,25 +2,24 @@ $navbar_height: 70px;
 $footer_height: 50px;
 html, body {
 	min-height: 100%;
-	min-width: 1300px;
+	min-width: 1330px;
 }
 body {
 	padding-top: 70px;
-	font-family: 'Brandon Grotesque', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-family: Elegent Lux, hanker round, InaiMathi;
 }
 .nav>li>a:hover {
 	background: none;
 }
 .navbar {
-	min-width: 1300px;
+	min-width: 1330px;
 	height: $navbar_height;
 	line-height: $navbar_height;
 	margin: 0;
 	.container-fluid {
 		height: $navbar_height;
 		line-height: $navbar_height;
-		background: #222835;
-		background-color: rgba(44,50,63,1);
+		background-color: #252525;
 		text-align: center;
 		.navbar-header {
 			height: $navbar_height;
@@ -54,6 +53,7 @@ body {
 						text-decoration: none;
 						font-size: 16px;
 						letter-spacing: 1px;
+						font-family: marmelad;
 					}
 				}
 				.action-hint {
@@ -69,6 +69,9 @@ body {
 	text-align: center;
 	z-index: 999;
 }
+.content-wrapper {
+	background: #ffffff url('images/overlay.png');
+}
 .footer {
 	height: $footer_height;
 	line-height: $footer_height;
@@ -81,6 +84,9 @@ body {
 		margin-left: 50px;
 	}
 	.navbar-nav {
+		a {
+			color: #ffffff;
+		}
 		a:hover {
 			background-color: rgba(44,50,63,1);
 		}

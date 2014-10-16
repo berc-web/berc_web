@@ -1,6 +1,6 @@
 .rules {
   box-shadow: 0px 10px 30px 2px #888888;
-  background: #ffffff url('images/overlay.png');
+  background: #ffffff;
   padding-top: 50px;
   margin-bottom: 50px;
   min-height: 900px;
@@ -18,5 +18,12 @@
         font-weight: bold; }
         .rules .single .content {
           font-size: 18px; }
+          .rules .single .content .row .index {
+            font-weight: 700;
+            float: left; }
+            .rules .single .content .row .body {
+              margin-left: 4px;
+              width: 95%;
+              float: left; }
   .rules .underline {
     text-decoration: underline; }

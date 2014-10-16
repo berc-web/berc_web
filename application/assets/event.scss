@@ -1,23 +1,22 @@
-.about {
+.event {
 	box-shadow: 0px 10px 30px 2px #888888;
 	background: #ffffff;
 	padding-top: 50px;
-	margin-bottom: 50px;
 	min-height: 900px;
 	.navigation-container {
 		position: relative;
 		.navigation {
 			font-size: 18px;
 			margin-bottom: 20px;
-			a.nav-active {
-		    background-color: #ccc;
-			}
 		}
 		.navigation.stick {
 			position: fixed;
 	    top: 0;
 	    z-index: 10000;
 	    margin-top: 120px;
+		}
+		a.nav-active {
+	    background-color: #ccc;
 		}
 	}
 	.main {
@@ -32,34 +31,19 @@
 			margin-bottom: 10px;
 		}
 		.content {
+			text-align: left;
 			font-size: 18px;
-		}
-		.sponsors, .organizers {
-			.organizers-img {
-				width: 100%;
+			.picture {
+				margin-bottom: 10px;
+				img {
+					width: 100%;
+				}
 			}
-			h1 {
-				font-size: 17px;
-				font-weight: bold;
+			.name {
 				text-align: center;
-				margin-top: 15px;
-			}
-			.single-wrapper:hover {
-				background: #e2e2e2;
-				border-radius: 3px;
-			}
+			}	
 		}
-		.involve {
-			.content {
-				a {
-					text-decoration: none;
-				}
-				a:hover {
-					text-decoration: none;
-				}
-			}
-		}
-		.intro, .sponsors, .organizers, .involve, .contact {
+		.forum, .social, .tour, .workshop {
 			padding-bottom: 50px;
 		}
 	}

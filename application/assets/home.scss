@@ -27,7 +27,7 @@
 	}
 	.competition {
 		position: relative;
-		background: #ffffff url('images/overlay.png');
+		background: #ffffff;
 		padding-bottom: 80px;
 		.competition-title {
 			display: block;
@@ -36,7 +36,7 @@
 			left: 50%;
 			width: 390px;
 			height: 50px;
-			background: #ffffff url('images/overlay.png');
+			background: #ffffff;
 			text-align: center;
 			font-size: 16px;;
 			font-weight: 700;
@@ -82,14 +82,17 @@
 				font-size: 35px;
 				font-weight: bold;
 				letter-spacing: 3.5px;
+				color: #279911;
+				font-family: marmelad;
 			}
 			h3 {
 				text-align: center;
 				margin-bottom: 15px;
-				color: rgb(83, 146, 0);
+				color: #539200;
 				font-size: 17px;
 				font-weight: bold;
 				letter-spacing: 1.7px;
+				font-family: quattrocento-sans;
 			}
 			// The CSS for ihover
 			.ih-item {
@@ -218,7 +221,7 @@
 	}
 	.sponsor {
 		position: relative;
-		background: #f3f3f3 url('images/overlay.png');
+		background: #f3f3f3;
 		padding-top: 80px;
 		padding-bottom: 80px;
 		.sponsor-title {
@@ -228,7 +231,7 @@
 			left: 50%;
 			width: 390px;
 			height: 50px;
-			background: #f3f3f3 url('images/overlay.png');
+			background: #f3f3f3;
 			text-align: center;
 			font-size: 16px;;
 			font-weight: 700;
@@ -262,15 +265,6 @@
 			-o-transform: scaleX(-1);
 			-ms-transform: scaleX(-1);
 			transform: scaleX(-1);
-		}
-		.sponsor-img {
-			width: 100%;
-		}
-		h1 {
-			font-size: 17px;
-			font-weight: bold;
-			text-align: center;
-			margin-top: 15px;
 		}
 	}
 }

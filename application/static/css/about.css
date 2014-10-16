@@ -17,11 +17,13 @@
       z-index: 10000;
       margin-top: 120px; }
   .about .main {
-    margin-bottom: 20px; }
+    margin-bottom: 20px;
+    padding-bottom: 300px; }
     .about .main .title {
       font-size: 25px;
       font-weight: bold;
-      color: #428bca;
+      color: #279911;
+      font-family: tenor-sans;
       text-transform: uppercase;
       margin-bottom: 10px; }
       .about .main .content {
@@ -35,7 +37,7 @@
             margin-top: 15px; }
             .about .main .sponsors .single-wrapper:hover,
             .about .main .organizers .single-wrapper:hover {
-              background: #e2e2e2 url('images/overlay.png');
+              background: #e2e2e2;
               border-radius: 3px; }
     .about .main .involve .content a {
       text-decoration: none; }
@@ -43,4 +45,4 @@
         text-decoration: none; }
     .about .main .intro, .about .main .sponsors, .about .main .organizers,
     .about .main .involve, .about .main .contact {
-      margin-bottom: 50px; }
+      padding-bottom: 50px; }
