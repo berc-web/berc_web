@@ -1,29 +1,8 @@
 <!-- extend base layout -->
 {% extends "base.html" %}
 {% block content %}
-<h1>{%trans%}User Profile{%endtrans%}</h1>
 <div class="row">
-	<div class="col-xs-3 avatar">
-		<img src="{{ user.avatar if user.avatar != None else url_for('static', filename='upload/user_avatar/default1.png') }}">
-	</div>
-</div>
-<div class="row">
-	<div class="col-xs-12 name">Name: {{ user.fname }} {{ user.lname }}</div>
-</div>
-<div class="row">
-	<div class="col-xs-12 email">Email: {{ user.email }}</div>
-</div>
-<div class="row">
-	<div class="col-xs-12 school">School: {{ user.school }}</div>
-</div>
-<div class="row">
-	<div class="col-xs-12 major">Major: {{ user.major }}</div>
-</div>
-<div class="row">
-	<div class="col-xs-12 intro">Intro: {{ user.intro }}</div>
-</div>
-<div class="row">
-	<div class="col-xs-12 location">Location: {{ user.location }}</div>
+	<div class="col-xs-12 intro">Intro: {{ user.intro|safe }}</div>
 </div>
 <div class="row activities">
 	{% for username in inv_list %}

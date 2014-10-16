@@ -19,11 +19,12 @@
             {% if not label %}{% set label=field.label.text %}{% endif %}
             <label for="{{ field.id }}" class="control-label">{{ label|safe }}</label>
         {% endif %}
+        {{ field(class_='form-control ckeditor_replace', rows="5", **kwargs) }}
         <textarea name="editor1" id="editor1" class="form-control" id="{{field.id}}" name="{{field.id}}" placeholder="{{kwargs.pop('placeholder', '')}}" rows="5" tabindex="{{kwargs.pop('tabindex', '')}}">{{kwargs.pop('value', '')}}</textarea>
         <script>
           // Replace the <textarea id="editor1"> with a CKEditor
           // instance, using default configuration.
-          CKEDITOR.replace('editor1');
+          var editor = CKEDITOR.replace('editor1');
         </script>
         {% if field.errors %}
             {% for e in field.errors %}

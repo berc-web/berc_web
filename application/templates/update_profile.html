@@ -19,5 +19,15 @@
 
     {{ render_submit_field(form.submit, tabindex=90) }}
 </form>
+<script>
+    editor.on( 'change', function( evt ) {
+    // getData() returns CKEditor's HTML content.
+    var data = evt.editor.getData()
+    console.log(data);
+    $(".ckeditor_replace").val(data);
+    });
+
+    // Your code to save "data", usually through Ajax.
+</script>
 
 {% endblock %}

@@ -1,48 +1,69 @@
-.base {
-  min-height: 900px; }
-  .base .top-cover {
-    height: 250px;
-    overflow: hidden;
-    position: relative; }
-    .base .top-cover .avatar {
-      position: absolute;
-      left: 50px;
-      bottom: 0px;
-      height: 150px;
-      width: 150px;
-      overflow: hidden; }
-  .base .navigation {
-    font-size: 18px;
-    margin-top: 0px;
-    padding-top: 30px;
-    margin-bottom: 20px;
-    min-height: 500px;
-    border-right: 1px solid lightgrey; }
-    .base .navigation .user-name {
-      font-size: 20px;
-      font-weight: bold; }
-  .base .main {
-    margin-top: 50px;
-    margin-bottom: 20px; }
-    .base .main .avatar {
-      box-shadow: 0px 0px 30px 1px #888888;
-      padding: 0;
-      margin-bottom: 5px; }
-      .base .main .avatar img {
-        width: 100%; }
-    .base .main .name, .base .main .email, .base .main .school {
+.container-fluid {
+  background: #ffffff; }
+  .container-fluid .base {
+    min-height: 900px; }
+    .container-fluid .base .top-cover {
+      height: 250px;
+      overflow: hidden;
+      position: relative; }
+      .container-fluid .base .top-cover .mask {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0));
+        position: absolute;
+        top: 0;
+        margin-right: 15px; }
+        .container-fluid .base .top-cover .avatar {
+          position: absolute;
+          left: 50px;
+          bottom: 0px;
+          height: 150px;
+          width: 150px;
+          overflow: hidden; }
+          .container-fluid .base .top-cover .name {
+            position: absolute;
+            left: 200px;
+            bottom: 50px;
+            height: 40px;
+            padding-left: 40px;
+            line-height: 40px;
+            font-size: 30px;
+            width: 800px;
+            color: #ffffff;
+            overflow: hidden; }
+    .container-fluid .base .basic-info {
+      height: 40px;
+      line-height: 40px;
+      background: #252525;
+      color: #ffffff;
       font-size: 18px;
-      font-weight: bold;
-      margin-top: 30px;
-      padding: 0; }
-      .base .main #fname, .base .main #lname, .base .main #email, .base .main #school,
-      .base .main #school, .base .main #major, .base .main #intro {
-        color: #000000;
-        font-weight: 600; }
-  .base .invitation ul li a {
-    cursor: pointer; }
-  .base .invitation form {
-    margin-top: 50px; }
-    .base .invitation form button[type="submit"] {
-      display: block;
-      margin: 0 auto; }
+      vertical-align: middle; }
+      .container-fluid .base .basic-info .location,
+      .container-fluid .base .basic-info .school,
+      .container-fluid .base .basic-info .email,
+      .container-fluid .base .basic-info .major {
+        height: 40px;
+        line-height: 40px; }
+        .container-fluid .base .basic-info .location .icon-image,
+        .container-fluid .base .basic-info .school .icon-image,
+        .container-fluid .base .basic-info .email .icon-image,
+        .container-fluid .base .basic-info .major .icon-image {
+          height: 80%;
+          margin-right: 5px; }
+    .container-fluid .base .navigation {
+      font-size: 18px;
+      margin-top: 0px;
+      padding-top: 30px;
+      margin-bottom: 20px;
+      min-height: 500px;
+      border-right: 1px solid lightgrey; }
+      .container-fluid .base .main {
+        margin-top: 50px;
+        margin-bottom: 20px; }
+        .container-fluid .base .invitation ul li a {
+          cursor: pointer; }
+        .container-fluid .base .invitation form {
+          margin-top: 50px; }
+          .container-fluid .base .invitation form button[type="submit"] {
+            display: block;
+            margin: 0 auto; }
