@@ -121,6 +121,10 @@ class TeammateInvitationForm(Form):
 class UpdateTeamInfoForm(Form):
 	name = TextField("Team Name", validators=[Required()])
 	idea = TextAreaField("Comptetion Idea", validators=[Required()])
+	caseNumber = SelectField('Case Choice',
+		choices=[(1, 'Placeholer1'), (2, 'Placeholer2'),
+					(3, 'Placeholer3'), (4, 'Placeholer4')],
+		validators=[Required()])
 	submit = SubmitField("Update Team Information")
 
 

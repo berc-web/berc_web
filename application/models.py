@@ -73,6 +73,7 @@ class Team(db.Model):
 	submission = db.Column(db.String(200), unique=True, default=None)
 	comp_status = db.Column(db.Boolean(), nullable=False, default=False)
 	judged = db.Column(db.Boolean(), nullable=False, default=False)
+	caseNumber = db.Column(db.Integer, default=0)
 
 	def __unicode__(self):
 		return self.name

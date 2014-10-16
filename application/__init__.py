@@ -306,7 +306,7 @@ def team_page():
 			team.submission = upload_s3(file_name, form.article.data, app.config['S3_COMP_DIR'])
 			db.session.commit()
 
-		notifs = db.session.query(Notification).all()
+		notifs = db.session.query(Notification).order_by(Notification.time).limit(10).all()
 
 		return render_template("team_profile.html", form = form, team = team, \
 			show_result = app.config['COMPETATION_CLOSED'], notifications = notifs)
@@ -325,6 +325,7 @@ def update_team():
 		if team:
 			team.name = form.name.data
 			team.idea.content = form.idea.data
+			team.caseNumber = form.caseNumber.data
 			db.session.commit()
 			return redirect(url_for('team_page'))
 		else:
