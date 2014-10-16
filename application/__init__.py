@@ -8,7 +8,8 @@ from flask.ext.user import login_required, current_user, SQLAlchemyAdapter, role
 from flask.ext.user.views import register
 from werkzeug import secure_filename
 from forms import UpdateProfileForm, UploadNewsForm, TeammateInvitationForm, \
-					UpdateTeamInfoForm, CommentForm, UploadCompArticleForm
+					UpdateTeamInfoForm, CommentForm, UploadCompArticleForm, \
+					SendNotificationForm
 from postmonkey import PostMonkey
 import boto
 
@@ -30,7 +31,7 @@ Scss(app)
 
 # Database
 db = SQLAlchemy(app)
-from models import User, Role, Team, News, Idea, Comment
+from models import User, Role, Team, News, Idea, Comment, Notification
 
 
 # db_adapter
@@ -80,16 +81,19 @@ def news(news_id):
 
 
 @app.route('/about_us')
+@login_required
 def about_us():
 	return render_template('about.html')
 
 
 @app.route('/request_list')
+@login_required
 def request_list():
 	return render_template('request_list.html')
 
 
 @app.route('/users')
+@login_required
 def user_lst():
 	users = db.session.query(User).all()
 	return render_template('users.html', users = users)
@@ -104,11 +108,13 @@ def user():
 
 
 @app.route('/invitation')
+@login_required
 def invitation():
 	return render_template('invitation.html', user=current_user)
 
 
 @app.route('/disp_teams')
+@login_required
 def all_teams():
 	#TODO
 	teams = db.session.query(Team).all()
@@ -116,6 +122,7 @@ def all_teams():
 
 
 @app.route('/disp_ideas')
+@login_required
 def all_ideas():
 	#TODO
 	ideas = db.session.query(Idea).all()
@@ -211,6 +218,7 @@ def admin_news_uploads():
 
 
 @app.route('/team_invitation', methods=['POST'])
+@login_required
 def team_invitation():
 	form = TeammateInvitationForm()
 	user = None
@@ -239,6 +247,7 @@ def team_invitation():
 
 
 @app.route('/invitation/accept/<uname>', methods=['POST'])
+@login_required
 def accept_invitation(uname):
 	user = user_manager.find_user_by_username(uname)
 	if user.team_id:
@@ -274,6 +283,7 @@ def accept_invitation(uname):
 
 
 @app.route('/invitation/reject/<uname>', methods=['POST'])
+@login_required
 def reject_invitation(uname):
 	user = user_manager.find_user_by_username(uname)
 	user.request_teammate = None
@@ -283,12 +293,12 @@ def reject_invitation(uname):
 
 
 @app.route('/team', methods=['GET', 'POST'])
+@login_required
 def team_page():
 	team_id = current_user.team_id
 	team = db.session.query(Team).filter(Team.id == team_id).first()
 
 	if team:
-		#TODO:
 		comments = db.session.query(Comment).filter(Comment.idea_id == team.idea.id).all()
 
 		form = UploadCompArticleForm()
@@ -297,14 +307,17 @@ def team_page():
 			team.submission = upload_s3(file_name, form.article.data, app.config['S3_COMP_DIR'])
 			db.session.commit()
 
+		notifs = db.session.query(Notification).order_by(Notification.time).limit(10).all()
+
 		return render_template("team_profile.html", form = form, team = team, \
-			show_result = app.config['COMPETATION_CLOSED'])
+			show_result = app.config['COMPETATION_CLOSED'], notifications = notifs)
 	else:
 		flash("You have not formed a team yet.")
 		return redirect(url_for("invitation"))
 
 
 @app.route('/update_team', methods=['POST', 'GET'])
+@login_required
 def update_team():
 	form = UpdateTeamInfoForm()
 	team_id = current_user.team_id
@@ -313,6 +326,7 @@ def update_team():
 		if team:
 			team.name = form.name.data
 			team.idea.content = form.idea.data
+			team.caseNumber = form.caseNumber.data
 			db.session.commit()
 			return redirect(url_for('team_page'))
 		else:
@@ -323,6 +337,7 @@ def update_team():
 
 
 @app.route('/dismiss_team', methods=['POST'])
+@login_required
 def dismiss_team():
 	team_id = current_user.team_id
 	team = db.session.query(Team).filter(Team.id == team_id).first()
@@ -336,6 +351,7 @@ def dismiss_team():
 
 
 @app.route('/comment_idea/<idea_id>', methods=['POST', 'GET'])
+@login_required
 def comment_idea(idea_id):
 	form = CommentForm()
 	if form.validate_on_submit():
@@ -354,6 +370,20 @@ def comment_idea(idea_id):
 	return render_template('comment_idea.html', form = form, idea_id = idea_id)
 
 
+@app.route('/send_notification', methods=['POST'])
+@login_required
+@roles_required('admin')
+def send_notification():
+	form = SendNotificationForm()
+	if form.validate_on_submit():
+		noti = Notification()
+		noti.content = form.notification.data
+		db.session.add(noti)
+		db.session.commit()
+
+	return redirect(url_for('notify.send_notification'))
+
+
 def send_mail(user, theme, **kwargs):
 	subject = render_template('emails/'+theme+'_subject.txt',  user=user, **kwargs)
 	subject = subject.replace('\n', ' ')
@@ -361,6 +391,7 @@ def send_mail(user, theme, **kwargs):
 	html_message = render_template('emails/'+theme+'_message.html',  user=user, **kwargs)
 	text_message = render_template('emails/'+theme+'_message.txt',  user=user, **kwargs)
 	user_manager.send_email_function(user.email, subject, html_message, text_message)
+
 
 
 babel = Babel(app)

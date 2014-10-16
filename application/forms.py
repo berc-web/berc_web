@@ -1,6 +1,6 @@
 from flask import current_app
 from wtforms import SubmitField, TextField, TextAreaField, HiddenField, \
-	PasswordField, StringField, SelectField, validators
+	PasswordField, StringField, SelectField, BooleanField, validators
 from wtforms.validators import Required
 from flask.ext.wtf import Form
 from flask.ext.wtf.file import FileField, FileRequired, FileAllowed
@@ -121,6 +121,10 @@ class TeammateInvitationForm(Form):
 class UpdateTeamInfoForm(Form):
 	name = TextField("Team Name", validators=[Required()])
 	idea = TextAreaField("Comptetion Idea", validators=[Required()])
+	caseNumber = SelectField('Case Choice',
+		choices=[(1, 'Placeholer1'), (2, 'Placeholer2'),
+					(3, 'Placeholer3'), (4, 'Placeholer4')],
+		validators=[Required()])
 	submit = SubmitField("Update Team Information")
 
 
@@ -135,3 +139,8 @@ class UploadCompArticleForm(Form):
 		Required()
 	])
 	submit = SubmitField("Submit")
+
+
+class SendNotificationForm(Form):
+	notification = StringField("Notification", validators=[Required()])
+	submit = SubmitField("Send Notification")
