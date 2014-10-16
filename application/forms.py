@@ -1,6 +1,6 @@
 from flask import current_app
 from wtforms import SubmitField, TextField, TextAreaField, HiddenField, \
-	PasswordField, StringField, SelectField, validators
+	PasswordField, StringField, SelectField, BooleanField, validators
 from wtforms.validators import Required
 from flask.ext.wtf import Form
 from flask.ext.wtf.file import FileField, FileRequired, FileAllowed
@@ -135,3 +135,8 @@ class UploadCompArticleForm(Form):
 		Required()
 	])
 	submit = SubmitField("Submit")
+
+
+class SendNotificationForm(Form):
+	notification = StringField("Notification", validators=[Required()])
+	submit = SubmitField("Send Notification")

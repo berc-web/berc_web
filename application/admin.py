@@ -1,7 +1,7 @@
 from flask import url_for, redirect, render_template, request, flash
-from models import User, Role, Team, News, Idea, Comment
+from models import User, Role, Team, News, Idea, Comment, Notification
 from application import db, app
-from application.forms import UploadNewsForm
+from application.forms import UploadNewsForm, SendNotificationForm
 from flask.ext import admin, login
 from flask.ext.admin.contrib import sqla
 from flask.ext.admin import expose, Admin
@@ -28,6 +28,7 @@ class CustomBaseView(admin.BaseView):
 	def is_accessible(self):
 		return login.current_user.is_authenticated() and login.current_user.has_roles('admin')
 
+
 class MyAdminIndexView(admin.AdminIndexView):
 
 	@expose('/')
@@ -43,11 +44,19 @@ class MyAdminIndexView(admin.AdminIndexView):
 		login.logout_user()
 		return redirect(url_for('home'))
 
+
 class UploadNewsView(CustomBaseView):
 
 	@expose('/')
 	def upload_news(self):
 		return self.render('admin/upload_news.html', form=UploadNewsForm())
+
+
+class SendNotificationView(CustomBaseView):
+
+	@expose('/')
+	def send_notification(self):
+		return self.render('admin/send_notification.html', form=SendNotificationForm())
 
 
 # Admin Setup
@@ -58,7 +67,9 @@ admin.add_view(MyModelView(Role, db.session, category="models"))
 admin.add_view(MyModelView(Team, db.session, category="models"))
 admin.add_view(MyModelView(News, db.session, category="models"))
 admin.add_view(MyModelView(Idea, db.session, category="models"))
+admin.add_view(MyModelView(Notification, db.session, category="models"))
 admin.add_view(MyModelView(Comment, db.session, category="models"))
 admin.add_view(UploadNewsView(name="upload news", endpoint="uploadnews"))
+admin.add_view(SendNotificationView(name="Send notification", endpoint="notify"))
 admin.add_view(JudgeTeamView(Team, db.session, endpoint="judge"))
 admin.init_app(app)

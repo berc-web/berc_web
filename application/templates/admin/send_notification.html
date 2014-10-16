@@ -1,0 +1,13 @@
+{% extends 'admin/master.html' %}
+{% block body %}
+{{ super() }}
+
+{% from "flask_user/_macros.html" import render_field, render_submit_field %}
+
+<form action="{{ url_for('send_notification') }}" method="POST" class="form" role="form" enctype='multipart/form-data'>
+    {{ form.hidden_tag() }}
+    {{ render_field(form.notification) }}
+    {{ render_submit_field(form.submit, tabindex=90) }}
+</form>
+
+{% endblock body %}

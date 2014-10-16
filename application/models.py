@@ -97,3 +97,7 @@ class Comment(db.Model):
 	time = db.Column(db.DateTime(), default=db.func.now())
 
 
+class Notification(db.Model):
+	id = db.Column(db.Integer, primary_key=True)
+	content = db.Column(db.String(400))
+	time = db.Column(db.DateTime(), default=db.func.now())
