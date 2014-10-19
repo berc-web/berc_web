@@ -381,7 +381,7 @@ def comment_idea(idea_id):
 			flash("Idea does not exist.", "error")
 			return redirect(url_for('all_ideas'))
 
-	return render_template('comment_idea.html', form = form, idea_id = idea_id, comment_id=comment.id)
+	return render_template('comment_idea.html', form = form, idea_id = idea_id)
 
 
 @app.route('/comment/<comment_id>/reply')
@@ -404,7 +404,7 @@ def reply_comment(comment_id):
 		comment.user.notification.append(notif)
 		db.session.commit()
 
-	return render_template('reply_comment.html', form=form, comment=comment)
+	return render_template('reply_comment.html', form=form, comment=comment, comment_id=comment.id)
 
 
 @app.route('/notification/<notif_id>/delete')
