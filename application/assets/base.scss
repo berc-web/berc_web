@@ -1,65 +1,124 @@
-.base {
-	min-height: 900px;
-	.top-cover {
-		height: 250px;
-		overflow: hidden;
-		position: relative;
-		.avatar {
-			position: absolute;
-			left: 50px;
-			bottom: 0px;
-			height: 150px;
-			width: 150px;
+.container-fluid {
+	background: #ffffff;
+	.base {
+		min-height: 900px;
+		background: #ffffff url('images/overlay.png');
+		box-shadow: 0px 10px 30px 2px #888888;
+		.top-cover {
+			height: 250px;
 			overflow: hidden;
-		}
-	}
-	.navigation {
-		font-size: 18px;
-		margin-top: 0px;
-		padding-top: 30px;
-		margin-bottom: 20px;
-		min-height: 500px;
-		border-right: 1px solid lightgrey;
-		.user-name {
-			font-size: 20px;
-			font-weight: bold;
-		}
-	}
-	.main {
-		margin-top: 50px;
-		margin-bottom: 20px;
-		.avatar {
-			box-shadow: 0px 0px 30px 1px #888888;
-			padding: 0;
-			margin-bottom: 5px;
-			img {
+			position: relative;
+			.mask {
 				width: 100%;
+				height: 100%;
+				background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(255, 255, 255, 0));
+				position: absolute;
+				top: 0;
+				margin-right: 15px;
+			}
+			.avatar {
+				position: absolute;
+				left: 50px;
+				bottom: 0px;
+				height: 150px;
+				width: 150px;
+				overflow: hidden;
+			}
+			.name {
+				position: absolute;
+				left: 200px;
+				bottom: 50px;
+				height: 40px;
+				padding-left: 40px;
+				line-height: 40px;
+				font-size: 30px;
+				width: 800px;
+				color: #ffffff;
+				overflow: hidden;
 			}
 		}
-		.name, .email, .school {
+		.basic-info {
+			height: 40px;
+			line-height: 40px;
+			background: #252525;
+			color: #ffffff;
 			font-size: 18px;
-			font-weight: bold;
-			margin-top: 30px;
-			padding: 0;
-		}
-		#fname, #lname, #email, #school, #school, #major, #intro {
-			color: #000000;
-			font-weight: 600;
-		}
-	}
-	.invitation {
-		ul {
-			li {
-				a {
-					cursor: pointer;
+			vertical-align: middle;
+			.location, .school, .email, .major {
+				height: 40px;
+				line-height: 40px;
+				.icon-image {
+					height: 80%;
+					margin-right: 5px;
 				}
 			}
 		}
-		form {
-			margin-top: 50px;
-			button[type="submit"] {
-				display: block;
+		.navigation {
+			font-size: 18px;
+			margin-top: 0px;
+			padding-top: 30px;
+			margin-bottom: 20px;
+			min-height: 500px;
+			border-right: 1px solid lightgrey;
+		}
+		.main {
+			margin-bottom: 20px;
+			.profile {
+				.intro {
+					background: #ffffff;
+					font-size: 18px;
+					padding-top: 10px;
+					padding-bottom: 10px;
+					border-bottom: 1px solid #ebebeb;
+				}
+				.invitations {
+					background: #ffffff;
+					font-size: 18px;
+					padding-top: 10px;
+					padding-bottom: 10px;
+					border-top: 1px solid #ebebeb;
+					border-bottom: 1px solid #ebebeb;
+					margin-top: 10px;
+				}
+			}
+			.update {
+				width: 85%;
 				margin: 0 auto;
+				margin-top: 30px;
+				.ckeditor_replace {
+					display: none;
+				}
+			}
+			.change-uname, .change-pwd {
+				width: 85%;
+				margin: 0 auto;
+				margin-top: 30px;
+			}
+			.invitation-form {
+				width: 85%;
+				margin: 0 auto;
+				margin-top: 30px;
+				ul {
+					li {
+						a {
+							cursor: pointer;
+							font-size: 16px;
+						}
+					}
+					.active {
+						a {
+							background: #ffffff url('images/overlay.png');
+						}
+					}
+				}
+				form {
+					margin-top: 30px;
+					font-size: 16px;
+					button[type="submit"] {
+						display: block;
+						margin: 0 auto;
+					}
+				}
 			}
 		}
 	}

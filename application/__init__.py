@@ -96,7 +96,8 @@ def request_list():
 @app.route('/users')
 @login_required
 def user_lst():
-	return render_template('users.html')
+	users = db.session.query(User).all()
+	return render_template('users.html', users = users)
 
 
 @app.route('/profile', methods=['GET'])
