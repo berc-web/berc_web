@@ -9,12 +9,12 @@
   		<div class="row top-cover">
         <img class="cover-image" src="{{ url_for('static', filename='images/homepage/page1/cover_photo.jpg') }}">
         <div class="mask"></div>
+        <div class="name">{{team.name}}</div>
         <div class="avatars">
         	{% for member in team.members %}
 		        <div class="avatar"><a href="{{ url_for('userProfile', uname=member.username) }}"><img class="avatar-image" src="{{ member.avatar if member.avatar != None else url_for('static', filename='upload/user_avatar/default1.png') }}"></a></div>
 		      {% endfor %}
         </div>
-        <div class="name">{{ current_user.fname }} {{ current_user.lname }}</div>
       </div>
   	{% endif %}
   	<div class="row">
@@ -28,4 +28,10 @@
       </div>
   </div>
 </div>
+<script type="text/javascript">
+  $(document).ready( function() {
+    $('.cover-image').resizeToParent();
+    $('.avatar-image').resizeToParent();
+  });
+</script>
 {% endblock %}

@@ -318,7 +318,7 @@ def team_page():
 		notifs = db.session.query(Notification).order_by(Notification.time).limit(10).all()
 
 		return render_template("team_profile.html", form = form, team = team, \
-			show_result = app.config['COMPETATION_CLOSED'], notifications = notifs)
+			show_result = app.config['COMPETATION_CLOSED'], notifications = notifs, comments=comments)
 	else:
 		flash("You have not formed a team yet.")
 		return redirect(url_for("invitation"))
@@ -374,6 +374,7 @@ def comment_idea(idea_id):
 			for member in comment.idea.team.members:
 				notif = PersonalNotification()
 				notif.content = current_user.username + " commented on your team's idea."
+				member.notification.append(notif)
 
 
 			db.session.commit()
@@ -384,7 +385,7 @@ def comment_idea(idea_id):
 	return render_template('comment_idea.html', form = form, idea_id = idea_id)
 
 
-@app.route('/comment/<comment_id>/reply')
+@app.route('/comment/<comment_id>/reply', methods=['POST', 'GET'])
 @login_required
 def reply_comment(comment_id):
 	form = CommentReplyForm()
@@ -394,17 +395,14 @@ def reply_comment(comment_id):
 		return redirect(url_for(''))
 
 	if form.validate_on_submit():
-		reply = Comment()
-		reply.content = form.reply.data
-		db.session.add(reply)
-		comment.reply.append(reply)
+		comment.reply.append(Comment(content = form.reply.data))
 		notif = PersonalNotification()
 		notif.content = current_user.username + " replied your comment."
 		db.session.add(notif)
 		comment.user.notification.append(notif)
 		db.session.commit()
 
-	return render_template('reply_comment.html', form=form, comment=comment, comment_id=comment.id)
+	return render_template('reply_comment.html', form=form, comment=comment)
 
 
 @app.route('/notification/<notif_id>/delete')

@@ -1,0 +1,13 @@
+<!DOCTYPE HTML>
+<html>
+	<body>
+		{% from "flask_user/_macros.html" import render_textarea_field, render_submit_field %}
+
+		<form action="{{ url_for('reply_comment', comment_id=comment.id) }}" method="POST" class="form" role="form" enctype='multipart/form-data'>
+		    {{ form.hidden_tag() }}
+		    {{ render_textarea_field(form.reply) }}
+		    {{ render_submit_field(form.submit, tabindex=90) }}
+		</form>
+
+	</body>
+</html>

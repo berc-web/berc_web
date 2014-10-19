@@ -53,5 +53,8 @@
     {{ render_field(form.article, tabindex=10) }}
     {{ render_submit_field(form.submit, tabindex=90) }}
   </form>
+  {% for comment in comments %}
+    {{comment.content}}<a href="{{ url_for('reply_comment', comment_id=comment.id) }}">reply</a>
+  {% endfor%}
 </div>
 {% endblock %}
