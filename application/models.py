@@ -95,11 +95,11 @@ class Comment(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 	idea_id = db.Column(db.Integer, db.ForeignKey('idea.id'))
-	parent_comment_id = db.Column(Integer, db.ForeignKey('comment.id'))
+	parent_comment_id = db.Column(db.Integer, db.ForeignKey('comment.id'))
 	content = db.Column(db.Text())
-	reply = relationship("Comment",
-				backref=backref('parent'),
-				default=None)
+	reply = db.relationship("Comment",
+				backref = 'parent',
+				remote_side=[id])
 	time = db.Column(db.DateTime(), default=db.func.now())
 
 
