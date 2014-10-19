@@ -1,7 +1,9 @@
 .container-fluid {
   background: #ffffff; }
   .container-fluid .base {
-    min-height: 900px; }
+    min-height: 900px;
+    background: #ffffff url('images/overlay.png');
+    box-shadow: 0px 10px 30px 2px #888888; }
     .container-fluid .base .top-cover {
       height: 250px;
       overflow: hidden;
@@ -58,12 +60,44 @@
       min-height: 500px;
       border-right: 1px solid lightgrey; }
       .container-fluid .base .main {
-        margin-top: 50px;
         margin-bottom: 20px; }
-        .container-fluid .base .invitation ul li a {
-          cursor: pointer; }
-        .container-fluid .base .invitation form {
-          margin-top: 50px; }
-          .container-fluid .base .invitation form button[type="submit"] {
-            display: block;
-            margin: 0 auto; }
+        .container-fluid .base .main .profile .intro {
+          background: #ffffff;
+          font-size: 18px;
+          padding-top: 10px;
+          padding-bottom: 10px;
+          border-bottom: 1px solid #ebebeb; }
+          .container-fluid .base .main .profile .invitations {
+            background: #ffffff;
+            font-size: 18px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border-top: 1px solid #ebebeb;
+            border-bottom: 1px solid #ebebeb;
+            margin-top: 10px; }
+        .container-fluid .base .main .update {
+          width: 85%;
+          margin: 0 auto;
+          margin-top: 30px; }
+          .container-fluid .base .main .update .ckeditor_replace {
+            display: none; }
+        .container-fluid .base .main .change-uname,
+        .container-fluid .base .main .change-pwd {
+          width: 85%;
+          margin: 0 auto;
+          margin-top: 30px; }
+          .container-fluid .base .main .invitation-form {
+            width: 85%;
+            margin: 0 auto;
+            margin-top: 30px; }
+            .container-fluid .base .main .invitation-form ul li a {
+              cursor: pointer;
+              font-size: 16px; }
+            .container-fluid .base .main .invitation-form ul .active a {
+              background: #ffffff url('images/overlay.png'); }
+            .container-fluid .base .main .invitation-form form {
+              margin-top: 30px;
+              font-size: 16px; }
+              .container-fluid .base .main .invitation-form form button[type="submit"] {
+                display: block;
+                margin: 0 auto; }

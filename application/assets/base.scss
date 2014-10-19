@@ -2,6 +2,8 @@
 	background: #ffffff;
 	.base {
 		min-height: 900px;
+		background: #ffffff url('images/overlay.png');
+		box-shadow: 0px 10px 30px 2px #888888;
 		.top-cover {
 			height: 250px;
 			overflow: hidden;
@@ -60,22 +62,62 @@
 			border-right: 1px solid lightgrey;
 		}
 		.main {
-			margin-top: 50px;
 			margin-bottom: 20px;
-		}
-		.invitation {
-			ul {
-				li {
-					a {
-						cursor: pointer;
-					}
+			.profile {
+				.intro {
+					background: #ffffff;
+					font-size: 18px;
+					padding-top: 10px;
+					padding-bottom: 10px;
+					border-bottom: 1px solid #ebebeb;
+				}
+				.invitations {
+					background: #ffffff;
+					font-size: 18px;
+					padding-top: 10px;
+					padding-bottom: 10px;
+					border-top: 1px solid #ebebeb;
+					border-bottom: 1px solid #ebebeb;
+					margin-top: 10px;
 				}
 			}
-			form {
-				margin-top: 50px;
-				button[type="submit"] {
-					display: block;
-					margin: 0 auto;
+			.update {
+				width: 85%;
+				margin: 0 auto;
+				margin-top: 30px;
+				.ckeditor_replace {
+					display: none;
+				}
+			}
+			.change-uname, .change-pwd {
+				width: 85%;
+				margin: 0 auto;
+				margin-top: 30px;
+			}
+			.invitation-form {
+				width: 85%;
+				margin: 0 auto;
+				margin-top: 30px;
+				ul {
+					li {
+						a {
+							cursor: pointer;
+							font-size: 16px;
+						}
+					}
+					.active {
+						a {
+							background: #ffffff url('images/overlay.png');
+						}
+					}
+				}
+				form {
+					margin-top: 30px;
+					font-size: 16px;
+					button[type="submit"] {
+						display: block;
+						margin: 0 auto;
+					}
 				}
 			}
 		}

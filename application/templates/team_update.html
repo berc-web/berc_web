@@ -3,12 +3,14 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/team_profile.css') }}">
 {% endblock %}
 {% block body %}
-{% from "flask_user/_macros.html" import render_field, render_submit_field, render_textarea_field, render_select_field %}
-<h1>Update Profile</h1>
-<form action="" method="POST" class="form" role="form" enctype='multipart/form-data'>
-  {{ form.hidden_tag() }}
-  {{ render_field(form.name, tabindex=10, value=team.name, placeholder="Team Name") }}
-  {{ render_textarea_field(form.idea, tabindex=20, value=team.idea.content, placeholder="Team Idea") }}
-  {{ render_submit_field(form.submit, tabindex=30) }}
-</form>
+<div class="container team-update">
+	{% from "flask_user/_macros.html" import render_field, render_submit_field, render_textarea_field, render_select_field %}
+	<h1>Update Profile</h1>
+	<form action="" method="POST" class="form" role="form" enctype='multipart/form-data'>
+	  {{ form.hidden_tag() }}
+	  {{ render_field(form.name, tabindex=10, value=team.name, placeholder="Team Name") }}
+	  {{ render_textarea_field(form.idea, tabindex=20, value=team.idea.content, placeholder="Team Idea") }}
+	  {{ render_submit_field(form.submit, tabindex=30) }}
+	</form>
+</div>
 {% endblock %}

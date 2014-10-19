@@ -137,16 +137,16 @@
 
 		        <!-- Slides Container -->
 		        <div u="slides" style="position: absolute; left: 0px; top: 0px; width: 980px; height: 150px; overflow: hidden;">
-	            <div><img u="image" src="../static/images/homepage/page4/a.png" /></div>
-	            <div><img u="image" src="../static/images/homepage/page4/b.png" /></div>
-	            <div><img u="image" src="../static/images/homepage/page4/c.png" /></div>
-	            <div><img u="image" src="../static/images/homepage/page4/d.png" /></div>
-	            <div><img u="image" src="../static/images/homepage/page4/e.png" /></div>
-	            <div><img u="image" src="../static/images/homepage/page4/f.png" /></div>
-	            <div><img u="image" src="../static/images/homepage/page4/g.png" /></div>
-	            <div><img u="image" src="../static/images/homepage/page4/h.png" /></div>
-	            <div><img u="image" src="../static/images/homepage/page4/i.png" /></div>
-	            <div><img u="image" src="../static/images/homepage/page4/j.png" /></div>
+	            <div><img u="image" src="../static/images/homepage/page4/1.png" /></div>
+	            <div><img u="image" src="../static/images/homepage/page4/2.png" /></div>
+	            <div><img u="image" src="../static/images/homepage/page4/3.png" /></div>
+	            <div><img u="image" src="../static/images/homepage/page4/4.png" /></div>
+	            <div><img u="image" src="../static/images/homepage/page4/5.png" /></div>
+	            <div><img u="image" src="../static/images/homepage/page4/6.png" /></div>
+	            <div><img u="image" src="../static/images/homepage/page4/7.png" /></div>
+	            <div><img u="image" src="../static/images/homepage/page4/8.png" /></div>
+	            <div><img u="image" src="../static/images/homepage/page4/9.png" /></div>
+	            <div><img u="image" src="../static/images/homepage/page4/10.png" /></div>
 		        </div>
 			    </div>
 				</div>
@@ -162,18 +162,18 @@ jQuery(document).ready(function ($) {
     $AutoPlayInterval: 0,                            //[Optional] Interval (in milliseconds) to go for next slide since the previous stopped if the slider is auto playing, default value is 3000
     $PauseOnHover: 4,                               //[Optional] Whether to pause when mouse over if a slider is auto playing, 0 no pause, 1 pause for desktop, 2 pause for touch device, 3 pause for desktop and touch device, 4 freeze for desktop, 8 freeze for touch device, 12 freeze for desktop and touch device, default value is 1
 
-    $ArrowKeyNavigation: true,   			            //[Optional] Allows keyboard (arrow key) navigation or not, default value is false
+    $ArrowKeyNavigation: false,   			            //[Optional] Allows keyboard (arrow key) navigation or not, default value is false
     $SlideEasing: $JssorEasing$.$EaseLinear,          //[Optional] Specifies easing for right to left animation, default value is $JssorEasing$.$EaseOutQuad
     $SlideDuration: 3000,                                //[Optional] Specifies default duration (swipe) for slide in milliseconds, default value is 500
     $MinDragOffsetToSlide: 20,                          //[Optional] Minimum drag offset to trigger slide , default value is 20
-    $SlideWidth: 200,                                   //[Optional] Width of every slide in pixels, default value is width of 'slides' container
+    $SlideWidth: 220,                                   //[Optional] Width of every slide in pixels, default value is width of 'slides' container
     // $SlideHeight: 140,                                //[Optional] Height of every slide in pixels, default value is height of 'slides' container
     $SlideSpacing: 10, 					                //[Optional] Space between each slide in pixels, default value is 0
     $DisplayPieces: 7,                                  //[Optional] Number of pieces to display (the slideshow would be disabled if the value is set to greater than 1), the default value is 1
     $ParkingPosition: 0,                              //[Optional] The offset position to park slide (this options applys only when slideshow disabled), default value is 0.
     $UISearchMode: 1,                                   //[Optional] The way (0 parellel, 1 recursive, default value is 1) to search UI components (slides container, loading screen, navigator container, arrow navigator container, thumbnail navigator container etc).
     $PlayOrientation: 1,                                //[Optional] Orientation to play slide (for auto play, navigation), 1 horizental, 2 vertical, 5 horizental reverse, 6 vertical reverse, default value is 1
-    $DragOrientation: 1                                //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $DisplayPieces is greater than 1, or parking position is not 0)
+    $DragOrientation: 0                                //[Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $DisplayPieces is greater than 1, or parking position is not 0)
   };
 
   var jssor_slider1 = new $JssorSlider$("slider1_container", options);
