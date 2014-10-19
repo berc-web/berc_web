@@ -1,0 +1,9 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+{% block content %}
+<div class="notifications">
+	{% for notification in notifications %}
+		{{notification.content}}
+	{% endfor %}
+</div>
+{% endblock %}

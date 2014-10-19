@@ -46,7 +46,9 @@
       </form>
     </div>
   </div>
+  {% if team.idea != null %}
   <a href="{{ url_for('comment_idea', idea_id=team.idea.id) }}"> Comment </a>
+  {% endif %}
   {% from "flask_user/_macros.html" import render_field %}
   <h1>upload file</h1>
   <form action="" method="POST" class="form" role="form" enctype='multipart/form-data'>

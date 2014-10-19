@@ -133,7 +133,8 @@ def all_ideas():
 @app.route('/notifications')
 @login_required
 def personal_notifications():
-	return render_template("personal_notifications.html")
+	notifications = current_user.notification
+	return render_template("personal_notifications.html", notifications=notifications)
 
 
 @app.route('/<uname>/profile', methods=['GET'])
