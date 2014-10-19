@@ -1,7 +1,11 @@
+{% extends 'team-base.html' %}
+{% block content %}
 {% from "flask_user/_macros.html" import render_field, render_submit_field %}
-<h1>upload file</h1>
-<form action="" method="POST" class="form" role="form" enctype='multipart/form-data'>
-  {{ form.hidden_tag() }}
-  {{ render_field(form.article, tabindex=10) }}
-  {{ render_submit_field(form.submit, tabindex=90) }}
-</form>
+<div class="team-update">
+	<form action="" method="POST" class="form" role="form" enctype='multipart/form-data'>
+	  {{ form.hidden_tag() }}
+	  {{ render_field(form.article, tabindex=10) }}
+	  {{ render_submit_field(form.submit, tabindex=90) }}
+	</form>
+</div>
+{% endblock %}

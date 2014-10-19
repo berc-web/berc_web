@@ -348,7 +348,7 @@ def team_upload():
 			file_name = "team"+str(team.id)+".pdf"
 			team.submission = upload_s3(file_name, form.article.data, app.config['S3_COMP_DIR'])
 			db.session.commit()
-		return render_template("team_upload.html", form=form)
+		return render_template("team_upload.html", form=form, team=team)
 	else:
 		flash("You have not formed a team yet.")
 		return redirect(url_for("invitation"))
@@ -357,8 +357,10 @@ def team_upload():
 @app.route('/team_notifications')
 @login_required
 def team_notifications():
+	team_id = current_user.team_id
+	team = db.session.query(Team).filter(Team.id == team_id).first()
 	notifications = db.session.query(Notification).order_by(Notification.time).all()
-	return render_template("team_notifications.html", notifications=notifications)
+	return render_template("team_notifications.html", notifications=notifications, team=team)
 
 
 @app.route('/dismiss_team', methods=['POST'])
