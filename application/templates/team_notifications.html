@@ -1,5 +1,14 @@
 {% extends 'team-base.html' %}
 {% block content %}
-<div class="team-update">
+<div class="team-notification">
+	<div class="row notifications">
+		{% if notifications %}
+			{% for notification in notifications %}
+				<div class="col-xs-12 notification">{{notification.content}}</div>
+			{% endfor %}
+		{% else %}
+			<div class="col-xs-12 notification">Your team does not have any notification now.</div>
+		{% endif %}
+	</div>
 </div>
 {% endblock %}

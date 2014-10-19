@@ -107,3 +107,22 @@
         display: none; }
         .container-fluid .base .main .team-update .dismiss {
           float: right; }
+    .container-fluid .base .main .team-upload {
+      padding-bottom: 50px;
+      width: 85%;
+      margin: 0 auto;
+      margin-top: 20px; }
+      .container-fluid .base .main .team-notification .notifications {
+        border-top: 1px solid #bababa;
+        border-bottom: 1px solid #bababa;
+        padding-top: 10px;
+        padding-bottom: 10px; }
+        .container-fluid .base .main .team-notification .notifications .title {
+          font-size: 18px; }
+          .container-fluid .base .main .team-notification .notifications .notification {
+            font-size: 16px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            height: 40px; }
+            .container-fluid .base .main .team-notification .notifications .notification:hover {
+              background: #ebebeb; }
