@@ -46,6 +46,7 @@ class User(db.Model, UserMixin):
 	# Relationships
 	roles = db.relationship('Role', secondary=user_roles,
 					backref=db.backref('users', lazy='dynamic'))
+	notification = db.relationship('PersonalNotification', backref='user')
 	team_id = db.Column(db.Integer, db.ForeignKey('team.id'), nullable=True)
 	comment = db.relationship('Comment', backref="user")
 
@@ -94,7 +95,11 @@ class Comment(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 	idea_id = db.Column(db.Integer, db.ForeignKey('idea.id'))
+	parent_comment_id = db.Column(Integer, db.ForeignKey('comment.id'))
 	content = db.Column(db.Text())
+	reply = relationship("Comment",
+				backref=backref('parent'),
+				default=None)
 	time = db.Column(db.DateTime(), default=db.func.now())
 
 
@@ -102,3 +107,14 @@ class Notification(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	content = db.Column(db.String(400))
 	time = db.Column(db.DateTime(), default=db.func.now())
+
+
+class PersonalNotification(db.Model):
+	id = db.Column(db.Integer, primary_key=True)
+	content = db.Column(db.String(400))
+	user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+	time = db.Column(db.DateTime(), default=db.func.now())
+
+
+
+

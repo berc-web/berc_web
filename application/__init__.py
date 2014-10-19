@@ -9,7 +9,7 @@ from flask.ext.user.views import register
 from werkzeug import secure_filename
 from forms import UpdateProfileForm, UploadNewsForm, TeammateInvitationForm, \
 					UpdateTeamInfoForm, CommentForm, UploadCompArticleForm, \
-					SendNotificationForm
+					SendNotificationForm, CommentReplyForm
 from postmonkey import PostMonkey
 import boto
 
@@ -31,7 +31,8 @@ Scss(app)
 
 # Database
 db = SQLAlchemy(app)
-from models import User, Role, Team, News, Idea, Comment, Notification
+from models import User, Role, Team, News, Idea, Comment, Notification, \
+					PersonalNotification
 
 
 # db_adapter
@@ -126,6 +127,12 @@ def all_ideas():
 	#TODO
 	ideas = db.session.query(Idea).all()
 	# return render_template("xxxxx.html", ideas = ideas)
+
+
+@app.route('/notifications')
+@login_required
+def personal_notifications():
+	return render_template("personal_notifications.html")
 
 
 @app.route('/<uname>/profile', methods=['GET'])
@@ -361,12 +368,51 @@ def comment_idea(idea_id):
 			idea.comment.append(comment)
 			current_user.comment.append(comment)
 			db.session.add(comment)
+
+			for member in comment.idea.team.members:
+				notif = PersonalNotification()
+				notif.content = current_user.username + " commented on your team's idea."
+
+
 			db.session.commit()
 		else:
 			flash("Idea does not exist.", "error")
 			return redirect(url_for('all_ideas'))
 
-	return render_template('comment_idea.html', form = form, idea_id = idea_id)
+	return render_template('comment_idea.html', form = form, idea_id = idea_id, comment_id=comment.id)
+
+
+@app.route('/comment/<comment_id>/reply')
+@login_required
+def reply_comment(comment_id):
+	form = CommentReplyForm()
+	comment = db.session.query(Comment).filter(Comment.id == comment_id).first()
+	if not comment:
+		flash("Invalid comment.", "error")
+		return redirect(url_for(''))
+
+	if form.validate_on_submit():
+		reply = Comment()
+		reply.content = form.reply.data
+		db.session.add(reply)
+		comment.reply.append(reply)
+		notif = PersonalNotification()
+		notif.content = current_user.username + " replied your comment."
+		db.session.add(notif)
+		comment.user.notification.append(notif)
+		db.session.commit()
+
+	return render_template('reply_comment.html', form=form, comment=comment)
+
+
+@app.route('/notification/<notif_id>/delete')
+@login_required
+def delete_notification(notif_id):
+	notif = db.session(PersonalNotification).filter(PersonalNotification.id == notif_id)
+	notif.user.notification.remove(notif)
+	db.session.delete(notif)
+	db.session.commit()
+	return redirect(url_for('personal_notifications'))
 
 
 @app.route('/send_notification', methods=['POST'])
@@ -390,7 +436,6 @@ def send_mail(user, theme, **kwargs):
 	html_message = render_template('emails/'+theme+'_message.html',  user=user, **kwargs)
 	text_message = render_template('emails/'+theme+'_message.txt',  user=user, **kwargs)
 	user_manager.send_email_function(user.email, subject, html_message, text_message)
-
 
 
 babel = Babel(app)

@@ -144,3 +144,9 @@ class UploadCompArticleForm(Form):
 class SendNotificationForm(Form):
 	notification = StringField("Notification", validators=[Required()])
 	submit = SubmitField("Send Notification")
+
+
+class CommentReplyForm(Form):
+	reply = TextAreaField("Reply", validators=[Required()])
+	submit = SubmitField("Submit Reply")
+
