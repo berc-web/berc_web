@@ -17,5 +17,15 @@
         <div class="name">{{ current_user.fname }} {{ current_user.lname }}</div>
       </div>
   	{% endif %}
+  	<div class="row">
+      <div class="col-xs-3 navigation">
+        <ul class="nav nav-pills nav-stacked">
+        </ul>
+      </div>
+      <div class="col-xs-9 main">
+        {% block content %}
+        {% endblock %}
+      </div>
   </div>
 </div>
+{% endblock %}

@@ -148,7 +148,7 @@ def userProfile(uname):
 		flash('User '+uname+' not found.', 'error')
 		return redirect(url_for('home'))
 	else:
-		return render_template('user_profile.html', user=user)
+		return render_template('user_view.html', user=user)
 
 
 def upload_s3(file_name, data, directory):

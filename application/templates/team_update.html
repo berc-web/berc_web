@@ -1,8 +1,5 @@
-{% extends 'layout.html' %}
-{% block head %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/team.css') }}">
-{% endblock %}
-{% block body %}
+{% extends 'team-base.html' %}
+{% block content %}
 <div class="container team-update">
 	{% from "flask_user/_macros.html" import render_field, render_submit_field, render_textarea_field, render_select_field %}
 	<h1>Update Profile</h1>

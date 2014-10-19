@@ -1,8 +1,5 @@
-{% extends 'layout.html' %}
-{% block head %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/team.css') }}">
-{% endblock %}
-{% block body %}
+{% extends 'team-base.html' %}
+{% block content %}
 {% from "flask_user/_macros.html" import render_field, render_submit_field %}
 <div class="container team-profile">
   <div class="row">
