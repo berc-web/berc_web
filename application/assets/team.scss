@@ -49,15 +49,43 @@
 				}
 			}
 		}
+		.navigation {
+			font-size: 18px;
+			margin-top: 0px;
+			padding: 0;
+			margin-bottom: 20px;
+			min-height: 500px;
+			border-right: 1px solid lightgrey;
+			li {
+				height: 45px;
+				a {
+					height: 45px;
+					color: #000000;
+					.icon-image {
+						height: 80%;
+						margin-right: 8px;
+					}
+				}
+			}
+			li.nav-active {
+				background: #50934d;
+			}
+		}
 		.main {
 			.team-profile {
 				padding-bottom: 50px;
 				min-height: 900px;
+				.intro {
+					background: #ffffff;
+					font-size: 18px;
+					padding-top: 10px;
+					padding-bottom: 10px;
+					border-bottom: 1px solid #bababa;
+				}
 			}
 			.team-update {
 				padding-bottom: 50px;
-				min-height: 900px;
-				width: 800px;
+				width: 85%;
 				margin: 0 auto;
 				.ckeditor_replace {
 					display: none;

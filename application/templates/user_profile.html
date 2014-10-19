@@ -3,7 +3,7 @@
 {% block content %}
 <div class="profile">
 	<div class="row">
-		{% if user.intro == "" %}
+		{% if user.intro == ""  or user.intro == None %}
 			<div class="col-xs-12 intro">You do not have a self introduction, please complete your profile <a href="{{ url_for('update_profile') }}">Here</a></div>
 		{% else %}
 			<div class="col-xs-12 intro">Self Intro: {{ user.intro|safe }}</div>

@@ -1,19 +1,12 @@
 {% extends 'team-base.html' %}
 {% block content %}
-{% from "flask_user/_macros.html" import render_field, render_submit_field %}
-<div class="container team-profile">
+<div class="team-profile">
   <div class="row">
-    <div class="col-xs-12 name">Name: {{ team.name }}</div>
-  </div>
-  <div class="row">
-    <div class="col-xs-12 member">Member:
-      {% for member in team.members %}
-        <div>{{member.fname}} {{member.lname}}</div>
-      {% endfor %}
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-12 idea">Idea: {{ team.idea.content }}</div>
+    {% if team.idea.content == "" or team.idea.content == None %}
+      <div class="col-xs-12 intro">Your team does not have an idea, please update your idea <a href="{{ url_for('update_team') }}">Here</a></div>
+    {% else %}
+      <div class="col-xs-12 idea">Team Idea: {{ team.idea.content }}</div>
+    {% endif %}
   </div>
   <div class="row">
     {% if team.submission == None %}
@@ -33,26 +26,10 @@
       <div class="col-xs-12 idea">Result: Not Available</div>
     {% endif %}
   </div>
-  <div class="row">
-    <div class="col-xs-6 update">
-      <a href="{{ url_for('update_team') }}">Update Team Profile</a>
-    </div>
-    <div class="col-xs-6 dismiss">
-      <form method="post" action="{{ url_for('dismiss_team') }}">
-        <input type="submit" value="Dismiss Team">
-      </form>
-    </div>
-  </div>
   {% if team.idea != null %}
   <a href="{{ url_for('comment_idea', idea_id=team.idea.id) }}"> Comment </a>
   {% endif %}
-  {% from "flask_user/_macros.html" import render_field %}
-  <h1>upload file</h1>
-  <form action="" method="POST" class="form" role="form" enctype='multipart/form-data'>
-    {{ form.hidden_tag() }}
-    {{ render_field(form.article, tabindex=10) }}
-    {{ render_submit_field(form.submit, tabindex=90) }}
-  </form>
+
   {% for comment in comments %}
     {{comment.content}}<a href="{{ url_for('reply_comment', comment_id=comment.id) }}">reply</a>
   {% endfor%}

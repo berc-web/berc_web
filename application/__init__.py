@@ -308,16 +308,9 @@ def team_page():
 
 	if team:
 		comments = db.session.query(Comment).filter(Comment.idea_id == team.idea.id).all()
-
-		form = UploadCompArticleForm()
-		if form.validate_on_submit():
-			file_name = "team"+str(team.id)+".pdf"
-			team.submission = upload_s3(file_name, form.article.data, app.config['S3_COMP_DIR'])
-			db.session.commit()
-
 		notifs = db.session.query(Notification).order_by(Notification.time).limit(10).all()
 
-		return render_template("team_profile.html", form = form, team = team, \
+		return render_template("team_profile.html", team = team, \
 			show_result = app.config['COMPETATION_CLOSED'], notifications = notifs, comments=comments)
 	else:
 		flash("You have not formed a team yet.")
@@ -342,6 +335,30 @@ def update_team():
 			return redirect(url_for('invitation'))
 
 	return render_template('team_update.html', form=form, team=team)
+
+
+@app.route('/team_upload', methods=['POST', 'GET'])
+@login_required
+def team_upload():
+	team_id = current_user.team_id
+	team = db.session.query(Team).filter(Team.id == team_id).first()
+	if team:
+		form = UploadCompArticleForm()
+		if form.validate_on_submit():
+			file_name = "team"+str(team.id)+".pdf"
+			team.submission = upload_s3(file_name, form.article.data, app.config['S3_COMP_DIR'])
+			db.session.commit()
+		return render_template("team_upload.html", form=form)
+	else:
+		flash("You have not formed a team yet.")
+		return redirect(url_for("invitation"))
+
+
+@app.route('/team_notifications')
+@login_required
+def team_notifications():
+	notifications = db.session.query(Notification).order_by(Notification.time).all()
+	return render_template("team_notifications.html", notifications=notifications)
 
 
 @app.route('/dismiss_team', methods=['POST'])
@@ -375,7 +392,6 @@ def comment_idea(idea_id):
 				notif = PersonalNotification()
 				notif.content = current_user.username + " commented on your team's idea."
 				member.notification.append(notif)
-
 
 			db.session.commit()
 		else:

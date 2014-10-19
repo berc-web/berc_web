@@ -97,9 +97,8 @@ class Comment(db.Model):
 	idea_id = db.Column(db.Integer, db.ForeignKey('idea.id'))
 	parent_comment_id = db.Column(db.Integer, db.ForeignKey('comment.id'))
 	content = db.Column(db.Text())
-	reply = db.relationship("Comment",
-				backref = 'parent',
-				remote_side=[id])
+	reply = db.relationship('Comment',
+				backref=db.backref('parent', remote_side=[id]))
 	time = db.Column(db.DateTime(), default=db.func.now())
 
 
