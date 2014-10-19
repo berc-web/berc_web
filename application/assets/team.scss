@@ -75,12 +75,50 @@
 			.team-profile {
 				padding-bottom: 50px;
 				min-height: 900px;
-				.intro {
+				.idea {
 					background: #ffffff;
 					font-size: 18px;
 					padding-top: 10px;
 					padding-bottom: 10px;
 					border-bottom: 1px solid #bababa;
+					.comment-hint {
+						font-size: 16px;
+					}
+				}
+				.results {
+					background: #ffffff;
+					margin-top: 10px;
+					border-top: 1px solid #bababa;
+					border-bottom: 1px solid #bababa;
+					padding-top: 10px;
+					padding-bottom: 10px;
+					.result {
+						font-size: 18px;
+					}
+				}
+				.comments {
+					background: #ffffff;
+					margin-top: 10px;
+					border-top: 1px solid #bababa;
+					border-bottom: 1px solid #bababa;
+					padding-top: 10px;
+					padding-bottom: 10px;
+					.title {
+						font-size: 18px;
+					}
+					.comment {
+						font-size: 16px;
+						margin-top: 5px;
+						margin-bottom: 5px;
+						height: 30px;
+						line-height: 30px;
+						a.reply-hint {
+							float: right;
+						}
+					}
+					.comment:hover {
+						background: #ebebeb;
+					}
 				}
 			}
 			.team-update {
@@ -89,6 +127,9 @@
 				margin: 0 auto;
 				.ckeditor_replace {
 					display: none;
+				}
+				.dismiss {
+					float: right;
 				}
 			}		
 		}

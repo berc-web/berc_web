@@ -1,37 +1,39 @@
 {% extends 'team-base.html' %}
 {% block content %}
 <div class="team-profile">
-  <div class="row">
+  <div class="row idea">
     {% if team.idea.content == "" or team.idea.content == None %}
-      <div class="col-xs-12 intro">Your team does not have an idea, please update your idea <a href="{{ url_for('update_team') }}">Here</a></div>
+      <div class="col-xs-12">Your team does not have an idea, please update your idea <a href="{{ url_for('update_team') }}">Here</a></div>
     {% else %}
-      <div class="col-xs-12 idea">Team Idea: {{ team.idea.content }}</div>
+      <div class="col-xs-12">Team Idea: {{ team.idea.content }}</div>
     {% endif %}
+    <div class="col-xs-12 comment-hint"><a href="{{url_for('comment_idea', idea_id=team.idea.id)}}">Comment this Idea</a></div>
   </div>
-  <div class="row">
+  <div class="row results">
     {% if team.submission == None %}
-      <div class="col-xs-12 idea">Submitted: Not</div>
+      <div class="col-xs-12 result">Submitted: Not</div>
     {% else %}
-      <div class="col-xs-12 idea">Submitted: Yes</div>
+      <div class="col-xs-12 result">Submitted: Yes</div>
     {% endif %}
-  </div>
-  <div class="row">
     {% if show_result %}
       {% if team.comp_status %}
-        <div class="col-xs-12 idea">Result: Pass</div>
+        <div class="col-xs-12 result">Result: Pass</div>
       {% else %}
-        <div class="col-xs-12 idea">Result: Fail</div>
+        <div class="col-xs-12 result">Result: Fail</div>
       {% endif %}
     {% else %}
-      <div class="col-xs-12 idea">Result: Not Available</div>
+      <div class="col-xs-12 result">Result: Not Available</div>
     {% endif %}
   </div>
-  {% if team.idea != null %}
-  <a href="{{ url_for('comment_idea', idea_id=team.idea.id) }}"> Comment </a>
-  {% endif %}
-
-  {% for comment in comments %}
-    {{comment.content}}<a href="{{ url_for('reply_comment', comment_id=comment.id) }}">reply</a>
-  {% endfor%}
+  <div class="row comments">
+    {% if comments %}
+      <div class="col-xs-12 title">Comments</div>
+      {% for comment in comments %}
+        <div class="col-xs-12 comment">{{comment.content}}<a class="reply-hint" href="{{ url_for('reply_comment', comment_id=comment.id) }}">Reply</a></div>
+      {% endfor%}
+    {% else %}
+      <div class="col-xs-12 comment">Your team does not receive any comment yet.</div>
+    {% endif %}
+  </div>
 </div>
 {% endblock %}

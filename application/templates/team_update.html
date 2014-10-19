@@ -7,10 +7,10 @@
 	  {{ form.hidden_tag() }}
 	  {{ render_field(form.name, tabindex=10, value=team.name, placeholder="Team Name") }}
 	  {{ render_textarea_field(form.idea, tabindex=20, value=team.idea.content, placeholder="Team Idea") }}
-	  {{ render_submit_field(form.submit, tabindex=30) }}
+	  <div class="form-group">
+		  {{ render_submit_field(form.submit, tabindex=30) }}
+		  <a class="dismiss btn btn-danger" href="{{ url_for('dismiss_team') }}">Dismiss Team</a>
+	  </div>
 	</form>
-	<form method="post" action="{{ url_for('dismiss_team') }}">
-    <input type="submit" value="Dismiss Team">
-  </form>
 </div>
 {% endblock %}
