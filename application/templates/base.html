@@ -10,7 +10,11 @@
         <img class="cover-image" src="{{ url_for('static', filename='images/homepage/page1/cover_photo.jpg') }}">
         <div class="mask"></div>
         <div class="avatar">
-          <a href="{{ url_for('update_profile') }}"><img class="avatar-image" src="{{ current_user.avatar if current_user.avatar != None else url_for('static', filename='upload/user_avatar/default1.png') }}"></a>
+          {% if user==current_user %}
+            <a href="{{ url_for('update_profile') }}"><img class="avatar-image" src="{{ current_user.avatar if current_user.avatar != None else url_for('static', filename='upload/user_avatar/default1.png') }}"></a>
+          {% else %}
+            <img class="avatar-image" src="{{ current_user.avatar if current_user.avatar != None else url_for('static', filename='upload/user_avatar/default1.png') }}">
+          {% endif %}
         </div>
         <div class="name">{{ current_user.fname }} {{ current_user.lname }}</div>
       </div>
@@ -22,29 +26,35 @@
       </div>
     {% endif %}
     <div class="row">
-      <div class="col-xs-3 navigation">
-        <ul class="nav nav-pills nav-stacked">
-          {% if current_user.is_authenticated() %}
-            <li {% if request.path=="/profile" %}class="nav-active"{% endif %}><a href="{{ url_for('user') }}"><img class="icon-image" src="{{ url_for('static', filename='images/user/profile.png') }}">My page</a></li>
-            <li {% if request.path=="/update_profile" %}class="nav-active"{% endif %}><a href="{{ url_for('update_profile') }}"><img class="icon-image" src="{{ url_for('static', filename='images/user/update_profile.png') }}">Update Profile</a></li>
-            <li {% if request.path=="/change-password" %}class="nav-active"{% endif %}><a href="{{ url_for('user.change_password') }}"><img class="icon-image" src="{{ url_for('static', filename='images/user/change password_username.png') }}">Change Password</a></li>
-            <li {% if request.path=="/change-username" %}class="nav-active"{% endif %}><a href="{{ url_for('user.change_username') }}"><img class="icon-image" src="{{ url_for('static', filename='images/user/change password_username.png') }}">Change username</a></li>
-            {% if current_user.team_id != None %}
-              <li {% if request.path=="/team" %}class="nav-active"{% endif %}><a href="{{ url_for('team_page') }}">Team</a></li>
+      {% if user==current_user %}
+        <div class="col-xs-3 navigation">
+          <ul class="nav nav-pills nav-stacked">
+            {% if current_user.is_authenticated() %}
+              <li {% if request.path=="/profile" %}class="nav-active"{% endif %}><a href="{{ url_for('user') }}"><img class="icon-image" src="{{ url_for('static', filename='images/user/profile.png') }}">My page</a></li>
+              <li {% if request.path=="/update_profile" %}class="nav-active"{% endif %}><a href="{{ url_for('update_profile') }}"><img class="icon-image" src="{{ url_for('static', filename='images/user/update_profile.png') }}">Update Profile</a></li>
+              <li {% if request.path=="/change-password" %}class="nav-active"{% endif %}><a href="{{ url_for('user.change_password') }}"><img class="icon-image" src="{{ url_for('static', filename='images/user/change password_username.png') }}">Change Password</a></li>
+              <li {% if request.path=="/change-username" %}class="nav-active"{% endif %}><a href="{{ url_for('user.change_username') }}"><img class="icon-image" src="{{ url_for('static', filename='images/user/change password_username.png') }}">Change username</a></li>
+              {% if current_user.team_id != None %}
+                <li {% if request.path=="/team" %}class="nav-active"{% endif %}><a href="{{ url_for('team_page') }}">Team</a></li>
+              {% else %}
+                <li {% if request.path=="/invitation" %}class="nav-active"{% endif %}><a href="{{ url_for('invitation') }}"><img class="icon-image" src="{{ url_for('static', filename='images/user/teaminvite.png') }}">Team Invitation</a></li>
+              {% endif %}
             {% else %}
-              <li {% if request.path=="/invitation" %}class="nav-active"{% endif %}><a href="{{ url_for('invitation') }}"><img class="icon-image" src="{{ url_for('static', filename='images/user/teaminvite.png') }}">Team Invitation</a></li>
+              <li><a href="{{ url_for('user.register') }}">Register</a></li>
+              <li><a href="{{ url_for('user.login') }}">Sign in</a></li>
+              <li><a href="{{ url_for('user.forgot_password') }}">Forgot password?</a></li>
             {% endif %}
-          {% else %}
-            <li><a href="{{ url_for('user.register') }}">Register</a></li>
-            <li><a href="{{ url_for('user.login') }}">Sign in</a></li>
-            <li><a href="{{ url_for('user.forgot_password') }}">Forgot password?</a></li>
-          {% endif %}
-        </ul>
-      </div>
-      <div class="col-xs-9 main">
-        {% block content %}
-        {% endblock %}
-      </div>
+          </ul>
+        </div>
+        <div class="col-xs-9 main">
+          {% block content %}
+          {% endblock %}
+        </div>
+      {% else %}
+        <div class="col-xs-12">
+
+        </div>
+      {% endif %}
     </div>
   </div>
 </div>
