@@ -52,7 +52,15 @@
         </div>
       {% else %}
         <div class="col-xs-12">
-
+          <div class="profile">
+            <div class="row">
+              {% if user.intro == "" %}
+                <div class="col-xs-12 intro">This user does not have a self introduction yet.</div>
+              {% else %}
+                <div class="col-xs-12 intro">Self Intro: {{ user.intro|safe }}</div>
+              {% endif %}
+            </div>
+          </div>
         </div>
       {% endif %}
     </div>
