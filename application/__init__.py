@@ -373,7 +373,7 @@ def comment_idea(idea_id):
 			for member in comment.idea.team.members:
 				notif = PersonalNotification()
 				notif.content = current_user.username + " commented on your team's idea."
-
+				member.notification.append(notif)
 
 			db.session.commit()
 		else:
@@ -393,11 +393,7 @@ def reply_comment(comment_id):
 		return redirect(url_for(''))
 
 	if form.validate_on_submit():
-		reply = Comment()
-		reply.content = form.reply.data
-		db.session.add(reply)
-		comment.reply.append(reply)
-		notif = PersonalNotification()
+		comment.reply.append(Comment(content = form.reply.data))
 		notif.content = current_user.username + " replied your comment."
 		db.session.add(notif)
 		comment.user.notification.append(notif)
