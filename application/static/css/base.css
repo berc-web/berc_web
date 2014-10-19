@@ -5,7 +5,7 @@
     background: #ffffff url('images/overlay.png');
     box-shadow: 0px 10px 30px 2px #888888; }
     .container-fluid .base .top-cover {
-      height: 250px;
+      height: 350px;
       overflow: hidden;
       position: relative; }
       .container-fluid .base .top-cover .mask {
@@ -55,49 +55,74 @@
     .container-fluid .base .navigation {
       font-size: 18px;
       margin-top: 0px;
+      padding: 0;
       padding-top: 30px;
       margin-bottom: 20px;
       min-height: 500px;
       border-right: 1px solid lightgrey; }
-      .container-fluid .base .main {
-        margin-bottom: 20px; }
-        .container-fluid .base .main .profile .intro {
+      .container-fluid .base .navigation li {
+        height: 45px; }
+        .container-fluid .base .navigation li a {
+          height: 45px;
+          color: #000000; }
+          .container-fluid .base .navigation li a .icon-image {
+            height: 80%;
+            margin-right: 8px; }
+      .container-fluid .base .navigation li.nav-active {
+        background: #50934d; }
+    .container-fluid .base .main {
+      margin-bottom: 20px; }
+      .container-fluid .base .main .profile .intro {
+        background: #ffffff;
+        font-size: 18px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #bababa; }
+        .container-fluid .base .main .profile .invitations {
           background: #ffffff;
           font-size: 18px;
           padding-top: 10px;
           padding-bottom: 10px;
-          border-bottom: 1px solid #ebebeb; }
-          .container-fluid .base .main .profile .invitations {
-            background: #ffffff;
+          border-top: 1px solid #bababa;
+          border-bottom: 1px solid #bababa;
+          margin-top: 10px; }
+          .container-fluid .base .main .profile .invitations .invitation {
             font-size: 18px;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            border-top: 1px solid #ebebeb;
-            border-bottom: 1px solid #ebebeb;
-            margin-top: 10px; }
-        .container-fluid .base .main .update {
+            height: 48px;
+            line-height: 48px; }
+            .container-fluid .base .main .profile .invitations .invitation form {
+              width: 64px;
+              float: right;
+              line-height: 48px; }
+              .container-fluid .base .main .profile .invitations .invitation form .accept {
+                background: #50934d; }
+                .container-fluid .base .main .profile .invitations .invitation form .reject {
+                  background: #07797d; }
+          .container-fluid .base .main .profile .invitations .invitation:hover {
+            background: #ebebeb; }
+      .container-fluid .base .main .update {
+        width: 85%;
+        margin: 0 auto;
+        margin-top: 30px; }
+        .container-fluid .base .main .update .ckeditor_replace {
+          display: none; }
+      .container-fluid .base .main .change-uname,
+      .container-fluid .base .main .change-pwd {
+        width: 85%;
+        margin: 0 auto;
+        margin-top: 30px; }
+        .container-fluid .base .main .invitation-form {
           width: 85%;
           margin: 0 auto;
           margin-top: 30px; }
-          .container-fluid .base .main .update .ckeditor_replace {
-            display: none; }
-        .container-fluid .base .main .change-uname,
-        .container-fluid .base .main .change-pwd {
-          width: 85%;
-          margin: 0 auto;
-          margin-top: 30px; }
-          .container-fluid .base .main .invitation-form {
-            width: 85%;
-            margin: 0 auto;
-            margin-top: 30px; }
-            .container-fluid .base .main .invitation-form ul li a {
-              cursor: pointer;
-              font-size: 16px; }
-            .container-fluid .base .main .invitation-form ul .active a {
-              background: #ffffff url('images/overlay.png'); }
-            .container-fluid .base .main .invitation-form form {
-              margin-top: 30px;
-              font-size: 16px; }
-              .container-fluid .base .main .invitation-form form button[type="submit"] {
-                display: block;
-                margin: 0 auto; }
+          .container-fluid .base .main .invitation-form ul li a {
+            cursor: pointer;
+            font-size: 16px; }
+          .container-fluid .base .main .invitation-form ul .active a {
+            background: #ffffff url('images/overlay.png'); }
+          .container-fluid .base .main .invitation-form form {
+            margin-top: 30px;
+            font-size: 16px; }
+            .container-fluid .base .main .invitation-form form button[type="submit"] {
+              display: block;
+              margin: 0 auto; }

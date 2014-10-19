@@ -18,11 +18,11 @@
 				{% for username in inv_list %}
 					<div class="col-xs-12 invitation">
 						{{ username }} just invited you to join his team
-						<form action="{{ url_for('accept_invitation', uname=username) }}" method="post">
-							<input class="accept" type="submit" name="accept" value="accept" />
-						</form>
 						<form action="{{ url_for('reject_invitation', uname=username) }}" method="post">
-							<input class="reject" type="submit" name="reject" value="reject" />
+							<input class="btn reject" type="submit" name="reject" value="reject" />
+						</form>
+						<form action="{{ url_for('accept_invitation', uname=username) }}" method="post">
+							<input class="btn accept" type="submit" name="accept" value="accept" />
 						</form>
 					</div>
 				{% endfor %}
