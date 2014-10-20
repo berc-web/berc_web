@@ -3,15 +3,17 @@
 <script type="text/javascript" src="{{ url_for('static', filename='javascript/masonry.pkgd.min.js') }}"></script>
 {% endblock %}
 {% block body %}
-<div class="container users">
+<div class="container teams">
   <div id="container" class="js-masonry"
   data-masonry-options='{ "columnWidth": 0, "itemSelector": ".item" }'>
-    {% for user in users %}
+    {% for team in teams %}
       <div class="item col-xs-3">
-        <a href="{{ url_for('userProfile', uname=user.username) }}">
+        <a href="{{ url_for('teamProfile', teamId=team.id) }}">
           <div class="well">
-            <div class="avatar"><img class="avatar-image" src="{{ user.avatar if user.avatar != None else url_for('static', filename='upload/user_avatar/default1.png') }}"></div>
-            <div class="name">{{user.lname}}{{user.fname}}</div>
+            <div class="avatar"><img class="avatar-image" src="{{ url_for('static', filename='images/homepage/page1/cover_photo.jpg') }}"></div>
+            {% for member in team.members %}
+              <div class="name">{{member.lname}}{{member.fname}}</div>
+            {% endfor %}
           </div>
         </a>
       </div>

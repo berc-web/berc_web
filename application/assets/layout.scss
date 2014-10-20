@@ -71,6 +71,19 @@ body {
 }
 .content-wrapper {
 	background: #ffffff url('images/overlay.png');
+	.users, .teams {
+		.item {
+			.avatar {
+				width: 100%;
+				img {
+					width: 100%;
+				}
+			}
+			.name {
+
+			}
+		}
+	}
 }
 .footer {
 	height: $footer_height;

@@ -1,0 +1,64 @@
+{% extends 'layout.html' %}
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/team.css') }}">
+{% endblock %}
+{% block body %}
+{% from "flask_user/_macros.html" import render_textarea_field, render_submit_field %}
+<div class="container-fluid view">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				{% if current_user.is_authenticated() %}
+		      <div class="row top-cover">
+		        <img class="cover-image" src="{{ url_for('static', filename='images/homepage/page1/cover_photo.jpg') }}">
+		        <div class="mask"></div>
+		        <div class="name">{{team.name}}</div>
+		        <div class="avatars">
+		        	{% for member in team.members %}
+				        <div class="avatar"><a href="{{ url_for('userProfile', uname=member.username) }}"><img class="avatar-image" src="{{ member.avatar if member.avatar != None else url_for('static', filename='upload/user_avatar/default1.png') }}"></a></div>
+				      {% endfor %}
+		        </div>
+		      </div>
+		    {% endif %}
+			</div>
+		</div>
+		<div class="row idea">
+    {% if team.idea.content == "" or team.idea.content == None %}
+	      <div class="col-xs-12">This team does not have an idea yet.</div>
+	    {% else %}
+	      <div class="col-xs-12">Team Idea: {{ team.idea.content }}</div>
+	    	<div class="col-xs-12 comment-hint"><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Comment this Idea</a></div>
+	    {% endif %}
+	    <div id="collapseOne" class="col-xs-12 comment-form panel-collapse collapse">
+				<form action="{{ url_for('comment_idea', idea_id=idea_id) }}" method="POST" class="form" role="form" enctype='multipart/form-data'>
+				  {{ form.hidden_tag() }}
+				  {{ render_textarea_field(form.comment) }}
+				  {{ render_submit_field(form.submit, tabindex=90) }}
+				</form>
+			</div>
+	  </div>
+	  <div class="row comments">
+	  	{% if comments %}
+	      <div class="col-xs-12 title">Comments</div>
+	      {% for comment in comments %}
+	        <div class="col-xs-12 comment">{{comment.content|safe}}<a class="reply-hint" href="{{ url_for('reply_comment', comment_id=comment.id) }}">Reply</a></div>
+	      {% endfor%}
+	    {% else %}
+	      <div class="col-xs-12 comment">This team does not receive any comment yet.</div>
+	    {% endif %}
+	  </div>
+	</div>
+</div>
+<script type="text/javascript">
+  $(document).ready( function() {
+    $('.cover-image').resizeToParent();
+    $('.avatar-image').resizeToParent();
+  });
+  editor.on( 'change', function( evt ) {
+    var data = evt.editor.getData()
+    console.log(data);
+    console.log("val", $(".ckeditor_replace").val());
+    $(".ckeditor_replace").text(data);
+  });
+</script>
+{% endblock %}

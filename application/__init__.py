@@ -95,7 +95,7 @@ def request_list():
 
 @app.route('/users')
 @login_required
-def user_lst():
+def all_users():
 	users = db.session.query(User).all()
 	return render_template('users.html', users = users)
 
@@ -114,12 +114,11 @@ def invitation():
 	return render_template('invitation.html', user=current_user)
 
 
-@app.route('/disp_teams')
+@app.route('/teams')
 @login_required
 def all_teams():
-	#TODO
 	teams = db.session.query(Team).all()
-	# return render_template("xxxxx.html", teams = teams)
+	return render_template('teams.html', teams = teams)
 
 
 @app.route('/disp_ideas')
@@ -149,6 +148,21 @@ def userProfile(uname):
 		return redirect(url_for('home'))
 	else:
 		return render_template('user_view.html', user=user)
+
+
+@app.route('/teams/<teamId>', methods=['GET'])
+@login_required
+def teamProfile(teamId):
+	# if int(teamId) == int(current_user.team_id):
+	# 	return redirect(url_for('team_page'))
+	form = CommentForm()
+	team = db.session.query(Team).filter(Team.id == teamId).first()
+	comments = db.session.query(Comment).filter(Comment.idea_id == team.idea.id).all()
+	if team is None:
+		flash('Team '+teamId+' not found.', 'error')
+		return redirect(url_for('home'))
+	else:
+		return render_template('team_view.html', form=form, team=team, comments=comments)
 
 
 def upload_s3(file_name, data, directory):
@@ -327,7 +341,7 @@ def update_team():
 		if team:
 			team.name = form.name.data
 			team.idea.content = form.idea.data
-			team.caseNumber = form.caseNumber.data
+			team.caseNumber = int(form.caseNumber.data)
 			db.session.commit()
 			return redirect(url_for('team_page'))
 		else:
@@ -381,8 +395,9 @@ def dismiss_team():
 @login_required
 def comment_idea(idea_id):
 	form = CommentForm()
+	idea = db.session.query(Idea).filter(Idea.id == idea_id).first()
+	team = db.session.query(Team).filter(Team.id == idea.team_id).first()
 	if form.validate_on_submit():
-		idea = db.session.query(Idea).filter(Idea.id == idea_id).first()
 		if idea:
 			comment = Comment()
 			comment.content = form.comment.data
@@ -396,11 +411,12 @@ def comment_idea(idea_id):
 				member.notification.append(notif)
 
 			db.session.commit()
+			return redirect(url_for('teamProfile', teamId=team.id))
 		else:
 			flash("Idea does not exist.", "error")
 			return redirect(url_for('all_ideas'))
 
-	return render_template('comment_idea.html', form = form, idea_id = idea_id)
+	return render_template('comment_idea.html', form=form, idea_id=idea_id, team=team)
 
 
 @app.route('/comment/<comment_id>/reply', methods=['POST', 'GET'])

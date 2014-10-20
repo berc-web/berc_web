@@ -1,7 +1,7 @@
 .container-fluid {
   background: #ffffff; }
   .container-fluid .base {
-    min-height: 900px;
+    min-height: 1000px;
     background: #ffffff url('images/overlay.png');
     box-shadow: 0px 10px 30px 2px #888888; }
     .container-fluid .base .top-cover {
@@ -141,7 +141,7 @@
               background: #ebebeb; }
 
 .view .container {
-  min-height: 900px;
+  min-height: 1000px;
   background: #ffffff;
   box-shadow: 0px 10px 30px 2px #888888; }
   .view .container .top-cover {

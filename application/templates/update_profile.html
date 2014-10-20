@@ -24,13 +24,10 @@
 </div>
 <script>
     editor.on( 'change', function( evt ) {
-    // getData() returns CKEditor's HTML content.
-    var data = evt.editor.getData()
-    console.log(data);
-    $(".ckeditor_replace").val(data);
+        var data = evt.editor.getData()
+        console.log(data);
+        console.log("val", $(".ckeditor_replace").val());
+        $(".ckeditor_replace").text(data);
     });
-
-    // Your code to save "data", usually through Ajax.
 </script>
-
 {% endblock %}

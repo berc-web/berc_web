@@ -1,17 +1,18 @@
 {% extends 'team-base.html' %}
 {% block content %}
+{% from "flask_user/_macros.html" import render_textarea_field, render_submit_field %}
 <div class="team-profile">
   <div class="row idea">
     {% if team.idea.content == "" or team.idea.content == None %}
       <div class="col-xs-12">Your team does not have an idea, please update your idea <a href="{{ url_for('update_team') }}">Here</a></div>
     {% else %}
-      <div class="col-xs-12">Team Idea: {{ team.idea.content }}</div>
+      <div class="col-xs-12">Team Idea: {{ team.idea.content|safe }}</div>
     {% endif %}
-    <div class="col-xs-12 comment-hint"><a href="{{url_for('comment_idea', idea_id=team.idea.id)}}">Comment this Idea</a></div>
   </div>
   <div class="row results">
+    <div class="col-xs-12 result">Case Number: {{team.caseNumber}}</div>
     {% if team.submission == None %}
-      <div class="col-xs-12 result">Submitted: Not</div>
+      <div class="col-xs-12 result">Submitted: No</div>
     {% else %}
       <div class="col-xs-12 result">Submitted: Yes</div>
     {% endif %}

@@ -7,10 +7,19 @@
 	  {{ form.hidden_tag() }}
 	  {{ render_field(form.name, tabindex=10, value=team.name, placeholder="Team Name") }}
 	  {{ render_textarea_field(form.idea, tabindex=20, value=team.idea.content, placeholder="Team Idea") }}
+	  {{ render_select_field(form.caseNumber, tabindex=40, value=team.caseNumber) }}
 	  <div class="form-group">
-		  {{ render_submit_field(form.submit, tabindex=30) }}
+		  {{ render_submit_field(form.submit, tabindex=50) }}
 		  <a class="dismiss btn btn-danger" href="{{ url_for('dismiss_team') }}">Dismiss Team</a>
 	  </div>
 	</form>
 </div>
+<script>
+  editor.on( 'change', function( evt ) {
+    var data = evt.editor.getData()
+    console.log(data);
+    console.log("val", $(".ckeditor_replace").val());
+    $(".ckeditor_replace").text(data);
+  });
+</script>
 {% endblock %}
