@@ -74,27 +74,48 @@
 			transform: scaleX(-1);
 		}
 		.competition-content {
-			.competition-img {
-				width: 100%;
+			.column1, .column2, .column3 {
+				margin-top: 50px;
+				height: 590px;
 			}
-			h1 {
+			.column1, .column2 {
+				border-right: 1px solid #bababa;
+			}
+			.subtitle1, .subtitle2, .subtitle3 {
 				text-align: center;
-				margin: 0;
-				margin-top: 5px;
-				font-size: 35px;
-				font-weight: bold;
-				letter-spacing: 3.5px;
-				color: #279911;
+				font-size: 20px;
+				font-weight: 700;
 				font-family: tenor-sans;
+				margin-bottom: 20px;
 			}
-			h3 {
-				text-align: center;
-				margin-bottom: 15px;
-				color: #539200;
-				font-size: 17px;
-				font-weight: bold;
-				letter-spacing: 1.7px;
-				font-family: quattrocento-sans;
+			.subtitle1, .subtitle2 {
+				color: #279911;
+			}
+			.column1 {
+				.subrow {
+					margin-top: 15px;
+					.event-title {
+						font-size: 18px;
+						font-weight: 700;
+						text-align: center;
+					}
+					.event-info {
+						font-size: 18px;
+						text-align: center;
+					}
+				}
+			}
+			.column2 {
+				.row {
+					margin-bottom: 10px;
+				}
+			}
+			.column3 {
+				.qr-image {
+					img {
+						width: 100%;
+					}
+				}
 			}
 			// The CSS for ihover
 			.ih-item {
@@ -175,9 +196,9 @@
 			  background: rgba(26, 74, 114, 0.6);
 			}
 			.ih-item.circle.effect1 .info {
-			  top: 10px;
+			  top: 0;
 			  bottom: 0;
-			  left: 10px;
+			  left: 0;
 			  right: 0;
 			  background: #333333;
 			  background: rgba(0, 0, 0, 0.6);

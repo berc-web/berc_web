@@ -9,8 +9,10 @@
     .about .navigation-container .navigation {
       font-size: 18px;
       margin-bottom: 20px; }
-      .about .navigation-container .navigation a.nav-active {
-        background-color: #ccc; }
+      .about .navigation-container .navigation a {
+        color: #279911; }
+        .about .navigation-container .navigation a.nav-active {
+          background-color: #ccc; }
     .about .navigation-container .navigation.stick {
       position: fixed;
       top: 0;

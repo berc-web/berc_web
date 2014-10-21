@@ -428,6 +428,10 @@ def reply_comment(comment_id):
 		flash("Invalid comment.", "error")
 		return redirect(url_for(''))
 
+	origin_comment = comment
+	while (origin_comment.parent != None):
+		origin_comment = origin_comment.parent
+	team = origin_comment.idea.team
 	if form.validate_on_submit():
 		comment.reply.append(Comment(content = form.reply.data, user=current_user))
 		notif = PersonalNotification()
@@ -435,6 +439,7 @@ def reply_comment(comment_id):
 		db.session.add(notif)
 		comment.user.notification.append(notif)
 		db.session.commit()
+		return redirect(url_for('teamProfile', teamId=team.id))
 
 	return render_template('reply_comment.html', form=form, comment=comment)
 
@@ -464,7 +469,8 @@ def send_notification():
 
 
 def comment_view(comments):
-	return render_template('comment_view.html', comments=comments)
+	form = CommentReplyForm()
+	return render_template('comment_view.html', comments=comments, form=form)
 app.jinja_env.globals.update(comment_view=comment_view)
 
 def send_mail(user, theme, **kwargs):

@@ -39,12 +39,10 @@
 	  </div>
 	  <div class="row comments">
 	  	{% if comments %}
-	      <div class="col-xs-12 title">Comments</div>
-	      {% for comment in comments %}
-	        <div class="col-xs-12 comment">{{comment.content|safe}}<a class="reply-hint" href="{{ url_for('reply_comment', comment_id=comment.id) }}">Reply</a></div>
-	      {% endfor%}
+      <div class="col-xs-12 title">Comments</div>
+      {{comment_view(comments)|safe}}
 	    {% else %}
-	      <div class="col-xs-12 comment">This team does not receive any comment yet.</div>
+	      <div class="col-xs-12 comment">Your team does not receive any comment yet.</div>
 	    {% endif %}
 	  </div>
 	</div>

@@ -13,8 +13,10 @@
         top: 0;
         z-index: 10000;
         margin-top: 120px; }
-        .competition .navigation-container a.nav-active {
-          background-color: #ccc; }
+        .competition .navigation-container a {
+          color: #279911; }
+          .competition .navigation-container a.nav-active {
+            background-color: #ccc; }
   .competition .main {
     margin-bottom: 20px;
     padding-bottom: 300px; }
@@ -68,19 +70,7 @@
             font-size: 16px;
             font-weight: normal;
             color: #7f7f7f; }
-    .competition .main #carousel {
-      margin-bottom: 10px; }
-      .competition .main #carousel .carousel-inner {
-        width: 100%; }
-        .competition .main #carousel .carousel-inner .item {
-          width: 100%;
-          padding-bottom: 15px; }
-          .competition .main #carousel .carousel-inner .item img {
-            width: 100%; }
-      .competition .main #carousel .carousel-control.left,
-      .competition .main #carousel .carousel-control.left:hover,
-      .competition .main #carousel .carousel-control.right,
-      .competition .main #carousel .carousel-control.left:hover {
-        background: none; }
-        .competition .main #carousel .black-glyphicon {
-          color: #000000; }
+    .competition .main .rules .content img {
+      width: 100%; }
+      .competition .main .rules .content a {
+        font-size: 20px; }

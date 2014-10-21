@@ -13,8 +13,10 @@
         top: 0;
         z-index: 10000;
         margin-top: 120px; }
-        .event .navigation-container a.nav-active {
-          background-color: #ccc; }
+        .event .navigation-container a {
+          color: #279911; }
+          .event .navigation-container a.nav-active {
+            background-color: #ccc; }
   .event .main {
     margin-bottom: 20px;
     padding-bottom: 300px; }

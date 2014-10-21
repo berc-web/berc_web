@@ -71,6 +71,12 @@ html, body {
         .content-wrapper .users .item .avatar img,
         .content-wrapper .teams .item .avatar img {
           width: 100%; }
+    .content-wrapper .reply-form {
+      padding-top: 20px;
+      padding-bottom: 20px;
+      min-height: 1000px; }
+      .content-wrapper .reply-form .ckeditor_replace {
+        display: none; }
 
 .footer {
   height: 50px;

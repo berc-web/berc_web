@@ -98,8 +98,14 @@
             .container-fluid .base .main .team-profile .comments .comment .single-wrapper .info {
               font-size: 18px; }
               .container-fluid .base .main .team-profile .comments .comment .single-wrapper .info .name,
+              .container-fluid .base .main .team-profile .comments .comment .single-wrapper .info .replied,
               .container-fluid .base .main .team-profile .comments .comment .single-wrapper .info .replied-name {
                 display: inline-block; }
+                .container-fluid .base .main .team-profile .comments .comment .single-wrapper .info .replied,
+                .container-fluid .base .main .team-profile .comments .comment .single-wrapper .info .replied-name {
+                  margin-left: 10px; }
+                  .container-fluid .base .main .team-profile .comments .comment .single-wrapper .info .replied {
+                    font-weight: 700; }
             .container-fluid .base .main .team-profile .comments .comment a.reply-hint {
               float: right; }
         .container-fluid .base .main .team-profile .comments .comment:hover {
@@ -200,6 +206,17 @@
         padding-top: 5px;
         padding-bottom: 5px;
         min-height: 30px; }
+        .view .container .comments .comment .single-wrapper .info {
+          font-size: 18px; }
+          .view .container .comments .comment .single-wrapper .info .name,
+          .view .container .comments .comment .single-wrapper .info .replied,
+          .view .container .comments .comment .single-wrapper .info .replied-name {
+            display: inline-block; }
+            .view .container .comments .comment .single-wrapper .info .replied,
+            .view .container .comments .comment .single-wrapper .info .replied-name {
+              margin-left: 10px; }
+              .view .container .comments .comment .single-wrapper .info .replied {
+                font-weight: 700; }
         .view .container .comments .comment a.reply-hint {
           float: right; }
     .view .container .comments .comment:hover {

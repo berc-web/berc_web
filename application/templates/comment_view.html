@@ -4,7 +4,8 @@
       <div class="info">
         <div class="name">{{comment.user.lname}} {{comment.user.fname}}</div>
         {% if comment.parent_comment_id != None %}
-          <div class="replied-name">replied {{comment.parent.user.lname}} {{comment.parent.user.fname}}</div>
+          <div class="replied">replied</div>
+          <div class="replied-name">{{comment.parent.user.lname}} {{comment.parent.user.fname}}</div>
         {% endif %}
       </div>
       <div>{{comment.content|safe}}</div>

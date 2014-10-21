@@ -43,7 +43,7 @@
 		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		      <ul class="nav navbar-nav">
-		      	<li><a href="{{ url_for('home') }}"><img class="logo-pic" src="../static/images/homepage/page1/logo.png"></a></li>
+		      	<li><a href="{{ url_for('home') }}"><img class="logo-pic" src="{{ url_for('static', filename='images/homepage/page1/logo.png')}}"></a></li>
 		        <li><a href="{{ url_for('home') }}">Home</a></li>
 		        <li><a href="{{ url_for('competition') }}">Competition</a></li>
 		        <li><a href="{{ url_for('news_and_resources') }}">News & Resources</a></li>
@@ -86,9 +86,9 @@
 	      <div class="container">
 	        <span class="copy-right">&#169; EECC2015</span>
 	        <ul class="nav navbar-nav pull-right">
-		        <li><a href="https://www.facebook.com/bercchinafocus"><i class="fa fa-facebook"></i> Facebook</a></li>
-		        <li><a href="http://page.renren.com/601845509"><i class="fa fa-renren"></i> RenRen</a></li>
-		        <li><a href="http://weibo.com/BERCChinaFocus"><i class="fa fa-weibo"></i> Weibo</a></li>
+		        <li><a href="https://www.facebook.com/bercchinafocus" target="_blank"><i class="fa fa-facebook"></i> Facebook</a></li>
+		        <li><a href="http://page.renren.com/601845509" target="_blank"><i class="fa fa-renren"></i> RenRen</a></li>
+		        <li><a href="http://weibo.com/BERCChinaFocus" target="_blank"><i class="fa fa-weibo"></i> Weibo</a></li>
 		        <li><a><i class="fa fa-envelope-o"></i> eecc2015@gmail.com</a></li>
 		      </ul>
 	      </div>

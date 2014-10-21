@@ -115,8 +115,14 @@
 						.single-wrapper {
 							.info {
 								font-size: 18px;
-								.name, .replied-name {
+								.name, .replied, .replied-name {
 									display: inline-block;
+								}
+								.replied, .replied-name {
+									margin-left: 10px;
+								}
+								.replied {
+									font-weight: 700;
 								}
 							}
 						}
@@ -250,6 +256,20 @@
 				padding-top: 5px;
 				padding-bottom: 5px;
 				min-height: 30px;
+				.single-wrapper {
+					.info {
+						font-size: 18px;
+						.name, .replied, .replied-name {
+							display: inline-block;
+						}
+						.replied, .replied-name {
+							margin-left: 10px;
+						}
+						.replied {
+							font-weight: 700;
+						}
+					}
+				}
 				a.reply-hint {
 					float: right;
 				}

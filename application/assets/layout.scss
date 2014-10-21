@@ -87,6 +87,14 @@ body {
 			}
 		}
 	}
+	.reply-form {
+		padding-top: 20px;
+		padding-bottom: 20px;
+		min-height: 1000px;
+		.ckeditor_replace {
+			display: none;
+		}
+	}
 }
 .footer {
 	height: $footer_height;

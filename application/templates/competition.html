@@ -43,26 +43,10 @@
 				<div class="col-xs-12">
 					<div class="title">Rules</div>
 					<div class="content">
-						<div id="carousel" class="carousel slide" data-ride="carousel">
-					    <div class="carousel-inner">
-				        <div class="item active">
-			            <img src="../static/images/competition/rules/1.png" alt="Slide 1" />
-				        </div>
-				        <div class="item">
-			            <img src="../static/images/competition/rules/2.png" alt="Slide 2" />
-				        </div>
-				        <div class="item">
-			            <img src="../static/images/competition/rules/3.png" alt="Slide 3" />
-				        </div>
-					    </div> 
-					    <a href="#carousel" class="left carousel-control" data-slide="prev">
-				        <span class="glyphicon glyphicon-chevron-left black-glyphicon"></span>
-					    </a>
-					    <a href="#carousel" class="right carousel-control" data-slide="next">
-				        <span class="glyphicon glyphicon-chevron-right black-glyphicon"></span>
-					    </a>
+						<div class="row">
+							<div class="col-xs-12"><img class="judges-img" src="../static/images/competition/rules/Rules.jpg"></div>
 						</div>
-						<a href="{{ url_for('rules') }}">Read Complete Competition Rules  <span class="glyphicon glyphicon-arrow-right"></span></a>
+						<a href="{{ url_for('rules') }}">Read Complete Competition Rules <i class="fa fa-arrow-right fa-lg"></i></a>
 					</div>
 				</div>
 			</div>
@@ -143,27 +127,15 @@
 										</div>
 									</div>
 								</div>
-								<div class="anchor" id="green_building"></div>
+								<div class="anchor" id="p_and_s"></div>
 								<div class="row single">
 									<div class="col-xs-3">
-										<img class="sub-image" src="../static/images/competition/themes/GREEN BUILDING.jpg">
+										<img class="sub-image" src="../static/images/competition/themes/p_and_s.jpg">
 									</div>
 									<div class="col-xs-9">
-										<div class="sub-title">Green Buildings</div>
+										<div class="sub-title">Policies and Strategies</div>
 										<div class="sub-content">
-											32% of world’s energy is consumed by buildings. This is a space where potential increase in energy efficiency is huge due to the fast urbanization process and the many technologies and solutions available.
-										</div>
-									</div>
-								</div>
-								<div class="anchor" id="clean_water"></div>
-								<div class="row single">
-									<div class="col-xs-3">
-										<img class="sub-image" src="../static/images/competition/themes/CLEAN WATER.jpg">
-									</div>
-									<div class="col-xs-9">
-										<div class="sub-title">Clean Water</div>
-										<div class="sub-content">
-											Ensuring water quality is crucial to the welfare of denizens of a city, be it drinking water or water bodies supplying for municipal and industrial usages.  From treatment technologies to legal frameworks, good solutions to water quality problems need to be multidisciplinary and target-specific.
+											Next year, Chinese cities are required to lower energy consumption by 15% comparing with 2011 baseline.  Effectively reducing carbon emission becomes a great challenge for local government. Successful low-carbon city strategies require comprehensive and integrated solutions.
 										</div>
 									</div>
 								</div>
@@ -179,15 +151,15 @@
 										</div>
 									</div>
 								</div>
-								<div class="anchor" id="social_spaces"></div>
+								<div class="anchor" id="s_and_d"></div>
 								<div class="row single">
 									<div class="col-xs-3">
-										<img class="sub-image" src="../static/images/competition/themes/SOCIAL SPACES.jpg">
+										<img class="sub-image" src="../static/images/competition/themes/s_and_d.png">
 									</div>
 									<div class="col-xs-9">
-										<div class="sub-title">Social Spaces</div>
+										<div class="sub-title">Smart Grid and Distributed Generation</div>
 										<div class="sub-content">
-											Positive social impacts provided by communal spaces such as parks, plazas and libraries are immense, but often overlooked. For an eco-city, it is important not only to run and protect current social spaces effectively, but also to devise metrics that evaluate proposed designs and retrofits.
+											China is the world's largest consumer of electricity. Smart grid and distributed generation are still emerging technologies and only realized through piloting projects. A combination of both could have a large role to play in future electricity system.
 										</div>
 									</div>
 								</div>
@@ -198,12 +170,4 @@
 		</div>
 	</div>
 </div>
-<script>
-$(document).ready(function () {
-    $('#carousel').carousel({
-        interval: 3000
-    });
-    $('#carousel').carousel('cycle');
-});
-</script>
 {% endblock %}

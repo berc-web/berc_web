@@ -15,6 +15,9 @@
 	    z-index: 10000;
 	    margin-top: 120px;
 		}
+		a {
+			color: #279911;
+		}
 		a.nav-active {
 	    background-color: #ccc;
 		}
@@ -89,23 +92,14 @@
 				color: #7f7f7f;
 			}
 		}
-		#carousel {
-			margin-bottom: 10px;
-			.carousel-inner {
-				width: 100%;
-				.item {
+		.rules {
+			.content {
+				img {
 					width: 100%;
-					padding-bottom: 15px;
-					img {
-						width: 100%;
-					}
 				}
-			}
-			.carousel-control.left, .carousel-control.left:hover, .carousel-control.right, .carousel-control.left:hover {
-				background: none;
-			}
-			.black-glyphicon {
-				color: #000000;
+				a {
+					font-size: 20px;
+				}
 			}
 		}
 	}
