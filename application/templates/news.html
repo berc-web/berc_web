@@ -5,12 +5,6 @@
 {% block body %}
 <div class="container news">
 	<div class="row">
-		<!-- <div class="col-xs-3 navigation">
-			<ul class="nav nav-pills nav-stacked">
-				<li><a href="#news">News and Events</a></li>
-				<li><a href="#resources">Online Resources</a></li>
-			</ul>
-		</div> -->
 		<div class="col-xs-12 main">
 			<div class="row" id="news">
 				<div class="col-xs-12">
@@ -19,7 +13,7 @@
 				    <div class="carousel-inner">
 				    	{% for news in news_lst[-3:] %}
 				        <div class="{{ 'item active' if loop.index == 1 else 'item' }}">
-				        	<a href="{{ url_for('news', news_id=news.id) }}"><img src="{{ news.image }}"></a>
+				        	<a id="{{loop.index}}" href="{{ url_for('news', news_id=news.id) }}"><img class="news-image" src="{{ news.image }}"><div class="carousel-caption"><h3>{{news.title}}</h3></div></a>
 				        </div>
 					    {% endfor %}
 				    </div>
@@ -32,14 +26,28 @@
 					</div>
 				</div>
 			</div>
-			<!-- <div class="row" id="resources">
-				<div class="col-xs-12">
-					<div class="title">Online Resources</div>
-					<div class="content">
-					</div>
-				</div>
-			</div> -->
+			<div class="row all-news">
+		    {% for news in news_lst %}
+					<div class="col-xs-12 new">
+		        <div class="single-news-image"><img class="small-image" src="{{ news.image }}"></div>
+		        <div class="single-news-main">
+		        	<div class="title"><a href="{{ url_for('news', news_id=news.id) }}">{{news.title}}</a></div>
+		        	<div class="info">
+		        		<div class="data">Data: {{news.time}}</div>
+		        		<div class="author">Author: {{news.author}}</div>
+		        	</div>
+		        	<div class="content">{{news.content|safe}}</div>
+		        </div>
+		    	</div>
+			  {% endfor %}
+			</div>
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+  $(document).ready( function() {
+  	$('.single-news-main').css('width', ($('.new').width() - 220).toString()+'px');
+    $('.small-image').resizeToParent();
+  });
+</script>
 {% endblock %}

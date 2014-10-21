@@ -31,7 +31,7 @@
             <li {% if request.path=="/change-username" %}class="nav-active"{% endif %}><a href="{{ url_for('user.change_username') }}"><img class="icon-image" src="{{ url_for('static', filename='images/user/change password_username.png') }}">Change username</a></li>
             <li {% if request.path=="/notifications" %}class="nav-active"{% endif %}><a href="{{ url_for('personal_notifications') }}"><img class="icon-image" src="{{ url_for('static', filename='images/user/notification.png') }}">Notifications</a></li>
             {% if current_user.team_id != None %}
-              <li {% if request.path=="/team" %}class="nav-active"{% endif %}><a href="{{ url_for('team_page') }}"><img class="icon-image" src="{{ url_for('static', filename='images/user/team.png') }}">Team</a></li>
+              <li><a href="{{ url_for('team_page') }}"><img class="icon-image" src="{{ url_for('static', filename='images/user/team.png') }}">Team</a></li>
             {% else %}
               <li {% if request.path=="/invitation" %}class="nav-active"{% endif %}><a href="{{ url_for('invitation') }}"><img class="icon-image" src="{{ url_for('static', filename='images/user/teaminvite.png') }}">Team Invitation</a></li>
             {% endif %}

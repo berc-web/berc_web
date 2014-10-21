@@ -62,11 +62,15 @@ html, body {
 
   .content-wrapper {
     background: #ffffff url('images/overlay.png'); }
-    .content-wrapper .users .item .avatar, .content-wrapper .teams .item .avatar {
-      width: 100%; }
-      .content-wrapper .users .item .avatar img,
-      .content-wrapper .teams .item .avatar img {
+    .content-wrapper .users, .content-wrapper .teams {
+      padding-top: 20px;
+      padding-bottom: 20px;
+      min-height: 1000px; }
+      .content-wrapper .users .item .avatar, .content-wrapper .teams .item .avatar {
         width: 100%; }
+        .content-wrapper .users .item .avatar img,
+        .content-wrapper .teams .item .avatar img {
+          width: 100%; }
 
 .footer {
   height: 50px;
