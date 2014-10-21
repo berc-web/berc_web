@@ -25,40 +25,35 @@ body {
 			height: $navbar_height;
 			line-height: $navbar_height;
 		}
-		.navbar-collapse {
+		.navbar-nav {
+			.logo-pic {
+				height: 80%;
+				margin: auto;
+			}
+			display: inline-block;
+			float: none;
 			height: $navbar_height;
 			line-height: $navbar_height;
-			text-align: center;
-			.navbar-nav {
-				.logo-pic {
-					height: 80%;
-					margin: auto;
-				}
-				display: inline-block;
-				float: none;
+			position: relative;
+			li {
 				height: $navbar_height;
 				line-height: $navbar_height;
-				position: relative;
-				li {
+				vertical-align: middle;
+				padding: 0 30px;;
+				a {
+					display: block;
 					height: $navbar_height;
 					line-height: $navbar_height;
-					vertical-align: middle;
-					padding: 0 30px;;
-					a {
-						display: block;
-						height: $navbar_height;
-						line-height: $navbar_height;
-						padding: 0;
-						color: rgba(255,255,255,0.8);
-						text-decoration: none;
-						font-size: 16px;
-						letter-spacing: 1px;
-						font-family: tenor-sans;
-					}
+					padding: 0;
+					color: rgba(255,255,255,0.8);
+					text-decoration: none;
+					font-size: 16px;
+					letter-spacing: 1px;
+					font-family: tenor-sans;
 				}
-				.action-hint {
-					margin-left: 50px;
-				}
+			}
+			.action-hint {
+				margin-left: 50px;
 			}
 		}
 	}

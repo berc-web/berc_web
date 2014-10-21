@@ -70,6 +70,8 @@
             margin-right: 8px; }
       .container-fluid .base .navigation li.nav-active {
         background: #50934d; }
+        .container-fluid .base .navigation li.margin {
+          height: 50px; }
     .container-fluid .base .main {
       margin-bottom: 20px; }
       .container-fluid .base .main .profile .intro {
@@ -140,6 +142,11 @@
             height: 40px; }
             .container-fluid .base .main .personal-notifications .notifications .notification:hover {
               background: #ebebeb; }
+      .container-fluid .base .main .register {
+        margin-top: 50px; }
+        .container-fluid .base .main .register form {
+          width: 85%;
+          margin: 0 auto; }
 
 .view .container {
   min-height: 1000px;

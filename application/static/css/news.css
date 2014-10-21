@@ -34,6 +34,8 @@
                     margin: 0 auto; }
                     .news .main #carousel .carousel-inner .item .carousel-caption {
                       bottom: 0px;
+                      left: 0;
+                      right: 0;
                       background: rgba(255, 255, 255, 0.6); }
               .news .main #carousel .carousel-control.left,
               .news .main #carousel .carousel-control.left:hover,

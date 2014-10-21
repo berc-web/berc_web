@@ -76,7 +76,7 @@
 		.competition-content {
 			.column1, .column2, .column3 {
 				margin-top: 50px;
-				height: 590px;
+				height: 400px;
 			}
 			.column1, .column2 {
 				border-right: 1px solid #bababa;
@@ -112,6 +112,8 @@
 			}
 			.column3 {
 				.qr-image {
+					width: 60%;
+					margin: 0 auto;
 					img {
 						width: 100%;
 					}

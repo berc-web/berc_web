@@ -75,6 +75,9 @@
 			li.nav-active {
 				background: #50934d;
 			}
+			li.margin {
+				height: 50px;
+			}
 		}
 		.main {
 			margin-bottom: 20px;
@@ -172,6 +175,13 @@
 					.notification:hover {
 						background: #ebebeb;
 					}
+				}
+			}
+			.register {
+				margin-top: 50px;
+				form {
+					width: 85%;
+					margin: 0 auto;
 				}
 			}
 		}

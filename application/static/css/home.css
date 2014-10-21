@@ -71,7 +71,7 @@
           .home .competition .competition-content .column2,
           .home .competition .competition-content .column3 {
             margin-top: 50px;
-            height: 590px; }
+            height: 400px; }
             .home .competition .competition-content .column1,
             .home .competition .competition-content .column2 {
               border-right: 1px solid #bababa; }
@@ -97,8 +97,11 @@
                         text-align: center; }
           .home .competition .competition-content .column2 .row {
             margin-bottom: 10px; }
-          .home .competition .competition-content .column3 .qr-image img {
-            width: 100%; }
+          .home .competition .competition-content .column3 .qr-image {
+            width: 60%;
+            margin: 0 auto; }
+            .home .competition .competition-content .column3 .qr-image img {
+              width: 100%; }
           .home .competition .competition-content .ih-item {
             position: relative;
             -webkit-transition: all 0.35s ease-in-out;

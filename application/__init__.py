@@ -82,7 +82,6 @@ def news(news_id):
 
 
 @app.route('/about_us')
-@login_required
 def about_us():
 	return render_template('about.html')
 
