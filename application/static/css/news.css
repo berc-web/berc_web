@@ -12,7 +12,8 @@
       .news .main .title {
         font-size: 25px;
         font-weight: bold;
-        color: #428bca;
+        color: #279911;
+        font-family: tenor-sans;
         text-transform: uppercase;
         margin-bottom: 10px; }
         .news .main .content {
@@ -56,6 +57,9 @@
     overflow: hidden; }
     .new .single-news-main {
       float: right; }
+      .new .single-news-main .title a {
+        color: #279911;
+        font-family: tenor-sans; }
       .new .single-news-main .info {
         font-size: 18px; }
         .new .single-news-main .info .data, .new .single-news-main .info .author {
@@ -72,7 +76,12 @@
   padding-bottom: 50px;
   margin-bottom: 50px;
   min-height: 900px; }
-  .news-view .image img {
-    width: 100%; }
+  .news-view .title {
+    color: #279911;
+    font-family: tenor-sans;
+    font-size: 25px;
+    text-align: center; }
+    .news-view .image img {
+      width: 100%; }
   .news-view .content {
     font-size: 18px; }

@@ -13,7 +13,8 @@
 		.title {
 			font-size: 25px;
 			font-weight: bold;
-			color: #428bca;
+			color: #279911;
+			font-family: tenor-sans;
 			text-transform: uppercase;
 			margin-bottom: 10px;
 		}
@@ -67,7 +68,10 @@
 	.single-news-main {
 		float: right;
 		.title {
-
+			a {
+				color: #279911;
+				font-family: tenor-sans;
+			}
 		}
 		.info {
 			font-size: 18px;
@@ -91,7 +95,10 @@
 	margin-bottom: 50px;
 	min-height: 900px;
 	.title {
-
+		color: #279911;
+		font-family: tenor-sans;
+		font-size: 25px;
+		text-align: center;
 	}
 	.image {
 		img {

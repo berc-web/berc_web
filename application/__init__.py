@@ -153,8 +153,8 @@ def userProfile(uname):
 @app.route('/teams/<teamId>', methods=['GET'])
 @login_required
 def teamProfile(teamId):
-	# if int(teamId) == int(current_user.team_id):
-	# 	return redirect(url_for('team_page'))
+	if int(teamId) == int(current_user.team_id):
+		return redirect(url_for('team_page'))
 	form = CommentForm()
 	team = db.session.query(Team).filter(Team.id == teamId).first()
 	comments = db.session.query(Comment).filter(Comment.idea_id == team.idea.id).all()
@@ -429,7 +429,7 @@ def reply_comment(comment_id):
 		return redirect(url_for(''))
 
 	if form.validate_on_submit():
-		comment.reply.append(Comment(content = form.reply.data))
+		comment.reply.append(Comment(content = form.reply.data, user=current_user))
 		notif = PersonalNotification()
 		notif.content = current_user.username + " replied your comment."
 		db.session.add(notif)
@@ -462,6 +462,10 @@ def send_notification():
 
 	return redirect(url_for('notify.send_notification'))
 
+
+def comment_view(comments):
+	return render_template('comment_view.html', comments=comments)
+app.jinja_env.globals.update(comment_view=comment_view)
 
 def send_mail(user, theme, **kwargs):
 	subject = render_template('emails/'+theme+'_subject.txt',  user=user, **kwargs)

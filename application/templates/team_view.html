@@ -30,7 +30,7 @@
 	    	<div class="col-xs-12 comment-hint"><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Comment this Idea</a></div>
 	    {% endif %}
 	    <div id="collapseOne" class="col-xs-12 comment-form panel-collapse collapse">
-				<form action="{{ url_for('comment_idea', idea_id=idea_id) }}" method="POST" class="form" role="form" enctype='multipart/form-data'>
+				<form action="{{ url_for('comment_idea', idea_id=team.idea.id) }}" method="POST" class="form" role="form" enctype='multipart/form-data'>
 				  {{ form.hidden_tag() }}
 				  {{ render_textarea_field(form.comment) }}
 				  {{ render_submit_field(form.submit, tabindex=90) }}

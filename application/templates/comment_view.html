@@ -1,0 +1,17 @@
+{% for comment in comments %}
+  <div class="col-xs-12 comment">
+    <div class="single-wrapper">
+      <div class="info">
+        <div class="name">{{comment.user.lname}} {{comment.user.fname}}</div>
+        {% if comment.parent_comment_id != None %}
+          <div class="replied-name">replied {{comment.parent.user.lname}} {{comment.parent.user.fname}}</div>
+        {% endif %}
+      </div>
+      <div>{{comment.content|safe}}</div>
+    </div>
+    <div>
+      <a class="reply-hint" href="{{ url_for('reply_comment', comment_id=comment.id) }}">Reply</a>
+    </div>
+  </div>
+  {{comment_view(comment.reply)|safe}}
+{% endfor%}

@@ -10,12 +10,16 @@
   .rules .main-title {
     font-size: 22px;
     font-weight: bold;
-    text-align: center; }
+    text-align: center;
+    color: #279911;
+    font-family: tenor-sans; }
     .rules .single {
       margin-top: 20px; }
       .rules .single .title {
         font-size: 20px;
-        font-weight: bold; }
+        font-weight: bold;
+        color: #279911;
+        font-family: tenor-sans; }
         .rules .single .content {
           font-size: 18px; }
           .rules .single .content .row .index {

@@ -24,6 +24,7 @@
           <li {% if request.path=="/update_team" %}class="nav-active"{% endif %}><a href="{{ url_for('update_team') }}"><img class="icon-image" src="{{ url_for('static', filename='images/user/update_profile.png') }}">Update Team Idea</a></li>
           <li {% if request.path=="/team_upload" %}class="nav-active"{% endif %}><a href="{{ url_for('team_upload') }}"><img class="icon-image" src="{{ url_for('static', filename='images/user/change password_username.png') }}">Upload Proposal</a></li>
           <li {% if request.path=="/team_notifications" %}class="nav-active"{% endif %}><a href="{{ url_for('team_notifications') }}"><img class="icon-image" src="{{ url_for('static', filename='images/user/notification.png') }}">Notifications</a></li>
+          <li><a href="{{ url_for('all_teams') }}"><img class="icon-image" src="{{ url_for('static', filename='images/user/all.png') }}">All Teams</a></li>
         </ul>
       </div>
       <div class="col-xs-9 main">

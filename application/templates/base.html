@@ -35,6 +35,7 @@
             {% else %}
               <li {% if request.path=="/invitation" %}class="nav-active"{% endif %}><a href="{{ url_for('invitation') }}"><img class="icon-image" src="{{ url_for('static', filename='images/user/teaminvite.png') }}">Team Invitation</a></li>
             {% endif %}
+            <li><a href="{{ url_for('all_users') }}"><img class="icon-image" src="{{ url_for('static', filename='images/user/all.png') }}">All Users</a></li>
           {% else %}
             <li><a href="{{ url_for('user.register') }}">Register</a></li>
             <li><a href="{{ url_for('user.login') }}">Sign in</a></li>

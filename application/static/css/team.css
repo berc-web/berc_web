@@ -24,6 +24,7 @@
           font-size: 30px;
           width: 800px;
           color: #ffffff;
+          font-family: tenor-sans;
           overflow: hidden;
           text-align: center; }
           .container-fluid .base .top-cover .avatars {
@@ -91,10 +92,14 @@
           font-size: 18px; }
           .container-fluid .base .main .team-profile .comments .comment {
             font-size: 16px;
-            margin-top: 5px;
-            margin-bottom: 5px;
-            height: 30px;
-            line-height: 30px; }
+            padding-top: 5px;
+            padding-bottom: 5px;
+            min-height: 30px; }
+            .container-fluid .base .main .team-profile .comments .comment .single-wrapper .info {
+              font-size: 18px; }
+              .container-fluid .base .main .team-profile .comments .comment .single-wrapper .info .name,
+              .container-fluid .base .main .team-profile .comments .comment .single-wrapper .info .replied-name {
+                display: inline-block; }
             .container-fluid .base .main .team-profile .comments .comment a.reply-hint {
               float: right; }
         .container-fluid .base .main .team-profile .comments .comment:hover {
@@ -192,8 +197,8 @@
       font-size: 18px; }
       .view .container .comments .comment {
         font-size: 16px;
-        margin-top: 5px;
-        margin-bottom: 5px;
+        padding-top: 5px;
+        padding-bottom: 5px;
         min-height: 30px; }
         .view .container .comments .comment a.reply-hint {
           float: right; }

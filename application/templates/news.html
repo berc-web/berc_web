@@ -48,6 +48,9 @@
   $(document).ready( function() {
   	$('.single-news-main').css('width', ($('.new').width() - 220).toString()+'px');
     $('.small-image').resizeToParent();
+    $('.news').resize( function() {
+    	$('.single-news-main').css('width', ($('.new').width() - 220).toString()+'px');
+    });
   });
 </script>
 {% endblock %}

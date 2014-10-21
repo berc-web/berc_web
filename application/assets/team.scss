@@ -25,6 +25,7 @@
 				font-size: 30px;
 				width: 800px;
 				color: #ffffff;
+				font-family: tenor-sans;
 				overflow: hidden;
 				text-align: center;
 			}
@@ -108,10 +109,17 @@
 					}
 					.comment {
 						font-size: 16px;
-						margin-top: 5px;
-						margin-bottom: 5px;
-						height: 30px;
-						line-height: 30px;
+						padding-top: 5px;
+						padding-bottom: 5px;
+						min-height: 30px;
+						.single-wrapper {
+							.info {
+								font-size: 18px;
+								.name, .replied-name {
+									display: inline-block;
+								}
+							}
+						}
 						a.reply-hint {
 							float: right;
 						}
@@ -239,8 +247,8 @@
 			}
 			.comment {
 				font-size: 16px;
-				margin-top: 5px;
-				margin-bottom: 5px;
+				padding-top: 5px;
+				padding-bottom: 5px;
 				min-height: 30px;
 				a.reply-hint {
 					float: right;
