@@ -10,7 +10,23 @@
       <div class="item col-xs-3">
         <a href="{{ url_for('teamProfile', teamId=team.id) }}">
           <div class="well">
-            <div class="avatar"><img class="avatar-image" src="{{ url_for('static', filename='images/homepage/page1/cover_photo.jpg') }}"></div>
+            <div class="avatar">
+              {% if team.caseNumber == 0 %}
+                <img class="cover-image" src="{{ url_for('static', filename='images/team/0.jpg') }}">
+              {% endif %}
+              {% if team.caseNumber == 1 %}
+                <img class="cover-image" src="{{ url_for('static', filename='images/team/1.jpg') }}">
+              {% endif %}
+              {% if team.caseNumber == 2 %}
+                <img class="cover-image" src="{{ url_for('static', filename='images/team/2.jpg') }}">
+              {% endif %}
+              {% if team.caseNumber == 3 %}
+                <img class="cover-image" src="{{ url_for('static', filename='images/team/3.jpg') }}">
+              {% endif %}
+              {% if team.caseNumber == 4 %}
+                <img class="cover-image" src="{{ url_for('static', filename='images/team/4.jpg') }}">
+              {% endif %}
+            </div>
             {% for member in team.members %}
               <div class="name">{{member.lname}}{{member.fname}}</div>
             {% endfor %}

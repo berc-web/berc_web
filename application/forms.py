@@ -122,8 +122,8 @@ class UpdateTeamInfoForm(Form):
 	name = TextField("Team Name", validators=[Required()])
 	idea = TextAreaField("Comptetion Idea", validators=[Required()])
 	caseNumber = SelectField('Case Choice',
-		choices=[("1", 'Placeholer1'), ("2", 'Placeholer2'),
-					("3", 'Placeholer3'), ("4", 'Placeholer4')],
+		choices=[("1", 'Air Quality'), ("2", 'Policies and Strategies'),
+					("3", 'Clean Transportation'), ("4", 'Smart Grid and Distributed Generation')],
 		validators=[Required()])
 	submit = SubmitField("Update Team Information")
 

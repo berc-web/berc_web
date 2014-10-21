@@ -7,7 +7,21 @@
   <div class="container base">
   	{% if current_user.is_authenticated() %}
   		<div class="row top-cover">
-        <img class="cover-image" src="{{ url_for('static', filename='images/homepage/page1/cover_photo.jpg') }}">
+        {% if team.caseNumber == 0 %}
+          <img class="cover-image" src="{{ url_for('static', filename='images/team/0.jpg') }}">
+        {% endif %}
+        {% if team.caseNumber == 1 %}
+          <img class="cover-image" src="{{ url_for('static', filename='images/team/1.jpg') }}">
+        {% endif %}
+        {% if team.caseNumber == 2 %}
+          <img class="cover-image" src="{{ url_for('static', filename='images/team/2.jpg') }}">
+        {% endif %}
+        {% if team.caseNumber == 3 %}
+          <img class="cover-image" src="{{ url_for('static', filename='images/team/3.jpg') }}">
+        {% endif %}
+        {% if team.caseNumber == 4 %}
+          <img class="cover-image" src="{{ url_for('static', filename='images/team/4.jpg') }}">
+        {% endif %}
         <div class="mask"></div>
         <div class="name">{{team.name}}</div>
         <div class="avatars">
