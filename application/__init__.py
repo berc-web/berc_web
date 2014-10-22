@@ -9,7 +9,7 @@ from flask.ext.user.views import register
 from werkzeug import secure_filename
 from forms import UpdateProfileForm, UploadNewsForm, TeammateInvitationForm, \
 					UpdateTeamInfoForm, CommentForm, UploadCompArticleForm, \
-					SendNotificationForm, CommentReplyForm
+					SendNotificationForm, CommentReplyForm, CommentEditForm
 from postmonkey import PostMonkey
 import boto
 
@@ -418,6 +418,34 @@ def comment_idea(idea_id):
 	return render_template('comment_idea.html', form=form, idea_id=idea_id, team=team)
 
 
+@app.route('/comment/<comment_id>/edit', methods=['POST', 'GET'])
+@login_required
+def edit_comment(comment_id):
+	form = CommentEditForm()
+	comment = db.session.query(Comment).filter(Comment.id == comment_id).first()
+	if not comment:
+		flash("Invalid Comment", "error")
+		return redirect(url_for("teamProfile", teamId=current_user.team.id))
+
+	origin_comment = comment
+	while (origin_comment.parent != None):
+		origin_comment = origin_comment.parent
+	team = origin_comment.idea.team
+
+	if comment.user_id != current_user.id:
+		flash("You are not authorized to edit other people's comments", "error")
+		return redirect(url_for("teamProfile", teamId=team.id))
+
+	if form.validate_on_submit():
+		comment.content = form.modified.data
+		db.session.commit()
+		flash("Comment updated.", "success")
+		return redirect(url_for('teamProfile', teamId=team.id))
+
+	# TODO
+	# return render_template('edit_comment.html', form=form, comment=comment)
+
+
 @app.route('/comment/<comment_id>/reply', methods=['POST', 'GET'])
 @login_required
 def reply_comment(comment_id):
@@ -433,11 +461,8 @@ def reply_comment(comment_id):
 	team = origin_comment.idea.team
 	if form.validate_on_submit():
 		comment.reply.append(Comment(content = form.reply.data, user=current_user))
-		notif = PersonalNotification()
-		notif.content = current_user.username + " replied your comment."
-		db.session.add(notif)
-		comment.user.notification.append(notif)
 		db.session.commit()
+		notify(comment.user, current_user.username + " replied your comment.")
 		return redirect(url_for('teamProfile', teamId=team.id))
 
 	return render_template('reply_comment.html', form=form, comment=comment)
@@ -479,6 +504,14 @@ def send_mail(user, theme, **kwargs):
 	html_message = render_template('emails/'+theme+'_message.html',  user=user, **kwargs)
 	text_message = render_template('emails/'+theme+'_message.txt',  user=user, **kwargs)
 	user_manager.send_email_function(user.email, subject, html_message, text_message)
+
+
+def notify(user, content):
+	notif = PersonalNotification()
+	notif.content = content
+	db.session.add(notif)
+	user.notification.append(notif)
+	db.session.commit()
 
 
 babel = Babel(app)

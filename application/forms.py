@@ -95,11 +95,8 @@ class UpdateProfileForm(Form):
 		user_manager = current_app.user_manager
 
 		# Validate field-validators
-		if not super(UpdateProfileForm, self).validate():
-			return False
+		return super(UpdateProfileForm, self).validate():
 
-		# All is well
-		return True
 
 class UploadNewsForm(Form):
 	title = TextField('Title', validators=[Required()])
@@ -150,3 +147,7 @@ class CommentReplyForm(Form):
 	reply = TextAreaField("Reply", validators=[Required()])
 	submit = SubmitField("Submit Reply")
 
+
+class CommentEditForm(Form):
+	modified = TextAreaField("Edit Comment", validators=[Required()])
+	submit = SubmitField("Submit")

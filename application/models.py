@@ -101,11 +101,17 @@ class Comment(db.Model):
 				backref=db.backref('parent', remote_side=[id]))
 	time = db.Column(db.DateTime(), default=db.func.now())
 
+	def __unicode__(self):
+		return self.content
+
 
 class Notification(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
 	content = db.Column(db.String(400))
 	time = db.Column(db.DateTime(), default=db.func.now())
+
+	def __unicode__(self):
+		return self.content
 
 
 class PersonalNotification(db.Model):
@@ -114,6 +120,5 @@ class PersonalNotification(db.Model):
 	user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 	time = db.Column(db.DateTime(), default=db.func.now())
 
-
-
-
+	def __unicode__(self):
+		return self.content
