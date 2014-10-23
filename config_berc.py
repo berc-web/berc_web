@@ -2,7 +2,7 @@ import os
 from flask import url_for
 
 class Config(object):
-	DEBUG=True
+	DEBUG=F
 	SECRET_KEY='eecc2015web'
 	USERNAME='admin'
 	PASSWORD='Berc12345'
