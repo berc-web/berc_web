@@ -185,9 +185,19 @@
     .view .container .basic-info .major .icon-image {
       height: 32px;
       margin-right: 5px; }
-  .view .container .intro {
+  .view .container .intros {
     background: #ffffff;
     font-size: 18px;
-    padding-top: 10px;
     padding-bottom: 10px;
-    margin-bottom: 20px; }
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border: 1px solid #dde4e0; }
+    .view .container .intros .title {
+      text-align: center;
+      background: #def0be;
+      margin-bottom: 5px;
+      font-size: 18px;
+      height: 30px;
+      line-height: 30px; }
