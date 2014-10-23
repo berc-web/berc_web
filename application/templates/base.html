@@ -16,9 +16,9 @@
       </div>
       <div class="row basic-info">
         <div class="col-xs-2 location"><img class="icon-image" src="{{ url_for('static', filename='images/user/country.png') }}">{% if current_user.location == "US" %}United States{% else %}China{% endif %}</div>
-        <div class="col-xs-3 school"><img class="icon-image" src="{{ url_for('static', filename='images/user/institution.png') }}">{{ current_user.school }}</div>
-        <div class="col-xs-4 email"><img class="icon-image" src="{{ url_for('static', filename='images/user/mail.png') }}">{{ current_user.email }}</div>
+        <div class="col-xs-4 school"><img class="icon-image" src="{{ url_for('static', filename='images/user/institution.png') }}">{{ current_user.school }}</div>
         <div class="col-xs-3 major"><img class="icon-image" src="{{ url_for('static', filename='images/user/major.png') }}">{% if current_user.major == "None" %}Not Provided{% else %}{{current_user.major}}{% endif %}</div>
+        <div class="col-xs-3 email"><img class="icon-image" src="{{ url_for('static', filename='images/user/mail.png') }}">{{ current_user.email }}</div>
       </div>
     {% endif %}
     <div class="row">

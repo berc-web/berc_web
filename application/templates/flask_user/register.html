@@ -1,8 +1,8 @@
-{% extends 'flask_user/public_base.html' %}
+{% extends 'layout.html' %}
 
-{% block content %}
+{% block body %}
 {% from "flask_user/_macros.html" import render_field, render_submit_field, render_select_field %}
-<div class="row register">
+<div class="register">
     <form action="" method="POST" novalidate formnovalidate class="form" role="form">
         {{ form.hidden_tag() }}
 
