@@ -23,10 +23,11 @@
 			</div>
 		</div>
 		<div class="row idea">
-    {% if team.idea.content == "" or team.idea.content == None %}
+    	<div class="col-xs-12 title">TEAM IDEA</div>
+    	{% if team.idea.content == "" or team.idea.content == None %}
 	      <div class="col-xs-12">This team does not have an idea yet.</div>
 	    {% else %}
-	      <div class="col-xs-12">Team Idea: {{ team.idea.content|safe }}</div>
+	    	<div class="col-xs-12">{{ team.idea.content|safe }}</div>
 	    	<div class="col-xs-12 comment-hint"><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Comment this Idea</a></div>
 	    {% endif %}
 	    <div id="collapseOne" class="col-xs-12 comment-form panel-collapse collapse">
@@ -38,9 +39,9 @@
 			</div>
 	  </div>
 	  <div class="row comments">
+      <div class="col-xs-12 title">COMMENTS</div>
 	  	{% if comments %}
-      <div class="col-xs-12 title">Comments</div>
-      {{comment_view(comments)|safe}}
+      	{{comment_view(comments)|safe}}
 	    {% else %}
 	      <div class="col-xs-12 comment">Your team does not receive any comment yet.</div>
 	    {% endif %}

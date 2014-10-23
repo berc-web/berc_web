@@ -216,7 +216,7 @@ def my_login():
                     user.subscribed = True
 
                 # Redirect to 'next' URL
-                return redirect(login_form.next.data)
+                return redirect(url_for('user'))
             else:
                 if user_manager.enable_confirm_email and not user.confirmed_at:
                     flash(_('Your email address has not yet been confirmed. Check your email Inbox and Spam folders for the confirmation email and follow the instructions to activate your account.'), 'error')

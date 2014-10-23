@@ -2,7 +2,7 @@
 	background: #ffffff;
 	.base {
 		min-height: 1000px;
-		background: #ffffff url('images/overlay.png');
+		background: #e9e9e9;
 		box-shadow: 0px 10px 30px 2px #888888;
 		.top-cover {
 			height: 350px;
@@ -39,17 +39,14 @@
 			}
 		}
 		.basic-info {
-			height: 40px;
-			line-height: 40px;
 			background: #252525;
 			color: #ffffff;
-			font-size: 18px;
+			font-size: 14px;
 			vertical-align: middle;
+			word-wrap: break-word;
 			.location, .school, .email, .major {
-				height: 40px;
-				line-height: 40px;
 				.icon-image {
-					height: 80%;
+					height: 32px;
 					margin-right: 5px;
 				}
 			}
@@ -91,25 +88,24 @@
 					padding-top: 10px;
 					padding-bottom: 10px;
 					padding-left: 10px;
-					border: 1px solid #bababa;
+					border: 1px solid #dde4e0;
 				}
 				.invitations {
 					background: #ffffff;
 					font-size: 18px;
 					padding-top: 10px;
 					padding-bottom: 10px;
-					border: 1px solid #bababa;
+					border: 1px solid #dde4e0;
 					margin-top: 10px;
 					margin-left: 20px;
 					margin-right: 20px;
 					.invitation {
 						font-size: 18px;
-						height: 48px;
-						line-height: 48px;
+						line-height: 40px;
 						form {
 							width: 64px;
 							float: right;
-							line-height: 48px;
+							line-height: 40px;
 							.accept {
 								background: #50934d;
 								color: #ffffff;
@@ -118,9 +114,6 @@
 								margin-left: 10px;
 							}
 						}
-					}
-					.invitation:hover {
-						background: #ebebeb;
 					}
 				}
 			}
@@ -150,7 +143,7 @@
 					}
 					.active {
 						a {
-							background: #ffffff url('images/overlay.png');
+							background: #ffffff;
 						}
 					}
 				}
@@ -182,13 +175,6 @@
 							float: right;
 						}
 					}
-				}
-			}
-			.register {
-				margin-top: 100px;
-				form {
-					width: 60%;
-					margin: 0 auto;
 				}
 			}
 		}
@@ -233,27 +219,35 @@
 			}
 		}
 		.basic-info {
-			height: 40px;
-			line-height: 40px;
 			background: #252525;
 			color: #ffffff;
 			font-size: 18px;
 			vertical-align: middle;
+			word-wrap: break-word
 			.location, .school, .email, .major {
-				height: 40px;
-				line-height: 40px;
 				.icon-image {
-					height: 80%;
+					height: 32px;
 					margin-right: 5px;
 				}
 			}
 		}
-		.intro {
+		.intros {
 			background: #ffffff;
 			font-size: 18px;
-			padding-top: 10px;
 			padding-bottom: 10px;
 			margin-bottom: 20px;
+			margin-top: 20px;
+			margin-left: 20px;
+			margin-right: 20px;
+			border: 1px solid #dde4e0;
+			.title {
+				text-align: center;
+				background: #def0be;
+				margin-bottom: 5px;
+				font-size: 18px;
+				height: 30px;
+				line-height: 30px;
+			}
 		}
 	}
 }

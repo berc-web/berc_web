@@ -8,7 +8,7 @@
 				<div class="col-xs-12 alert alert-info notification">{{notification.content}}<a href="{{url_for('delete_notification', notif_id=notification.id)}}"><i class="fa fa-times fa-large"></i></a></div>
 			{% endfor %}
 		{% else %}
-			<div class="col-xs-12 notification">Your team does not have any notification now.</div>
+			<div class="col-xs-12 notification">You do not have any notification now.</div>
 		{% endif %}
 	</div>
 </div>

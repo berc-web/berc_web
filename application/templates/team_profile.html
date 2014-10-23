@@ -3,10 +3,11 @@
 {% from "flask_user/_macros.html" import render_textarea_field, render_submit_field %}
 <div class="team-profile">
   <div class="row idea">
+    <div class="col-xs-12 title">TEAM IDEA</div>
     {% if team.idea.content == "" or team.idea.content == None %}
       <div class="col-xs-12">Your team does not have an idea, please update your idea <a href="{{ url_for('update_team') }}">Here</a></div>
     {% else %}
-      <div class="col-xs-12">Team Idea: {{ team.idea.content|safe }}</div>
+      <div class="col-xs-12">{{ team.idea.content|safe }}</div>
     {% endif %}
   </div>
   <div class="row results">
@@ -27,8 +28,8 @@
     {% endif %}
   </div>
   <div class="row comments">
+    <div class="col-xs-12 title">COMMENTS</div>
     {% if comments %}
-      <div class="col-xs-12 title">Comments</div>
       {{comment_view(comments)|safe}}
     {% else %}
       <div class="col-xs-12 comment">Your team does not receive any comment yet.</div>

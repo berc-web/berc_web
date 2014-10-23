@@ -19,13 +19,14 @@
 		      <div class="row basic-info">
 		        <div class="col-xs-2 location"><img class="icon-image" src="{{ url_for('static', filename='images/user/country.png') }}">{% if user.location == "US" %}United States{% else %}China{% endif %}</div>
 		        <div class="col-xs-3 school"><img class="icon-image" src="{{ url_for('static', filename='images/user/institution.png') }}">{{ user.school }}</div>
-		        <div class="col-xs-4 email"><img class="icon-image" src="{{ url_for('static', filename='images/user/mail.png') }}">{{ user.email }}</div>
 		        <div class="col-xs-3 major"><img class="icon-image" src="{{ url_for('static', filename='images/user/major.png') }}">{% if user.major == "None" %}Not Provided{% else %}{{user.major}}{% endif %}</div>
+		        <div class="col-xs-4 email"><img class="icon-image" src="{{ url_for('static', filename='images/user/mail.png') }}">{{ user.email }}</div>
 		      </div>
 		    {% endif %}
 			</div>
 		</div>
-		<div class="row">
+		<div class="row intros">
+			<div class="col-xs-12 title">SELF INTRO</div>
 			{% if user.intro == ""  or user.intro == None %}
 				<div class="col-xs-12 intro">This user does not have a self introduction yet</div>
 			{% else %}

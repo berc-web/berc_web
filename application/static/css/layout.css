@@ -62,7 +62,7 @@ html, body {
     .content-wrapper .users, .content-wrapper .teams {
       padding-top: 20px;
       padding-bottom: 20px;
-      min-height: 1000px; }
+      min-height: 800px; }
       .content-wrapper .users .item .avatar, .content-wrapper .teams .item .avatar {
         width: 100%; }
         .content-wrapper .users .item .avatar img,
@@ -74,6 +74,14 @@ html, body {
       min-height: 1000px; }
       .content-wrapper .reply-form .ckeditor_replace {
         display: none; }
+    .content-wrapper .register {
+      padding-top: 50px;
+      padding-bottom: 50px;
+      background: #e9e9e9;
+      min-height: 1000px; }
+      .content-wrapper .register form {
+        width: 700px;
+        margin: 0 auto; }
 
 .footer {
   height: 50px;
@@ -91,3 +99,6 @@ html, body {
   height: 90px;
   margin-top: -90px;
   visibility: hidden; }
+
+  .container {
+    min-width: 1000px; }
