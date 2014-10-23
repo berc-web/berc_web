@@ -345,7 +345,7 @@ def team_page():
 		notifs = db.session.query(Notification).order_by(Notification.time).limit(10).all()
 
 		return render_template("team_profile.html", team = team, \
-			show_result = app.config['COMPETATION_CLOSED'], notifications = notifs, comments=comments)
+			show_result = app.config['COMPETITION_CLOSED'], competition_start = app.config["COMPETITION_START"], notifications = notifs, comments=comments)
 	else:
 		flash("You have not formed a team yet.")
 		return redirect(url_for("invitation"))
