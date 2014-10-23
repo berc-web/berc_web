@@ -74,20 +74,25 @@
           height: 100px; }
     .container-fluid .base .main {
       margin-bottom: 20px; }
-      .container-fluid .base .main .profile .intro {
+      .container-fluid .base .main .profile .intros {
         background: #ffffff;
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 20px;
         font-size: 18px;
         padding-top: 10px;
         padding-bottom: 10px;
-        border-bottom: 1px solid #bababa; }
+        padding-left: 10px;
+        border: 1px solid #bababa; }
         .container-fluid .base .main .profile .invitations {
           background: #ffffff;
           font-size: 18px;
           padding-top: 10px;
           padding-bottom: 10px;
-          border-top: 1px solid #bababa;
-          border-bottom: 1px solid #bababa;
-          margin-top: 10px; }
+          border: 1px solid #bababa;
+          margin-top: 10px;
+          margin-left: 20px;
+          margin-right: 20px; }
           .container-fluid .base .main .profile .invitations .invitation {
             font-size: 18px;
             height: 48px;
@@ -130,8 +135,9 @@
               display: block;
               margin: 0 auto; }
       .container-fluid .base .main .personal-notifications .notifications {
-        border-top: 1px solid #bababa;
-        border-bottom: 1px solid #bababa;
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 20px;
         padding-top: 10px;
         padding-bottom: 10px; }
         .container-fluid .base .main .personal-notifications .notifications .title {

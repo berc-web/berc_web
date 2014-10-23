@@ -2,11 +2,11 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="profile">
-	<div class="row">
+	<div class="row intros">
 		{% if user.intro == ""  or user.intro == None %}
-			<div class="col-xs-12 intro">You do not have a self introduction, please complete your profile <a href="{{ url_for('update_profile') }}">Here</a></div>
+			<div class="intro">You do not have a self introduction, please complete your profile <a href="{{ url_for('update_profile') }}">Here</a></div>
 		{% else %}
-			<div class="col-xs-12 intro">Self Intro: {{ user.intro|safe }}</div>
+			<div class="intro">Self Intro: {{ user.intro|safe }}</div>
 		{% endif %}
 	</div>
 	{% if current_user.team_id == None %}

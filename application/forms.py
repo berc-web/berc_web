@@ -75,7 +75,7 @@ class RegisterFormWithName(Form):
 
 
 class UpdateProfileForm(Form):
-	photo = FileField('Avatar', validators=[
+	photo = FileField('Profile Picture', validators=[
 			FileAllowed(['jpg', 'jpe', 'jpeg', 'png', 'gif', 'svg', 'bmp'], 'Images only!')
 		])
 	next = HiddenField()

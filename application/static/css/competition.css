@@ -74,3 +74,8 @@
       width: 100%; }
       .competition .main .rules .content a {
         font-size: 20px; }
+    .competition .main .rules2 .single .title {
+      font-size: 16px;
+      text-align: left; }
+      .competition .main .rules2 .single .content {
+        text-align: left; }
