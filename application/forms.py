@@ -95,7 +95,7 @@ class UpdateProfileForm(Form):
 		user_manager = current_app.user_manager
 
 		# Validate field-validators
-		return super(UpdateProfileForm, self).validate():
+		return super(UpdateProfileForm, self).validate()
 
 
 class UploadNewsForm(Form):

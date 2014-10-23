@@ -140,8 +140,10 @@
             padding-top: 5px;
             padding-bottom: 5px;
             height: 40px; }
-            .container-fluid .base .main .personal-notifications .notifications .notification:hover {
-              background: #ebebeb; }
+            .container-fluid .base .main .personal-notifications .notifications .notification .fa {
+              float: right; }
+        .container-fluid .base .main .personal-notifications .notifications .notification:hover {
+          background: #ebebeb; }
       .container-fluid .base .main .register {
         margin-top: 50px; }
         .container-fluid .base .main .register form {
