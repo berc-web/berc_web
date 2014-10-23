@@ -66,6 +66,7 @@ body {
 }
 .content-wrapper {
 	background: #ffffff url('images/overlay.png');
+	margin-bottom: $footer_height;
 	.users, .teams {
 		padding-top: 20px;
 		padding-bottom: 20px;

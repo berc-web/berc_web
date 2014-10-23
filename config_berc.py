@@ -2,15 +2,15 @@ import os
 from flask import url_for
 
 class Config(object):
-	DEBUG=False
+	DEBUG=True
 	SECRET_KEY='eecc2015web'
 	USERNAME='admin'
 	PASSWORD='Berc12345'
 	ADMIN_EMAIL='eecc2015@gmail.com'
 
 	if os.environ.get('DATABASE_URL') is None:
-		SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://@localhost/v2db'
-		# SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://jianzhongchen:CJZcps1230117@localhost/berc'
+		# SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://@localhost/v2db'
+		SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://jianzhongchen:CJZcps1230117@localhost/berc'
 	else:
 		SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
 
@@ -59,6 +59,6 @@ class Config(object):
 	AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 	AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 
-	COMPETATION_START = False
-	COMPETATION_CLOSED = False
+	COMPETITION_START = False
+	COMPETITION_CLOSED = False
 	LANGUAGE = "en"

@@ -143,8 +143,6 @@
             height: 40px; }
             .container-fluid .base .main .personal-notifications .notifications .notification .fa {
               float: right; }
-        .container-fluid .base .main .personal-notifications .notifications .notification:hover {
-          background: #ebebeb; }
       .container-fluid .base .main .register {
         margin-top: 100px; }
         .container-fluid .base .main .register form {

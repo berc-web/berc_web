@@ -5,7 +5,7 @@
 	<div class="row notifications">
 		{% if notifications %}
 			{% for notification in notifications %}
-				<div class="col-xs-12 notification">{{notification.content}}<a href="{{url_for('delete_notification', notif_id=notification.id)}}"><i class="fa fa-times fa-large"></i></a></div>
+				<div class="col-xs-12 alert alert-info notification">{{notification.content}}<a href="{{url_for('delete_notification', notif_id=notification.id)}}"><i class="fa fa-times fa-large"></i></a></div>
 			{% endfor %}
 		{% else %}
 			<div class="col-xs-12 notification">Your team does not have any notification now.</div>

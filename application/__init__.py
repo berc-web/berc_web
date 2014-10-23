@@ -493,6 +493,7 @@ def comment_view(comments):
 	return render_template('comment_view.html', comments=comments, form=form)
 app.jinja_env.globals.update(comment_view=comment_view)
 
+
 def send_mail(user, theme, **kwargs):
 	subject = render_template('emails/'+theme+'_subject.txt',  user=user, **kwargs)
 	subject = subject.replace('\n', ' ')

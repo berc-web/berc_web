@@ -33,7 +33,7 @@
 		        <div class="single-news-main">
 		        	<div class="title"><a href="{{ url_for('news', news_id=news.id) }}">{{news.title}}</a></div>
 		        	<div class="info">
-		        		<div class="data">Data: {{news.time|datetime}}</div>
+		        		<div class="data">Data: {{news.time.strftime('%Y-%m-%d')}}</div>
 		        		<div class="author">Author: {{news.author}}</div>
 		        	</div>
 		        	{% if news.content|length > 300 %}

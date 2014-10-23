@@ -2,10 +2,10 @@
   <div class="col-xs-12 comment">
     <div class="single-wrapper">
       <div class="info">
-        <div class="name">{{comment.user.lname}} {{comment.user.fname}}</div>
+        <a href="{{ url_for('userProfile', uname=comment.user.username) }}"><div class="avatar"><img class="avatar-img" src="{{ comment.user.avatar if comment.user.avatar != None else url_for('static', filename='upload/user_avatar/default1.png') }}"></div><div class="name">{{comment.user.lname}} {{comment.user.fname}}</div></a>
         {% if comment.parent_comment_id != None %}
           <div class="replied">replied</div>
-          <div class="replied-name">{{comment.parent.user.lname}} {{comment.parent.user.fname}}</div>
+          <a href="{{ url_for('userProfile', uname=comment.user.username) }}"><div class="avatar"><img class="avatar-img" src="{{ comment.user.avatar if comment.user.avatar != None else url_for('static', filename='upload/user_avatar/default1.png') }}"></div><div class="replied-name">{{comment.parent.user.lname}} {{comment.parent.user.fname}}</div></a>
         {% endif %}
       </div>
       <div>{{comment.content|safe}}</div>
