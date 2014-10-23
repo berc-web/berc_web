@@ -152,7 +152,7 @@ def userProfile(uname):
 @app.route('/teams/<teamId>', methods=['GET'])
 @login_required
 def teamProfile(teamId):
-	if teamId == current_user.team_id:
+	if int(teamId) == int(current_user.team_id):
 		return redirect(url_for('team_page'))
 	form = CommentForm()
 	team = db.session.query(Team).filter(Team.id == teamId).first()

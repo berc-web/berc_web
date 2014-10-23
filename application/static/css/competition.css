@@ -75,8 +75,10 @@
       .competition .main .rules .content a {
         font-size: 20px; }
     .competition .main .rules2 .single .title {
-      font-size: 16px;
+      margin-top: 20px;
+      font-size: 17px;
       text-align: left;
-      color: #36777c; }
+      color: #36777c;
+      font-family: source-sans-pro, sans-serif; }
       .competition .main .rules2 .single .content {
         text-align: left; }

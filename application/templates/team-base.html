@@ -39,7 +39,7 @@
           {% if competition_start %}
             <li {% if request.path=="/team_upload" %}class="nav-active"{% endif %}><a href="{{ url_for('team_upload') }}"><img class="icon-image" src="{{ url_for('static', filename='images/user/change password_username.png') }}">Upload Proposal</a></li>
           {% endif %}
-          <li {% if request.path=="/team_notifications" %}class="nav-active"{% endif %}><a href="{{ url_for('team_notifications') }}"><img class="icon-image" src="{{ url_for('static', filename='images/user/notification.png') }}">Notifications</a></li>
+          <li {% if request.path=="/team_notifications" %}class="nav-active"{% endif %}><a href="{{ url_for('team_notifications') }}"><img class="icon-image" src="{{ url_for('static', filename='images/user/notification.png') }}">Notifications {% if notifications %}<span class="badge">{{notifications|count}}</span>{% endif %}</a></li>
           <li><a href="{{ url_for('all_teams') }}"><img class="icon-image" src="{{ url_for('static', filename='images/user/all.png') }}">All Teams</a></li>
           <li class="dismiss">
             <form method="post" action="{{ url_for('dismiss_team') }}">

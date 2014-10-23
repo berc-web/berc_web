@@ -29,7 +29,7 @@
             <li {% if request.path=="/update_profile" %}class="nav-active"{% endif %}><a href="{{ url_for('update_profile') }}"><img class="icon-image" src="{{ url_for('static', filename='images/user/update_profile.png') }}">Update Profile</a></li>
             <li {% if request.path=="/change-password" %}class="nav-active"{% endif %}><a href="{{ url_for('user.change_password') }}"><img class="icon-image" src="{{ url_for('static', filename='images/user/change password_username.png') }}">Change Password</a></li>
             <li {% if request.path=="/change-username" %}class="nav-active"{% endif %}><a href="{{ url_for('user.change_username') }}"><img class="icon-image" src="{{ url_for('static', filename='images/user/change password_username.png') }}">Change username</a></li>
-            <li {% if request.path=="/notifications" %}class="nav-active"{% endif %}><a href="{{ url_for('personal_notifications') }}"><img class="icon-image" src="{{ url_for('static', filename='images/user/notification.png') }}">Notifications<span class="badge">{{current_user.notification.length}}</span></a></li>
+            <li {% if request.path=="/notifications" %}class="nav-active"{% endif %}><a href="{{ url_for('personal_notifications') }}"><img class="icon-image" src="{{ url_for('static', filename='images/user/notification.png') }}">Notifications {% if current_user.notification %}<span class="badge">{{current_user.notification|count}}</span>{% endif %}</a></li>
             {% if current_user.team_id != None %}
               <li><a href="{{ url_for('team_page') }}"><img class="icon-image" src="{{ url_for('static', filename='images/user/team.png') }}">Team</a></li>
             {% else %}
