@@ -24,7 +24,16 @@
         <script>
           // Replace the <textarea id="editor1"> with a CKEditor
           // instance, using default configuration.
-          var editor = CKEDITOR.replace('editor1');
+          var editor = CKEDITOR.replace('editor1', {
+            toolbar: [
+                { name: 'styles', items: [ 'Styles', 'Format', 'Font', 'FontSize' ] },
+                { name: 'basic', items: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ] },          // Defines toolbar group without name.
+                '/',                                                                                    // Line break - next group will be placed in new line.
+                { name: 'insert', items: [ 'Image', 'Smiley', 'SpecialChar', 'PageBreak' ] },
+                { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat' ] },
+                { name: 'colors', items: [ 'TextColor', 'BGColor' ] }
+            ]
+          });
         </script>
         {% if field.errors %}
             {% for e in field.errors %}
