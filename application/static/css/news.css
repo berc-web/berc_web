@@ -27,16 +27,18 @@
                 height: 450px; }
                 .news .main #carousel .carousel-inner .item {
                   height: 450px;
-                  padding: 0 15%;
-                  padding-bottom: 15px; }
+                  width: 70%;
+                  margin: 0 auto;
+                  padding-bottom: 15px;
+                  overflow: hidden; }
                   .news .main #carousel .carousel-inner .item img {
                     height: 100%;
                     margin: 0 auto; }
                     .news .main #carousel .carousel-inner .item .carousel-caption {
-                      bottom: 0px;
+                      bottom: 15px;
                       left: 0;
                       right: 0;
-                      background: rgba(255, 255, 255, 0.6); }
+                      background: #000000; }
               .news .main #carousel .carousel-control.left,
               .news .main #carousel .carousel-control.left:hover,
               .news .main #carousel .carousel-control.right,

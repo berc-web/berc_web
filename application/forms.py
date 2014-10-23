@@ -38,6 +38,9 @@ class RegisterFormWithName(Form):
 		validators.Required('Password is required')])
 	retype_password = PasswordField('Retype Password', validators=[
 		validators.EqualTo('password', message='Password and Retype Password did not match')])
+	location = SelectField('location',
+		choices=[('US', 'United States'), ('CH', 'China')],
+		validators=[Required()])
 	submit = SubmitField('Register')
 
 	def validate(self):

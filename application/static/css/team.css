@@ -61,6 +61,13 @@
             margin-right: 8px; }
       .container-fluid .base .navigation li.nav-active {
         background: #50934d; }
+        .container-fluid .base .navigation li.dismiss form {
+          width: 100%;
+          height: 100%; }
+          .container-fluid .base .navigation li.dismiss form .btn {
+            width: 100%;
+            height: 100%;
+            border-radius: 0; }
     .container-fluid .base .main .team-profile {
       padding-bottom: 50px;
       min-height: 900px; }
@@ -111,13 +118,12 @@
         .container-fluid .base .main .team-profile .comments .comment:hover {
           background: #ebebeb; }
     .container-fluid .base .main .team-update {
+      padding-top: 30px;
       padding-bottom: 50px;
       width: 85%;
       margin: 0 auto; }
       .container-fluid .base .main .team-update .ckeditor_replace {
         display: none; }
-        .container-fluid .base .main .team-update .dismiss {
-          float: right; }
     .container-fluid .base .main .team-upload {
       padding-bottom: 50px;
       width: 85%;

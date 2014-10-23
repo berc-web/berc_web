@@ -11,7 +11,7 @@
         <a href="{{ url_for('userProfile', uname=user.username) }}">
           <div class="well">
             <div class="avatar"><img class="avatar-image" src="{{ user.avatar if user.avatar != None else url_for('static', filename='upload/user_avatar/default1.png') }}"></div>
-            <div class="name">{{user.lname}}{{user.fname}}</div>
+            <div class="name">{{user.lname}} {{user.fname}}</div>
           </div>
         </a>
       </div>

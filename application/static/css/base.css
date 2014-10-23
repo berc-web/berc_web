@@ -71,7 +71,7 @@
       .container-fluid .base .navigation li.nav-active {
         background: #50934d; }
         .container-fluid .base .navigation li.margin {
-          height: 50px; }
+          height: 100px; }
     .container-fluid .base .main {
       margin-bottom: 20px; }
       .container-fluid .base .main .profile .intro {
@@ -97,9 +97,10 @@
               float: right;
               line-height: 48px; }
               .container-fluid .base .main .profile .invitations .invitation form .accept {
-                background: #50934d; }
+                background: #50934d;
+                color: #ffffff; }
                 .container-fluid .base .main .profile .invitations .invitation form .reject {
-                  background: #07797d; }
+                  margin-left: 10px; }
           .container-fluid .base .main .profile .invitations .invitation:hover {
             background: #ebebeb; }
       .container-fluid .base .main .update {
@@ -145,9 +146,9 @@
         .container-fluid .base .main .personal-notifications .notifications .notification:hover {
           background: #ebebeb; }
       .container-fluid .base .main .register {
-        margin-top: 50px; }
+        margin-top: 100px; }
         .container-fluid .base .main .register form {
-          width: 85%;
+          width: 60%;
           margin: 0 auto; }
 
 .view .container {

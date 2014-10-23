@@ -81,9 +81,15 @@
 			.column1, .column2 {
 				border-right: 1px solid #bababa;
 			}
-			.subtitle1, .subtitle2, .subtitle3 {
+			.subtitle1, .subtitle2 {
 				text-align: center;
 				font-size: 20px;
+				font-weight: 700;
+				font-family: tenor-sans;
+				margin-bottom: 20px;
+			}
+			.subtitle3 {
+				text-align: center;
 				font-weight: 700;
 				font-family: tenor-sans;
 				margin-bottom: 20px;
@@ -98,6 +104,7 @@
 						font-size: 18px;
 						font-weight: 700;
 						text-align: center;
+						color: #218b91;
 					}
 					.event-info {
 						font-size: 18px;
@@ -237,7 +244,7 @@
 			// ihove CSS above
 			.competition-ihover-text {
 				color: #ffffff;
-				font-size: 120%;
+				font-size: 100%;
 			}
 			.competition-ihover-img {
 				width: 100%;
