@@ -152,15 +152,36 @@ def userProfile(uname):
 @app.route('/teams/<teamId>', methods=['GET'])
 @login_required
 def teamProfile(teamId):
-	if int(teamId) == int(current_user.team_id):
+	if teamId == current_user.team_id:
 		return redirect(url_for('team_page'))
 	form = CommentForm()
 	team = db.session.query(Team).filter(Team.id == teamId).first()
+	idea = db.session.query(Idea).filter(Idea.id == team.idea.id).first()
 	comments = db.session.query(Comment).filter(Comment.idea_id == team.idea.id).all()
+
 	if team is None:
 		flash('Team '+teamId+' not found.', 'error')
 		return redirect(url_for('home'))
 	else:
+		if form.validate_on_submit():
+			if idea:
+				comment = Comment()
+				comment.content = form.comment.data
+				idea.comment.append(comment)
+				current_user.comment.append(comment)
+				db.session.add(comment)
+
+				for member in comment.idea.team.members:
+					notif = PersonalNotification()
+					notif.content = current_user.username + " commented on your team's idea."
+					member.notification.append(notif)
+
+				db.session.commit()
+				return render_template('team_view.html', form=form, team=team, comments=comments)
+			else:
+				flash("Idea does not exist.", "error")
+				return render_template('team_view.html', form=form, team=team, comments=comments)
+
 		return render_template('team_view.html', form=form, team=team, comments=comments)
 
 
@@ -376,7 +397,7 @@ def team_notifications():
 	return render_template("team_notifications.html", notifications=notifications, team=team)
 
 
-@app.route('/dismiss_team', methods=['POST'])
+@app.route('/dismiss_team', methods=['POST', 'GET'])
 @login_required
 def dismiss_team():
 	team_id = current_user.team_id
