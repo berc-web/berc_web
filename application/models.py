@@ -100,6 +100,7 @@ class Comment(db.Model):
 	reply = db.relationship('Comment',
 				backref=db.backref('parent', remote_side=[id]))
 	time = db.Column(db.DateTime(), default=db.func.now())
+	hide = db.Column(db.Boolean(), nullable=False, default=False)
 
 	def __unicode__(self):
 		return self.content
