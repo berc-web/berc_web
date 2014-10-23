@@ -36,11 +36,12 @@
               <li {% if request.path=="/invitation" %}class="nav-active"{% endif %}><a href="{{ url_for('invitation') }}"><img class="icon-image" src="{{ url_for('static', filename='images/user/teaminvite.png') }}">Team Invitation</a></li>
             {% endif %}
             <li><a href="{{ url_for('all_users') }}"><img class="icon-image" src="{{ url_for('static', filename='images/user/all.png') }}">All Users</a></li>
+            <li><a href="{{ url_for('all_teams') }}"><img class="icon-image" src="{{ url_for('static', filename='images/user/all.png') }}">All Teams</a></li>
           {% else %}
             <li class="margin"></li>
-            <li><a href="{{ url_for('user.register') }}">Register</a></li>
-            <li><a href="{{ url_for('user.login') }}">Sign in</a></li>
-            <li><a href="{{ url_for('user.forgot_password') }}">Forgot password?</a></li>
+            <li {% if request.path=="/register" %}class="nav-active"{% endif %}><a href="{{ url_for('user.register') }}">Register</a></li>
+            <li {% if request.path=="/login" %}class="nav-active"{% endif %}><a href="{{ url_for('user.login') }}">Sign in</a></li>
+            <li {% if request.path=="/forgot-password" %}class="nav-active"{% endif %}><a href="{{ url_for('user.forgot_password') }}">Forgot password?</a></li>
           {% endif %}
         </ul>
       </div>

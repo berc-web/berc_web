@@ -26,7 +26,7 @@
     {% if team.idea.content == "" or team.idea.content == None %}
 	      <div class="col-xs-12">This team does not have an idea yet.</div>
 	    {% else %}
-	      <div class="col-xs-12">Team Idea: {{ team.idea.content }}</div>
+	      <div class="col-xs-12">Team Idea: {{ team.idea.content|safe }}</div>
 	    	<div class="col-xs-12 comment-hint"><a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Comment this Idea</a></div>
 	    {% endif %}
 	    <div id="collapseOne" class="col-xs-12 comment-form panel-collapse collapse">

@@ -36,7 +36,11 @@
 		        		<div class="data">Data: {{news.time}}</div>
 		        		<div class="author">Author: {{news.author}}</div>
 		        	</div>
-		        	<div class="content">{{news.content|safe}}</div>
+		        	{% if news.content|length > 300 %}
+		        		<div class="content">{{(news.content[:300]|safe)}}... <a href="{{ url_for('news', news_id=news.id) }}">[Read More]</a></div>
+		        	{% else %}
+		        		<div class="content">{{(news.content|safe)}}</div>
+		        	{% endif %}
 		        </div>
 		    	</div>
 			  {% endfor %}
@@ -51,6 +55,10 @@
     $('.news').resize( function() {
     	$('.single-news-main').css('width', ($('.new').width() - 220).toString()+'px');
     });
+    $('.active').width($('.active').children().children('.news-image').width());
   });
+	$('#carousel').on('slid.bs.carousel', function () {
+		$('.active').width($('.active').children().children('.news-image').width());
+	})
 </script>
 {% endblock %}

@@ -76,7 +76,7 @@
 				background: #50934d;
 			}
 			li.margin {
-				height: 50px;
+				height: 100px;
 			}
 		}
 		.main {
@@ -107,9 +107,10 @@
 							line-height: 48px;
 							.accept {
 								background: #50934d;
+								color: #ffffff;
 							}
 							.reject {
-								background: #07797d;
+								margin-left: 10px;
 							}
 						}
 					}
@@ -181,9 +182,9 @@
 				}
 			}
 			.register {
-				margin-top: 50px;
+				margin-top: 100px;
 				form {
-					width: 85%;
+					width: 60%;
 					margin: 0 auto;
 				}
 			}

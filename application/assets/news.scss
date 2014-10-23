@@ -31,17 +31,19 @@
 				height: 450px;
 				.item {
 					height: 450px;
-					padding: 0 15%;
+					width: 70%;
+					margin: 0 auto;
 					padding-bottom: 15px;
+					overflow: hidden;
 					img {
 						height: 100%;
 						margin: 0 auto;
 					}
 					.carousel-caption {
-						bottom: 0px;
+						bottom: 15px;
 						left: 0;
 						right: 0;
-						background: rgba(255, 255, 255, 0.6);
+						background: #000000;
 					}
 				}
 			}

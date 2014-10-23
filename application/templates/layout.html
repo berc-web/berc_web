@@ -69,7 +69,7 @@
 	    {% block body %}
 	    {% endblock %}
 		</div>
-		<div class="footer">
+		<div class="navbar-fixed-bottom footer">
 	      <div class="container">
 	        <span class="copy-right">&#169; EECC2015</span>
 	        <ul class="nav navbar-nav pull-right">
@@ -129,6 +129,7 @@
 				}
 				$(window).scroll(function(){
 					$('.header').css('left', '-' + $(window).scrollLeft() + 'px');
+					$('.stick').css('left', ($('.stick').parent().parent().parent().css('margin-left') + 15 - $(window).scrollLeft()) + 'px');
 				});
 			});
 			$(function() {
