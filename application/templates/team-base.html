@@ -34,12 +34,48 @@
   	<div class="row">
       <div class="col-xs-3 navigation">
         <ul class="nav nav-pills nav-stacked">
-          <li {% if request.path=="/team" %}class="nav-active"{% endif %}><a href="{{ url_for('team_page') }}"><img class="icon-image" src="{{ url_for('static', filename='images/user/profile.png') }}">My Team</a></li>
-          <li {% if request.path=="/update_team" %}class="nav-active"{% endif %}><a href="{{ url_for('update_team') }}"><img class="icon-image" src="{{ url_for('static', filename='images/user/update_profile.png') }}">Update Team Idea</a></li>
+          <li {% if request.path=="/team" %}class="nav-active"{% endif %}>
+            <a href="{{ url_for('team_page') }}">
+              {% if request.path=="/team" %}
+              <img class="icon-image" src="{{ url_for('static', filename='images/user/profile.png') }}">
+              {% else %}
+              <img class="icon-image" src="{{ url_for('static', filename='images/user/profile.png') }}">
+              {% endif %}
+              My Team
+            </a>
+          </li>
+          <li {% if request.path=="/update_team" %}class="nav-active"{% endif %}>
+            <a href="{{ url_for('update_team') }}">
+              {% if request.path=="/update_team" %}
+              <img class="icon-image" src="{{ url_for('static', filename='images/user/update_profile_white.png') }}">
+              {% else %}
+              <img class="icon-image" src="{{ url_for('static', filename='images/user/update_profile.png') }}">
+              {% endif %}
+              Update Team Idea
+            </a>
+          </li>
           {% if competition_start %}
-            <li {% if request.path=="/team_upload" %}class="nav-active"{% endif %}><a href="{{ url_for('team_upload') }}"><img class="icon-image" src="{{ url_for('static', filename='images/user/change password_username.png') }}">Upload Proposal</a></li>
+            <li {% if request.path=="/team_upload" %}class="nav-active"{% endif %}>
+              <a href="{{ url_for('team_upload') }}">
+                {% if request.path=="/team_upload" %}
+                <img class="icon-image" src="{{ url_for('static', filename='images/user/change password_username_white.png') }}">
+                {% else %}
+                <img class="icon-image" src="{{ url_for('static', filename='images/user/change password_username.png') }}">
+                {% endif %}
+                Upload Proposal
+              </a>
+            </li>
           {% endif %}
-          <li {% if request.path=="/team_notifications" %}class="nav-active"{% endif %}><a href="{{ url_for('team_notifications') }}"><img class="icon-image" src="{{ url_for('static', filename='images/user/notification.png') }}">Notifications {% if notifications %}<span class="badge">{{notifications|count}}</span>{% endif %}</a></li>
+          <li {% if request.path=="/team_notifications" %}class="nav-active"{% endif %}>
+            <a href="{{ url_for('team_notifications') }}">
+              {% if request.path=="/team_notifications" %}
+              <img class="icon-image" src="{{ url_for('static', filename='images/user/notification_white.png') }}">
+              {% else %}
+              <img class="icon-image" src="{{ url_for('static', filename='images/user/notification.png') }}">
+              {% endif %}
+              Notifications {% if notifications %}<span class="badge">{{notifications|count}}</span>{% endif %}
+            </a>
+          </li>
           <li><a href="{{ url_for('all_teams') }}"><img class="icon-image" src="{{ url_for('static', filename='images/user/all.png') }}">All Teams</a></li>
           <li class="dismiss">
             <form method="post" action="{{ url_for('dismiss_team') }}">

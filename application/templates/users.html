@@ -13,9 +13,9 @@
             <div class="well">
               <div class="avatar"><img src="{{ user.avatar if user.avatar != None else url_for('static', filename='upload/user_avatar/default1.png') }}"></div>
               <div class="name">{{user.lname}} {{user.fname}}</div>
-              <div class="major"><img class="icon-image" src="{{ url_for('static', filename='images/user/major.png') }}">{% if user.major == "None" %}Not Provided{% else %}{{user.major}}{% endif %}</div>
-              <div class="school"><img class="icon-image" src="{{ url_for('static', filename='images/user/institution.png') }}">{{ user.school }}</div>
-              <div class="location"><img class="icon-image" src="{{ url_for('static', filename='images/user/country.png') }}">{% if user.location == "US" %}United States{% else %}China{% endif %}</div>
+              <div class="major"><img class="icon-image" src="{{ url_for('static', filename='images/users/major.png') }}">{% if user.major == "None" %}Not Provided{% else %}{{user.major}}{% endif %}</div>
+              <div class="school"><img class="icon-image" src="{{ url_for('static', filename='images/users/institution.png') }}">{{ user.school }}</div>
+              <div class="location"><img class="icon-image" src="{{ url_for('static', filename='images/users/country.png') }}">{% if user.location == "US" %}United States{% else %}China{% endif %}</div>
               <div class="intros">
                 {% if user.intro == ""  or user.intro == None %}
                   <div class="intro">This user does not have a self introduction yet</div>
