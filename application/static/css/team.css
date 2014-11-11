@@ -147,6 +147,86 @@
             .container-fluid .base .main .team-profile .comments .comment a.reply-hint {
               float: right;
               color: #279911; }
+      .container-fluid .base .main .team-profile .case-problem {
+        background: #ffffff;
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 10px;
+        border: 1px solid #dde4e0;
+        padding-bottom: 10px; }
+        .container-fluid .base .main .team-profile .case-problem .title {
+          text-align: center;
+          background: #252525;
+          margin-bottom: 5px;
+          font-size: 18px;
+          height: 30px;
+          line-height: 30px;
+          color: #ffffff; }
+      .container-fluid .base .main .team-profile .date-hints {
+        background: #ffffff;
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 10px;
+        border: 1px solid #dde4e0;
+        padding-bottom: 10px; }
+        .container-fluid .base .main .team-profile .date-hints .title {
+          text-align: center;
+          background: #252525;
+          font-size: 18px;
+          height: 30px;
+          line-height: 30px;
+          color: #ffffff; }
+          .container-fluid .base .main .team-profile .date-hints .air {
+            padding: 0px; }
+            .container-fluid .base .main .team-profile .date-hints .air .sub-title {
+              background: #e87213;
+              text-align: center;
+              font-size: 16px;
+              color: #ffffff;
+              height: 24px;
+              line-height: 24px; }
+        .container-fluid .base .main .team-profile .date-hints .water {
+          padding: 0px; }
+          .container-fluid .base .main .team-profile .date-hints .water .sub-title {
+            background: #2a8789;
+            text-align: center;
+            font-size: 16px;
+            color: #ffffff;
+            height: 24px;
+            line-height: 24px; }
+        .container-fluid .base .main .team-profile .date-hints .dg {
+          padding: 0px; }
+          .container-fluid .base .main .team-profile .date-hints .dg .sub-title {
+            background: #acacac;
+            text-align: center;
+            font-size: 16px;
+            color: #ffffff;
+            height: 24px;
+            line-height: 24px; }
+        .container-fluid .base .main .team-profile .date-hints .best {
+          padding: 0px; }
+          .container-fluid .base .main .team-profile .date-hints .best .sub-title {
+            background: #50934d;
+            text-align: center;
+            font-size: 16px;
+            color: #ffffff;
+            height: 24px;
+            line-height: 24px; }
+      .container-fluid .base .main .team-profile .references {
+        background: #ffffff;
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-top: 10px;
+        border: 1px solid #dde4e0;
+        padding-bottom: 10px; }
+        .container-fluid .base .main .team-profile .references .title {
+          text-align: center;
+          background: #252525;
+          margin-bottom: 5px;
+          font-size: 18px;
+          height: 30px;
+          line-height: 30px;
+          color: #ffffff; }
     .container-fluid .base .main .team-update {
       padding-top: 30px;
       padding-bottom: 50px;

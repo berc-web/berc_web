@@ -179,6 +179,100 @@
 						}
 					}
 				}
+				.case-problem {
+					background: #ffffff;
+					margin-left: 20px;
+					margin-right: 20px;
+					margin-top: 10px;
+					border: 1px solid #dde4e0;
+					padding-bottom: 10px;
+					.title {
+						text-align: center;
+						background: #252525;
+						margin-bottom: 5px;
+						font-size: 18px;
+						height: 30px;
+						line-height: 30px;
+						color: #ffffff;
+					}
+				}
+				.date-hints {
+					background: #ffffff;
+					margin-left: 20px;
+					margin-right: 20px;
+					margin-top: 10px;
+					border: 1px solid #dde4e0;
+					padding-bottom: 10px;
+					.title {
+						text-align: center;
+						background: #252525;
+						font-size: 18px;
+						height: 30px;
+						line-height: 30px;
+						color: #ffffff;
+					}
+					.air {
+						padding: 0px;
+						.sub-title {
+							background: #e87213;
+							text-align: center;
+							font-size: 16px;
+							color: #ffffff;
+							height: 24px;
+							line-height: 24px;
+						}
+					}
+					.water {
+						padding: 0px;
+						.sub-title {
+							background: #2a8789;
+							text-align: center;
+							font-size: 16px;
+							color: #ffffff;
+							height: 24px;
+							line-height: 24px;
+						}	
+					}
+					.dg {
+						padding: 0px;
+						.sub-title {
+							background: #acacac;
+							text-align: center;
+							font-size: 16px;
+							color: #ffffff;
+							height: 24px;
+							line-height: 24px;
+						}
+					}
+					.best {
+						padding: 0px;
+						.sub-title {
+							background: #50934d;
+							text-align: center;
+							font-size: 16px;
+							color: #ffffff;
+							height: 24px;
+							line-height: 24px;
+						}
+					}
+				}
+				.references {
+					background: #ffffff;
+					margin-left: 20px;
+					margin-right: 20px;
+					margin-top: 10px;
+					border: 1px solid #dde4e0;
+					padding-bottom: 10px;
+					.title {
+						text-align: center;
+						background: #252525;
+						margin-bottom: 5px;
+						font-size: 18px;
+						height: 30px;
+						line-height: 30px;
+						color: #ffffff;
+					}
+				}
 			}
 			.team-update {
 				padding-top: 30px;

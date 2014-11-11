@@ -28,7 +28,7 @@
             <li {% if request.path=="/profile" %}class="nav-active"{% endif %}>
               <a href="{{ url_for('user') }}">
                 {% if request.path=="/profile" %}
-                <img class="icon-image" src="{{ url_for('static', filename='images/user/profile.png') }}">
+                <img class="icon-image" src="{{ url_for('static', filename='images/user/profile_white.png') }}">
                 {% else %}
                 <img class="icon-image" src="{{ url_for('static', filename='images/user/profile.png') }}">
                 {% endif %}
