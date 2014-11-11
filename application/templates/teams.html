@@ -3,37 +3,48 @@
 <script type="text/javascript" src="{{ url_for('static', filename='javascript/masonry.pkgd.min.js') }}"></script>
 {% endblock %}
 {% block body %}
-<div class="container teams">
-  <div id="container" class="js-masonry"
-  data-masonry-options='{ "columnWidth": 0, "itemSelector": ".item" }'>
-    {% for team in teams %}
-      <div class="item col-xs-3">
-        <a href="{{ url_for('teamProfile', teamId=team.id) }}">
-          <div class="well">
-            <div class="avatar">
-              {% if team.caseNumber == 0 %}
-                <img class="cover-image" src="{{ url_for('static', filename='images/team/0.jpg') }}">
-              {% endif %}
-              {% if team.caseNumber == 1 %}
-                <img class="cover-image" src="{{ url_for('static', filename='images/team/1.jpg') }}">
-              {% endif %}
-              {% if team.caseNumber == 2 %}
-                <img class="cover-image" src="{{ url_for('static', filename='images/team/2.jpg') }}">
-              {% endif %}
-              {% if team.caseNumber == 3 %}
-                <img class="cover-image" src="{{ url_for('static', filename='images/team/3.jpg') }}">
-              {% endif %}
-              {% if team.caseNumber == 4 %}
-                <img class="cover-image" src="{{ url_for('static', filename='images/team/4.jpg') }}">
+<div class="container-fluid teams">
+  <div class="container">
+    <div id="container" class="js-masonry"
+    data-masonry-options='{ "columnWidth": 0, "itemSelector": ".item" }'>
+      {% for team in teams %}
+        <div class="item col-xs-3">
+          <a href="{{ url_for('teamProfile', teamId=team.id) }}">
+            <div class="well">
+              <div class="avatar">
+                {% if team.caseNumber == 0 %}
+                  <img class="cover-image" src="{{ url_for('static', filename='images/team/0.jpg') }}">
+                {% endif %}
+                {% if team.caseNumber == 1 %}
+                  <img class="cover-image" src="{{ url_for('static', filename='images/team/1.jpg') }}">
+                {% endif %}
+                {% if team.caseNumber == 2 %}
+                  <img class="cover-image" src="{{ url_for('static', filename='images/team/2.jpg') }}">
+                {% endif %}
+                {% if team.caseNumber == 3 %}
+                  <img class="cover-image" src="{{ url_for('static', filename='images/team/3.jpg') }}">
+                {% endif %}
+                {% if team.caseNumber == 4 %}
+                  <img class="cover-image" src="{{ url_for('static', filename='images/team/4.jpg') }}">
+                {% endif %}
+              </div>
+              {% for member in team.members %}
+                <a href="{{ url_for('userProfile', uname=member.username) }}">
+                  <div class="member">
+                    <div class="member-avatar"><img class="avatar-image" src="{{ member.avatar if member.avatar != None else url_for('static', filename='upload/user_avatar/default1.png') }}"></div>
+                    <div class="name">{{member.lname}} {{member.fname}}</div></a>
+                  </div>
+              {% endfor %}
+              {% if team.idea.content == "" or team.idea.content == None %}
+                <div class="team-idea">This team does not have an idea yet.</div>
+              {% else %}
+                <div class="team-idea">{{ team.idea.content|safe }}</div>
               {% endif %}
             </div>
-            {% for member in team.members %}
-              <div class="name">{{member.lname}} {{member.fname}}</div>
-            {% endfor %}
-          </div>
-        </a>
-      </div>
-    {% endfor %}
+          </a>
+        </div>
+      {% endfor %}
+    </div>
   </div>
 </div>
 <script>

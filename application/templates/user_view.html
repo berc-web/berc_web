@@ -30,7 +30,7 @@
 			{% if user.intro == ""  or user.intro == None %}
 				<div class="col-xs-12 intro">This user does not have a self introduction yet</div>
 			{% else %}
-				<div class="col-xs-12 intro">Self Intro: {{ user.intro|safe }}</div>
+				<div class="col-xs-12 intro">{{ user.intro|safe }}</div>
 			{% endif %}
 		</div>
 	</div>

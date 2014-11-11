@@ -63,8 +63,10 @@
             margin-right: 8px; }
       .container-fluid .base .navigation li.nav-active {
         background: #50934d; }
-        .container-fluid .base .navigation li.margin {
-          height: 100px; }
+        .container-fluid .base .navigation li.nav-active a {
+          color: #ffffff; }
+      .container-fluid .base .navigation li.margin {
+        height: 100px; }
     .container-fluid .base .main {
       margin-bottom: 20px; }
       .container-fluid .base .main .profile .intros {
