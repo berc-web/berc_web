@@ -123,7 +123,7 @@ class UpdateTeamInfoForm(Form):
 	idea = TextAreaField("Comptetion Idea", validators=[Required()])
 	caseNumber = SelectField('Case Choice',
 		choices=[("1", 'Air Quality'), ("2", 'Policies and Strategies'),
-					("3", 'Clean Transportation'), ("4", 'Smart Grid and Distributed Generation')],
+					("3", 'Water Recycling'), ("4", 'Smart Grid and Distributed Generation')],
 		validators=[Required()])
 	submit = SubmitField("Update Team Information")
 
