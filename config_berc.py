@@ -59,6 +59,6 @@ class Config(object):
 	AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 	AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 
-	COMPETITION_START = False
+	COMPETITION_START = True
 	COMPETITION_CLOSED = False
 	LANGUAGE = "en"

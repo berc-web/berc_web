@@ -58,9 +58,9 @@
             <li {% if request.path=="/team_upload" %}class="nav-active"{% endif %}>
               <a href="{{ url_for('team_upload') }}">
                 {% if request.path=="/team_upload" %}
-                <img class="icon-image" src="{{ url_for('static', filename='images/user/change password_username_white.png') }}">
+                <img class="icon-image" src="{{ url_for('static', filename='images/team/upload_white.png') }}">
                 {% else %}
-                <img class="icon-image" src="{{ url_for('static', filename='images/user/change password_username.png') }}">
+                <img class="icon-image" src="{{ url_for('static', filename='images/team/upload.png') }}">
                 {% endif %}
                 Upload Proposal
               </a>
